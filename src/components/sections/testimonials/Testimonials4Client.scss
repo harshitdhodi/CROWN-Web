@@ -1,0 +1,198 @@
+.t4-contact-form {
+	.form-input {
+		margin-bottom: 20px;
+
+		.cf-label {
+			position: static;
+			display: block;
+			margin-bottom: 8px;
+			color: var(--tj-color-heading-primary);
+			font-size: 14px;
+			font-weight: 500;
+			pointer-events: auto;
+		}
+
+		textarea,
+		input[type="tel"],
+		input[type="text"],
+		input[type="email"] {
+			width: 100%;
+			padding: 12px 16px;
+			border: 1px solid var(--tj-color-border-1);
+			border-radius: 8px;
+			background: var(--tj-color-common-white);
+			color: var(--tj-color-text-body);
+			font-size: 14px;
+			line-height: 1.5;
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+			&:focus {
+				outline: none;
+				border-color: var(--tj-color-theme-primary);
+				box-shadow: 0 0 0 3px color-mix(in srgb, var(--tj-color-theme-primary) 15%, transparent);
+			}
+
+			&::placeholder {
+				color: var(--tj-color-text-body-3);
+			}
+		}
+
+		textarea {
+			min-height: 120px;
+			resize: vertical;
+		}
+
+		.tj-nice-select-box,
+		.tj-select {
+			width: 100%;
+		}
+
+		.nice-select {
+			position: relative;
+			float: none;
+			width: 100%;
+			height: auto;
+			min-height: 48px;
+			line-height: 1.5;
+			padding: 12px 44px 12px 16px;
+			margin-bottom: 0;
+			border: 1px solid var(--tj-color-border-1);
+			border-radius: 8px;
+			background: var(--tj-color-common-white);
+			color: var(--tj-color-text-body);
+			font-size: 14px;
+			transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+			.current {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				color: var(--tj-color-text-body);
+			}
+
+			&:hover {
+				border-color: color-mix(in srgb, var(--tj-color-theme-primary) 50%, var(--tj-color-border-1));
+			}
+
+			&.open,
+			&:focus {
+				border-color: var(--tj-color-theme-primary);
+				box-shadow: 0 0 0 3px color-mix(in srgb, var(--tj-color-theme-primary) 15%, transparent);
+			}
+
+			&::after {
+				content: "" !important;
+				position: absolute !important;
+				display: block !important;
+				inset-inline-start: auto !important;
+				inset-inline-end: 18px !important;
+				left: auto !important;
+				right: 18px !important;
+				top: 50% !important;
+				bottom: auto !important;
+				width: 8px !important;
+				height: 8px !important;
+				margin-top: -5px !important;
+				border: 0 !important;
+				border-right: 2px solid var(--tj-color-theme-primary) !important;
+				border-bottom: 2px solid var(--tj-color-theme-primary) !important;
+				background: none !important;
+				font-family: inherit !important;
+				font-size: 0 !important;
+				line-height: 1 !important;
+				filter: none !important;
+				box-shadow: none !important;
+				pointer-events: none;
+				transform: rotate(45deg);
+				transform-origin: center;
+				transition: transform 0.2s ease;
+			}
+
+			&.open::after {
+				transform: rotate(-135deg);
+				margin-top: -2px !important;
+			}
+
+			&.disabled {
+				opacity: 0.65;
+				cursor: not-allowed;
+				background: var(--tj-color-grey-1);
+			}
+
+			.nice-select-dropdown {
+				position: absolute;
+				top: calc(100% + 6px);
+				left: 0;
+				right: 0;
+				z-index: 20;
+			}
+
+			.list {
+				width: 100%;
+				margin: 0;
+				padding: 6px 0;
+				border: 1px solid var(--tj-color-border-1);
+				border-radius: 8px;
+				background: var(--tj-color-common-white);
+				box-shadow: 0 12px 32px rgba(15, 30, 33, 0.12);
+				max-height: 240px;
+				overflow-y: auto;
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(6px);
+				transition: opacity 0.2s ease, transform 0.2s ease;
+			}
+
+			&.open .list {
+				opacity: 1;
+				pointer-events: auto;
+				transform: translateY(0);
+			}
+
+			.option {
+				min-height: auto;
+				line-height: 1.4;
+				padding: 10px 16px;
+				color: var(--tj-color-text-body);
+				font-size: 14px;
+				white-space: normal;
+
+				&:hover,
+				&.focus {
+					background: var(--tj-color-theme-bg);
+					color: var(--tj-color-theme-dark);
+				}
+
+				&.selected {
+					background: color-mix(in srgb, var(--tj-color-theme-primary) 12%, white);
+					color: var(--tj-color-theme-primary);
+					font-weight: 600;
+				}
+
+				&.disabled {
+					color: var(--tj-color-text-body-3);
+					cursor: default;
+				}
+			}
+
+			.list::-webkit-scrollbar {
+				width: 5px;
+			}
+
+			.list::-webkit-scrollbar-thumb {
+				background: var(--tj-color-theme-primary);
+				border-radius: 4px;
+			}
+		}
+	}
+
+	.form-alert {
+		background: #f8d7da;
+		color: #721c24;
+		padding: 12px 16px;
+		border-radius: 8px;
+		margin-bottom: 16px;
+		font-size: 14px;
+	}
+}

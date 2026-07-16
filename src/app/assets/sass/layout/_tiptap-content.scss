@@ -1,0 +1,176 @@
+// =============================================================================
+// Tiptap / Rich-text content typography
+// Applied via .tiptap-content wrapper class
+// =============================================================================
+
+.tiptap-content {
+  color: var(--tj-color-text-body);
+  font-size: 1rem;
+  line-height: 1.75;
+
+  // ── Headings ──────────────────────────────────────────────────────────────
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--tj-color-heading-primary);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+
+    &:first-child { margin-top: 0; }
+  }
+
+  h1 { font-size: clamp(1.6rem, 3vw, 2.25rem); }
+  h2 { font-size: clamp(1.35rem, 2.5vw, 1.75rem); }
+  h3 { font-size: clamp(1.15rem, 2vw, 1.375rem); }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.9rem; }
+
+  // ── Paragraphs ────────────────────────────────────────────────────────────
+  p {
+    margin-bottom: 1.1em;
+    color: var(--tj-color-text-body);
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  // ── Links ─────────────────────────────────────────────────────────────────
+  a {
+    color: var(--tj-color-theme-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, opacity 0.2s ease;
+
+    &:hover { opacity: 0.8; }
+  }
+
+  // ── Bold / Italic / Mark ──────────────────────────────────────────────────
+  strong, b { font-weight: 700; color: var(--tj-color-heading-primary); }
+  em, i     { font-style: italic; }
+  mark      { background-color: var(--tj-color-theme-bg); padding: 0 0.2em; border-radius: 2px; }
+  s         { text-decoration: line-through; color: var(--tj-color-text-body-2); }
+
+  // ── Lists ─────────────────────────────────────────────────────────────────
+  ul, ol {
+    margin: 0.75em 0 1.1em 1.5em;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.35em;
+      padding-left: 0.25em;
+      color: var(--tj-color-text-body);
+    }
+  }
+
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  // nested lists
+  ul ul, ol ul  { list-style-type: circle; margin-top: 0.35em; margin-bottom: 0; }
+  ul ol, ol ol  { list-style-type: lower-alpha; margin-top: 0.35em; margin-bottom: 0; }
+
+  // ── Blockquote ────────────────────────────────────────────────────────────
+  blockquote {
+    border-left: 4px solid var(--tj-color-theme-primary);
+    background-color: var(--tj-color-theme-bg);
+    margin: 1.5em 0;
+    padding: 1em 1.25em;
+    border-radius: 0 6px 6px 0;
+    color: var(--tj-color-text-body-3);
+    font-style: italic;
+
+    p { margin-bottom: 0; }
+  }
+
+  // ── Code ──────────────────────────────────────────────────────────────────
+  code {
+    background-color: var(--tj-color-grey-1);
+    color: var(--tj-color-theme-dark-3);
+    font-size: 0.875em;
+    padding: 0.15em 0.45em;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  pre {
+    background-color: var(--tj-color-theme-dark);
+    color: var(--tj-color-common-white);
+    padding: 1.25em 1.5em;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+
+    code {
+      background: none;
+      color: inherit;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+  }
+
+  // ── Horizontal Rule ───────────────────────────────────────────────────────
+  hr {
+    border: none;
+    border-top: 1px solid var(--tj-color-border-1);
+    margin: 2em 0;
+  }
+
+  // ── Tables ────────────────────────────────────────────────────────────────
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.9rem;
+
+    th, td {
+      border: 1px solid var(--tj-color-border-1);
+      padding: 0.6em 0.9em;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--tj-color-theme-bg);
+      color: var(--tj-color-heading-primary);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) td {
+      background-color: var(--tj-color-grey-1);
+    }
+  }
+
+  // ── Images ────────────────────────────────────────────────────────────────
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 0.5em 0;
+
+    // side-by-side images (tiptap inline style ~50%)
+    &[style*="width: 50%"],
+    &[style*="width:50%"] {
+      width: calc(50% - 0.5em) !important;
+      margin: 0.5em 0.25em;
+    }
+  }
+
+  // ── Text alignment (tiptap alignment extension) ───────────────────────────
+  [style*="text-align: center"], .text-center { text-align: center; }
+  [style*="text-align: right"],  .text-right  { text-align: right; }
+  [style*="text-align: justify"]              { text-align: justify; }
+
+  // ── Subscript / Superscript ───────────────────────────────────────────────
+  sub { vertical-align: sub; font-size: 0.75em; }
+  sup { vertical-align: super; font-size: 0.75em; }
+
+  // ── First paragraph lead ──────────────────────────────────────────────────
+  > p:first-of-type {
+    font-size: 1.05rem;
+    color: var(--tj-color-text-body-4);
+  }
+}

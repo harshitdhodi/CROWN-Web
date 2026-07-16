@@ -1,0 +1,203 @@
+@use "../utilities" as *;
+
+/**----------------------------------------
+START: Home 5 About CSS
+----------------------------------------*/
+.h5-about {
+	background-color: var(--tj-color-theme-dark);
+	border-radius: 12px;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	.bg-shape-3 {
+		top: 0;
+		transform: translate(19%, -20%) scaleY(-1);
+		bottom: auto;
+	}
+	&-content {
+		margin-bottom: 60px;
+		.title-highlight .line {
+			background-image: linear-gradient(
+				90deg,
+				var(--tj-color-text-body-5) var(--highlight-offset),
+				var(--tj-color-common-black) var(--highlight-offset)
+			);
+		}
+		&.style-3 {
+			.sec {
+				&-heading {
+					.h5-sec-title-wrapper {
+						flex-grow: 1;
+					}
+					.subtitle-text {
+						display: flex;
+						flex-direction: column;
+						justify-content: space-between;
+					}
+					.sec {
+						&-title {
+							color: var(--tj-color-common-white);
+							width: 100%;
+							margin-bottom: 24px;
+							.line {
+								position: relative;
+								-webkit-background-clip: text;
+								background-clip: text;
+								color: transparent;
+								--highlight-offset: 0%;
+								background-image: linear-gradient(
+									90deg,
+									var(--tj-color-common-white) var(--highlight-offset),
+									var(--tj-color-text-body-3) var(--highlight-offset)
+								);
+							}
+						}
+					}
+				}
+			}
+		}
+		&-right {
+			display: flex;
+			gap: 20px;
+			width: 67.2%;
+			@media #{$md,$sm, $xs} {
+				width: 100%;
+				gap: 15px;
+			}
+			@media #{$xs} {
+				flex-direction: column;
+			}
+		}
+	}
+
+	&-counter {
+		font-size: 96px;
+		line-height: 1.04;
+		font-weight: var(--tj-fw-medium);
+		letter-spacing: -0.03em;
+		color: var(--tj-color-theme-primary);
+		display: inline-flex;
+		align-items: center;
+		margin-bottom: -24px;
+		&-symbol {
+			line-height: 1;
+			margin-bottom: 5px;
+			display: inline-block;
+		}
+		@media #{$xl} {
+			font-size: 90px;
+		}
+		@media #{$lg} {
+			font-size: 86px;
+		}
+		@media #{$md,$sm} {
+			font-size: 80px;
+			margin-bottom: 0;
+		}
+		@media #{$xs} {
+			font-size: 76px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+.h5-client-item {
+	padding-inline-end: 15px;
+	&.brand-flip-card {
+		perspective: 1000px;
+		&:hover {
+			.brand-inner {
+				transform: rotateY(180deg);
+			}
+		}
+	}
+	.brand-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+		transform-style: preserve-3d;
+	}
+	.brand-front,
+	.brand-back {
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+	.brand-back {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: rotateY(180deg);
+		.client-logo {
+			border-radius: 100%;
+			backdrop-filter: blur(0);
+			background: color-mix(in srgb, var(--tj-color-theme-bg) 70%, transparent);
+			&::before, &::after {
+				opacity: 1;
+			}
+			&::before {
+				background-image: var(--hover-bg, url("/images/brands/h5-brand-bg.webp"));
+			}
+		}
+	}
+	.client-logo {
+		width: 254px;
+		height: 254px;
+		background-color: inherit;
+		position: relative;
+		overflow: hidden;
+		z-index: 0;
+		transition: all 0.5s ease-in-out;
+		background-color: var(--tj-color-theme-dark-2);
+		backdrop-filter: blur(10px);
+		box-shadow: none;
+		@media #{$md,$sm} {
+			width: 200px;
+			height: 200px;
+		}
+		@media #{$xs} {
+			width: 150px;
+			height: 150px;
+		}
+		&:before,
+		&::after {
+			content: "";
+			position: absolute;
+			inset-inline-start: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			transition: all 0.5s ease-in-out;
+			opacity: 0;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: url("/images/brands/h5-brand-bg.webp") no-repeat center;
+
+			background-size: cover;
+			mix-blend-mode: luminosity;
+			z-index: -2;
+			pointer-events: none;
+		}
+		&::after {
+			background: color-mix(in srgb, var(--tj-color-theme-bg) 60%, transparent);
+		}
+
+		&:hover {
+			border-radius: 100%;
+			backdrop-filter: blur(0);
+			background: color-mix(in srgb, var(--tj-color-theme-bg) 70%, transparent);
+			box-shadow: none;
+			&::before,
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+}
+/* !END: Home 5 About CSS  */

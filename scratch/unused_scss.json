@@ -1,0 +1,262 @@
+[
+  {
+    "file": "_h10-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h10-blog.scss",
+    "importPath": "./assets/sass/layout/h10-blog"
+  },
+  {
+    "file": "_h10-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h10-hero.scss",
+    "importPath": "./assets/sass/layout/h10-hero"
+  },
+  {
+    "file": "_h10-pricing.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h10-pricing.scss",
+    "importPath": "./assets/sass/layout/h10-pricing"
+  },
+  {
+    "file": "_h10-process.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h10-process.scss",
+    "importPath": "./assets/sass/layout/h10-process"
+  },
+  {
+    "file": "_h10-testimonial.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h10-testimonial.scss",
+    "importPath": "./assets/sass/layout/h10-testimonial"
+  },
+  {
+    "file": "_h4-about.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-about.scss",
+    "importPath": "./assets/sass/layout/h4-about"
+  },
+  {
+    "file": "_h4-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-blog.scss",
+    "importPath": "./assets/sass/layout/h4-blog"
+  },
+  {
+    "file": "_h4-choose.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-choose.scss",
+    "importPath": "./assets/sass/layout/h4-choose"
+  },
+  {
+    "file": "_h4-countup.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-countup.scss",
+    "importPath": "./assets/sass/layout/h4-countup"
+  },
+  {
+    "file": "_h4-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-hero.scss",
+    "importPath": "./assets/sass/layout/h4-hero"
+  },
+  {
+    "file": "_h4-pricing.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-pricing.scss",
+    "importPath": "./assets/sass/layout/h4-pricing"
+  },
+  {
+    "file": "_h4-services.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-services.scss",
+    "importPath": "./assets/sass/layout/h4-services"
+  },
+  {
+    "file": "_h4-testimonial.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h4-testimonial.scss",
+    "importPath": "./assets/sass/layout/h4-testimonial"
+  },
+  {
+    "file": "_h5-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-blog.scss",
+    "importPath": "./assets/sass/layout/h5-blog"
+  },
+  {
+    "file": "_h5-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-hero.scss",
+    "importPath": "./assets/sass/layout/h5-hero"
+  },
+  {
+    "file": "_h5-marquee.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-marquee.scss",
+    "importPath": "./assets/sass/layout/h5-marquee"
+  },
+  {
+    "file": "_h5-pricing.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-pricing.scss",
+    "importPath": "./assets/sass/layout/h5-pricing"
+  },
+  {
+    "file": "_h5-services.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-services.scss",
+    "importPath": "./assets/sass/layout/h5-services"
+  },
+  {
+    "file": "_h5-strategy.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-strategy.scss",
+    "importPath": "./assets/sass/layout/h5-strategy"
+  },
+  {
+    "file": "_h5-testimonial.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h5-testimonial.scss",
+    "importPath": "./assets/sass/layout/h5-testimonial"
+  },
+  {
+    "file": "_h6-about.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-about.scss",
+    "importPath": "./assets/sass/layout/h6-about"
+  },
+  {
+    "file": "_h6-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-blog.scss",
+    "importPath": "./assets/sass/layout/h6-blog"
+  },
+  {
+    "file": "_h6-choose.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-choose.scss",
+    "importPath": "./assets/sass/layout/h6-choose"
+  },
+  {
+    "file": "_h6-client.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-client.scss",
+    "importPath": "./assets/sass/layout/h6-client"
+  },
+  {
+    "file": "_h6-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-hero.scss",
+    "importPath": "./assets/sass/layout/h6-hero"
+  },
+  {
+    "file": "_h6-working-process.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h6-working-process.scss",
+    "importPath": "./assets/sass/layout/h6-working-process"
+  },
+  {
+    "file": "_h7-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-blog.scss",
+    "importPath": "./assets/sass/layout/h7-blog"
+  },
+  {
+    "file": "_h7-choose.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-choose.scss",
+    "importPath": "./assets/sass/layout/h7-choose"
+  },
+  {
+    "file": "_h7-cta.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-cta.scss",
+    "importPath": "./assets/sass/layout/h7-cta"
+  },
+  {
+    "file": "_h7-faq.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-faq.scss",
+    "importPath": "./assets/sass/layout/h7-faq"
+  },
+  {
+    "file": "_h7-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-hero.scss",
+    "importPath": "./assets/sass/layout/h7-hero"
+  },
+  {
+    "file": "_h7-service.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h7-service.scss",
+    "importPath": "./assets/sass/layout/h7-service"
+  },
+  {
+    "file": "_h8-about.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-about.scss",
+    "importPath": "./assets/sass/layout/h8-about"
+  },
+  {
+    "file": "_h8-choose.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-choose.scss",
+    "importPath": "./assets/sass/layout/h8-choose"
+  },
+  {
+    "file": "_h8-countup.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-countup.scss",
+    "importPath": "./assets/sass/layout/h8-countup"
+  },
+  {
+    "file": "_h8-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-hero.scss",
+    "importPath": "./assets/sass/layout/h8-hero"
+  },
+  {
+    "file": "_h8-marquee.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-marquee.scss",
+    "importPath": "./assets/sass/layout/h8-marquee"
+  },
+  {
+    "file": "_h8-project.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-project.scss",
+    "importPath": "./assets/sass/layout/h8-project"
+  },
+  {
+    "file": "_h8-team.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-team.scss",
+    "importPath": "./assets/sass/layout/h8-team"
+  },
+  {
+    "file": "_h8-testimonial.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h8-testimonial.scss",
+    "importPath": "./assets/sass/layout/h8-testimonial"
+  },
+  {
+    "file": "_h9-blog.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-blog.scss",
+    "importPath": "./assets/sass/layout/h9-blog"
+  },
+  {
+    "file": "_h9-choose.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-choose.scss",
+    "importPath": "./assets/sass/layout/h9-choose"
+  },
+  {
+    "file": "_h9-cta.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-cta.scss",
+    "importPath": "./assets/sass/layout/h9-cta"
+  },
+  {
+    "file": "_h9-hero.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-hero.scss",
+    "importPath": "./assets/sass/layout/h9-hero"
+  },
+  {
+    "file": "_h9-project.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-project.scss",
+    "importPath": "./assets/sass/layout/h9-project"
+  },
+  {
+    "file": "_h9-team.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-team.scss",
+    "importPath": "./assets/sass/layout/h9-team"
+  },
+  {
+    "file": "_h9-testimonial.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\layout\\_h9-testimonial.scss",
+    "importPath": "./assets/sass/layout/h9-testimonial"
+  },
+  {
+    "file": "_h10-footer.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\components\\_h10-footer.scss",
+    "importPath": "./assets/sass/components/h10-footer"
+  },
+  {
+    "file": "_h4-footer.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\components\\_h4-footer.scss",
+    "importPath": "./assets/sass/components/h4-footer"
+  },
+  {
+    "file": "_h5-header.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\components\\_h5-header.scss",
+    "importPath": "./assets/sass/components/h5-header"
+  },
+  {
+    "file": "_h7-footer.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\components\\_h7-footer.scss",
+    "importPath": "./assets/sass/components/h7-footer"
+  },
+  {
+    "file": "_h9-footer.scss",
+    "path": "d:\\Master_Backend\\manufacturing\\bexon\\src\\app\\assets\\sass\\components\\_h9-footer.scss",
+    "importPath": "./assets/sass/components/h9-footer"
+  }
+]

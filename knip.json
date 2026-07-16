@@ -1,0 +1,23 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/app/**/page.{js,jsx}",
+    "src/app/**/layout.{js,jsx}",
+    "src/app/**/loading.{js,jsx}",
+    "src/app/**/error.{js,jsx}",
+    "src/app/**/not-found.{js,jsx}",
+    "src/middleware.js",
+    "next.config.js"
+  ],
+  "project": ["src/**/*.{js,jsx,ts,tsx,scss,css}"],
+  "paths": {
+    "@/*": ["./src/*"]
+  },
+  "ignore": [
+    "node_modules/**",
+    ".next/**"
+  ],
+  "ignoreDependencies": [
+    "sharp"
+  ]
+}

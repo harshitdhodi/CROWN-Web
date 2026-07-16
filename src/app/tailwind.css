@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/*
+  Tailwind utility layer — loaded alongside Bootstrap.
+  Bootstrap handles layout/components; Tailwind handles
+  utility overrides and custom one-off styles.
+
+  Use `tw-` prefix classes are NOT needed here since we
+  scope conflicts by import order (Bootstrap first, Tailwind last).
+  If a Bootstrap class and Tailwind class conflict, Tailwind wins
+  because it's imported after Bootstrap in layout.js.
+*/

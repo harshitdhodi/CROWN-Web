@@ -1,0 +1,8 @@
+# Target only modern browsers — prevents SWC/Babel from injecting
+# polyfills for Array.at, Array.flat, Object.fromEntries, Object.hasOwn,
+# String.trimStart/trimEnd, etc. which are Baseline features since 2020.
+# This eliminates ~13 KB of unnecessary polyfill JS (ba89e087...js chunk).
+Chrome >= 109
+Firefox >= 109
+Safari >= 16
+Edge >= 109

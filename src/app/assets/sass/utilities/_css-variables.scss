@@ -1,0 +1,106 @@
+// CSS Variables for Dynamic Color Management
+// These variables are used by the ColorManager component
+
+:root {
+  // Common colors
+  --tj-color-common-white: #ffffff;
+  --tj-color-common-black: #000000;
+
+  // Heading colors
+  --tj-color-heading-primary: #0c1e21;
+
+  // Text colors
+  --tj-color-text-body: #364e52;
+  --tj-color-text-body-2: #a9b8b8;
+  --tj-color-text-body-3: #67787a;
+  --tj-color-text-body-4: #18292c;
+  --tj-color-text-body-5: #ffffffcc;
+
+  // Theme colors
+  --tj-color-theme-primary: #187272;
+  --tj-color-theme-bg: #d8e5e5;
+  --tj-color-theme-bg-2: #cee0e0;
+  --tj-color-theme-bg-3: #202e30;
+  --tj-color-theme-dark: #0c1e21;
+  --tj-color-theme-dark-2: #18292c;
+  --tj-color-theme-dark-3: #364e52;
+  --tj-color-theme-dark-4: #67787a;
+  --tj-color-theme-dark-5: #676e7a;
+
+  // Grey colors
+  --tj-color-grey-1: #ecf0f0;
+  --tj-color-grey-2: #a9b8b8;
+  --tj-color-grey-3: #ffffff1a;
+
+  // Border colors
+  --tj-color-border-1: #c9d1d1;
+  --tj-color-border-2: #313d3d;
+  --tj-color-border-3: #ffffff26;
+  --tj-color-border-4: #ffffff33;
+  --tj-color-border-5: #18727226;
+
+  // Gradients
+  --tj-gradient-primary: linear-gradient(90deg, #187272 0%, #0c1e21 100%);
+}
+
+// Color utility classes for quick styling
+.color-common-white { color: var(--tj-color-common-white); }
+.color-common-black { color: var(--tj-color-common-black); }
+.color-heading-primary { color: var(--tj-color-heading-primary); }
+.color-text-body { color: var(--tj-color-text-body); }
+.color-text-body-2 { color: var(--tj-color-text-body-2); }
+.color-text-body-3 { color: var(--tj-color-text-body-3); }
+.color-text-body-4 { color: var(--tj-color-text-body-4); }
+.color-text-body-5 { color: var(--tj-color-text-body-5); }
+.color-theme-primary { color: var(--tj-color-theme-primary); }
+.color-theme-bg { color: var(--tj-color-theme-bg); }
+.color-theme-bg-2 { color: var(--tj-color-theme-bg-2); }
+.color-theme-bg-3 { color: var(--tj-color-theme-bg-3); }
+.color-theme-dark { color: var(--tj-color-theme-dark); }
+.color-theme-dark-2 { color: var(--tj-color-theme-dark-2); }
+.color-theme-dark-3 { color: var(--tj-color-theme-dark-3); }
+.color-theme-dark-4 { color: var(--tj-color-theme-dark-4); }
+.color-theme-dark-5 { color: var(--tj-color-theme-dark-5); }
+.color-grey-1 { color: var(--tj-color-grey-1); }
+.color-grey-2 { color: var(--tj-color-grey-2); }
+.color-grey-3 { color: var(--tj-color-grey-3); }
+.color-border-1 { color: var(--tj-color-border-1); }
+.color-border-2 { color: var(--tj-color-border-2); }
+.color-border-3 { color: var(--tj-color-border-3); }
+.color-border-4 { color: var(--tj-color-border-4); }
+.color-border-5 { color: var(--tj-color-border-5); }
+
+.bg-color-common-white { background-color: var(--tj-color-common-white); }
+.bg-color-common-black { background-color: var(--tj-color-common-black); }
+.bg-color-heading-primary { background-color: var(--tj-color-heading-primary); }
+.bg-color-text-body { background-color: var(--tj-color-text-body); }
+.bg-color-text-body-2 { background-color: var(--tj-color-text-body-2); }
+.bg-color-text-body-3 { background-color: var(--tj-color-text-body-3); }
+.bg-color-text-body-4 { background-color: var(--tj-color-text-body-4); }
+.bg-color-text-body-5 { background-color: var(--tj-color-text-body-5); }
+.bg-color-theme-primary { background-color: var(--tj-color-theme-primary); }
+.bg-color-theme-bg { background-color: var(--tj-color-theme-bg); }
+.bg-color-theme-bg-2 { background-color: var(--tj-color-theme-bg-2); }
+.bg-color-theme-bg-3 { background-color: var(--tj-color-theme-bg-3); }
+.bg-color-theme-dark { background-color: var(--tj-color-theme-dark); }
+.bg-color-theme-dark-2 { background-color: var(--tj-color-theme-dark-2); }
+.bg-color-theme-dark-3 { background-color: var(--tj-color-theme-dark-3); }
+.bg-color-theme-dark-4 { background-color: var(--tj-color-theme-dark-4); }
+.bg-color-theme-dark-5 { background-color: var(--tj-color-theme-dark-5); }
+.bg-color-grey-1 { background-color: var(--tj-color-grey-1); }
+.bg-color-grey-2 { background-color: var(--tj-color-grey-2); }
+.bg-color-grey-3 { background-color: var(--tj-color-grey-3); }
+.bg-color-border-1 { background-color: var(--tj-color-border-1); }
+.bg-color-border-2 { background-color: var(--tj-color-border-2); }
+.bg-color-border-3 { background-color: var(--tj-color-border-3); }
+.bg-color-border-4 { background-color: var(--tj-color-border-4); }
+.bg-color-border-5 { background-color: var(--tj-color-border-5); }
+
+// Gradient utility classes
+.bg-gradient-primary { background: var(--tj-gradient-primary); }
+.text-gradient-primary {
+  background: var(--tj-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
