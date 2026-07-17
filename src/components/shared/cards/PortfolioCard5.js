@@ -70,7 +70,9 @@ const PortfolioCard5 = ({ portfolio }) => {
           />
         </div>
         <div className="project-content">
-          <span className="categories">
+          <span  className="px-2 rounded-md wow fadeInUp"  style={{
+    border: "1px dashed var(--tj-color-theme-primary)",
+  }}>
             <Link href={href}>{category}</Link>
           </span>
           <div className="project-text">

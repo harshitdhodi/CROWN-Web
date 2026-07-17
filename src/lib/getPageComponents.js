@@ -15,7 +15,7 @@ export default async function getPageComponents(pageSlug, defaultOrder = []) {
 		// Set CMS_BASE_URL in bexon .env if CMS runs on a different host/port
 		const cmsBase = process.env.CMS_BASE_URL || "http://localhost:3012";
 		const res = await fetch(`${cmsBase}/api/page-components?page=${pageSlug}`, {
-			cache: "no-store",
+			next: { revalidate: 60 },
 		});
 		if (!res.ok) throw new Error(`CMS returned ${res.status}`);
 		const json = await res.json();

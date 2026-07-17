@@ -15,7 +15,6 @@ const PAGE_KEY_TO_ROUTE: Record<string, string> = {
   'manufacturing-infrastructure': '/manufacturing-infrastructure',
   'products': '/products',
   'quality-certification': '/quality-certification',
-  'services': '/services',
   'terms-and-conditions': '/terms-and-conditions',
 };
 

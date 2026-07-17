@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 
 const Logo = ({ headerType, isStickyHeader, isSticky }) => {
 	const defaultLogo = (headerType === 2 || headerType === 5 || headerType === 7 || headerType === 9) && !isStickyHeader
-		? "/images/logos/logo-2.webp"
-		: "/images/logos/logo.webp";
+		? "/images/logos/page3.png"
+		: "/images/logos/page3.png";
 
 	const [footerData, setFooterData] = useState(null);
 	const pathname = usePathname();

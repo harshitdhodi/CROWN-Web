@@ -19,10 +19,10 @@ const Portfolios4 = async () => {
 	try {
 		const [equipmentRes, headingRes] = await Promise.all([
 			fetch(`${baseUrl}/api/data/gallery`, {
-				cache: "no-store",
+				next: { revalidate: 60 },
 			}),
 			fetch(`${baseUrl}/api/heading?section=gallery`, {
-				cache: "no-store",
+				next: { revalidate: 60 },
 			}),
 		]);
 

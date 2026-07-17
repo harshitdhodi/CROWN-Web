@@ -14,7 +14,7 @@ import DeferredStyles from "@/components/shared/wrappers/DeferredStyles";
 import ThemeColorLoader from "@/components/shared/theme/ThemeColorLoader";
 import { getCmsBase } from "@/lib/seoConfig";
 
-export const dynamic = "force-dynamic";
+
 
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -133,7 +133,7 @@ export default async function RootLayout({ children }) {
 		const cmsBase = getCmsBase();
 
 		// 1. Fetch favicon from footer collection
-		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon`, { next: { revalidate: 0 } });
+		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon`, { next: { revalidate: 60 } });
 		if (resFooter.ok) {
 			const json = await resFooter.json();
 			console.log("Footer response:", json);
@@ -144,7 +144,7 @@ export default async function RootLayout({ children }) {
 		}
 
 		// 2. Fetch SEO Settings for Google Analytics ID
-		const resSettings = await fetch(`${cmsBase}/api/seo/settings`, { next: { revalidate: 0 } });
+		const resSettings = await fetch(`${cmsBase}/api/seo/settings`, { next: { revalidate: 60 } });
 		if (resSettings.ok) {
 			const json = await resSettings.json();
 			if (json.success && json.data) {
@@ -153,7 +153,7 @@ export default async function RootLayout({ children }) {
 		}
 
 		// 3. Fetch CMS color palette and build CSS variables server-side (eliminates FOUC)
-		const resColors = await fetch(`${cmsBase}/api/colors`, { cache: 'no-store' });
+		const resColors = await fetch(`${cmsBase}/api/colors`, { next: { revalidate: 60 } });
 		if (resColors.ok) {
 			const json = await resColors.json();
 			const c = json?.data?.colors;

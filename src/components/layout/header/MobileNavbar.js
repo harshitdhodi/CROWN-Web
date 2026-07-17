@@ -1,31 +1,18 @@
 "use client";
-import getNavItems from "@/libs/getNavItems";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenuItem from "./MobileMenuItem";
 
 const MobileNavbar = () => {
-	const navItems = getNavItems();
-	const serviceNav = navItems[2] || { name: "Services", path: "/services" };
-	const blogNav = navItems[4] || { name: "Blog", path: "/blogs" };
-	const contactNav = navItems[5] || { name: "Contact", path: "/contact" };
-
-	const [categories, setCategories] = useState([]);
-	const [dynamicServices, setDynamicServices] = useState([]);
+	const [products, setProducts] = useState([]);
 	const [hiddenPages, setHiddenPages] = useState({});
 	const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
 	useEffect(() => {
-		// Fetch categories for dropdown
-		fetch(`${API_URL}/api/data/categories`)
+		// Fetch products for the Products dropdown
+		fetch(`${API_URL}/api/data/our_products`)
 			.then((r) => r.json())
-			.then((json) => { if (json.success) setCategories(json.data); })
-			.catch(() => { });
-
-		// Fetch services for dropdown
-		fetch(`${API_URL}/api/data/service`)
-			.then((r) => r.json())
-			.then((json) => { if (json.success && Array.isArray(json.data)) setDynamicServices(json.data); })
+			.then((json) => { if (json.success && Array.isArray(json.data)) setProducts(json.data); })
 			.catch(() => { });
 
 		// Fetch page visibility
@@ -37,7 +24,7 @@ const MobileNavbar = () => {
 				}
 				return res.json();
 			})
-			.then((json) => { 
+			.then((json) => {
 				if (json && json.success && Array.isArray(json.data)) {
 					const hiddenMap = {};
 					json.data.forEach(page => {
@@ -81,89 +68,42 @@ const MobileNavbar = () => {
 								</li>
 							)}
 
-							{/* ── Products ── */}
-							<li>
-								<Link href="/products">Products</Link>
-							</li>
-
-							{/* ── Services (dynamic dropdown) ── */}
-							<MobileMenuItem
-								text={serviceNav.name}
-								url={serviceNav.path}
-								submenuClass="mega-menu-service"
-							>
-								{(dynamicServices.length
-									? dynamicServices
-									: serviceNav.submenu || []
-								).map((item, idx) => (
-									<li key={item.id ?? idx}>
-										<Link
-											className="mega-menu-service-single"
-											href={item.slug ? `/services/${item.slug}` : (item.path || "/")}
-										>
-											<span className="mega-menu-service-icon">
-												{item.icon_image ? (
-													// eslint-disable-next-line @next/next/no-img-element
-													<img
-														src={
-															item.icon_image.startsWith("http")
-																? item.icon_image
-																: `${API_URL}${item.icon_image}`
-														}
-														alt={item.title || item.name}
-														style={{ width: 24, height: 24, objectFit: "contain" }}
-													/>
-												) : (
-													<i className={item.icon || "tji-service-1"}></i>
-												)}
-											</span>
-											<span className="mega-menu-service-title">
-												{item.title || item.name || "Service"}
-											</span>
-											<span className="mega-menu-service-nav">
-												<i className="tji-arrow-right-long"></i>
-												<i className="tji-arrow-right-long"></i>
-											</span>
-										</Link>
-									</li>
-								))}
+							{/* ── Products (dropdown) ── */}
+							<MobileMenuItem text="Products" url="/products">
+								{products.map((product) => {
+									const title = product.product_name || product.name || product.title;
+									return (
+										<li key={product.id}>
+											<Link href={`/${product.slug || product.product_slug || product.id}`}>
+												{title}
+											</Link>
+										</li>
+									);
+								})}
 							</MobileMenuItem>
 
-							{/* ── Categories (dynamic dropdown) ── */}
-							<MobileMenuItem text="Categories" url="/categories">
-								{categories.map((cat) => (
-									<li key={cat.id}>
-										<Link href={`/categories?category=${cat.category_slug}`}>
-											{cat.category_name}
-										</Link>
-									</li>
-								))}
-							</MobileMenuItem>
-
-							{/* ── Excellence & Reach (static dropdown) ── */}
+							{/* ── Excellence & Reach (dropdown) ── */}
 							{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions'] || !hiddenPages['events'] || !hiddenPages['downloads']) && (
 								<MobileMenuItem text="Excellence & Reach" url="#">
 									{!hiddenPages['global-presence'] && <li><Link href="/global-presence">Global Presence</Link></li>}
-									{!hiddenPages['quality-certification'] && <li><Link href="/quality-certification">Quality & Certifications</Link></li>}
-									{!hiddenPages['manufacturing-infrastructure'] && <li><Link href="/manufacturing-infrastructure">Plant & Infrastructure</Link></li>}
+									{!hiddenPages['quality-certification'] && <li><Link href="/quality-certification">Quality &amp; Certifications</Link></li>}
+									{!hiddenPages['manufacturing-infrastructure'] && <li><Link href="/manufacturing-infrastructure">Plant &amp; Infrastructure</Link></li>}
 									{!hiddenPages['industry-solutions'] && <li><Link href="/industry-solutions">Industry Solutions</Link></li>}
 									{!hiddenPages['events'] && <li><Link href="/events">Our Events</Link></li>}
 									{!hiddenPages['downloads'] && <li><Link href="/downloads">Our Resources</Link></li>}
 								</MobileMenuItem>
 							)}
 
-							{/* ── Blog ── */}
+							{/* ── Blogs ── */}
 							{!hiddenPages['blogs'] && (
 								<li>
-									<Link href="/blogs">{blogNav.name}</Link>
+									<Link href="/blogs">Blogs</Link>
 								</li>
 							)}
 
-							{/* ── Contact ── */}
+							{/* ── Contact Us ── */}
 							<li className="mean-last">
-								<Link href={contactNav.path || "/contact"}>
-									{contactNav.name || "Contact"}
-								</Link>
+								<Link href="/contact">Contact Us</Link>
 							</li>
 						</ul>
 					</nav>

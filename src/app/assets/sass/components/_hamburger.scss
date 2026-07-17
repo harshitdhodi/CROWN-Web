@@ -6,9 +6,9 @@
 	&-area {
 		position: fixed;
 		inset-inline-end: -490px;
-		top: 15px;
+		top: 0;
 		width: 450px;
-		height: calc(100% - 30px);
+		height: 100%;
 		box-shadow: -5px 0 20px -5px rgba(0, 0, 0, 0.5);
 		transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 		transition-duration: 1s;
@@ -16,21 +16,12 @@
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 		overflow-y: scroll;
-		border-radius: 12px;
+		border-radius: 0;
 		&::-webkit-scrollbar {
 			display: none;
 		}
 		&.opened {
-			inset-inline-end: 15px;
-			@media #{$sm, $xs} {
-				inset-inline-end: 0;
-			}
-		}
-		@media #{$sm, $xs} {
-			top: 0;
-			height: 100%;
-			border-start-end-radius: 0;
-			border-end-end-radius: 0;
+			inset-inline-end: 0;
 		}
 		@media #{$xs} {
 			width: 320px;
@@ -44,8 +35,8 @@
 		top: 0;
 		inset-inline-start: 0;
 		z-index: -1;
-		border-start-start-radius: 12px;
-		border-end-start-radius: 12px;
+		border-start-start-radius: 0;
+		border-end-start-radius: 0;
 	}
 	&_wrapper {
 		display: flex;
@@ -134,9 +125,17 @@
 				background: transparent;
 				box-sizing: border-box;
 				margin-bottom: 30px;
+				min-height: unset;
+				padding: 0;
 				* {
 					box-sizing: border-box;
 				}
+			}
+			// Override meanmenu.css hardcoded #070337 so the nav block
+			// blends seamlessly with the rest of the mobile panel
+			.mean-bar,
+			.mean-nav {
+				background: transparent !important;
 			}
 		}
 		.mean-nav {
@@ -265,7 +264,7 @@
 	}
 }
 .hamburger-title {
-	color: var(--tj-color-common-white);
+	color: var(--tj-color-theme-primary);
 	font-size: 22px;
 	line-height: 1;
 	margin-bottom: 25px;
@@ -280,6 +279,9 @@
 			padding: 15px 0 10px 0;
 			&:first-child {
 				padding-top: 0;
+			}
+			.subtitle {
+				color: var(--tj-color-theme-primary);
 			}
 		}
 	}
