@@ -7,8 +7,13 @@ import BackToTop from "@/components/shared/others/BackToTop";
 import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import { headers } from "next/headers";
+import { getMeta } from "@/lib/getMeta";
 
 export const dynamic = "force-dynamic";
+
+export async function generateMetadata() {
+	return await getMeta("/categories");
+}
 
 // NEXT_PUBLIC_BASE_URL is usually port 3000 (Frontend)
 // NEXT_PUBLIC_API_URL should be port 3001 (Backend)
@@ -85,7 +90,7 @@ async function getCategories() {
 export default async function Categories() {
     const banner = await getBannerData("/categories");
     const bannerTitle = banner?.title || "Categories";
-    let bgImage = "/images/bg/wire-banner.png";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
         if (bgImage.startsWith('/uploads')) {

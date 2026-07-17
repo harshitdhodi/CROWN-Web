@@ -27,7 +27,7 @@ export default async function Events() {
 	const banner = await getBannerData("/services");
 	const bannerTitle = banner?.title || "Events";
 	const bannerText = banner?.text || "Our Memorable Events";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

@@ -4,11 +4,11 @@ import ServiceCard2 from "@/components/shared/cards/ServiceCard2";
 const getServicesData = async () => {
 	try {
 		const res = await fetch(
-			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/industry`,
+			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/manufacturing_process`,
 			{ cache: "no-store" }
 		);
 		const json = await res.json();
-		return json.success ? json.data.slice(0, 4) : [];
+		return json.success ? json.data : [];
 	} catch (err) {
 		console.warn("Failed to fetch services data:", err);
 		return [];
@@ -40,7 +40,6 @@ const Services2 = async () => {
 			<div className="container">
 				<div className="row align-items-start">
 					<div className="col-lg-4">
-						{/* content-wrap is sticky; col-lg-4 stretches full height via align-items-start on row */}
 						<div className="content-wrap slidebar-stickiy">
 							<div className="sec-heading style-2">
 								<span className="sub-title wow fadeInUp" data-wow-delay=".3s">

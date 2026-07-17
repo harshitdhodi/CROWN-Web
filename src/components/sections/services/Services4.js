@@ -1,23 +1,18 @@
 import ServiceCard5 from "@/components/shared/cards/ServiceCard5";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+
 async function getInfrastructureData() {
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"; // Ensure this points to your API server
 	try {
 		const [headingRes, dataRes] = await Promise.all([
-			fetch(`${baseUrl}/api/heading?section=manufacturing_strength`, {
-				next: { revalidate: 60 },
-			}),
-			fetch(`${baseUrl}/api/data/manufacturing_strength`, {
-				next: { revalidate: 60 },
-			}),
+			fetch(`${BASE_URL}/api/heading?section=manufacturing_strength`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/data/manufacturing_strength`, { next: { revalidate: 60 } }),
 		]);
-
 		const headingResult = await headingRes.json();
-		const dataResult = await dataRes.json();
-		console.log("Fetched Infrastructure Data:", { headingResult, dataResult });
+		const dataResult    = await dataRes.json();
 		return {
 			heading: headingResult?.success ? headingResult.data : null,
-			items: dataResult?.success ? dataResult.data : [],
+			items:   dataResult?.success   ? dataResult.data   : [],
 		};
 	} catch (error) {
 		console.error("Error fetching infrastructure data:", error);
@@ -25,18 +20,39 @@ async function getInfrastructureData() {
 	}
 }
 
-const Services4 = async () => {
-	const { heading, items } = await getInfrastructureData();
+async function getIndustryData() {
+	try {
+		const [headingRes, dataRes] = await Promise.all([
+			fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 60 } }),
+		]);
+		const headingResult = await headingRes.json();
+		const dataResult    = await dataRes.json();
+		return {
+			heading: headingResult?.success ? headingResult.data : null,
+			items:   dataResult?.success   ? dataResult.data   : [],
+		};
+	} catch (error) {
+		console.error("Error fetching industry data:", error);
+		return { heading: null, items: [] };
+	}
+}
+
+// variant="industry" → /api/data/industry + /api/heading?section=industries-we-serve (industry-solutions page)
+// default            → /api/data/manufacturing_strength + manufacturing_strength heading (all other pages)
+const Services4 = async ({ variant } = {}) => {
+	const { heading, items } = variant === "industry"
+		? await getIndustryData()
+		: await getInfrastructureData();
 
 	// Map API fields to the format expected by ServiceCard5
 	// Reverse so newest-added items appear last (oldest first)
 	const formattedServices = [...items].reverse().map((item) => ({
 		...item,
 		title: item.title || item.heading || "",
-		desc: item.description,
-		// /uploads/... paths are proxied by Next.js rewrite — use as-is
-		img: item.image || "",
-		icon: item.icon_image || "",
+		desc:  item.description,
+		img:   item.image      || "",
+		icon:  item.icon_image ||item.color_img || "",
 	}));
 
 	const lastItemIdx = formattedServices.length - 1;
@@ -80,3 +96,4 @@ const Services4 = async () => {
 };
 
 export default Services4;
+

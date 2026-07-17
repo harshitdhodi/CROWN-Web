@@ -94,7 +94,7 @@ async function getProducts() {
 export default async function Products() {
     const banner = await getBannerData("/products");
     const bannerTitle = banner?.title || "Products";
-    let bgImage = "/images/bg/wire-banner.png";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
         if (bgImage.startsWith('/uploads')) {

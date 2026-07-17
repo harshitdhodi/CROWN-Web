@@ -68,7 +68,7 @@ const ReactNiceSelect = ({
 								!option.value ? "disabled" : ""
 							}`}
 							onMouseDown={(e) => e.preventDefault()}
-							onClick={() => handleSelect(option, idx)}
+							onClick={(e) => { e.stopPropagation(); handleSelect(option, idx); }}
 						>
 							{option.optionName}
 						</li>

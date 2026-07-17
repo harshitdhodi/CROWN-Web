@@ -1,13 +1,15 @@
 import sliceText from "@/libs/sliceText";
 import Link from "next/link";
 import React from "react";
+import img from "../../../../public/images/bg/bg.png"
 
 const HeroInner = ({ title, text, breadcrums = [], bgImage }) => {
-	console.log("bgImage", bgImage)
+	const bgUrl = bgImage || img.src;
+
 	return (
 		<section
 			className="tj-page-header   section-gap-x"
-			style={{ backgroundImage: `url('${bgImage}')` }}
+			style={{ backgroundImage: `url('${bgUrl}')` }}
 		>
 			<div className="container  ">
 				<div className="row">
@@ -46,7 +48,7 @@ const HeroInner = ({ title, text, breadcrums = [], bgImage }) => {
 			</div>
 			<div
 				className="page-header-overlay"
-				style={{ backgroundImage: `url('/images/shape/pheader-overlay.webp')` }}
+				style={{ background: "rgba(0, 0, 0, 0.45)", backgroundImage: "none" }}
 			></div>
 		</section>
 	);

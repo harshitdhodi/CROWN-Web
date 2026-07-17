@@ -24,7 +24,7 @@ const DEFAULT_ORDER = [
 export default async function Careers() {
 	const banner = await getBannerData("/careers");
 	const bannerTitle = banner?.title || "Careers";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

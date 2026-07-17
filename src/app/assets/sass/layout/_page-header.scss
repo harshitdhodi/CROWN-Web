@@ -5,13 +5,12 @@ START: Breadcrumb CSS
 ----------------------------------------*/
 .tj-page {
 	&-header {
-		padding-top: 133px;
-		padding-bottom: 150px;
-		background-position: center;
+		padding-top: 190px;
+		padding-bottom: 200px;
+		background-position: center bottom;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-color: var(--tj-color-theme-dark);
-		background-blend-mode: luminosity;
 		border-radius: 12px;
 		position: relative;
 		overflow: hidden;

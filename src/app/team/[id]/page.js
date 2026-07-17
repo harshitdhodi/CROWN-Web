@@ -13,7 +13,7 @@ const items = getTeamMembers();
 export default async function TeamDetails({ params }) {
 	const banner = await getBannerData(`/team/${params.id}`);
 	const bannerTitle = banner?.title || "Team details";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

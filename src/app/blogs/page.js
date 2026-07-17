@@ -24,7 +24,7 @@ const DEFAULT_ORDER = [
 export default async function Blogs() {
 	const banner = await getBannerData("/blogs");
 	const bannerTitle = banner?.title || "Our Blogs";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

@@ -1,22 +1,22 @@
 import Testimonials4Client from "./Testimonials4Client";
 import getBannerData from "@/lib/getBannerData";
 
-async function getServices() {
+async function getProducts() {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	try {
-		const res = await fetch(`${baseUrl}/api/data/service`, { next: { revalidate: 60 } });
+		const res = await fetch(`${baseUrl}/api/data/our_products`, { next: { revalidate: 60 } });
 		const result = await res.json();
 		if (result.success && Array.isArray(result.data)) {
 			return result.data;
 		}
 	} catch (e) {
-		console.error("Failed to fetch services for Testimonials4 form", e);
+		console.error("Failed to fetch products for Testimonials4 form", e);
 	}
 	return [];
 }
 
 const Testimonials4 = async () => {
-	const services = await getServices();
+	const products = await getProducts();
 	const banner = await getBannerData("/");
 
 	const bannerTitle = banner?.title || "Drop us a Line Here.";
@@ -31,7 +31,7 @@ const Testimonials4 = async () => {
 
 	return (
 		<Testimonials4Client
-			initialServices={services}
+			initialProducts={products}
 			bannerTitle={bannerTitle}
 			bgImage={bgImage}
 		/>

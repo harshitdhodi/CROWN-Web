@@ -1,10 +1,9 @@
 "use client";
 
 import HeroInner from "@/components/sections/hero/HeroInner";
+import ContactForm from "@/components/sections/contacts/ContactForm";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-
-import { useRouter } from "next/navigation";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
@@ -24,10 +23,7 @@ const resolveApiImage = (src) => {
 };
 
 const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) => {
-  const router = useRouter();
   const sidebarCategories = categories.slice(0, 6);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [formStatus, setFormStatus] = useState({ loading: false, success: false, error: null });
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
@@ -44,36 +40,6 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
     };
     fetchResources();
   }, []);
-
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus({ loading: true, success: false, error: null });
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          url: typeof window !== 'undefined' ? window.location.href : ''
-        })
-      });
-      if (response.ok) {
-        setFormStatus({ loading: false, success: true, error: null });
-        setFormData({ name: '', email: '', message: '' });
-        router.push('/thank-you');
-      } else {
-        const errData = await response.json();
-        setFormStatus({ loading: false, success: false, error: errData.error || 'Failed to submit' });
-      }
-    } catch (err) {
-      setFormStatus({ loading: false, success: false, error: 'Network error. Please try again later.' });
-    }
-  };
   console.log("ProductDetailsMain received product:", product);
   return (
     <div>
@@ -99,26 +65,11 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
                       alt={product.name}
                       style={{ width: "100%", height: "auto", display: 'block' }}
                     />
-                    <div
-                      className="page-header-overlay"
-                      style={{
-                        backgroundImage: `url('/images/shape/pheader-overlay.webp')`,
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        pointerEvents: 'none',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        zIndex: 1
-                      }}
-                    ></div>
+                 
                   </div>
                 </div>
 
                 <div className="product-content">
-                  <h2 className="title wow fadeInUp">{product.name}</h2>
 
                   {/* Dynamic Content Styling */}
                   <style>{`
@@ -264,108 +215,128 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
             <div className="col-lg-4">
               <aside className="tj-main-sidebar">
                 {/* Download Brochure Widget */}
-                <div className="tj-sidebar-widget wow fadeInUp">
-                  <h4 className="widget-title">Downloads</h4>
-                  <div className="download-btn-wrap" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    {resources.map((item) => (
-                      <a key={item.id} href={item.pdf ? resolveApiImage(item.pdf) : '#'} target="_blank" rel="noopener noreferrer" className="download-btn" style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '15px', background: '#f5f5f5', borderRadius: '8px', color: 'var(--tj-color-heading-primary)', fontWeight: '600' }}>
-                        <i className={`fa-light ${item.title.toLowerCase().includes('cert') ? 'fa-file-shield' : 'fa-file-pdf'}`} style={{ fontSize: '24px', color: item.title.toLowerCase().includes('cert') ? 'var(--tj-color-theme-primary)' : 'red' }}></i>
-                        <span>{item.title}</span>
-                      </a>
-                    ))}
+                <div
+                  className="tj-sidebar-widget wow fadeInUp"
+                  style={{
+                    border: "1px dashed var(--tj-color-theme-primary)",
+                  }}
+                >
+                  <h4 className="widget-title">Our Resources</h4>
+                  <style>{`
+                    .download-item {
+                      display: flex;
+                      align-items: center;
+                      gap: 14px;
+                      padding: 14px 16px;
+                      border-radius: 10px;
+                      border: 1px solid var(--tj-color-border-1);
+                      background: #fff;
+                      color: var(--tj-color-heading-primary);
+                      font-weight: 600;
+                      font-size: 14px;
+                      text-decoration: none;
+                      transition: all 0.25s ease;
+                      margin-bottom: 10px;
+                      position: relative;
+                      overflow: hidden;
+                    }
+                    .download-item::before {
+                      content: '';
+                      position: absolute;
+                      left: 0; top: 0; bottom: 0;
+                      width: 3px;
+                      background: var(--tj-color-theme-primary);
+                      border-radius: 10px 0 0 10px;
+                    }
+                    .download-item:hover {
+                      background: var(--tj-color-theme-primary);
+                      color: #fff;
+                      border-color: var(--tj-color-theme-primary);
+                      transform: translateX(4px);
+                      box-shadow: 0 6px 20px rgba(201,148,68,0.2);
+                    }
+                    .download-item:hover::before { background: rgba(255,255,255,0.4); }
+                    .download-item:hover .dl-icon { color: #fff !important; }
+                    .download-item:hover .dl-arrow { opacity: 1; transform: translateX(0); }
+                    .dl-icon-wrap {
+                      width: 42px; height: 42px;
+                      border-radius: 8px;
+                      background: var(--tj-color-theme-bg, #fdf8f0);
+                      display: flex; align-items: center; justify-content: center;
+                      flex-shrink: 0;
+                      transition: background 0.25s;
+                    }
+                    .download-item:hover .dl-icon-wrap { background: rgba(255,255,255,0.2); }
+                    .dl-icon { font-size: 20px; transition: color 0.25s; }
+                    .dl-text { flex: 1; line-height: 1.3; }
+                    .dl-label { font-size: 11px; font-weight: 500; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+                    .dl-arrow {
+                      font-size: 14px;
+                      opacity: 0;
+                      transform: translateX(-6px);
+                      transition: all 0.25s;
+                    }
+                    .dl-empty {
+                      text-align: center;
+                      padding: 20px;
+                      font-size: 13px;
+                      color: #94a3b8;
+                      border: 1px dashed var(--tj-color-border-1);
+                      border-radius: 8px;
+                    }
+                  `}</style>
+                  <div>
+                    {resources.map((item) => {
+                      const isCert = item.title.toLowerCase().includes('cert');
+                      return (
+                        <a
+                          key={item.id}
+                          href={item.pdf ? resolveApiImage(item.pdf) : '#'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="download-item"
+                        >
+                          <div className="dl-icon-wrap">
+                            <i
+                              className={`fa-light ${isCert ? 'fa-file-shield' : 'fa-file-pdf'} dl-icon`}
+                              style={{ color: isCert ? 'var(--tj-color-theme-primary)' : '#e53e3e' }}
+                            />
+                          </div>
+                          <div className="dl-text">
+                            <div className="dl-label">{isCert ? 'Certificate' : 'PDF Document'}</div>
+                            <div>{item.title}</div>
+                          </div>
+                          <i className="tji-arrow-right dl-arrow" />
+                        </a>
+                      );
+                    })}
                     {resources.length === 0 && (
-                      <span style={{ fontSize: '14px', color: '#666' }}>No downloads available.</span>
+                      <div className="dl-empty">
+                        <i className="fa-light fa-folder-open" style={{ fontSize: '28px', marginBottom: '8px', display: 'block', color: 'var(--tj-color-theme-primary)' }} />
+                        No downloads available
+                      </div>
                     )}
                   </div>
                 </div>
 
-                <div className="tj-sidebar-widget service-categories wow fadeInUp">
-                  <h4 className="widget-title">Product Categories</h4>
-                  <style>{`
-                    .tj-category-link {
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                      padding: 15px 20px;
-                      background: #fafafa;
-                      border-radius: 8px;
-                      margin-bottom: 12px;
-                      color: var(--tj-color-heading-primary);
-                      text-decoration: none;
-                      font-weight: 500;
-                      border: 1px solid #eaeaea;
-                      transition: all 0.3s ease;
-                    }
-                    .tj-category-link:hover {
-                      background: var(--tj-color-theme-primary);
-                      color: #fff;
-                      border-color: var(--tj-color-theme-primary);
-                      transform: translateX(5px);
-                      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-                    }
-                    .tj-category-link i {
-                      font-size: 16px;
-                      transition: all 0.3s ease;
-                    }
-                  `}</style>
-                  <ul className="category-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                    {sidebarCategories.map((item) => (
-                      <li key={item.slug}>
-                        <Link href={`/${item.slug}`} className="tj-category-link">
-                          <span>{item.title}</span>
-                          <i className="tji-arrow-right"></i>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="tj-sidebar-widget contact-widget" style={{ background: 'var(--tj-color-theme-bg)', padding: '30px', borderRadius: '12px', color: 'var(--tj-color-text-body)', border: '1px solid var(--tj-color-border-1)' }}>
-                  <h4 className="widget-title">Quick Enquiry For Services</h4>
-                  <form onSubmit={handleFormSubmit}>
-                    <div style={{ marginBottom: '15px' }}>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleFormChange}
-                        placeholder="Your Name"
-                        required
-                        style={{ width: '100%', padding: '10px 15px', borderRadius: '6px', border: '1px solid var(--tj-color-border-1)', outline: 'none', color: 'var(--tj-color-text-body)', background: '#fff' }}
-                      />
-                    </div>
-                    <div style={{ marginBottom: '15px' }}>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleFormChange}
-                        placeholder="Your Email"
-                        required
-                        style={{ width: '100%', padding: '10px 15px', borderRadius: '6px', border: '1px solid var(--tj-color-border-1)', outline: 'none', color: 'var(--tj-color-text-body)', background: '#fff' }}
-                      />
-                    </div>
-                    <div style={{ marginBottom: '15px' }}>
-                      <textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleFormChange}
-                        placeholder="Your Message"
-                        required
-                        rows="3"
-                        style={{ width: '100%', padding: '10px 15px', borderRadius: '6px', border: '1px solid var(--tj-color-border-1)', outline: 'none', color: 'var(--tj-color-text-body)', background: '#fff', resize: 'vertical' }}
-                      ></textarea>
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={formStatus.loading}
-                      style={{ background: 'var(--tj-color-theme-primary)', color: '#fff', padding: '12px 20px', borderRadius: '6px', border: 'none', fontWeight: 'bold', cursor: 'pointer', width: '100%', transition: 'all 0.3s' }}
-                    >
-                      {formStatus.loading ? 'Sending...' : 'Send Enquiry Now'}
-                    </button>
-                    {formStatus.success && <p style={{ color: '#28a745', marginTop: '10px', fontSize: '14px' }}>Message sent successfully!</p>}
-                    {formStatus.error && <p style={{ color: '#dc3545', marginTop: '10px', fontSize: '14px' }}>{formStatus.error}</p>}
-                  </form>
+                {/* Quick Enquiry Form */}
+                <div className=" wow fadeInUp">
+                  <div style={{
+                    background: 'var(--tj-color-theme-dark)',
+                    borderRadius: '12px 12px 0 0',
+                    padding: '20px 24px 16px',
+                    borderBottom: '3px solid var(--tj-color-theme-primary)',
+                  }}>
+                    <h4 className="widget-title" style={{ color: '#fff', marginBottom: '4px' }}>Get a Free Quote</h4>
+                    <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '13px', margin: 0 }}>Tell us what you need — we respond within 24 hrs.</p>
+                  </div>
+                  <div style={{ background: '#fff', padding: '26px 24px 24px', borderRadius: '0 0 12px 12px', border: '1px solid var(--tj-color-border-1)', borderTop: 'none' }}>
+                    <ContactForm
+                      singleColumn={true}
+                      compact={true}
+                      redirectPath="/contact/thank-you"
+                    />
+                  </div>
                 </div>
               </aside>
             </div>

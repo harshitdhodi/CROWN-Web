@@ -20,7 +20,6 @@ async function getBlogData(slug) {
 	try {
 		const headersList = await headers();
 		const cookieHeader = headersList.get("cookie") || "";
-
 		const res = await fetch(`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/blogs/${slug}`, {
 			headers: { cookie: cookieHeader },
 			next: { revalidate: 3600 },
@@ -84,6 +83,7 @@ const BlogDetailsContent = async ({ slug }) => {
 	}
 
 	const { title } = option.currentItem || {};
+	const bgImage = "/images/bg/bg.png";
 
 	return (
 		<>
@@ -91,6 +91,7 @@ const BlogDetailsContent = async ({ slug }) => {
 				title={"Blog Details"}
 				text={title ? title : "Blog Details"}
 				breadcrums={[{ name: "Blogs", path: "/blogs" }]}
+				bgImage={bgImage}
 			/>
 			<BlogDetailsPrimary option={option} recentBlogs={recentBlogs} />
 		</>

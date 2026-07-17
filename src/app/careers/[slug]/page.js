@@ -16,7 +16,7 @@ const cmsBaseUrl = process.env.CMS_BASE_URL || "http://localhost:3012";
 export default async function CareerDetails({ params }) {
 	const banner = await getBannerData(`/careers/${params.slug}`);
 	const bannerTitle = banner?.title || "Careers Details";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

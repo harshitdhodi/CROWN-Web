@@ -7,28 +7,28 @@ import Image from "next/image";
 import cta from "../../../../public/images/cta/CTA.png";
 import "./Testimonials4Client.scss";
 
-const Testimonials4Client = ({ initialServices, bannerTitle, bgImage }) => {
+const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 	const router = useRouter();
 
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
 		phone: "",
-		service_id: "",
+		product_id: "",
 		message: "",
 	});
 
-	const [services] = useState(initialServices || []);
+	const [products] = useState(initialProducts || []);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 
-	const hasServices = services.length > 0;
-	const serviceOptions = hasServices
+	const hasProducts = products.length > 0;
+	const productOptions = hasProducts
 		? [
-				{ value: "", optionName: "Choose a service" },
-				...services.map((s) => ({ value: String(s.id), optionName: s.title })),
+				{ value: "", optionName: "Choose a product" },
+				...products.map((p) => ({ value: String(p.id), optionName: p.name })),
 			]
-		: [{ value: "", optionName: "No services available" }];
+		: [{ value: "", optionName: "No products available" }];
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -39,8 +39,8 @@ const Testimonials4Client = ({ initialServices, bannerTitle, bgImage }) => {
 		e.preventDefault();
 		setError("");
 
-		if (!formData.name || !formData.email || !formData.service_id || !formData.message) {
-			setError("All fields are required");
+		if (!formData.name || !formData.email || !formData.message) {
+			setError("Name, email and message are required");
 			return;
 		}
 
@@ -62,7 +62,7 @@ const Testimonials4Client = ({ initialServices, bannerTitle, bgImage }) => {
 				throw new Error(result.error || "Failed to submit form");
 			}
 
-			setFormData({ name: "", email: "", phone: "", service_id: "", message: "" });
+			setFormData({ name: "", email: "", phone: "", product_id: "", message: "" });
 			router.push("/contact/thank-you");
 		} catch (err) {
 			setError(err.message || "Failed to submit form");
@@ -173,17 +173,17 @@ const Testimonials4Client = ({ initialServices, bannerTitle, bgImage }) => {
 									</div>
 									<div className="col-sm-6">
 										<div className="form-input">
-											<label className="cf-label">Choose a service *</label>
+											<label className="cf-label">Product of Interest</label>
 											<div className="tj-nice-select-box">
 												<div className="tj-select">
 													<ReactNiceSelect
-														options={serviceOptions}
-														value={formData.service_id}
+														options={productOptions}
+														value={formData.product_id}
 														getSelectedOption={(val) =>
-															setFormData((prev) => ({ ...prev, service_id: val }))
+															setFormData((prev) => ({ ...prev, product_id: val }))
 														}
-														disabled={!hasServices}
-														placeholder="Choose a service"
+														disabled={!hasProducts}
+														placeholder="Choose a product"
 													/>
 												</div>
 											</div>
@@ -209,7 +209,7 @@ const Testimonials4Client = ({ initialServices, bannerTitle, bgImage }) => {
 										<button
 											className="tj-primary-btn"
 											type="submit"
-											disabled={loading || !hasServices}
+											disabled={loading}
 										>
 											<span className="btn-text">
 												<span>{loading ? "Sending..." : "Send Message"}</span>

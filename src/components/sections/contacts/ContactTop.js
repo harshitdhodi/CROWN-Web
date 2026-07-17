@@ -7,8 +7,24 @@ const ContactTop = ({ headingData, contactData }) => {
     const mainHeading = headingData?.heading || "Reach Out to Us";
 
     const address = contactData?.address || "993 Renner Burg, West Rond, MT 94251-030";
-    const email = contactData?.email || "support@wiretex.com";
-    const mobile = contactData?.mobile || "+1 (009) 544-7818";
+
+    const rawEmail = contactData?.email;
+    const email = Array.isArray(rawEmail)
+        ? rawEmail[0] || "support@wiretex.com"
+        : String(rawEmail || "support@wiretex.com");
+
+    const rawMobile = contactData?.mobile;
+    const mobile = Array.isArray(rawMobile)
+        ? rawMobile[0] || "+1 (009) 544-7818"
+        : String(rawMobile || "+1 (009) 544-7818");
+
+    const locationLabel = contactData?.location_label || "Our Location";
+    const emailLabel = contactData?.email_label || "Email us";
+    const callLabel = contactData?.call_label || "Call us";
+    const whatsappLabel = contactData?.whatsapp_label || "WhatsApp";
+
+    const mapUrl = contactData?.mapurl || "#";
+    const whatsappUrl = `https://wa.me/${mobile.replace(/\D/g, "")}`;
 
     return (
         <div className="tj-contact-area section-gap">
@@ -30,61 +46,72 @@ const ContactTop = ({ headingData, contactData }) => {
                 <div className="row row-gap-4">
                     {/* Location */}
                     <div className="col-xl-3 col-lg-6 col-sm-6">
-                        <div className="contact-item style-2 wow justify-center items-center fadeInUp h-100 d-flex flex-column" data-wow-delay=".3s">
+                        <Link
+                            href={mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-item style-2 wow justify-center items-center fadeInUp h-100 d-flex flex-column"
+                            data-wow-delay=".3s"
+                        >
                             <div className="contact-icon items-center">
                                 <i className="tji-location-3"></i>
                             </div>
-                            <h3 className="contact-title">Our Location</h3>
+                            <h3 className="contact-title">{locationLabel}</h3>
                             <p className="flex-grow-1 text-break">{address}</p>
-                        </div>
+                        </Link>
                     </div>
 
                     {/* Email */}
                     <div className="col-xl-3 col-lg-6 col-sm-6">
-                        <div className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column" data-wow-delay=".5s">
+                        <Link
+                            href={`mailto:${email}`}
+                            className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column"
+                            data-wow-delay=".5s"
+                        >
                             <div className="contact-icon">
                                 <i className="tji-envelop"></i>
                             </div>
-                            <h3 className="contact-title">Email us</h3>
+                            <h3 className="contact-title">{emailLabel}</h3>
                             <ul className="contact-list flex-grow-1">
-                                <li className="text-break">
-                                    <Link href={`mailto:${email}`}>{email}</Link>
-                                </li>
+                                <li className="text-break">{email}</li>
                             </ul>
-                        </div>
+                        </Link>
                     </div>
 
                     {/* Phone */}
                     <div className="col-xl-3 col-lg-6 col-sm-6">
-                        <div className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column" data-wow-delay=".7s">
+                        <Link
+                            href={`tel:${mobile}`}
+                            className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column"
+                            data-wow-delay=".7s"
+                        >
                             <div className="contact-icon">
                                 <i className="tji-phone"></i>
                             </div>
-                            <h3 className="contact-title">Call us</h3>
+                            <h3 className="contact-title">{callLabel}</h3>
                             <ul className="contact-list flex-grow-1">
-                                <li>
-                                    <Link href={`tel:${mobile}`}>{mobile}</Link>
-                                </li>
+                                <li>{mobile}</li>
                             </ul>
-                        </div>
+                        </Link>
                     </div>
 
                     {/* WhatsApp */}
                     <div className="col-xl-3 col-lg-6 col-sm-6">
-                        <div className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column" data-wow-delay=".9s">
+                        <Link
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column"
+                            data-wow-delay=".9s"
+                        >
                             <div className="contact-icon">
                                 <i className="fa-brands fa-whatsapp"></i>
                             </div>
-                            <h3 className="contact-title">WhatsApp</h3>
+                            <h3 className="contact-title">{whatsappLabel}</h3>
                             <ul className="contact-list flex-grow-1">
-                                <li>
-                                    <Link href={`https://wa.me/${mobile.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">Chat on WhatsApp</Link>
-                                </li>
-                                <li className="active">
-                                    <Link href="/contact">Need help?</Link>
-                                </li>
+                                <li>Chat on WhatsApp</li>
                             </ul>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

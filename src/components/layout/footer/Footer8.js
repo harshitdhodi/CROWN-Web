@@ -4,12 +4,12 @@ import Image from "next/image";
 const Footer8 = async () => {
 	const cmsBase = process.env.CMS_BASE_URL || "http://localhost:3012";
 	let footerData = null;
-	let servicesData = [];
+	let productsData = [];
 	let contactMapUrl = null;
 	try {
-		const [resFooter, resService, resContact] = await Promise.all([
+		const [resFooter, resProducts, resContact] = await Promise.all([
 			fetch(`${cmsBase}/api/data/footer`, { next: { revalidate: 60 } }),
-			fetch(`${cmsBase}/api/data/service`, { next: { revalidate: 60 } }),
+			fetch(`${cmsBase}/api/data/our_products`, { next: { revalidate: 60 } }),
 			fetch(`${cmsBase}/api/data/contactus?fields=mapurl`, { next: { revalidate: 60 } })
 		]);
 		if (resFooter.ok) {
@@ -18,10 +18,10 @@ const Footer8 = async () => {
 				footerData = json.data[0];
 			}
 		}
-		if (resService.ok) {
-			const json = await resService.json();
+		if (resProducts.ok) {
+			const json = await resProducts.json();
 			if (json.success && Array.isArray(json.data)) {
-				servicesData = json.data;
+				productsData = json.data.slice(0, 6);
 			}
 		}
 	if (resContact.ok) {
@@ -196,22 +196,17 @@ const Footer8 = async () => {
 								className="footer-widget footer-col-2 widget-nav-menu h6-footer-col-2  h8-footer-col-2 wow fadeInUp"
 								data-wow-delay=".4s"
 							>
-								<h5 className="title">Services</h5>
+								<h5 className="title">Our Products</h5>
 								<ul>
-									{servicesData.length > 0 ? (
-										servicesData.map((service) => (
-											<li key={service.id}>
-												<Link href={`/services/${service.slug}`} prefetch={false}>{service.title}</Link>
+									{productsData.length > 0 ? (
+										productsData.map((product) => (
+											<li key={product.id}>
+												<Link href={`/${product.slug}`} prefetch={false}>{product.name}</Link>
 											</li>
 										))
 									) : (
 										<>
-											<li><Link href="/services/1" prefetch={false}>Customer Experience</Link></li>
-											<li><Link href="/services/2" prefetch={false}>Training Programs</Link></li>
-											<li><Link href="/services/3" prefetch={false}>Business Strategy</Link></li>
-											<li><Link href="/services/4" prefetch={false}>Training Program</Link></li>
-											<li><Link href="/services/5" prefetch={false}>ESG Consulting</Link></li>
-											<li><Link href="/services/6" prefetch={false}>Development Hub</Link></li>
+											<li><Link href="/products" prefetch={false}>View All Products</Link></li>
 										</>
 									)}
 								</ul>
@@ -227,9 +222,8 @@ const Footer8 = async () => {
 									<li><Link href="/" prefetch={false}>Home</Link></li>
 									<li><Link href="/about-us" prefetch={false}>About Us</Link></li>
 									<li><Link href="/products" prefetch={false}>Products</Link></li>
-									<li><Link href="/services" prefetch={false}>Services</Link></li>
 									<li><Link href="/categories" prefetch={false}>Categories</Link></li>
-									<li><Link href="/blogs" prefetch={false}>Blog</Link></li>
+									<li><Link href="/blogs" prefetch={false}>Blogs</Link></li>
 									<li><Link href="/contact" prefetch={false}>Contact</Link></li>
 								</ul>
 							</div>
@@ -276,7 +270,7 @@ const Footer8 = async () => {
 											href="#"
 											prefetch={false}
 										>
-											Wiretex
+											CROWN PACKAGING
 										</Link>{" "}
 										All right reserved
 									</p>

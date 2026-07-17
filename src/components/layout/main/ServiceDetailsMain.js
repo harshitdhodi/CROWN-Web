@@ -31,7 +31,7 @@ const ServiceDetailsMain = async ({ currentItemSlug }) => {
 	const banner = await getBannerData(pageRoute);
 
 	const bannerTitle = banner?.title || title || "Service Details";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];

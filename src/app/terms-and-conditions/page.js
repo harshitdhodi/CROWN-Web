@@ -20,7 +20,7 @@ const DEFAULT_ORDER = [
 export default async function TermsAndConditions() {
 	const banner = await getBannerData("/terms-and-conditions");
 	const bannerTitle = banner?.title || "Terms and Conditions";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

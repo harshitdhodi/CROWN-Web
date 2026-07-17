@@ -5,13 +5,15 @@ import ServiceCard3 from "@/components/shared/cards/ServiceCard3";
 const Services3Client = ({ services, heading, variant }) => {
 	const pathname = usePathname();
 	const isIndustrySolutionsPage = pathname === "/industry-solutions";
+	const isManufacturingPage = pathname === "/manufacturing-infrastructure";
+	const isLightTheme = isIndustrySolutionsPage || isManufacturingPage;
 	const isIndustrySolutions = true;
 
 	const tagline = heading?.tagline || "Our Solutions";
 	const title = heading?.heading || "Tailor Business Solutions for Corporates.";
 
 	return (
-		<section className={(isIndustrySolutionsPage ? "service-3-light section-gap" : " h6-project  service-3  section-gap") + " services-section-wrapper"}>
+		<section className={(isLightTheme ? "service-3-light section-gap" : " h6-project  service-3  section-gap") + " services-section-wrapper"}>
 			<div className="container ">
 				<div className="row">
 					<div className="col-lg-12">
@@ -21,7 +23,7 @@ const Services3Client = ({ services, heading, variant }) => {
 							</span>
 							<div className="sec-heading style-3">
 								<h2 className="sec-title" style={{
-									...(isIndustrySolutionsPage ? { color: "var(--tj-color-text-body-4)" } : { color: "var(--tj-color-text-body-5)" }),
+									...(isLightTheme ? { color: "var(--tj-color-text-body-4)" } : { color: "var(--tj-color-text-body-5)" }),
 									...(variant === "journey" ? { maxWidth: "600px", margin: "0 auto" } : {}),
 								}}>
 									{title}

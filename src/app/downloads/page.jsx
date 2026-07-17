@@ -24,7 +24,7 @@ export default async function Downloads() {
     const activeKeys = await getPageComponents("downloads", DEFAULT_ORDER);
     const banner = await getBannerData("/downloads");
     const bannerTitle = banner?.title || "Download Resources";
-    let bgImage = "/images/bg/wire-banner.png";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
         if (bgImage.startsWith('/uploads')) {

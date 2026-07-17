@@ -46,7 +46,7 @@ export default async function About() {
 	const banner = await getBannerData("/about-us");
 
 	const bannerTitle = banner?.title || "About Us";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];

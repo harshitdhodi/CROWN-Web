@@ -1,31 +1,28 @@
 import getBannerData from "@/lib/getBannerData";
 import Header from "@/components/layout/header/Header";
 import HeroInner from "@/components/sections/hero/HeroInner";
-import Portfolios10 from "@/components/sections/portfolios/Portfolios10";
-import Services10 from "@/components/sections/services/Services10";
-import Services2 from "@/components/sections/services/Services2";
+import Services4 from "@/components/sections/services/Services4";
 import BackToTop from "@/components/shared/others/BackToTop";
 import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import getPageComponents from "@/lib/getPageComponents";
 
+// Map component keys (matching CMS Page Manager keys) to their JSX elements.
+// The comment beside each entry is the section name shown in the CMS admin.
 const COMPONENT_MAP = {
-    About6: <About6 />, // Our Solutions
-    Services3: <Services3 />,
-   Services2: <Services2 />, // Industry
+    Services4: (props) => <Services4 variant="industry" {...props} />,
 };
 
+// Fallback order when CMS is unreachable
 const DEFAULT_ORDER = [
-    "About6",
-    "Services3",
-    "Services2",
+    "Services4",
 ];
 
-export default async function IndustrySolutions() {
-    const banner = await getBannerData("/industry-solutions");
-    const bannerTitle = banner?.title || "Industry Solutions";
-    let bgImage = "/images/bg/wire-banner.png";
+export default async function ManufacturingInfrastructure() {
+    const banner = await getBannerData("/manufacturing-infrastructure");
+    const bannerTitle = banner?.title || "Plant & Infrastructure";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
         if (bgImage.startsWith('/uploads')) {
@@ -33,7 +30,7 @@ export default async function IndustrySolutions() {
         }
     }
 
-    const activeKeys = await getPageComponents("industry-solutions", DEFAULT_ORDER);
+    const activeKeys = await getPageComponents("manufacturing-infrastructure", DEFAULT_ORDER);
 
     return (
         <CmsPageRoot pageSlug="industry-solutions">
@@ -47,17 +44,20 @@ export default async function IndustrySolutions() {
                             <HeaderSpace />
                             <HeroInner title={bannerTitle} text={bannerTitle} bgImage={bgImage} />
                             {activeKeys.map((comp) => {
+                                const Component = COMPONENT_MAP[comp.key];
+                                if (!Component) return null;
+
                                 const style = {};
                                 if (comp.margin_top) style.marginTop = comp.margin_top;
                                 if (comp.margin_bottom) style.marginBottom = comp.margin_bottom;
                                 if (comp.padding_top) style.paddingTop = comp.padding_top;
                                 if (comp.padding_bottom) style.paddingBottom = comp.padding_bottom;
 
-                                return COMPONENT_MAP[comp.key] ? (
+                                return (
                                     <div key={comp.key} style={Object.keys(style).length > 0 ? style : undefined}>
-                                        {COMPONENT_MAP[comp.key]}
+                                        <Component />
                                     </div>
-                                ) : null;
+                                );
                             })}
                         </main>
                         <Footer8 />
@@ -68,11 +68,8 @@ export default async function IndustrySolutions() {
         </CmsPageRoot>
     );
 }
-
 import { getMeta } from "@/lib/getMeta";
 import Footer8 from "@/components/layout/footer/Footer8";
-import About6 from "@/components/sections/about/About6";
-import Services3 from "@/components/sections/services/Services3";
 export async function generateMetadata() {
-    return await getMeta("/industry-solutions");
+    return await getMeta("/manufacturing-infrastructure");
 }

@@ -1,45 +1,52 @@
 import getBannerData from "@/lib/getBannerData";
 import Header from "@/components/layout/header/Header";
+import Footer8 from "@/components/layout/footer/Footer8";
 import Contact3 from "@/components/sections/contacts/Contact3";
 import ContactTop from "@/components/sections/contacts/ContactTop";
-import Cta from "@/components/sections/cta/Cta";
 import HeroInner from "@/components/sections/hero/HeroInner";
 import BackToTop from "@/components/shared/others/BackToTop";
 import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
 import getPageComponents from "@/lib/getPageComponents";
+import { getMeta } from "@/lib/getMeta";
+
+const CMS_BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
+
+async function safeFetch(url) {
+    try {
+        const res = await fetch(url, { next: { revalidate: 3600 } });
+        if (!res.ok) return null;
+        return await res.json();
+    } catch {
+        return null;
+    }
+}
 
 export default async function Contact() {
     const banner = await getBannerData("/contact");
     const bannerTitle = banner?.title || "Contact Us";
-    let bgImage = "/images/bg/wire-banner.png";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
-        if (bgImage.startsWith('/uploads')) {
-            bgImage = `${process.env.CMS_BASE_URL || "http://localhost:3012"}${bgImage}`;
+        if (bgImage.startsWith("/uploads")) {
+            bgImage = `${CMS_BASE_URL}${bgImage}`;
         }
     }
 
-    // Fetch all data from APIs
-    const [headingRes, contactRes, activeKeys] = await Promise.all([
-        fetch(`${process.env.CMS_BASE_URL}/api/heading?section=contact`),
-        fetch(`${process.env.CMS_BASE_URL}/api/data/contactus`),
-        getPageComponents("contact", ["ContactTop", "Contact3", "Cta"])
+    const [headingData, contactData, activeKeys] = await Promise.all([
+        safeFetch(`${CMS_BASE_URL}/api/heading?section=contact`),
+        safeFetch(`${CMS_BASE_URL}/api/data/contactus`),
+        getPageComponents("contact", ["ContactTop", "Contact3", "Cta"]),
     ]);
 
-    const headingData = await headingRes.json();
-    const contactData = await contactRes.json();
-    console.log("headingData",contactData)
-
-    const heading = headingData.success ? headingData.data : null;
-    const formheading = contactData.success && contactData.data.length > 0 ? contactData.data[0] : null;
-    const contact = contactData.success && contactData.data.length > 0 ? contactData.data[0] : null;
+    const heading = headingData?.success ? headingData.data : null;
+    const contact = contactData?.success && contactData.data?.length > 0 ? contactData.data[0] : null;
     const mapUrl = contact?.mapurl || "";
 
     const COMPONENT_MAP = {
         ContactTop: <ContactTop headingData={heading} contactData={contact} />,
-        Contact3: <Contact3 mapUrl={mapUrl} formHeading={formheading} />,
+        Contact3: <Contact3 mapUrl={mapUrl} formHeading={contact} />,
     };
 
     return (
@@ -76,8 +83,6 @@ export default async function Contact() {
     );
 }
 
-import { getMeta } from "@/lib/getMeta";
-import Footer8 from "@/components/layout/footer/Footer8";
 export async function generateMetadata() {
     return await getMeta("/contact");
 }

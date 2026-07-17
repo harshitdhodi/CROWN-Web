@@ -25,7 +25,7 @@ const DEFAULT_ORDER = ["Contact2", "Team3", "Team1"];
 export default async function GlobalPresence() {
 	const banner = await getBannerData("/global-presence");
 	const bannerTitle = banner?.title || "Global Presence";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

@@ -68,7 +68,7 @@ heroFiles.forEach(file => {
   const fetchBlock = `
 	const banner = await getBannerData(${routePath});
 	const bannerTitle = banner?.title || "${defaultTitle}";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

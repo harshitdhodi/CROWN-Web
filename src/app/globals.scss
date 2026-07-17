@@ -134,6 +134,18 @@
 	}
 }
 
+/* h8-header: keep nav link text white on hover — the dark header background
+   means the default theme-primary colour change on hover makes text unreadable */
+.h8-header .mainmenu > ul > li:hover > a,
+.h8-header .mainmenu > ul > li.current-menu-ancestor > a,
+.h8-header .mainmenu > ul > li.current-menu-item > a {
+	color: var(--tj-color-common-white) !important;
+}
+.h8-header .mainmenu > ul > li:hover > a::after,
+.h8-header .mainmenu > ul > li.current-menu-ancestor > a::after {
+	color: var(--tj-color-common-white) !important;
+}
+
 html, :root {
 	scroll-behavior: auto !important;
 }

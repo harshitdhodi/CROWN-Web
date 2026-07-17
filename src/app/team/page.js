@@ -21,7 +21,7 @@ const DEFAULT_ORDER = [
 export default async function Team() {
 	const banner = await getBannerData("/team");
 	const bannerTitle = banner?.title || "Team";
-	let bgImage = "/images/bg/wire-banner.png";
+	let bgImage = "/images/bg/bg.png";
 	if (banner?.image?.[0]) {
 		bgImage = banner.image[0];
 		if (bgImage.startsWith('/uploads')) {

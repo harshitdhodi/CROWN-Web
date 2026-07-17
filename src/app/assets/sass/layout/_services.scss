@@ -24,7 +24,7 @@ START: Services CSS
 		}
 	}
 	&.service-2 {
-		overflow-x: hidden;
+		overflow-x: clip; // clip doesn't create a scroll context, so sticky still works
 	}
 	&.service-3 {
 		background: transparent;

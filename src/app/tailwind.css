@@ -10,3 +10,11 @@
   If a Bootstrap class and Tailwind class conflict, Tailwind wins
   because it's imported after Bootstrap in layout.js.
 */
+
+/* Restrict Tailwind v4 auto-detection to source files only.
+   Without this, it scans .next build artefacts and compiled output
+   which contain dynamic class strings like border-[var()] that
+   produce invalid CSS (empty var() → PostCSS parse error). */
+@source not "../../.next/**";
+@source not "../../node_modules/**";
+@source "../../src/**/*.{js,jsx,ts,tsx,css,scss,mdx}";

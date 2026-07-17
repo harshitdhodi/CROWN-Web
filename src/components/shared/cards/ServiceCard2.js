@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 function resolveImage(src, fallback = "/images/service/h9-service-1.webp") {
-  if (!src) return fallback;
-  if (src.startsWith("http://") || src.startsWith("https://")) return src;
-  if (src.startsWith("/")) return src;
-  return `/${src}`;
+	if (!src) return fallback;
+	if (src.startsWith("http://") || src.startsWith("https://")) return src;
+	if (src.startsWith("/")) return src;
+	return `/${src}`;
 }
 
 const ServiceCard2 = ({ service, idx, lastItem }) => {
@@ -16,18 +16,29 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 		description,
 		id,
 		slug,
-		totalProject,
-		image,
 		icon_image,
-		img,
-		svg,
-		iconName
+		iconName,
 	} = service || {};
 
 	const cardDescription =
 		desc ||
 		description ||
 		"Through a combination of data-driven insights and innovative approaches, we work closely with you to develop customized.";
+
+	// Replace <li> bullet points with tji-list icon — flex-start so icon aligns top for multiline text
+	const processedDescription = cardDescription
+		.replace(
+			/<li>/gi,
+			'<li style="display:flex;align-items:flex-start;gap:8px;color:var(--tj-color-text-body-5);"><i class="tji-list" style="color:var(--tj-color-theme-primary);flex-shrink:0;margin-top:3px;"></i>'
+		)
+		.replace(
+			/<(h[1-6])([\s>])/gi,
+			'<$1 style="color:var(--tj-color-text-body-5);"$2'
+		)
+		.replace(
+			/<p([\s>])/gi,
+			'<p style="color:var(--tj-color-text-body-5);"$1'
+		);
 
 	const serviceId = slug || id || "";
 
@@ -54,25 +65,16 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 							<i className={iconName ? iconName : "tji-service-1"}></i>
 						)}
 					</div>
-					<h4 className="title">
-						<Link href={`/services/${serviceId}`}>{title}</Link>
+					<h4 className="title" style={{ color: "var(--tj-color-text-body-5)" }}>
+						<Link href={`/services/${serviceId}`} style={{ color: "var(--tj-color-text-body-5)" }}>{title}</Link>
 					</h4>
 				</div>
-				<div className="service-content">
-					<p className="desc" style={{ color: "var(--tj-color-text-body-5)" }}>
-						{cardDescription}
-					</p>
-					<ul className="list-items">
-						<li style={{ color: "var(--tj-color-text-body-5)" }}>
-							<i className="tji-list"></i>Expansion Strategies
-						</li>
-						<li style={{ color: "var(--tj-color-text-body-5)" }}>
-							<i className="tji-list"></i>Operational Efficiency
-						</li>
-						<li style={{ color: "var(--tj-color-text-body-5)" }}>
-							<i className="tji-list"></i>Competitive Edge
-						</li>
-					</ul>
+				<div className="service-content" style={{ color: "var(--tj-color-text-body-5)" }}>
+					<p
+						className="desc"
+						style={{ color: "var(--tj-color-text-body-5)" }}
+						dangerouslySetInnerHTML={{ __html: processedDescription }}
+					/>
 				</div>
 			</div>
 		</div>

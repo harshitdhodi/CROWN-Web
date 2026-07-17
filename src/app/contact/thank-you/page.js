@@ -6,6 +6,11 @@ import BackToTop from "@/components/shared/others/BackToTop";
 import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import Footer8 from "@/components/layout/footer/Footer8";
+import { getMeta } from "@/lib/getMeta";
+
+export async function generateMetadata() {
+	return await getMeta("/contact/thank-you");
+}
 
 export default function ContactThankYouPage() {
 	return (
@@ -17,11 +22,12 @@ export default function ContactThankYouPage() {
 				<div id="smooth-content">
 					<main>
 						<HeaderSpace />
-						<HeroInner title={"Thank You"} text={"Message Sent"} />
+						<HeaderSpace />
+						{/* <HeroInner title={"Thank You"} text={"Message Sent"} /> */}
 						<ThankYou />
 					
 					</main>
-					<Footer8 />
+					{/* <Footer8 /> */}
 				</div>
 			</div>
 			<ClientWrapper />

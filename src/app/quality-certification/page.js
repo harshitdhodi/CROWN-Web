@@ -29,7 +29,7 @@ const DEFAULT_ORDER = [
 export default async function QualityCertification() {
     const banner = await getBannerData("/quality-certification");
     const bannerTitle = banner?.title || "Quality & Certification";
-    let bgImage = "/images/bg/wire-banner.png";
+    let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];
         if (bgImage.startsWith('/uploads')) {

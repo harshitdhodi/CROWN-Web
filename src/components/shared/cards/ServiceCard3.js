@@ -62,7 +62,7 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 		>
 			<div className="service-content-wrap">
 				<div className="service-title" style={isJourney ? { maxWidth: "320px" } : {}}>
-					<div className="service-icon">
+					<div className="service-icon" style={isHovered ? { background: "transparent", border: "none", boxShadow: "none", transition: "none" } : { transition: "none" }}>
 						{isJourney ? (
 							// Year badge — larger circle, range years split vertically
 							(() => {
