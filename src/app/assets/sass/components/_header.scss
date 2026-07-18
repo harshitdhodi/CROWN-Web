@@ -298,6 +298,18 @@ START: Theme Header CSS
 		display: inline-block;
 		max-width: 136px;
 		width: 100%;
+
+		img {
+			max-width: 70px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+
+			@media #{$md, $sm, $xs} {
+				max-width: 50px;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
 	}
 }
 .menu-area {

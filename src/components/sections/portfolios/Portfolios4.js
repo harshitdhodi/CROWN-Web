@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { resolveCmsImage } from "@/lib/seoConfig";
 
 const ClientPortfolios4 = dynamic(
 	() => import("./ClientPortfolios4")
@@ -11,7 +12,6 @@ const ClientPortfolios4 = dynamic(
  */
 const Portfolios4 = async () => {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
-	const cmsBase = process.env.CMS_BASE_URL || "http://localhost:3012";
 
 	let equipmentItems = [];
 	let sectionHeading = null;
@@ -40,13 +40,7 @@ const Portfolios4 = async () => {
 		console.log("Heading", headingData)
 		equipmentItems =
 			equipmentData?.data?.map((item) => {
-				// Build the image URL: API returns an array like ["/uploads/xxx.jpg"]
-				const rawImg = Array.isArray(item.image)
-					? item.image[0]
-					: item.image;
-				const img4 = rawImg?.startsWith("/uploads/")
-					? `${cmsBase}${rawImg}`
-					: rawImg || "/images/project/project-4.webp";
+				const img4 = resolveCmsImage(item.image) || "/images/project/project-4.webp";
 
 				return {
 					id: item.id,
@@ -70,7 +64,7 @@ const Portfolios4 = async () => {
 					<div className="col-12">
 						<div className="sec-heading w-full style-4 text-center">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s" style={{ color: "var(--tj-color-text-body-4)" }}>
-								<i className="tji-box"></i>
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{sectionHeading?.tagline || "Proud Projects"}
 							</span>
 							<h2 className="sec-title title-anim" style={{ color: "var(--tj-color-text-body-4)" }}>

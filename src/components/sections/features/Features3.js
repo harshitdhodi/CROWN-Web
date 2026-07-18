@@ -15,13 +15,13 @@ async function getWhyChooseData() {
 
 		const features = featuresData?.success
 			? featuresData.data.map((item) => ({
-					id:        item.id,
-					title:     item.heading || item.title || "",
-					icon:      item.icon || "tji-innovative",
-					desc:      item.details || item.description || item.desc || "",
-					color_img: item.color_img || null,
-					hover_img: item.hover_img || null,
-				}))
+				id: item.id,
+				title: item.heading || item.title || "",
+				icon: item.icon || "tji-innovative",
+				desc: item.details || item.description || item.desc || "",
+				color_img: item.color_img || null,
+				hover_img: item.hover_img || null,
+			}))
 			: [];
 
 		const heading = headingData?.success ? headingData.data : null;
@@ -90,7 +90,7 @@ const Features3 = async () => {
 						<div className="h4-content-wrap text-center">
 							<div className="sec-heading style-4 text-center">
 								<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-									<i className="tji-box"></i>{tagline}
+									<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{tagline}
 								</span>
 								<h2 className="sec-title title-anim">{title}</h2>
 							</div>

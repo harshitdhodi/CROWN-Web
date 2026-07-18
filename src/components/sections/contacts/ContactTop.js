@@ -33,7 +33,7 @@ const ContactTop = ({ headingData, contactData }) => {
                     <div className="col-12">
                         <div className="sec-heading text-center">
                             <span className="sub-title wow fadeInUp" data-wow-delay=".1s">
-                                <i className="tji-box"></i>
+                                <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
                                 {tagline}
                             </span>
                             <h2 className="sec-title ">

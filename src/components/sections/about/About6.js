@@ -40,7 +40,7 @@ const About6 = () => {
 											className="sub-title wow fadeInUp"
 											data-wow-delay=".3s"
 										>
-											<i className="tji-box"></i>
+											<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 											{loading ? "Get to Know Us" : headingData?.tagline || "Get to Know Us"}
 										</span>
 									</div>

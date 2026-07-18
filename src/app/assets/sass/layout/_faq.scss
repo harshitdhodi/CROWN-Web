@@ -6,6 +6,7 @@ START: Faq CSS
 .tj-faq-section {
 	.sec-heading {
 		max-width: 550px;
+
 		@media #{$md,$sm,$xs} {
 			max-width: 100%;
 		}
@@ -14,26 +15,31 @@ START: Faq CSS
 	.content-wrap .desc {
 		@media #{$md,$sm,$xs} {
 			margin-bottom: 20px;
+
 			br {
 				display: none;
 			}
 		}
 	}
 }
+
 .faq-img-area {
 	max-width: 585px;
 	position: relative;
+
 	.faq-img {
 		width: 100%;
 		height: 100%;
 		position: relative;
 		border-radius: 12px;
 		overflow: hidden;
+
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 		}
+
 		.title {
 			position: absolute;
 			top: 40px;
@@ -41,10 +47,12 @@ START: Faq CSS
 			max-width: 400px;
 			color: var(--tj-color-common-white);
 			z-index: 2;
+
 			@media #{$sm, $xs} {
 				max-width: 280px;
 			}
 		}
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -65,11 +73,13 @@ START: Faq CSS
 		padding: 15px 0 0 15px;
 		border-start-start-radius: 12px;
 		border-start-end-radius: 0;
+
 		&::before {
 			inset-inline-start: inherit;
 			inset-inline-end: 0;
 			transform: rotate(180deg);
 		}
+
 		&::after {
 			transform: rotate(180deg);
 			inset-inline-start: -12px;
@@ -80,14 +90,17 @@ START: Faq CSS
 			max-width: 215px;
 		}
 	}
+
 	@media #{$md} {
 		max-width: 100%;
 	}
 }
+
 .call-box {
 	background-color: var(--tj-color-theme-primary);
 	border-radius: 10px;
 	padding: 25px 20px 30px;
+
 	.call-icon {
 		display: inline-flex;
 		align-items: center;
@@ -99,29 +112,35 @@ START: Faq CSS
 		width: 52px;
 		border-radius: 50%;
 		margin-bottom: 9px;
+
 		@media #{$xs} {
 			font-size: 18px;
 			height: 45px;
 			width: 45px;
 		}
 	}
+
 	.title {
 		color: var(--tj-color-common-white);
 		font-weight: var(--tj-fw-sbold);
 		max-width: 145px;
 		margin-bottom: 29px;
+
 		@media #{$xs} {
 			margin-bottom: 18px;
 		}
 	}
+
 	.number {
 		color: var(--tj-color-common-white);
 		font-size: 20px;
 		font-weight: var(--tj-fw-sbold);
 		display: inline-flex;
 		line-height: 1;
+
 		span {
 			position: relative;
+
 			&::after {
 				content: "";
 				position: absolute;
@@ -132,6 +151,7 @@ START: Faq CSS
 				background-color: currentColor;
 			}
 		}
+
 		&:hover {
 			span {
 				&::after {
@@ -140,15 +160,18 @@ START: Faq CSS
 				}
 			}
 		}
+
 		@media #{$xs} {
 			font-size: 18px;
 		}
 	}
+
 	&:hover {
 		.call-icon {
 			animation: bellshake 0.5s linear;
 		}
 	}
+
 	@media #{$xs} {
 		padding: 20px 18px 25px;
 	}
@@ -161,9 +184,11 @@ START: Faq CSS
 		border-radius: 8px;
 		border: 0;
 		position: relative;
+
 		&:last-child {
 			margin-bottom: 0;
 		}
+
 		.faq-title {
 			font-size: 18px;
 			text-align: start;
@@ -175,6 +200,7 @@ START: Faq CSS
 			position: relative;
 			z-index: 2;
 			transition: none;
+
 			&::after {
 				content: "\e927";
 				color: var(--tj-color-theme-primary);
@@ -191,24 +217,29 @@ START: Faq CSS
 				border: 2px solid var(--tj-color-theme-primary);
 				transform: translateY(-50%);
 			}
+
 			@media #{$md, $sm, $xs} {
 				padding: 20px 40px 20px 0;
 			}
 		}
+
 		.accordion-body {
 			padding: 0;
 			padding-bottom: 25px;
 			margin-top: 15px;
 			color: var(--tj-color-text-body);
+
 			p {
 				&:last-child {
 					margin-bottom: 0;
 				}
 			}
 		}
+
 		&:has(button:not(.collapsed)) {
 			.faq-title {
 				border-bottom: 1px dashed var(--tj-color-border-1);
+
 				&::after {
 					content: "\e918";
 				}
@@ -221,21 +252,25 @@ START: Faq CSS
 	}
 
 	@media #{$md, $sm, $xs} {
-		padding-top: 40px;
+		padding-top: 30px;
+		;
 	}
 
 	&.style-2 {
 		.accordion-item {
 			&:has(button:not(.collapsed)) {
 				background-color: var(--tj-color-theme-primary);
+
 				.faq-title {
 					color: var(--tj-color-common-white);
 					border-color: rgba(255, 255, 255, 0.15);
+
 					&::after {
 						color: var(--tj-color-common-white);
 						border-color: rgba(255, 255, 255, 0.1);
 					}
 				}
+
 				.accordion-body {
 					p {
 						color: var(--tj-color-common-white);

@@ -3,6 +3,7 @@
 /* START: T&D CSS */
 .terms-and-conditions {
 	&-wrapper {
+
 		h1,
 		h2,
 		h3,
@@ -10,14 +11,18 @@
 		h5,
 		h6 {
 			padding-top: 30px;
+			;
 			margin-bottom: 15px;
 		}
+
 		ul {
 			padding-inline-start: 20px;
+
 			&:not(:first-child) {
 				margin-bottom: 30px;
 			}
 		}
 	}
 }
+
 /* !END: T&D CSS */

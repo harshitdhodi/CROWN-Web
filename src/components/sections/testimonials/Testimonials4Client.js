@@ -25,9 +25,9 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 	const hasProducts = products.length > 0;
 	const productOptions = hasProducts
 		? [
-				{ value: "", optionName: "Choose a product" },
-				...products.map((p) => ({ value: String(p.id), optionName: p.name })),
-			]
+			{ value: "", optionName: "Choose a product" },
+			...products.map((p) => ({ value: String(p.id), optionName: p.name })),
+		]
 		: [{ value: "", optionName: "No products available" }];
 
 	const handleChange = (e) => {
@@ -73,7 +73,7 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 
 	return (
 		<>
-		<style>{`
+			<style>{`
 			.testimonials-section-wrapper {
 				margin-top: 30px !important;
 				margin-bottom: 30px !important;
@@ -85,165 +85,165 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 				}
 			}
 		`}</style>
-		<section
-			className="h4-contact-section testimonials-section-wrapper"
-			style={{
-				position: "relative",
-				backgroundImage: `url(${bgImage || cta.src})`,
-				backgroundSize: "cover",
-				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat",
-				width: "98%",
-				marginLeft: "auto",
-				marginRight: "auto",
-				padding: "50px 0",
-				borderRadius: "8px",
-			}}
-		>
-			<div className="container" style={{ position: "relative", zIndex: 1 }}>
-				<div className="row">
-					<div className="col-lg-6">
-						<div
-							className="contact-form style-3 t4-contact-form wow fadeInUp"
-							data-wow-delay=".4s"
-							style={{
-								background: "var(--tj-color-common-white)",
-								padding: "28px",
-								borderRadius: "12px",
-								boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-							}}
-						>
-							<div className="sec-heading style-4">
-								<span className="sub-title">
-									<i className="tji-box"></i>Get in Touch
-								</span>
-								<h2 className="sec-title">{bannerTitle || "Drop us a Line Here."}</h2>
-							</div>
+			<section
+				className="h4-contact-section testimonials-section-wrapper"
+				style={{
+					position: "relative",
+					backgroundImage: `url(${bgImage || cta.src})`,
+					backgroundSize: "cover",
+					backgroundPosition: "center",
+					backgroundRepeat: "no-repeat",
+					width: "98%",
+					marginLeft: "auto",
+					marginRight: "auto",
+					padding: "50px 0",
+					borderRadius: "8px",
+				}}
+			>
+				<div className="container" style={{ position: "relative", zIndex: 1 }}>
+					<div className="row">
+						<div className="col-lg-6">
+							<div
+								className="contact-form style-3 t4-contact-form wow fadeInUp"
+								data-wow-delay=".4s"
+								style={{
+									background: "var(--tj-color-common-white)",
+									padding: "28px",
+									borderRadius: "12px",
+									boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+								}}
+							>
+								<div className="sec-heading style-4">
+									<span className="sub-title">
+										<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>Get in Touch
+									</span>
+									<h2 className="sec-title">{bannerTitle || "Drop us a Line Here."}</h2>
+								</div>
 
-							{error && <div className="form-alert">{error}</div>}
+								{error && <div className="form-alert">{error}</div>}
 
-							<form id="contact-form-3" onSubmit={handleSubmit}>
-								<div className="row wow fadeInUp" data-wow-delay=".5s">
-									<div className="col-sm-6">
-										<div className="form-input">
-											<label className="cf-label" htmlFor="t4-name">
-												Full Name *
-											</label>
-											<input
-												id="t4-name"
-												type="text"
-												name="name"
-												value={formData.name}
-												onChange={handleChange}
-												placeholder="Full Name"
-												required
-											/>
+								<form id="contact-form-3" onSubmit={handleSubmit}>
+									<div className="row wow fadeInUp" data-wow-delay=".5s">
+										<div className="col-sm-6">
+											<div className="form-input">
+												<label className="cf-label" htmlFor="t4-name">
+													Full Name *
+												</label>
+												<input
+													id="t4-name"
+													type="text"
+													name="name"
+													value={formData.name}
+													onChange={handleChange}
+													placeholder="Full Name"
+													required
+												/>
+											</div>
 										</div>
-									</div>
-									<div className="col-sm-6">
-										<div className="form-input">
-											<label className="cf-label" htmlFor="t4-email">
-												Email Address *
-											</label>
-											<input
-												id="t4-email"
-												type="email"
-												name="email"
-												value={formData.email}
-												onChange={handleChange}
-												placeholder="Email Address"
-												required
-											/>
+										<div className="col-sm-6">
+											<div className="form-input">
+												<label className="cf-label" htmlFor="t4-email">
+													Email Address *
+												</label>
+												<input
+													id="t4-email"
+													type="email"
+													name="email"
+													value={formData.email}
+													onChange={handleChange}
+													placeholder="Email Address"
+													required
+												/>
+											</div>
 										</div>
-									</div>
-									<div className="col-sm-6">
-										<div className="form-input">
-											<label className="cf-label" htmlFor="t4-phone">
-												Phone number
-											</label>
-											<input
-												id="t4-phone"
-												type="tel"
-												name="phone"
-												value={formData.phone}
-												onChange={handleChange}
-												placeholder="Phone number"
-											/>
+										<div className="col-sm-6">
+											<div className="form-input">
+												<label className="cf-label" htmlFor="t4-phone">
+													Phone number
+												</label>
+												<input
+													id="t4-phone"
+													type="tel"
+													name="phone"
+													value={formData.phone}
+													onChange={handleChange}
+													placeholder="Phone number"
+												/>
+											</div>
 										</div>
-									</div>
-									<div className="col-sm-6">
-										<div className="form-input">
-											<label className="cf-label">Product of Interest</label>
-											<div className="tj-nice-select-box">
-												<div className="tj-select">
-													<ReactNiceSelect
-														options={productOptions}
-														value={formData.product_id}
-														getSelectedOption={(val) =>
-															setFormData((prev) => ({ ...prev, product_id: val }))
-														}
-														disabled={!hasProducts}
-														placeholder="Choose a product"
-													/>
+										<div className="col-sm-6">
+											<div className="form-input">
+												<label className="cf-label">Product of Interest</label>
+												<div className="tj-nice-select-box">
+													<div className="tj-select">
+														<ReactNiceSelect
+															options={productOptions}
+															value={formData.product_id}
+															getSelectedOption={(val) =>
+																setFormData((prev) => ({ ...prev, product_id: val }))
+															}
+															disabled={!hasProducts}
+															placeholder="Choose a product"
+														/>
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div className="col-sm-12">
-										<div className="form-input message-input">
-											<label className="cf-label" htmlFor="message-t4">
-												Message here... *
-											</label>
-											<textarea
-												name="message"
-												id="message-t4"
-												value={formData.message}
-												onChange={handleChange}
-												placeholder="Type your message"
-												rows="3"
-												required
-											></textarea>
+										<div className="col-sm-12">
+											<div className="form-input message-input">
+												<label className="cf-label" htmlFor="message-t4">
+													Message here... *
+												</label>
+												<textarea
+													name="message"
+													id="message-t4"
+													value={formData.message}
+													onChange={handleChange}
+													placeholder="Type your message"
+													rows="3"
+													required
+												></textarea>
+											</div>
+										</div>
+										<div className="submit-btn">
+											<button
+												className="tj-primary-btn"
+												type="submit"
+												disabled={loading}
+											>
+												<span className="btn-text">
+													<span>{loading ? "Sending..." : "Send Message"}</span>
+												</span>
+												<span className="btn-icon">
+													<i className="tji-arrow-right-long"></i>
+												</span>
+											</button>
 										</div>
 									</div>
-									<div className="submit-btn">
-										<button
-											className="tj-primary-btn"
-											type="submit"
-											disabled={loading}
-										>
-											<span className="btn-text">
-												<span>{loading ? "Sending..." : "Send Message"}</span>
-											</span>
-											<span className="btn-icon">
-												<i className="tji-arrow-right-long"></i>
-											</span>
-										</button>
-									</div>
-								</div>
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="bg-shape-1">
-				<Image
-					src="/images/shape/pattern-2.svg"
-					alt=""
-					width={100}
-					height={100}
-					style={{ width: "100%", height: "auto" }}
-				/>
-			</div>
-			<div className="bg-shape-2">
-				<Image
-					src="/images/shape/pattern-3.svg"
-					alt=""
-					width={100}
-					height={100}
-					style={{ width: "100%", height: "auto" }}
-				/>
-			</div>
-		</section>
+				<div className="bg-shape-1">
+					<Image
+						src="/images/shape/pattern-2.svg"
+						alt=""
+						width={100}
+						height={100}
+						style={{ width: "100%", height: "auto" }}
+					/>
+				</div>
+				<div className="bg-shape-2">
+					<Image
+						src="/images/shape/pattern-3.svg"
+						alt=""
+						width={100}
+						height={100}
+						style={{ width: "100%", height: "auto" }}
+					/>
+				</div>
+			</section>
 		</>
 	);
 };

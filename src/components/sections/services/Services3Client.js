@@ -19,7 +19,7 @@ const Services3Client = ({ services, heading, variant }) => {
 					<div className="col-lg-12">
 						<div className="sec-heading style-3 text-center">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s" style={{ border: '1px dashed var(--tj-color-border-1)', padding: '2px 10px' }}>
-								<i className="tji-box"></i>{tagline}
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{tagline}
 							</span>
 							<div className="sec-heading style-3">
 								<h2 className="sec-title" style={{
@@ -37,14 +37,14 @@ const Services3Client = ({ services, heading, variant }) => {
 						<div className="service-wrapper">
 							{services?.length
 								? services.map((service, idx) => (
-										<ServiceCard3
-											key={idx}
-											service={service}
-											idx={idx}
-											isIndustrySolutions={isIndustrySolutions}
-											variant={variant}
-										/>
-								  ))
+									<ServiceCard3
+										key={idx}
+										service={service}
+										idx={idx}
+										isIndustrySolutions={isIndustrySolutions}
+										variant={variant}
+									/>
+								))
 								: ""}
 						</div>
 					</div>

@@ -144,6 +144,11 @@ const ProcessSlider = ({ historyData }) => {
 					box-sizing: border-box;
 					display: flex;
 				}
+				@media (max-width: 767px) {
+					.process-slide-item {
+						padding: 0;
+					}
+				}
 				:global(.process-item) {
 					height: 100%;
 					width: 100%;

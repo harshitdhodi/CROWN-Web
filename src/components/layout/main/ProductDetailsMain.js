@@ -5,21 +5,11 @@ import ContactForm from "@/components/sections/contacts/ContactForm";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
+import { resolveCmsImage } from "@/lib/seoConfig";
 
 const resolveApiImage = (src) => {
   if (!src) return "/images/project/h5-project-1.webp";
-  if (Array.isArray(src)) {
-    return resolveApiImage(src[0]);
-  }
-  if (typeof src !== "string") return "/images/project/h5-project-1.webp";
-  let cleanSrc = src;
-  if (src.includes("/uploads/")) {
-    cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-  } else if (src.startsWith("http")) {
-    return src;
-  }
-  return cleanSrc.startsWith("/") ? `${BASE_URL}${cleanSrc}` : `${BASE_URL}/${cleanSrc}`;
+  return resolveCmsImage(src) || "/images/project/h5-project-1.webp";
 };
 
 const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) => {

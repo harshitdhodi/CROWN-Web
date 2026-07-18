@@ -42,7 +42,7 @@ const FeaturesCustom = async () => {
                     <div className="col-12">
                         <div className="sec-heading  sec-heading-wrap text-center">
                             <span className="sub-title wow fadeInUp bg-transparent border border-dashed border-gray-300 px-3 py-1 rounded-full" data-wow-delay=".3s" style={{ border: '1px dashed var(--tj-color-border-1)' }}>
-                                <i className="tji-box"></i>
+                                <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
                                 {sectionHeading?.tagline || "Choose the Best"}
                             </span>
                             <h2 className="max-w-4xl mx-auto sec-title title-anim">

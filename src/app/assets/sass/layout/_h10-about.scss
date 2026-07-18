@@ -4,21 +4,33 @@
 START: Home 10 About CSS
 ----------------------------------------*/
 .h10-about {
+	.sub-title {
+		border: 1px dashed var(--tj-color-border-1, #c9d1d1) !important;
+		padding: 2px 10px !important;
+		border-radius: 8px !important;
+		display: inline-flex !important;
+		align-items: center !important;
+		gap: 8px !important;
+		background: transparent !important;
+		font-weight: 700 !important;
+		color: var(--tj-color-theme-primary) !important;
+		text-transform: uppercase !important;
+		font-size: 14px !important;
+		letter-spacing: 1px !important;
+		margin-bottom: 25px !important;
+		i {
+			color: var(--tj-color-theme-primary) !important;
+			font-size: 18px !important;
+			flex-shrink: 0;
+		}
+	}
+
 	&-content {
 		&-wrapper {
-			max-width: 644px;
+			max-width: 100%;
 			margin-inline-start: auto;
-			@media #{$xl} {
-				max-width: 629px;
-			}
-			@media #{$lg} {
-				max-width: 524px;
-			}
-			@media #{$md} {
-				max-width: 100%;
-			}
 			@media #{$sm,$xs} {
-				margin-bottom: 30px;
+				margin-bottom: 0;
 			}
 		}
 		.desc {
@@ -28,9 +40,25 @@ START: Home 10 About CSS
 		}
 	}
 
+	.row {
+		@media #{$lg, $xl, $xxl} {
+			align-items: stretch !important;
+		}
+	}
+
 	&-banner {
 		@media #{$md} {
 			height: 100%;
+		}
+		@media #{$lg, $xl, $xxl} {
+			height: 100%;
+			.about-img {
+				height: 100%;
+				img {
+					height: 100% !important;
+					object-fit: cover !important;
+				}
+			}
 		}
 	}
 	&-clients {

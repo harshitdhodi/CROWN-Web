@@ -55,3 +55,23 @@ export function getSiteUrl(requestUrl) {
   // 4. Default fallback
   return process.env.NEXT_PUBLIC_SITE_URL || 'https://www.demo.crownpack.in';
 }
+
+export function resolveCmsImage(src) {
+  if (!src) return null;
+  if (Array.isArray(src)) {
+    return resolveCmsImage(src[0]);
+  }
+  if (typeof src !== "string") return null;
+  let cleanSrc = src;
+  if (src.includes("/uploads/")) {
+    cleanSrc = "/uploads/" + src.split("/uploads/")[1];
+  } else if (src.startsWith("http://") || src.startsWith("https://")) {
+    if (src.includes("localhost") || src.includes("127.0.0.1")) {
+      cleanSrc = "/uploads/" + src.split("/uploads/")[1];
+    } else {
+      return src;
+    }
+  }
+  const imageBase = "https://demoadmin.crownpack.in";
+  return cleanSrc.startsWith("/") ? `${imageBase}${cleanSrc}` : `${imageBase}/${cleanSrc}`;
+}

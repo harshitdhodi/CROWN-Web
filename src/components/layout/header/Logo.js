@@ -72,7 +72,7 @@ const Logo = ({ headerType, isStickyHeader, isSticky }) => {
 					alt="Site Logo"
 					width={136}
 					height={45}
-					style={{ height: "auto", width: "100%", maxWidth: "70px", paddingTop:"5px",paddingBottom:"5px" }}
+					style={{ height: "auto", width: "100%" }}
 				/>
 			</Link>
 		</div>

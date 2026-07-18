@@ -9,6 +9,13 @@ START: Contact CSS
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+	@media #{$md, $sm, $xs} {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
 	.sec-heading {
 		margin-inline-start: 0;
 		margin-inline-end: 0;

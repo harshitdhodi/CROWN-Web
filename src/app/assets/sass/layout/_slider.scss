@@ -137,7 +137,10 @@ START: Theme Slider CSS
 		min-height: 95vh;
 	}
 	@media #{$xl} {
-		min-height: auto;
+		min-height: 85vh;
+	}
+	@media #{$lg} {
+		min-height: 80vh;
 	}
 	@media #{$sm, $xs} {
 		min-height: 100vh;

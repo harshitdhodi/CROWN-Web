@@ -4,15 +4,15 @@ import ProcessSlider from "./ProcessSlider";
 async function getProcessData(type) {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	const isCoreValue = type === "core-value";
-	const isQuality   = type === "quality";
+	const isQuality = type === "quality";
 
 	const headingSection = isCoreValue ? "core-value"
 		: isQuality ? "quality-assurance"
-		: "our-history";
+			: "our-history";
 
 	const dataEndpoint = isCoreValue ? "core_value"
 		: isQuality ? "quality-control-process"
-		: "history";
+			: "history";
 
 	try {
 		const [headingRes, historyRes] = await Promise.all([
@@ -46,41 +46,41 @@ const Process = async ({ type = "history" }) => {
 		desc: item.details || item.description || item.subheading || "",
 	}));
 
-  return (
-    <section className=" section-gap section-gap-x">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="sec-heading-wrap ">
-           	<span className="sub-title wow fadeInUp " data-wow-delay=".3s">
-								<i className="tji-box"></i>
+	return (
+		<section className=" section-gap section-gap-x">
+			<div className="container">
+				<div className="row">
+					<div className="col-12">
+						<div className="sec-heading-wrap ">
+							<span className="sub-title wow fadeInUp " data-wow-delay=".3s">
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{heading?.tagline || "Our Process"}
 							</span>
-              <div className="heading-wrap-content d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
-                <div className="sec-heading style-2 mb-lg-0">
-                  <h2 className="sec-title text-anim">
+							<div className="heading-wrap-content d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
+								<div className="sec-heading style-2 mb-lg-0">
+									<h2 className="sec-title text-anim">
 										{heading?.heading || "Seamless Process, Great Results."}
 									</h2>
-                </div>
-                <p className="desc wow fadeInUp" data-wow-delay=".5s">
-                  {heading?.subheading || "Developing personalized customer journeys to increase satisfaction and loyalty."}
-                </p>
-                <div className="btn-wrap wow fadeInUp" data-wow-delay=".6s">
-                  <ButtonPrimary text={"Request a Call"} url={"/contact"} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+								</div>
+								<p className="desc wow fadeInUp" data-wow-delay=".5s">
+									{heading?.subheading || "Developing personalized customer journeys to increase satisfaction and loyalty."}
+								</p>
+								<div className="btn-wrap wow fadeInUp" data-wow-delay=".6s">
+									<ButtonPrimary text={"Request a Call"} url={"/contact"} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div className="row">
-          <div className="col-12">
+				<div className="row">
+					<div className="col-12">
 						<ProcessSlider historyData={formattedHistory} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Process;

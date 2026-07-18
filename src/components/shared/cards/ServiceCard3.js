@@ -39,10 +39,10 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 
 	const descStyle = isIndustrySolutions ? {
 		color: isHovered
-			? "var(--tj-color-text-body-5)"
+			? "var(--tj-color-common-white)"
 			: "var(--tj-color-text-body-2)",
 		transition: "color 0.3s ease-in-out",
-		maxWidth: "550px",
+		maxWidth: "450px",
 	} : {};
 
 	const revealBgStyle = {

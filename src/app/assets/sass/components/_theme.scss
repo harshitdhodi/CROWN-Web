@@ -127,11 +127,7 @@ h2 {
 		font-size: 40px;
 	}
 
-	@media #{$sm} {
-		font-size: 36px;
-	}
-
-	@media #{$xs} {
+	@media #{$sm, $xs} {
 		font-size: 30px;
 	}
 }
@@ -360,9 +356,14 @@ img {
 		padding-bottom: 50px;
 	}
 
-	@media #{$md, $sm, $xs} {
-		padding-top: 40px;
-		padding-bottom: 40px;
+	@media #{$md} {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	@media #{$sm, $xs} {
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 }
 
@@ -390,7 +391,7 @@ img {
 	}
 
 	@media #{$md, $sm, $xs} {
-		padding-top: 40px;
+		padding-top: 30px;
 	}
 }
 
@@ -588,6 +589,7 @@ img {
 
 .slidebar-stickiy {
 	will-change: transform;
+
 	@media (min-width: 992px) {
 		position: sticky;
 		top: 120px;
@@ -618,4 +620,11 @@ img {
 .slider-prev,
 .slider-next {
 	cursor: pointer;
+}
+
+main > div {
+	@media #{$md, $sm, $xs} {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
 }

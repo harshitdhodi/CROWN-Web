@@ -43,7 +43,7 @@ const Services2 = async () => {
 						<div className="content-wrap slidebar-stickiy">
 							<div className="sec-heading style-2">
 								<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-									<i className="tji-box"></i> {headingData?.tagline || "Our Solutions"}
+									<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i> {headingData?.tagline || "Our Solutions"}
 								</span>
 								<h2 className="sec-title text-white text-anim">
 									{headingData?.heading || "Tailored Business Solutions for our Corporates."}
@@ -58,8 +58,8 @@ const Services2 = async () => {
 						<div className="service-wrapper-2">
 							{services?.length
 								? services?.map((service, idx) => (
-										<ServiceCard2 key={idx} service={service} idx={idx} />
-								  ))
+									<ServiceCard2 key={idx} service={service} idx={idx} />
+								))
 								: ""}
 						</div>
 					</div>

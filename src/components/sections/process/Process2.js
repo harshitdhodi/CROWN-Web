@@ -21,7 +21,7 @@ const Process2 = async () => {
 
 		const processData = processRes.ok ? await processRes.json() : { data: [] };
 		const headingData = headingRes.ok ? await headingRes.json() : null;
-console.log("Fetched Process data:", processData);
+		console.log("Fetched Process data:", processData);
 		processes =
 			processData?.data?.slice().reverse().map((item) => ({
 				id: item.id,
@@ -44,20 +44,20 @@ console.log("Fetched Process data:", processData);
 	const rows = chunkArray(processes, 3);
 
 	return (
-		<section className="h5-working-process section-gap section-gap-x" style={{ marginTop: "50px" , marginBottom:"50px" }}>
+		<section className="h5-working-process section-gap section-gap-x" style={{ marginTop: "50px", marginBottom: "50px" }}>
 			<div className="container">
 				<div className="row">
 					<div className="col-12">
 						<div className="sec-heading sec-heading-centered style-3">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-								<i className="tji-box"></i>
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{sectionHeading?.tagline || "OUR PROCESS"}
 							</span>
-					
-								<h2 className="max-w-4xl mx-auto sec-title title-anim text-white">
+
+							<h2 className="max-w-4xl mx-auto sec-title title-anim text-white">
 								{sectionHeading?.heading || "Seamless Process and Great Results."}
 							</h2>
-						
+
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@ console.log("Fetched Process data:", processData);
 								<div className="col-12">
 									<div
 										className="working-process-area h5-working-process-wrapper"
-										style={{ 
+										style={{
 											marginBottom: rowIdx < rows.length - 1 ? "30px" : "0"
 										}}
 									>

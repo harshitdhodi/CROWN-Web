@@ -32,22 +32,19 @@ const AnimatedCounter = ({ target, suffix = "", format = (n) => n }) => {
 	);
 };
 
-// Ensure this points to your CMS/Backend port (e.g., 3001)
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
+import { resolveCmsImage } from "@/lib/seoConfig";
 
-const resolveApiImage = (src) => {
-	if (!src) return null;
-	if (Array.isArray(src)) {
-		return resolveApiImage(src[0]);
-	}
-	if (typeof src !== "string") return null;
-	let cleanSrc = src;
-	if (src.includes("/uploads/")) {
-		cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-	} else if (src.startsWith("http://") || src.startsWith("https://")) {
-		return src;
-	}
-	return cleanSrc.startsWith("/") ? `${BASE_URL}${cleanSrc}` : `${BASE_URL}/${cleanSrc}`;
+const resolveApiImage = resolveCmsImage;
+
+const parseAchievement = (val, defaultVal, defaultSuffix) => {
+	if (!val) return { num: defaultVal, suffix: defaultSuffix };
+	const str = String(val).trim();
+	const numMatch = str.match(/^[\d,]+/);
+	if (!numMatch) return { num: defaultVal, suffix: defaultSuffix };
+	const numStr = numMatch[0];
+	const num = Number(numStr.replace(/,/g, ""));
+	const suffix = str.replace(numStr, "").trim();
+	return { num, suffix: suffix || defaultSuffix };
 };
 
 const About9Client = ({ about }) => {
@@ -81,8 +78,52 @@ const About9Client = ({ about }) => {
 	const acheivment3 = about?.acheivment3 || defaultAbout.acheivment3;
 	const acheivment_text3 = about?.acheivment_text3 || defaultAbout.acheivment_text3;
 
+	const ach1 = parseAchievement(acheivment1, 7, "+");
+	const ach2 = parseAchievement(acheivment2, 10, " Lakh+");
+	const ach3 = parseAchievement(acheivment3, 10000, "+");
+
+	const cardStyle = {
+		background: "var(--tj-color-common-white, white)",
+		padding: "22px 20px",
+		borderRadius: "14px",
+		border: "1px solid var(--tj-color-border-1, #eef3f3)",
+		height: "100%",
+		boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
+		display: "flex",
+		flexDirection: "column",
+		gap: "10px",
+	};
+
+	const iconBadgeStyle = {
+		width: "44px", height: "44px", borderRadius: "10px",
+		background: "color-mix(in srgb, var(--tj-color-theme-primary) 12%, transparent)",
+		display: "flex", alignItems: "center", justifyContent: "center",
+	};
+
+	const statStyle = {
+		fontSize: "40px", fontWeight: "800", color: "var(--tj-color-theme-primary)", letterSpacing: "-1px"
+	};
+
+	const labelStyle = {
+		fontSize: "13px", fontWeight: "500", color: "var(--tj-color-body-primary, #667085)", lineHeight: "1.4"
+	};
+
+	const btnStyle = {
+		background: "var(--tj-color-theme-primary)",
+		color: "var(--tj-color-common-white, white)",
+		padding: "14px 28px",
+		borderRadius: "30px",
+		fontWeight: "600",
+		fontSize: "15px",
+		display: "inline-flex",
+		alignItems: "center",
+		gap: "10px",
+		border: "none",
+		textDecoration: "none"
+	};
+
 	return (
-		<section className="h10-about section-gap" style={{ background: "#f4f8f8" }}>
+		<section className="h10-about section-gap " style={{ background: "#f4f8f8" }}>
 			<style>{`
 				.h10-about-achievement-card .odometer,
 				.h10-about-achievement-card .odometer .odometer-digit,
@@ -92,12 +133,9 @@ const About9Client = ({ about }) => {
 				}
 			`}</style>
 			<div className="container">
-				{/* Pill Badge top-left */}
-
-
-				<div className="row">
+				<div className="row align-items-center">
 					{/* Left Column: Image with floating glassmorphic box */}
-					<div className="col-12 col-lg-5 mb-5 mb-lg-0">
+					<div className="col-12 col-md-5 col-lg-5 mb-5 mb-lg-0">
 						<div
 							className="about-img-area h10-about-banner wow bounceInLeft"
 							data-wow-delay=".3s"
@@ -110,7 +148,7 @@ const About9Client = ({ about }) => {
 									alt="About us"
 									style={{ width: "100%", height: "auto", objectFit: "cover", display: "block", borderRadius: "16px" }}
 								/>
-								
+
 								{/* Floating Glassmorphic Customer Card */}
 								<div
 									className="customers-box style-3 h10-about-clients wow fadeInUp"
@@ -174,181 +212,170 @@ const About9Client = ({ about }) => {
 						</div>
 					</div>
 
-					{/* Right Column: Title, achievement cards, description and action buttons */}
-					<div className="col-12 col-lg-7">
-						<div className="h10-about-content-wrapper" style={{ maxWidth: "100%", paddingLeft: "15px" }}>
-						<span
-								className="sub-title wow fadeInUp"
-								data-wow-delay=".3s"
-								style={{
-									background: "var(--tj-color-common-white, white)",
-									padding: "8px 16px",
-									borderRadius: "4px",
-									boxShadow: "0 2px 10px rgba(0,0,0,0.03)",
-									color: "var(--tj-color-theme-primary)",
-									fontWeight: "600",
-									display: "inline-flex",
-									alignItems: "center",
-									gap: "8px"
-								}}
-							>
-								<i className="tji-box" style={{ color: "var(--tj-color-theme-primary)" }}></i> {heading}
+					{/* Right Column: Title, and on large screens: Counters, Description, Button */}
+					<div className="col-12 col-md-7 col-lg-7">
+						<div className="h10-about-content-wrapper md:pl-[15px] pl-0 " style={{ maxWidth: "100%" }}>
+							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
+								<i className="tji-box hidden sm:block mb-2 lg:mb-0 sm:mb-0"></i>
+								{heading}
 							</span>
 							<h2
-								className="sec-title title-highlight wow fadeInUp"
+								className="sec-title text-[30px] lg:text-[38px] title-highlight wow fadeInUp"
 								data-wow-delay=".3s"
-								style={{ fontSize: "38px", fontWeight: "500", lineHeight: "1.25", marginBottom: "35px" }}
+								style={{ fontWeight: "500", lineHeight: "1.25", marginBottom: "35px" }}
 							>
-								{subheading} 
+								{subheading}
 							</h2>
 
-							{/* Achievement Cards Layout — 3 cards */}
-							<div className="row mb-4 g-3">
+							{/* DESKTOP LAYOUT (Visible on lg/1024px screens and above) */}
+							<div className="d-none d-lg-block">
+								{/* Achievement Cards Layout — 3 cards */}
+								<div className="row mb-4 g-3">
+									<div className="col-md-4">
+										<div style={cardStyle}>
+											<div style={iconBadgeStyle}>
+												<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+													<path d="M12 8v4l3 3" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+													<circle cx="12" cy="12" r="10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" />
+												</svg>
+											</div>
+											<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1 }}>
+												<span style={statStyle}>
+													<AnimatedCounter target={ach1.num} suffix={ach1.suffix} />
+												</span>
+											</div>
+											<span style={labelStyle}>{acheivment_text1}</span>
+										</div>
+									</div>
 
-					{/* Card 1 — Years Experience */}
-					<div className="col-md-4">
-						<div style={{
-							background: "var(--tj-color-common-white, white)",
-							padding: "22px 20px",
-							borderRadius: "14px",
-							border: "1px solid var(--tj-color-border-1, #eef3f3)",
-							height: "100%",
-							boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
-							display: "flex",
-							flexDirection: "column",
-							gap: "10px",
-						}}>
-							{/* Icon badge */}
-							<div style={{
-								width: "44px", height: "44px", borderRadius: "10px",
-								background: "color-mix(in srgb, var(--tj-color-theme-primary) 12%, transparent)",
-								display: "flex", alignItems: "center", justifyContent: "center",
-							}}>
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-									<path d="M12 8v4l3 3" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-									<circle cx="12" cy="12" r="10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" />
-								</svg>
+									<div className="col-md-4">
+										<div style={cardStyle}>
+											<div style={iconBadgeStyle}>
+												<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+													<path d="M3 20V14M8 20V9M13 20V4M18 20V11" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+												</svg>
+											</div>
+											<div style={{ display: "flex", alignItems: "baseline", gap: "3px", lineHeight: 1, flexWrap: "nowrap" }}>
+												<span style={statStyle}>
+													<AnimatedCounter target={ach2.num} suffix={ach2.suffix} />
+												</span>
+											</div>
+											<span style={labelStyle}>{acheivment_text2}</span>
+										</div>
+									</div>
+
+									<div className="col-md-4">
+										<div style={cardStyle}>
+											<div style={iconBadgeStyle}>
+												<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+													<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+													<path d="M9 22V12h6v10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+												</svg>
+											</div>
+											<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1, flexWrap: "nowrap" }}>
+												<span style={statStyle}>
+													<AnimatedCounter target={ach3.num} suffix={ach3.suffix} format={(n) => n.toLocaleString()} />
+												</span>
+											</div>
+											<span style={labelStyle}>{acheivment_text3}</span>
+										</div>
+									</div>
+								</div>
+
+								{/* Description paragraph */}
+								<div
+									className="desc wow fadeInUp"
+									data-wow-delay=".4s"
+									style={{ color: "var(--tj-color-body-primary, #54606c)", fontSize: "15px", lineHeight: "1.6", marginBottom: "35px" }}
+									dangerouslySetInnerHTML={{ __html: description }}
+								/>
+
+								{/* Action buttons */}
+								<div style={{ display: "flex", alignItems: "center", gap: "25px", flexWrap: "wrap" }}>
+									<Link href="/contact" className="tj-primary-btn" style={btnStyle}>
+										Know more us
+										<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+											<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+										</svg>
+									</Link>
+								</div>
 							</div>
-							{/* Stat */}
-							<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1 }}>
-								<span style={{ fontSize: "40px", fontWeight: "800", color: "var(--tj-color-theme-primary)", letterSpacing: "-1px" }}>
-									<AnimatedCounter target={Number(acheivment1) || 7} suffix="+" />
-								</span>
-							</div>
-							{/* Label */}
-							<span style={{ fontSize: "13px", fontWeight: "500", color: "var(--tj-color-body-primary, #667085)", lineHeight: "1.4" }}>
-								{acheivment_text1}
-							</span>
 						</div>
 					</div>
-
-					{/* Card 2 — Monthly Production Capacity */}
-					<div className="col-md-4">
-						<div style={{
-							background: "var(--tj-color-common-white, white)",
-							padding: "22px 20px",
-							borderRadius: "14px",
-							border: "1px solid var(--tj-color-border-1, #eef3f3)",
-							height: "100%",
-							boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
-							display: "flex",
-							flexDirection: "column",
-							gap: "10px",
-						}}>
-							<div style={{
-								width: "44px", height: "44px", borderRadius: "10px",
-								background: "color-mix(in srgb, var(--tj-color-theme-primary) 12%, transparent)",
-								display: "flex", alignItems: "center", justifyContent: "center",
-							}}>
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-									<path d="M3 20V14M8 20V9M13 20V4M18 20V11" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-								</svg>
-							</div>
-							<div style={{ display: "flex", alignItems: "baseline", gap: "3px", lineHeight: 1, flexWrap: "nowrap" }}>
-								<span style={{ fontSize: "40px", fontWeight: "800", color: "var(--tj-color-theme-primary)", letterSpacing: "-1px" }}>
-									<AnimatedCounter target={Number(acheivment2) || 10} suffix=" Lakh+" />
-								</span>
-							</div>
-							<span style={{ fontSize: "13px", fontWeight: "500", color: "var(--tj-color-body-primary, #667085)", lineHeight: "1.4" }}>
-								{acheivment_text2}
-							</span>
-						</div>
-					</div>
-
-					{/* Card 3 — Clean Room Facility */}
-					<div className="col-md-4">
-						<div style={{
-							background: "var(--tj-color-common-white, white)",
-							padding: "22px 20px",
-							borderRadius: "14px",
-							border: "1px solid var(--tj-color-border-1, #eef3f3)",
-							height: "100%",
-							boxShadow: "0 2px 16px rgba(0,0,0,0.04)",
-							display: "flex",
-							flexDirection: "column",
-							gap: "10px",
-						}}>
-							<div style={{
-								width: "44px", height: "44px", borderRadius: "10px",
-								background: "color-mix(in srgb, var(--tj-color-theme-primary) 12%, transparent)",
-								display: "flex", alignItems: "center", justifyContent: "center",
-							}}>
-								<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-									<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-									<path d="M9 22V12h6v10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-								</svg>
-							</div>
-							<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1, flexWrap: "nowrap" }}>
-								<span style={{ fontSize: "36px", fontWeight: "800", color: "var(--tj-color-theme-primary)", letterSpacing: "-1px" }}>
-									<AnimatedCounter
-										target={Number(acheivment3) || 10000}
-										suffix="+"
-										format={(n) => n.toLocaleString()}
-									/>
-								</span>
-							</div>
-							<span style={{ fontSize: "13px", fontWeight: "500", color: "var(--tj-color-body-primary, #667085)", lineHeight: "1.4" }}>
-								{acheivment_text3}
-							</span>
-						</div>
-					</div>
-
 				</div>
 
-							{/* Description paragraph */}
-							<div
-								className="desc wow fadeInUp"
-								data-wow-delay=".4s"
-								style={{ color: "var(--tj-color-body-primary, #54606c)", fontSize: "15px", lineHeight: "1.6", marginBottom: "35px" }}
-								dangerouslySetInnerHTML={{ __html: description }}
-							/>
-
-							{/* Action buttons */}
-							<div style={{ display: "flex", alignItems: "center", gap: "25px", flexWrap: "wrap" }}>
-								<Link
-									href="/contact"
-									className="tj-primary-btn"
-									style={{
-										background: "var(--tj-color-theme-primary)",
-										color: "var(--tj-color-common-white, white)",
-										padding: "14px 28px",
-										borderRadius: "30px",
-										fontWeight: "600",
-										fontSize: "15px",
-										display: "inline-flex",
-										alignItems: "center",
-										gap: "10px",
-										border: "none",
-										textDecoration: "none"
-									}}
-								>
-									Know more us
-									<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-									</svg>
-								</Link>
-
+				{/* MOBILE/TABLET LAYOUT (Visible below lg/1024px screens) */}
+				<div className="row d-lg-none mt-4">
+					<div className="col-12">
+						{/* Achievement Cards Layout — 3 cards side-by-side using full width */}
+						<div className="row mb-4 g-4">
+							<div className="col-12 col-md-4">
+								<div style={cardStyle}>
+									<div style={iconBadgeStyle}>
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+											<path d="M12 8v4l3 3" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+											<circle cx="12" cy="12" r="10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" />
+										</svg>
+									</div>
+									<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1 }}>
+										<span style={statStyle}>
+											<AnimatedCounter target={ach1.num} suffix={ach1.suffix} />
+										</span>
+									</div>
+									<span style={labelStyle}>{acheivment_text1}</span>
+								</div>
 							</div>
+
+							<div className="col-12 col-md-4">
+								<div style={cardStyle}>
+									<div style={iconBadgeStyle}>
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+											<path d="M3 20V14M8 20V9M13 20V4M18 20V11" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+										</svg>
+									</div>
+									<div style={{ display: "flex", alignItems: "baseline", gap: "3px", lineHeight: 1, flexWrap: "nowrap" }}>
+										<span style={statStyle}>
+											<AnimatedCounter target={ach2.num} suffix={ach2.suffix} />
+										</span>
+									</div>
+									<span style={labelStyle}>{acheivment_text2}</span>
+								</div>
+							</div>
+
+							<div className="col-12 col-md-4">
+								<div style={cardStyle}>
+									<div style={iconBadgeStyle}>
+										<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+											<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+											<path d="M9 22V12h6v10" stroke="var(--tj-color-theme-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+										</svg>
+									</div>
+									<div style={{ display: "flex", alignItems: "baseline", gap: "2px", lineHeight: 1, flexWrap: "nowrap" }}>
+										<span style={statStyle}>
+											<AnimatedCounter target={ach3.num} suffix={ach3.suffix} format={(n) => n.toLocaleString()} />
+										</span>
+									</div>
+									<span style={labelStyle}>{acheivment_text3}</span>
+								</div>
+							</div>
+						</div>
+
+						{/* Description Paragraph */}
+						<div
+							className="desc wow fadeInUp"
+							data-wow-delay=".4s"
+							style={{ color: "var(--tj-color-body-primary, #54606c)", fontSize: "15px", lineHeight: "1.6", marginBottom: "35px" }}
+							dangerouslySetInnerHTML={{ __html: description }}
+						/>
+
+						{/* Action Buttons */}
+						<div style={{ display: "flex", alignItems: "center", gap: "25px", flexWrap: "wrap" }}>
+							<Link href="/contact" className="tj-primary-btn" style={btnStyle}>
+								Know more us
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+									<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+								</svg>
+							</Link>
 						</div>
 					</div>
 				</div>

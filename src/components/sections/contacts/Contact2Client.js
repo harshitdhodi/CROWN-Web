@@ -32,10 +32,7 @@ const Contact2Client = ({ isInnerPage = false, styleConfig, initialHeadingData, 
 	// Apply dynamic styles from CMS
 	const sectionStyle = {
 		backgroundColor: styleConfig?.background_color,
-		color: styleConfig?.text_color,
-		marginTop: "50px",
-		marginBottom: "50px"
-		
+		color: styleConfig?.text_color
 	};
 
 	return (

@@ -1,8 +1,10 @@
+import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 import Link from "next/link";
 import LazyMap from "@/components/shared/LazyMap";
 import Image from "next/image";
+
 const Footer8 = async () => {
-	const cmsBase = process.env.CMS_BASE_URL || "http://localhost:3012";
+	const cmsBase = getCmsBase();
 	let footerData = null;
 	let productsData = [];
 	let contactMapUrl = null;
@@ -81,9 +83,7 @@ const Footer8 = async () => {
 	}
 
 	const rawLogoUrl = footerData?.logo?.[0];
-	const logoUrl = rawLogoUrl
-		? (rawLogoUrl.startsWith("/") ? `${cmsBase}${rawLogoUrl}` : `${cmsBase}/${rawLogoUrl}`)
-		: "/images/logos/logo-large.webp";
+	const logoUrl = resolveCmsImage(rawLogoUrl) || "/images/logos/logo-large.webp";
 	const description = footerData?.description || "Developing personalze our customer journeys to increase satisfaction & loyalty of our expansion. CROWN Packaging has been a game.";
 	const address = footerData?.address || "993 Renner Burg, West Rond, MT 94251-030, USA.";
 	const mobile = footerData?.mobile || "+1 (009) 544-7818";
@@ -105,12 +105,7 @@ const Footer8 = async () => {
 					color: var(--tj-color-theme-primary) !important;
 				}
 				.footer-section-wrapper {
-					margin-top: 30px !important;
-				}
-				@media (min-width: 992px) {
-					.footer-section-wrapper {
-						margin-top: 100px !important;
-					}
+					margin-top: 50px !important;
 				}
 			`}} />
 			<div className="h6-footer-logo-area ">

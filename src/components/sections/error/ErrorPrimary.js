@@ -16,6 +16,7 @@ const ErrorPrimary = () => {
 										width={800}
 										height={303}
 										style={{ height: "auto" }}
+										priority={true}
 									/>
 								</div>
 								<h2 className="error-title title-anim">

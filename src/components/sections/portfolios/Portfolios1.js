@@ -44,7 +44,7 @@ const Portfolios1 = async () => {
 					<div className="col-12">
 						<div className="sec-heading-wrap">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-								<i className="tji-box"></i>
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{headingData?.tagline || "Proud Projects"}
 							</span>
 							<div className="heading-wrap-content">

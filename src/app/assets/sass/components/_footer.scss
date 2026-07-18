@@ -10,15 +10,19 @@ START: Theme Footer CSS
 	padding-top: 195px;
 	border-radius: 12px;
 	overflow: hidden;
+
 	@media #{$xl} {
 		padding-top: 150px;
 	}
+
 	@media #{$lg} {
 		padding-top: 135px;
 	}
+
 	@media #{$md} {
 		padding-top: 320px;
 	}
+
 	@media #{$sm, $xs} {
 		padding-top: 270px;
 		margin-bottom: 0;
@@ -26,20 +30,25 @@ START: Theme Footer CSS
 		border-end-end-radius: 0;
 	}
 }
+
 .footer-main-area {
 	position: relative;
 	padding: 100px 0 90px 0;
+
 	@media #{$sm, $xs} {
 		padding: 70px 0;
 	}
 }
+
 .footer-logo {
 	max-width: 150px;
 }
+
 .award-logo-area {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 18px;
+
 	.award-logo {
 		max-width: 96px;
 	}
@@ -49,30 +58,37 @@ START: Theme Footer CSS
 	.footer-text {
 		max-width: 280px;
 		width: 100%;
+
 		p {
 			margin-top: 28px;
 			margin-bottom: 34px;
+
 			@media #{$md, $sm, $xs} {
 				margin-bottom: 20px;
 			}
 		}
+
 		@media #{$sm, $xs} {
 			max-width: 100%;
 		}
 	}
+
 	.title {
 		font-weight: var(--tj-fw-sbold);
 		margin-bottom: 33px;
+
 		@media #{$md, $sm, $xs} {
 			margin-bottom: 18px;
 		}
 	}
+
 	&.footer-col-1 {
 		.footer-text {
 			p {
 				color: var(--tj-color-text-body-2);
 			}
 		}
+
 		@media #{$sm, $xs} {
 			margin-bottom: 10px;
 		}
@@ -85,6 +101,7 @@ START: Theme Footer CSS
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
+
 		li {
 			a {
 				display: inline-flex;
@@ -96,17 +113,21 @@ START: Theme Footer CSS
 				background-color: rgba(12, 30, 33, 0.3);
 				font-size: 16px;
 				line-height: 1;
+
 				i {
 					color: var(--tj-color-theme-bg);
 				}
+
 				&:hover {
 					background-color: var(--tj-color-theme-primary);
 					transform: translateY(-3px);
+
 					i {
 						color: var(--tj-color-common-white);
 					}
 				}
 			}
+
 			&::after {
 				display: none;
 			}
@@ -119,9 +140,11 @@ START: Theme Footer CSS
 				a {
 					background-color: var(--tj-color-common-white);
 					opacity: 0.4;
+
 					i {
 						color: var(--tj-color-theme-primary);
 					}
+
 					&:hover {
 						opacity: 1;
 					}
@@ -136,12 +159,15 @@ START: Theme Footer CSS
 				a {
 					background-color: var(--tj-color-common-white);
 					opacity: 0.3;
+
 					i {
 						color: var(--tj-color-theme-dark);
 					}
+
 					&:hover {
 						background-color: var(--tj-color-theme-primary);
 						opacity: 1;
+
 						i {
 							color: var(--tj-color-common-white);
 						}
@@ -154,19 +180,24 @@ START: Theme Footer CSS
 
 .widget-nav-menu {
 	padding-inline-start: 40px;
+
 	ul {
 		list-style: none;
+
 		li {
 			padding: 6px 0;
+
 			&:first-child {
 				padding-top: 0;
 			}
+
 			a {
 				color: var(--tj-color-text-body);
 				display: inline-flex;
 				align-items: center;
 				gap: 4px;
 				transform: translateX(0);
+
 				.badge {
 					font-size: 10px;
 					text-transform: uppercase;
@@ -175,6 +206,7 @@ START: Theme Footer CSS
 					border-radius: 50px;
 					padding: 3px 6px 4px;
 				}
+
 				&:hover {
 					color: var(--tj-color-theme-primary);
 					transform: translateX(5px);
@@ -182,18 +214,23 @@ START: Theme Footer CSS
 			}
 		}
 	}
+
 	@media #{$xl} {
 		padding-inline-start: 20px;
 	}
+
 	@media #{$lg} {
 		padding-inline-start: 80px;
 	}
+
 	@media #{$md, $sm, $xs} {
 		padding-inline-start: 0;
 	}
+
 	@media #{$sm, $xs} {
 		margin-top: 30px;
 	}
+
 	&.footer-col-3,
 	&.footer-col-2 {
 		padding-inline-start: 115px;
@@ -201,16 +238,20 @@ START: Theme Footer CSS
 		@media #{$xl, $lg, $md} {
 			padding-inline-start: 70px;
 		}
+
 		@media #{$sm, $xs} {
 			margin-top: 30px;
 			padding-inline-start: 0;
 		}
 	}
+
 	&.footer-col-3 {
 		padding-inline-start: 120px;
+
 		@media #{$xl} {
 			padding-inline-start: 80px;
 		}
+
 		@media #{$lg, $md, $sm, $xs} {
 			margin-top: 30px;
 			padding-inline-start: 0;
@@ -222,32 +263,39 @@ START: Theme Footer CSS
 	max-width: 350px;
 	width: 100%;
 	margin-inline-start: auto;
+
 	.title {
 		margin-bottom: 25px;
 		font-weight: var(--tj-fw-medium);
 	}
+
 	@media #{$lg, $md} {
 		margin-inline-start: 0;
 		margin-top: 30px;
 	}
+
 	@media #{$sm, $xs} {
 		max-width: 100%;
 		margin-inline-start: 0;
 		margin-top: 30px;
 	}
 }
+
 .subscribe-form {
 	position: relative;
+
 	input[type="email"] {
 		height: 64px;
 		padding: 15px 60px 15px 25px;
 		border: 0;
 		border-radius: 8px;
 		outline: 1px solid transparent;
+
 		&:focus {
 			outline-color: var(--tj-color-theme-primary);
 		}
 	}
+
 	input[type="checkbox"] {
 		position: relative;
 		margin-inline-end: 8px;
@@ -273,14 +321,17 @@ START: Theme Footer CSS
 			opacity: 0;
 			transition: all 0.3s ease-in-out;
 		}
+
 		&:checked {
 			background-color: var(--tj-color-theme-dark);
+
 			&::before {
 				transform: scale(1);
 				opacity: 1;
 			}
 		}
 	}
+
 	button {
 		position: absolute;
 		width: 64px;
@@ -299,12 +350,14 @@ START: Theme Footer CSS
 			display: inline-flex;
 			transition: all 0.3s linear;
 		}
+
 		&:hover,
 		&:focus {
 			i {
 				transform: scale(0.8);
 			}
 		}
+
 		&::before {
 			content: "";
 			position: absolute;
@@ -314,20 +367,24 @@ START: Theme Footer CSS
 			border-inline-start: 1px solid var(--tj-color-border-1);
 		}
 	}
+
 	label {
 		color: var(--tj-color-text-body);
 		margin-top: 20px;
 		display: inline-flex;
 		align-items: center;
+
 		a {
 			color: var(--tj-color-theme-dark);
 			font-weight: var(--tj-fw-sbold);
 			margin-inline-start: 4px;
+
 			&:hover {
 				color: var(--tj-color-theme-primary);
 			}
 		}
 	}
+
 	@media #{$md, $sm, $xs} {
 		margin-top: 18px;
 	}
@@ -340,6 +397,7 @@ START: Theme Footer CSS
 	justify-content: space-between;
 	gap: 30px;
 	padding: 20px 0;
+
 	.footer-contact {
 		ul {
 			list-style: none;
@@ -348,12 +406,14 @@ START: Theme Footer CSS
 			flex-wrap: wrap;
 			justify-content: center;
 			gap: 22px;
+
 			li {
 				a {
 					display: inline-flex;
 					align-items: center;
 					gap: 7px;
 					color: var(--tj-color-text-body);
+
 					.icon {
 						display: inline-flex;
 						align-items: center;
@@ -364,12 +424,15 @@ START: Theme Footer CSS
 						background-color: var(--tj-color-theme-primary);
 						font-size: 28px;
 						line-height: 1;
+
 						i {
 							color: var(--tj-color-common-white);
 						}
 					}
+
 					.text {
 						position: relative;
+
 						&::before {
 							content: "";
 							position: absolute;
@@ -383,6 +446,7 @@ START: Theme Footer CSS
 							transition: all 0.3s ease-in-out 0s;
 						}
 					}
+
 					&:hover {
 						.text {
 							&::before {
@@ -395,35 +459,43 @@ START: Theme Footer CSS
 				}
 			}
 		}
+
 		@media #{$sm, $xs} {
 			width: 100%;
 		}
 	}
+
 	.social-links {
 		ul {
 			@media #{$sm, $xs} {
 				justify-content: center;
 			}
 		}
+
 		@media #{$sm, $xs} {
 			width: 100%;
 		}
 	}
+
 	.copyright-text {
 		p {
 			margin: 0;
 		}
+
 		a {
 			color: var(--tj-color-common-black);
+
 			&:hover {
 				color: var(--tj-color-theme-primary);
 			}
 		}
+
 		@media #{$sm, $xs} {
 			width: 100%;
 			text-align: center;
 		}
 	}
+
 	.copyright-menu {
 		ul {
 			margin: 0;
@@ -432,11 +504,13 @@ START: Theme Footer CSS
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
 			li {
 				position: relative;
 				margin-inline-end: 13px;
 				padding-inline-end: 12px;
 				z-index: 1;
+
 				&::before {
 					content: "";
 					background: var(--tj-color-border-2);
@@ -447,33 +521,41 @@ START: Theme Footer CSS
 					inset-inline-end: 0;
 					transform: translateY(-50%);
 				}
+
 				a {
 					font-size: 16px;
 					font-weight: var(--tj-fw-regular);
 					color: var(--tj-color-text-body-2);
+
 					&:hover {
 						color: var(--tj-color-common-white);
 					}
 				}
+
 				&:last-child {
 					padding-inline-end: 0;
 					margin-inline-end: 0;
+
 					&::before {
 						display: none;
 					}
 				}
 			}
 		}
+
 		@media #{$sm, $xs} {
 			width: 100%;
 		}
 	}
+
 	@media #{$md, $sm, $xs} {
 		gap: 18px;
 	}
 }
+
 .tj-copyright-area {
 	padding-bottom: 30px;
+
 	.copyright-content-area {
 		border-top: 1px solid var(--tj-color-border-1);
 		border-bottom: 1px solid var(--tj-color-border-1);
@@ -486,14 +568,17 @@ START: Theme Footer CSS
 	&.footer-2 {
 		background-color: var(--tj-color-theme-dark);
 		padding-top: 100px;
+
 		.footer-widget {
 			.title {
 				color: var(--tj-color-common-white);
 			}
+
 			ul {
 				li {
 					a {
 						color: var(--tj-color-text-body-2);
+
 						&:hover {
 							color: var(--tj-color-theme-primary);
 						}
@@ -501,8 +586,10 @@ START: Theme Footer CSS
 				}
 			}
 		}
+
 		.footer-col-1 {
 			position: relative;
+
 			&::before {
 				content: "";
 				position: absolute;
@@ -518,11 +605,13 @@ START: Theme Footer CSS
 				z-index: -1;
 			}
 		}
+
 		@media #{$md, $sm, $xs} {
-			padding-top: 60px;
+			padding-top: 30px;
 		}
 	}
 }
+
 .footer-subscribe {
 	display: flex;
 	flex-wrap: wrap;
@@ -534,8 +623,10 @@ START: Theme Footer CSS
 	backdrop-filter: blur(10px);
 	padding: 40px 50px;
 	border-radius: 12px;
+
 	.subscribe-form {
 		width: 49%;
+
 		input[type="email"] {
 			color: var(--tj-color-text-body-2);
 			background-color: transparent;
@@ -543,17 +634,21 @@ START: Theme Footer CSS
 			border-radius: 50px;
 			padding: 5px 205px 5px 30px;
 			outline: 1px solid transparent;
+
 			@media #{$xs} {
 				padding: 5px 24px 5px;
 			}
+
 			&::placeholder {
 				transition: all 0.3s;
 				color: var(--tj-color-text-body-2);
 			}
+
 			&:focus {
 				outline-color: var(--tj-color-theme-primary);
 			}
 		}
+
 		button {
 			width: auto;
 			height: auto;
@@ -561,29 +656,36 @@ START: Theme Footer CSS
 			inset-inline-end: 8px;
 			font-size: 16px;
 			font-weight: var(--tj-fw-sbold);
+
 			@media #{$xs} {
 				position: static;
 				margin-top: 20px;
 			}
+
 			&::before {
 				display: none;
 			}
 		}
+
 		@media #{$md} {
 			width: 70%;
 			margin-top: 0;
 		}
+
 		@media #{$sm, $xs} {
 			width: 100%;
 			margin-top: 0;
 		}
 	}
+
 	@media #{$md, $sm, $xs} {
 		padding: 30px 20px;
 	}
 }
+
 .subscribe-logo {
 	max-width: 225px;
+
 	@media #{$md, $sm, $xs} {
 		max-width: 160px;
 	}
@@ -591,34 +693,43 @@ START: Theme Footer CSS
 
 .widget-contact {
 	padding-inline-start: 76px;
+
 	.title {
 		color: var(--tj-color-common-white);
 	}
+
 	@media #{$xl} {
 		padding-inline-start: 30px;
 	}
+
 	@media #{$lg, $md} {
 		margin-top: 30px;
 		padding-inline-start: 70px;
 	}
+
 	@media #{$sm, $xs} {
 		margin-top: 30px;
 		padding-inline-start: 0;
 	}
 }
+
 .footer-contact-info {
 	max-width: 230px;
 	width: 100%;
+
 	.contact-item {
 		margin-bottom: 14px;
+
 		&:last-child {
 			margin-bottom: 0;
 		}
+
 		span {
 			color: var(--tj-color-text-body-2);
 			display: inline-flex;
 			align-items: center;
 			gap: 8px;
+
 			i {
 				font-size: 20px;
 				color: var(--tj-color-theme-primary);
@@ -626,11 +737,13 @@ START: Theme Footer CSS
 				line-height: 1;
 			}
 		}
+
 		a {
 			color: var(--tj-color-common-white);
 			font-weight: var(--tj-fw-sbold);
 			display: inline-flex;
 			margin-bottom: 3px;
+
 			&:hover {
 				color: var(--tj-color-theme-primary);
 			}
@@ -641,23 +754,29 @@ START: Theme Footer CSS
 .footer-marquee {
 	border-top: 1px dashed var(--tj-color-border-2);
 	border-bottom: 1px dashed var(--tj-color-border-2);
+
 	.marquee-text {
 		opacity: 0.2;
+
 		&:hover {
 			opacity: 0.7;
 		}
 	}
 }
+
 .tj-copyright-area-2 {
 	.copyright-content-area {
 		padding: 25px 0;
 	}
+
 	.copyright-text {
 		p {
 			color: var(--tj-color-text-body-2);
 		}
+
 		a {
 			color: var(--tj-color-common-white);
+
 			&:hover {
 				color: var(--tj-color-theme-bg);
 			}
@@ -672,26 +791,32 @@ START: Theme Footer CSS
 		position: relative;
 		z-index: 1;
 		padding-top: 0;
+
 		.footer-main-area {
 			padding-top: 120px;
 			padding-bottom: 110px;
+
 			@media #{$lg} {
 				padding-top: 100px;
 				padding-bottom: 90px;
 			}
+
 			@media #{$md, $sm, $xs} {
 				padding-top: 70px;
 				padding-bottom: 60px;
 			}
 		}
+
 		.footer-widget {
 			.title {
 				color: var(--tj-color-common-white);
 			}
+
 			ul {
 				li {
 					a {
 						color: var(--tj-color-text-body-2);
+
 						&:hover {
 							color: var(--tj-color-theme-primary);
 						}
@@ -701,9 +826,11 @@ START: Theme Footer CSS
 		}
 	}
 }
+
 .footer-bottom-area {
 	padding-bottom: 50px;
 }
+
 .widget-subscribe-2 {
 	max-width: 850px;
 	width: 100%;
@@ -717,6 +844,7 @@ START: Theme Footer CSS
 	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 50px;
+
 	.title {
 		color: var(--tj-color-common-white);
 		max-width: 250px;
@@ -724,57 +852,72 @@ START: Theme Footer CSS
 		margin-bottom: 25px;
 		font-weight: var(--tj-fw-medium);
 	}
+
 	.subscribe-form {
 		flex: 1;
+
 		input[type="email"] {
 			background-color: transparent;
 			backdrop-filter: blur(10px);
 			border-radius: 10px;
 			color: var(--tj-color-text-body-2);
 			outline: 1px solid transparent;
+
 			&::placeholder {
 				transition: all 0.3s;
 				color: var(--tj-color-text-body-2);
 			}
+
 			&:focus {
 				outline-color: var(--tj-color-theme-primary);
 			}
 		}
+
 		button {
 			&::before {
 				border-color: var(--tj-color-theme-dark-4);
 			}
 		}
+
 		input[type="checkbox"] {
 			border: 1px solid var(--tj-color-text-body-2);
+
 			&::before {
 				color: var(--tj-color-theme-dark);
 			}
+
 			&:checked {
 				background-color: var(--tj-color-common-white);
 				border-color: var(--tj-color-common-white);
 			}
 		}
+
 		label {
 			color: var(--tj-color-text-body-2);
+
 			a {
 				color: var(--tj-color-common-white);
+
 				&:hover {
 					color: var(--tj-color-theme-primary);
 				}
 			}
 		}
+
 		@media #{$md, $sm, $xs} {
 			margin-top: 0;
 			flex-basis: auto;
 		}
 	}
+
 	@media #{$xl} {
 		max-width: 760px;
 	}
+
 	@media #{$lg} {
 		padding: 30px 20px;
 	}
+
 	@media #{$md, $sm, $xs} {
 		max-width: 100%;
 		margin-inline-start: 0;
@@ -783,18 +926,23 @@ START: Theme Footer CSS
 		gap: 0;
 	}
 }
+
 .tj-copyright-area-3 {
 	background-color: var(--tj-color-theme-primary);
+
 	.copyright-content-area {
 		justify-content: center;
 		padding: 25px 0;
 	}
+
 	.copyright-text {
 		p {
 			color: var(--tj-color-common-white);
 		}
+
 		a {
 			color: var(--tj-color-common-white);
+
 			&:hover {
 				color: var(--tj-color-theme-bg);
 			}

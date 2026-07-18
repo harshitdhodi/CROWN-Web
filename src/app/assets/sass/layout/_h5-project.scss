@@ -12,7 +12,7 @@ START: Home 5 Project CSS
 		padding: 0;
 		display: flex;
 		flex-wrap: nowrap;
-		@media #{$sm,$xs} {
+		@media #{$lg, $md, $sm, $xs} {
 			gap: 30px;
 			flex-direction: column;
 		}
@@ -26,10 +26,7 @@ START: Home 5 Project CSS
 
 			&:not(:last-child) {
 				padding-inline-end: 30px;
-				@media #{$lg,$md} {
-					padding-inline-end: 20px;
-				}
-				@media #{$sm,$xs} {
+				@media #{$lg, $md, $sm, $xs} {
 					padding-inline-end: 0;
 				}
 			}

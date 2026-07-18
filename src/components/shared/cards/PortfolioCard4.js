@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -10,6 +11,13 @@ const PortfolioCard4 = ({ portfolio }) => {
 		dataFilter,
 		category = "Connect",
 	} = portfolio ? portfolio : {};
+
+	const [imageSrc, setImageSrc] = useState(img4);
+
+	useEffect(() => {
+		setImageSrc(img4);
+	}, [img4]);
+
 	return (
 		<div className="project-item h4-project-item">
 			<div className="project-content">
@@ -26,7 +34,15 @@ const PortfolioCard4 = ({ portfolio }) => {
 				</div>
 			</div>
 			<div className="project-img" style={{ position: "relative", width: "100%", height: "300px" }}>
-				<Image src={img4} alt="Image" fill style={{ objectFit: "cover" }} />
+				<Image 
+					src={imageSrc} 
+					alt="Image" 
+					fill 
+					style={{ objectFit: "cover" }} 
+					onError={() => {
+						setImageSrc("/images/project/project-4.webp");
+					}}
+				/>
 			</div>
 		</div>
 	);

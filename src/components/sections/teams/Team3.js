@@ -56,7 +56,7 @@ const Team3 = ({ isInnerPage = false, styleConfig }) => {
 		};
 		fetchData();
 	}, [baseUrl]);
- 
+
 	return (
 		<section className="h7-team section-gap section-gap-x" style={sectionStyle}>
 			<div className="container-fluid">
@@ -64,7 +64,7 @@ const Team3 = ({ isInnerPage = false, styleConfig }) => {
 					<div className="col-12">
 						<div className="sec-heading style-2 style-7 sec-heading-centered">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-								<i className="tji-box"></i> {headingData.tagline || "Meet Our Logistics Partners"}
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i> {headingData.tagline || "Meet Our Logistics Partners"}
 							</span>
 							<h2 className="sec-title text-anim">
 								{headingData.heading || "The People Empowering Business Level."}

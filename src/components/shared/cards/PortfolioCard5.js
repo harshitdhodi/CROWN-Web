@@ -1,4 +1,6 @@
-"use client";
+'use client';
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import Image from "next/image";
@@ -37,6 +39,11 @@ const PortfolioCard5 = ({ portfolio }) => {
 
   // Prefer API image field, then img5 fakedata field, then fallback
   const imgSrc = resolveImage(image || img5);
+  const [imageSrc, setImageSrc] = useState(imgSrc);
+
+  useEffect(() => {
+    setImageSrc(imgSrc);
+  }, [imgSrc]);
 
   const description =
     desc ||
@@ -55,7 +62,7 @@ const PortfolioCard5 = ({ portfolio }) => {
           style={{ position: "relative", overflow: "hidden", width: "100%", minHeight: "200px" }}
         >
           <Image
-            src={imgSrc}
+            src={imageSrc}
             alt={title}
             fill
             sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1400px) 400px, 450px"
@@ -64,8 +71,8 @@ const PortfolioCard5 = ({ portfolio }) => {
               objectFit: "cover",
               display: "block",
             }}
-            onError={(e) => {
-              e.currentTarget.src = "/images/project/h5-project-1.webp";
+            onError={() => {
+              setImageSrc("/images/project/h5-project-1.webp");
             }}
           />
         </div>

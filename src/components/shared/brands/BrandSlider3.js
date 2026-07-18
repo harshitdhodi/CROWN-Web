@@ -1,9 +1,50 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+
+const BrandItem = ({ img }) => {
+  const [src, setSrc] = useState(img);
+
+  useEffect(() => {
+    setSrc(img);
+  }, [img]);
+
+  return (
+    <div className="brand-inner">
+      <div className="brand-front">
+        <div className="client-logo">
+          <Image
+            src={src}
+            alt="Brand logo"
+            fill
+            sizes="254px"
+            style={{ objectFit: "contain", padding: "20px" }}
+            onError={() => {
+              setSrc("/images/logos/logo.webp");
+            }}
+          />
+        </div>
+      </div>
+      <div className="brand-back">
+        <div className="client-logo">
+          <Image
+            src={src}
+            alt="Brand logo"
+            fill
+            sizes="254px"
+            style={{ objectFit: "contain", padding: "20px" }}
+            onError={() => {
+              setSrc("/images/logos/logo.webp");
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const BrandSlider3 = ({ logos, hoverImage }) => {
   const swiperRef = useRef(null);
@@ -74,30 +115,7 @@ const BrandSlider3 = ({ logos, hoverImage }) => {
         >
           {/* Explicit height so brand-inner's 100% resolves correctly for 3D flip */}
           <div style={{ width: "254px", height: "254px" }}>
-            <div className="brand-inner">
-              <div className="brand-front">
-                <div className="client-logo">
-                  <Image
-                    src={img}
-                    alt="Brand logo"
-                    fill
-                    sizes="254px"
-                    style={{ objectFit: "contain", padding: "20px" }}
-                  />
-                </div>
-              </div>
-              <div className="brand-back">
-                <div className="client-logo">
-                  <Image
-                    src={img}
-                    alt="Brand logo"
-                    fill
-                    sizes="254px"
-                    style={{ objectFit: "contain", padding: "20px" }}
-                  />
-                </div>
-              </div>
-            </div>
+            <BrandItem img={img} />
           </div>
         </SwiperSlide>
       ))}

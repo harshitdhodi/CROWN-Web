@@ -35,13 +35,13 @@ export const revalidate = 0;
 const COMPONENT_MAP = {
 	Hero2:              Hero2,              // Hero Banner
 	About9:             About9,             // About
-	Portfolios5:        Portfolios5,        // Category
+	Portfolios5:        Portfolios5,        // product
 	Services3:          Services3,          // industries
 	Brands4:            Brands4,            // Clients
 	Team1:              Team1,              // certificate
 	Portfolios4:        Portfolios4,        // Gallery Slider
 	Contact2:           Contact2,           // Global Presence
-    Process: (props) => <Process type="quality" {...props} />,
+    Process: (props) => <Process type="quality" {...props} />, //Quality
 	Testimonials4:      Testimonials4,      // cta
 };
 

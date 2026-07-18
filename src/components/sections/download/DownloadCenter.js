@@ -206,7 +206,7 @@ const DownloadCenter = () => {
                     <div className="col-12">
                         <div className="sec-heading text-center">
                             <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                                <i className="tji-box"></i>
+                                <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
                                 {tagline}
                             </span>
                             <h2 className="sec-title  wow fadeInUp" data-wow-delay=".5s">
@@ -235,7 +235,7 @@ const DownloadCenter = () => {
                                         {resource.image && !imageErrors[resource.id] ? (
                                             <img
                                                 src={
-                                                    typeof resource.image === 'string' 
+                                                    typeof resource.image === 'string'
                                                         ? resource.image
                                                         : typeof resource.image === 'object' && resource.image.url
                                                             ? resource.image.url

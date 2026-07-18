@@ -25,7 +25,7 @@ const JourneyClient = ({ items = [], heading }) => {
 					<div className="col-xl-8 col-lg-10">
 						<div className="sec-heading-wrap text-center mb-60">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-								<i className="tji-box"></i>
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{tagline}
 							</span>
 							<h2 className="sec-title title-anim">{title}</h2>

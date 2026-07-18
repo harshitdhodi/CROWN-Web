@@ -50,7 +50,7 @@ const Services10 = async () => {
 							<div className="heading-wrap-content">
 								<div className="sec-heading style-3">
 									<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-										<i className="tji-box"></i> {headingData?.tagline || "Our Solutions"}
+										<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i> {headingData?.tagline || "Our Solutions"}
 									</span>
 									<h2 className="sec-title text-anim">
 										{headingData?.heading || "Tailor Business Solutions for Corporates."}

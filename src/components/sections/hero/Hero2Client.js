@@ -6,21 +6,7 @@ import { useState } from "react";
 import { Autoplay, EffectFade, Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const resolveApiImage = (src) => {
-	if (!src) return null;
-	if (Array.isArray(src)) {
-		return resolveApiImage(src[0]);
-	}
-	if (typeof src !== "string") return null;
-	let cleanSrc = src;
-	if (src.includes("/uploads/")) {
-		cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-	} else if (src.startsWith("http")) {
-		return src;
-	}
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
-	return cleanSrc.startsWith("/") ? `${baseUrl}${cleanSrc}` : `${baseUrl}/${cleanSrc}`;
-};
+import { resolveCmsImage } from "@/lib/seoConfig";
 
 const Hero2Client = ({ heroSlides = [] }) => {
 	const [controlledMainSwiper, setControlledMainSwiper] = useState(null);
@@ -51,7 +37,7 @@ const Hero2Client = ({ heroSlides = [] }) => {
 						<div
 							className="slider-bg-image"
 							style={{
-								backgroundImage: `url('${image ? resolveApiImage(image) : "/images/hero/slider-1.webp"
+								backgroundImage: `url('${image ? resolveCmsImage(image) : "/images/hero/slider-1.webp"
 									}')`,
 							}}
 						></div>
@@ -106,7 +92,7 @@ const Hero2Client = ({ heroSlides = [] }) => {
 					<SwiperSlide key={idx} className="thumb-item">
 						<div style={{ position: "relative", width: 80, height: 80 }}>
 							<img
-								src={image ? resolveApiImage(image) : "/images/hero/slider-thumb-1.webp"}
+								src={image ? resolveCmsImage(image) : "/images/hero/slider-thumb-1.webp"}
 								alt="images"
 								style={{ width: "100%", height: "100%", objectFit: "cover" }}
 							/>

@@ -56,7 +56,7 @@ const Team2 = async () => {
 					<div className="col-12">
 						<div className="sec-heading-wrap">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s" style={{ backgroundColor: 'transparent', border: '1px dashed var(--tj-color-border-1)', padding: '2px 10px' }}>
-								<i className="tji-box"></i>
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{heading?.tagline || "Meet Our Team"}
 							</span>
 							<div className="heading-wrap-content">

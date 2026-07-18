@@ -51,24 +51,12 @@ export default function Footer8Client() {
               mapurl.includes('maps.app.goo.gl') ||
               mapurl.includes('goo.gl/maps')
             ) {
-              try {
-                const mapRes = await fetch(mapurl, { method: 'HEAD', redirect: 'follow' });
-                const expandedUrl = mapRes.url;
-                const pathMatch = expandedUrl.match(/\/place\/([^\/]+)/);
-                const coordsMatch = expandedUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-
-                let query = '';
-                if (pathMatch && pathMatch[1]) {
-                  query = pathMatch[1];
-                } else if (coordsMatch) {
-                  query = `${coordsMatch[1]},${coordsMatch[2]}`;
-                }
-
-                if (query) {
-                  setContactMapUrl(`https://maps.google.com/maps?q=${query}&output=embed`);
-                }
-              } catch (err) {
-                console.warn('Failed to resolve short Google Maps URL client-side:', err);
+              // Client-side fetch to google.com is blocked by CORS.
+              // Fallback to generating an embed map using the resolved text address.
+              if (address) {
+                setContactMapUrl(`https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`);
+              } else {
+                setContactMapUrl(mapurl);
               }
             } else {
               setContactMapUrl(mapurl);

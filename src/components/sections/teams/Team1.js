@@ -1,9 +1,10 @@
 import Team1Client from "./Team1Client";
 import getTeamMembers from "@/libs/getTeamMembers";
 
-const CMS_BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
+import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 
 async function getTeamData(type) {
+	const CMS_BASE_URL = getCmsBase();
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	const section = type === 3 ? "certificates" : "our-team";
 	const dataEndpoint = type === 3 ? "certificates" : "our_team";
@@ -34,15 +35,8 @@ async function getTeamData(type) {
 		if (type !== 3) items = getTeamMembers();
 	}
 
-	const resolveImg = (src) => {
-		if (!src) return null;
-		if (Array.isArray(src)) return resolveImg(src[0]);
-		if (typeof src !== "string") return null;
-		return src.startsWith("/") ? `${baseUrl}${src}` : src;
-	};
-
 	const formattedItems = (items || []).map((item) => {
-		const resolvedImg = resolveImg(item.image);
+		const resolvedImg = resolveCmsImage(item.image);
 		const finalImg = resolvedImg || item.img || "";
 		return {
 			...item,

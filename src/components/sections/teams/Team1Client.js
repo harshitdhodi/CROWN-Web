@@ -29,7 +29,7 @@ const Team1Client = ({ type, initialItems, heading }) => {
 	return (
 		<section
 			className={` ${type === 2
-				? " section-gap"
+				? "section-gap"
 				: type === 4
 					? "tj-team-section-3 tj-working-process section-gap-x"
 					: " tj-working-process"
@@ -42,7 +42,7 @@ const Team1Client = ({ type, initialItems, heading }) => {
 						<div className="col-12">
 							<div className={`sec-heading text-center ${type === 3 ? "" : "style-2"}`}>
 								<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-									<i className="tji-box"></i>
+									<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 									{heading?.tagline || "Meet Our Team"}
 								</span>
 								{type === 3 ? (
@@ -62,7 +62,7 @@ const Team1Client = ({ type, initialItems, heading }) => {
 				<div className="row leftSwipeWrap">
 					{currentItems?.length
 						? currentItems.map((item, idx) => (
-							<div key={idx} className="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+							<div key={idx} className="col-lg-3 col-sm-6 md:mb-4 mb-lg-0">
 								<TeamCard teamMember={item} />
 							</div>
 						))

@@ -2,7 +2,7 @@ import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 import dynamic from "next/dynamic";
 
 const FeaturesSlider = dynamic(
-	() => import("@/components/shared/cards/FeatureCard")
+    () => import("@/components/shared/cards/FeatureCard")
 );
 
 export const revalidate = 60;
@@ -61,8 +61,8 @@ const Features = async ({ type }) => {
                         {type == 2 ? (
                             <div className="sec-heading-wrap ">
                                 <span className="sub-title wow fadeInUp bg-white border-0 rounded-lg" data-wow-delay=".3s">
-                                    <i className="tji-box"></i>
-                                     {sectionHeading?.tagline || "Choose the Best2"}
+                                    <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
+                                    {sectionHeading?.tagline || "Choose the Best2"}
                                 </span>
                                 <div className="heading-wrap-content d-flex flex-column flex-lg-row align-items-start align-items-lg-center">
                                     <div className="sec-heading mb-lg-0">
@@ -78,7 +78,7 @@ const Features = async ({ type }) => {
                         ) : (
                             <div className="sec-heading text-center">
                                 <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                                    <i className="tji-box"></i>
+                                    <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
                                     {sectionHeading?.tagline || "Choose the Best"}
                                 </span>
                                 <h2 className="sec-title title-anim">

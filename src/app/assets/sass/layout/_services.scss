@@ -502,6 +502,10 @@ START: Services CSS
 	justify-content: space-between;
 	position: relative;
 	z-index: 2;
+
+	@media #{$sm, $xs} {
+		display: block;
+	}
 	.service-title {
 		display: flex;
 		flex: wrap;
@@ -535,6 +539,10 @@ START: Services CSS
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
+
+		@media #{$sm, $xs} {
+			display: block;
+		}
 		.desc {
 			max-width: 360px;
 			width: 100%;
@@ -550,7 +558,7 @@ START: Services CSS
 		}
 		@media #{$sm, $xs} {
 			margin-top: 20px;
-			padding-inline-start: 80px;
+			padding-inline-start: 0;
 		}
 	}
 }

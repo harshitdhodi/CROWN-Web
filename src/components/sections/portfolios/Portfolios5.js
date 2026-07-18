@@ -1,24 +1,9 @@
 import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 import ClientPortfolios5 from "./ClientPortfolios5.js";
 
-const BASE_URL =
-  process.env.CMS_BASE_URL || "http://localhost:3012";
+import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 
-// Resolve an image path returned by the API into a usable URL.
-function resolveApiImage(src) {
-  if (!src) return null;
-  if (Array.isArray(src)) {
-    return resolveApiImage(src[0]);
-  }
-  if (typeof src !== "string") return null;
-  let cleanSrc = src;
-  if (src.includes("/uploads/")) {
-    cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-  } else if (src.startsWith("http://") || src.startsWith("https://")) {
-    return src;
-  }
-  return cleanSrc.startsWith("/") ? `${BASE_URL}${cleanSrc}` : `${BASE_URL}/${cleanSrc}`;
-}
+const BASE_URL = getCmsBase();
 
 function slugify(text) {
   return text
@@ -58,8 +43,8 @@ async function getCategories() {
       title: item.name || "Dropper Bottles",
       slug: item.slug || slugify(item.name || item.id),
       // Pass the resolved image as both `image` (primary) and `img5` (fallback key)
-      image: resolveApiImage(item.image),
-      img5: resolveApiImage(item.image),
+      image: resolveCmsImage(item.image),
+      img5: resolveCmsImage(item.image),
       desc: item.category_populated?.short_description?.replace(/<[^>]+>/g, "") || "",
       category: item.category_populated?.tagline || item.category_label || "Connect",
       categorySlug: item.category_populated?.category_slug || "",
@@ -102,7 +87,7 @@ const Portfolios5 = async () => {
             <div className="col-12">
               <div className="sec-heading-wrap style-3">
                 <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                  <i className="tji-box"></i>{tagline}
+                  <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{tagline}
                 </span>
                 <div className="heading-wrap-content">
                   <div className="sec-heading style-3" style={{ maxWidth: "800px" }}>

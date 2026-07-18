@@ -138,11 +138,11 @@ export default function Gallery() {
   const groups = chunkImages(images);
 
   return (
-    <section className="gallery-section section-gap" style={{ marginTop: "50px" , marginBottom: "100px" }}>
+    <section className="gallery-section section-gap" style={{ marginTop: "50px", marginBottom: "100px" }}>
       <div className="gallery-container gallery-header">
         <div className="sec-heading style-3">
           <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-            <i className="tji-box" />
+            <i className="tji-box hidden sm:block mb-2 sm:mb-0" />
             {headingData?.tagline || "Our Work"}
           </span>
           <h2 className="sec-title title-anim">

@@ -7,9 +7,11 @@ const BrandSlider3 = dynamic(
 	() => import("@/components/shared/brands/BrandSlider3")
 );
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 async function getClientData() {
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	try {
+		const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 		const res = await fetch(`${baseUrl}/api/data/clients`, {
 			next: { revalidate: 60 }, // ISR: Revalidate data every 60 seconds
 		});
@@ -21,12 +23,10 @@ async function getClientData() {
 
 			return {
 				...item,
-				hover_image: item.hover_image?.startsWith("/")
-					? `${baseUrl}${item.hover_image}`
-					: item.hover_image,
+				hover_image: resolveCmsImage(item.hover_image),
 				// Format logos as objects with an 'img' property, which is standard for components in this template
 				logo: (item.logo || []).map((img) => ({
-					img: img?.startsWith("/") ? `${baseUrl}${img}` : img,
+					img: resolveCmsImage(img),
 				})),
 			};
 		}
@@ -46,13 +46,13 @@ const Brands4 = async () => {
 					<div className="col-12">
 						<div className="about-content-area style-3 h5-about-content">
 							<div className="sec-heading style-3">
-								
+
 								<div className="h5-about-content-right">
-									
+
 									<div className="h5-sec-title-wrapper">
-											<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-										<i className="tji-box"></i>{clientData?.tagline || "Our PARTNERSHIP"}
-									</span>
+										<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
+											<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{clientData?.tagline || "Our PARTNERSHIP"}
+										</span>
 										<h2 className="subtitle-tex title-highlight text-white">
 											{clientData?.title || "Powering2 Innovation Through Partnerships with Brands and Many Companies."}
 										</h2>
@@ -69,11 +69,11 @@ const Brands4 = async () => {
 					</div>
 				</div>
 			</div>
-			<BrandSlider3 
-				logos={clientData?.logo} 
-				hoverImage={clientData?.hover_image} 
+			<BrandSlider3
+				logos={clientData?.logo}
+				hoverImage={clientData?.hover_image}
 			/>
-			<div 
+			<div
 				style={{
 					position: "absolute",
 					bottom: 0,

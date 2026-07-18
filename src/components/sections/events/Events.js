@@ -72,9 +72,9 @@ function EventCard({ event, idx }) {
 // ── Main Section ─────────────────────────────────────────────────────────────
 
 const EventsSection = () => {
-	const [events, setEvents]       = useState([]);
+	const [events, setEvents] = useState([]);
 	const [headingData, setHeadingData] = useState(null);
-	const [loading, setLoading]     = useState(true);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		Promise.all([
@@ -118,7 +118,7 @@ const EventsSection = () => {
 		};
 	}, [loading, events.length]);
 
-	const tagline     = headingData?.tagline || "Upcoming Events";
+	const tagline = headingData?.tagline || "Upcoming Events";
 	const mainHeading = headingData?.heading || "Industry Events & Knowledge Exchange";
 
 	return (
@@ -130,7 +130,7 @@ const EventsSection = () => {
 					<div className="col-12 col-lg-4 col-xl-3">
 						<div className="sec-heading style-3 slidebar-stickiy">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-								<i className="tji-box"></i>{tagline}
+								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{tagline}
 							</span>
 							<h2 className="sec-title">
 								{mainHeading}
