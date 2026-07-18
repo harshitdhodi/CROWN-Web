@@ -53,14 +53,6 @@ const Hero2Client = ({ heroSlides = [] }) => {
 							style={{
 								backgroundImage: `url('${image ? resolveApiImage(image) : "/images/hero/slider-1.webp"
 									}')`,
-								backgroundSize: "cover",
-								backgroundPosition: "center",
-								backgroundRepeat: "no-repeat",
-								width: "100%",
-								height: "100%",
-								position: "absolute",
-								top: 0,
-								left: 0,
 							}}
 						></div>
 						<div className="container">

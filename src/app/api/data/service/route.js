@@ -12,6 +12,14 @@ export async function GET(request) {
 		const cmsResponse = await fetch(url);
 
 		if (!cmsResponse.ok) {
+			// If the collection doesn't exist yet in the CMS, return empty data gracefully
+			if (cmsResponse.status === 404) {
+				console.warn("Service collection not found in CMS (404). Returning empty data.");
+				return NextResponse.json(
+					{ success: true, data: [] },
+					{ status: 200 }
+				);
+			}
 			throw new Error(`CMS API error: ${cmsResponse.status}`);
 		}
 

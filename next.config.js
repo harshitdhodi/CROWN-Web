@@ -122,7 +122,7 @@ const nextConfig = {
 	// ------------------------------------------------------------------
 	images: {
 		// Keep true only if you're intentionally bypassing Next Image Optimization
-		unoptimized: true,
+		unoptimized: false,
 
 		formats: ["image/avif", "image/webp"],
 
@@ -135,12 +135,12 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "https://demo.crownpack.in",
-				pathname: "/uploads/**",
+				hostname: "demoadmin.crownpack.in",
+				pathname: "/**",
 			},
 			{
 				protocol: "https",
-				hostname: "https://demo.crownpack.in",
+				hostname: "demo.crownpack.in",
 				pathname: "/**",
 			},
 			{
