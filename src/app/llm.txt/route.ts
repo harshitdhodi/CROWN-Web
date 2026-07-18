@@ -20,7 +20,7 @@ export async function GET(request: Request) {
   }
 
   // Fallback llm.txt content
-  const fallback = `# Wiretex Manufacturing\n\nWiretex is a leading manufacturer of high-quality industrial components.`;
+  const fallback = `# CROWN Packaging Manufacturing\n\nCROWN Packaging is a leading manufacturer of high-quality industrial components.`;
   return new NextResponse(fallback, {
     headers: { 'Content-Type': 'text/plain; charset=utf-8' }
   });

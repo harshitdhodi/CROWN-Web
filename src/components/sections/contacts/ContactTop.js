@@ -10,8 +10,8 @@ const ContactTop = ({ headingData, contactData }) => {
 
     const rawEmail = contactData?.email;
     const email = Array.isArray(rawEmail)
-        ? rawEmail[0] || "support@wiretex.com"
-        : String(rawEmail || "support@wiretex.com");
+        ? rawEmail[0] || "support@CROWN Packaging.com"
+        : String(rawEmail || "support@CROWN Packaging.com");
 
     const rawMobile = contactData?.mobile;
     const mobile = Array.isArray(rawMobile)

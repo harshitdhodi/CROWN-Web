@@ -51,7 +51,7 @@ const Team1Client = ({ type, initialItems, heading }) => {
 									</h2>
 								) : (
 									<h2 className={`sec-title ${type === 2 ? "title-anim" : "text-anim"}`} key={heading?.heading ? "loaded" : "loading"}>
-										{heading?.heading || <>People Behind <span>Wiretex.</span></>}
+										{heading?.heading || <>People Behind <span>CROWN Packaging.</span></>}
 									</h2>
 								)}
 							</div>

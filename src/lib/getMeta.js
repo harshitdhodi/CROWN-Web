@@ -31,7 +31,7 @@ async function fetchCmsData(url, revalidate = 60) {
 	}
 }
 
-function buildFallbackMetadata(slug, siteName = "Wiretex") {
+function buildFallbackMetadata(slug, siteName = "CROWN Packaging") {
 	const pageTitle = slugToTitle(slug);
 	return {
 		title: `${pageTitle} | ${siteName}`,
@@ -41,7 +41,7 @@ function buildFallbackMetadata(slug, siteName = "Wiretex") {
 
 export async function getMeta(slug) {
 	const cmsBase = getCmsBase();
-	const siteNameFallback = "Wiretex";
+	const siteNameFallback = "CROWN Packaging";
 
 	const [pageMeta, globalSettings] = await Promise.all([
 		fetchCmsData(`${cmsBase}/api/seo/meta?slug=${encodeURIComponent(slug)}`, 60),

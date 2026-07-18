@@ -56,14 +56,14 @@ export default function Footer8Client() {
                 const expandedUrl = mapRes.url;
                 const pathMatch = expandedUrl.match(/\/place\/([^\/]+)/);
                 const coordsMatch = expandedUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-                
+
                 let query = '';
                 if (pathMatch && pathMatch[1]) {
-                  query = pathMatch[1]; 
+                  query = pathMatch[1];
                 } else if (coordsMatch) {
                   query = `${coordsMatch[1]},${coordsMatch[2]}`;
                 }
-                
+
                 if (query) {
                   setContactMapUrl(`https://maps.google.com/maps?q=${query}&output=embed`);
                 }
@@ -88,11 +88,11 @@ export default function Footer8Client() {
   const logoUrl = footerData?.logo?.[0]
     ? (footerData.logo[0].startsWith('/') ? footerData.logo[0] : `/${footerData.logo[0]}`)
     : '/images/logos/logo-large.webp';
-    
+
   const description = footerData?.description || 'Developing personalized client experiences to maximize satisfaction & brand loyalty across our operations.';
   const address = footerData?.address || '993 Renner Burg, West Rond, MT 94251-030, USA.';
   const mobile = footerData?.mobile || '+1 (009) 544-7818';
-  const email = footerData?.email || 'support@wiretex.com';
+  const email = footerData?.email || 'support@CROWN Packaging.com';
 
   const facebook = footerData?.facebook || 'https://www.facebook.com/';
   const instagram = footerData?.instagram || 'https://www.instagram.com/';
@@ -230,7 +230,7 @@ export default function Footer8Client() {
                   <p>
                     &copy; {new Date().getFullYear()}{' '}
                     <Link href="#" prefetch={false}>
-                      Wiretex
+                      CROWN Packaging
                     </Link>{' '}
                     All right reserved
                   </p>

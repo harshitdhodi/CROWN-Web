@@ -82,8 +82,8 @@ const ContactMenu = ({ isContactOpen, setIsContactOpen }) => {
 								</div>
 								<div className="contact-item">
 									<span className="subtitle">Email</span>
-									<Link className="contact-link" href="mailto:info@wiretex.com">
-										info@wiretex.com
+									<Link className="contact-link" href="mailto:info@CROWN Packaging.com">
+										info@CROWN Packaging.com
 									</Link>
 								</div>
 								<div className="contact-item">

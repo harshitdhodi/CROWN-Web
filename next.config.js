@@ -103,7 +103,7 @@ const nextConfig = {
 		const cmsBase =
 			process.env.CMS_BASE_URL ||
 			process.env.NEXT_PUBLIC_API_URL ||
-			"http://localhost:3012";
+			"https://demo.crownpack.in";
 
 		return [
 			{
@@ -135,12 +135,12 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "admin.wiretex.rndtd.com",
+				hostname: "https://demo.crownpack.in",
 				pathname: "/uploads/**",
 			},
 			{
 				protocol: "https",
-				hostname: "admin.wiretex.rndtd.com",
+				hostname: "https://demo.crownpack.in",
 				pathname: "/**",
 			},
 			{

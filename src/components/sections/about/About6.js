@@ -53,7 +53,7 @@ const About6 = () => {
 											</h2>
 											<p>
 												{loading
-													? "At Wiretex, we are passionate about shaping the future of manufacturing..."
+													? "At CROWN Packaging, we are passionate about shaping the future of manufacturing..."
 													: headingData?.subheading?.split("\n\n")[0] || ""}
 											</p>
 											{!loading && headingData?.subheading?.split("\n\n")[1] && (

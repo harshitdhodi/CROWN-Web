@@ -3,11 +3,11 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev --port 3011",
+		"dev": "next dev --port 3013",
 		"dev:turbo": "next dev --turbopack",
 		"build": "next build",
 		"build:analyze": "next build --webpack",
-		"start": "next start --port 3011",
+		"start": "next start --port 3013",
 		"dev:clean": "node -e \"const fs=require('fs');fs.rmSync('.next',{recursive:true,force:true})\" && next dev"
 	},
 	"browserslist": [

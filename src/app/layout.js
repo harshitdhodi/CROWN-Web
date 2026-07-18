@@ -93,10 +93,10 @@ export async function generateMetadata() {
 				const settings = json.data;
 				return {
 					title: {
-						default: settings.siteName || "Wiretex",
-						template: `%s | ${settings.siteName || "Wiretex"}`,
+						default: settings.siteName || "CROWN Packaging",
+						template: `%s | ${settings.siteName || "CROWN Packaging"}`,
 					},
-					description: settings.metaDescription || "Wiretex - Premium cable and wire manufacturing solutions.",
+					description: settings.metaDescription || "CROWN Packaging - Premium cable and wire manufacturing solutions.",
 					icons: {
 						icon: faviconUrl,
 						shortcut: faviconUrl,
@@ -114,8 +114,8 @@ export async function generateMetadata() {
 
 	// Fallback
 	return {
-		title: "Wiretex - Cable & Wire Manufacturing Solutions",
-		description: "Wiretex - Premium cable and wire manufacturing solutions.",
+		title: "CROWN Packaging - Cable & Wire Manufacturing Solutions",
+		description: "CROWN Packaging - Premium cable and wire manufacturing solutions.",
 		icons: {
 			icon: faviconUrl,
 			shortcut: faviconUrl,

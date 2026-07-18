@@ -2,7 +2,7 @@ export function getCmsBase(requestUrl) {
   // 1. Browser check
   if (typeof window !== 'undefined') {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return 'http://localhost:3012';
+      return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
     }
   }
 
@@ -11,7 +11,7 @@ export function getCmsBase(requestUrl) {
     try {
       const urlObj = new URL(requestUrl);
       if (urlObj.hostname === 'localhost' || urlObj.hostname === '127.0.0.1') {
-        return 'http://localhost:3012';
+        return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
       }
     } catch (e) {
       // ignore
@@ -20,18 +20,18 @@ export function getCmsBase(requestUrl) {
 
   // 3. Node environment check
   if (process.env.NODE_ENV === 'development') {
-    return 'http://localhost:3012';
+    return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
   }
 
   // 4. Default to configured env variables or production fallback
-  return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3012';
+  return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
 }
 
 export function getSiteUrl(requestUrl) {
   // 1. Browser check
   if (typeof window !== 'undefined') {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      return window.location.origin;
+      return process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
     }
   }
 
@@ -40,7 +40,7 @@ export function getSiteUrl(requestUrl) {
     try {
       const urlObj = new URL(requestUrl);
       if (urlObj.hostname === 'localhost' || urlObj.hostname === '127.0.0.1') {
-        return urlObj.origin;
+        return process.env.NEXT_PUBLIC_BASE_URL || urlObj.origin;
       }
     } catch (e) {
       // ignore
@@ -49,9 +49,9 @@ export function getSiteUrl(requestUrl) {
 
   // 3. Node environment check
   if (process.env.NODE_ENV === 'development') {
-    return 'http://localhost:3011';
+    return process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3013';
   }
 
   // 4. Default fallback
-  return process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wiretex.com';
+  return process.env.NEXT_PUBLIC_SITE_URL || 'https://www.demo.crownpack.in';
 }

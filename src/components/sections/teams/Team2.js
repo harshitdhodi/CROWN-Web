@@ -62,7 +62,7 @@ const Team2 = async () => {
 							<div className="heading-wrap-content">
 								<div className="sec-heading style-3">
 									<h2 className="sec-title title-anim">
-										{heading?.heading || "People Behind Wiretex."}
+										{heading?.heading || "People Behind CROWN Packaging."}
 									</h2>
 								</div>
 								{heading?.subheading && (

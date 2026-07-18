@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 const BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://wiretex.rndtd.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://CROWN Packaging.rndtd.com";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
 function resolveImage(src) {
@@ -72,7 +72,7 @@ async function fetchCategoryBySlug(slug) {
   }
 
   const json = await catRes.json();
-  console.log("json",json)
+  console.log("json", json)
   if (!json?.success || !Array.isArray(json.data) || json.data.length === 0) {
     return null;
   }
