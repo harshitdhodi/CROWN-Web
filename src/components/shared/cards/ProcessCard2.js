@@ -4,10 +4,10 @@ const ProcessCard2 = ({ processSingle, idx }) => {
 	const { title, img, desc, id } = processSingle ? processSingle : {};
 	return (
 		<div
-			className="process-item h5-working-process-item wow bounceInUp"
+			className="process-item  h5-working-process-item wow bounceInUp"
 			data-wow-delay={makeWowDelay(idx, 0.3, 3)}
 		>
-			<h5 className="h5-working-process-indicator">
+			<h5 className="h5-working-process-indicator hidden lg:block">
 				Step {modifyNumber(idx + 1)}
 			</h5>
 			<div className="process-step">

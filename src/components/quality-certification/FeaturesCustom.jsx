@@ -56,7 +56,7 @@ const FeaturesCustom = async () => {
                     {features?.length ? (
                         features.map((feature, idx) => (
                             <div key={idx} className="col-lg-3 col-12 col-sm-6">
-                                <div className="choose-box choose-icon-style">
+                                <div className="choose-box choose-icon-style ">
                                     <div className="choose-content">
                                         <div className="choose-icon">
                                             <img
@@ -92,7 +92,7 @@ const FeaturesCustom = async () => {
                 .choose-icon-style {
                     transition: all 0.3s ease;
                     background-color: transparent !important;
-                    border: 1px dashed var(--tj-color-border-1) !important;
+                    border: 1px dashed var(--tj-color-theme-primary) !important;
                 }
 
                 .choose-icon-style .choose-icon img {

@@ -21,9 +21,9 @@ import getBannerData from "@/lib/getBannerData";
 const COMPONENT_MAP = {
 	About9: About9,                                          // Company Overview
 	Features: Features,                                      // Our Mission & Vision
-	Process: (props) => <Process type="core-value" {...props} />, // Our History
+	Process: (props) => <Process type="core-value" {...props} />, // core values
 	Team2: Team2,                                            // Leadership Team
-	Services4: Services4,                                    // Infrastructure
+	Services4: Services4,                                    // Manufacturing Strength
 	Team1: Team1,                                            // Certificates
 	Services3: (props) => <Services3 variant="journey" {...props} />, // Our Journey
 	Features3: (props) => <Features3 variant="journey" {...props} />, // Why Choose Us

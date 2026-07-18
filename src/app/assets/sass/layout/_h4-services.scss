@@ -5,12 +5,17 @@ START: Services CSS
 ----------------------------------------*/
 .tj-service-section-5 {
 	.sec-heading {
-		max-width: 550px;
+		max-width: 800px;
+		margin-bottom: 0 !important;
 	}
 }
 
 .service-item {
 	&.style-5 {
+		@media #{$lg, $xl, $xxl} {
+			position: sticky;
+			top: 120px;
+		}
 		background-color: var(--tj-color-theme-dark);
 		display: flex;
 		flex-wrap: wrap;

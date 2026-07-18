@@ -59,10 +59,10 @@ const Team1Client = ({ type, initialItems, heading }) => {
 					</div>
 				)}
 
-				<div className="row leftSwipeWrap">
+				<div className="row leftSwipeWrap sm:gap-0 gy-4  gap-12">
 					{currentItems?.length
 						? currentItems.map((item, idx) => (
-							<div key={idx} className="col-lg-3 col-sm-6 md:mb-4 mb-lg-0">
+							<div key={idx} className="col-lg-3 col-sm-6 md:mb-4 mb-lg-0 ">
 								<TeamCard teamMember={item} />
 							</div>
 						))

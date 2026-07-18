@@ -47,7 +47,7 @@ const Process2 = async () => {
 		<section className="h5-working-process section-gap section-gap-x" style={{ marginTop: "50px", marginBottom: "50px" }}>
 			<div className="container">
 				<div className="row">
-					<div className="col-12">
+					<div className="col-12 lg:!mb-20">
 						<div className="sec-heading sec-heading-centered style-3">
 							<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
 								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
@@ -67,17 +67,17 @@ const Process2 = async () => {
 				{rows.map((row, rowIdx) => (
 					<div
 						key={rowIdx}
-						className="h5-working-process-inner"
-						style={{ marginTop: rowIdx > 0 ? "80px" : "0" }}
+						className={`h5-working-process-inner ${
+							rowIdx > 0 ? "mt-5 sm:mt-[72px]" : "mt-0"
+						}`}
 					>
 						<div className="container">
 							<div className="row">
 								<div className="col-12">
 									<div
-										className="working-process-area h5-working-process-wrapper"
-										style={{
-											marginBottom: rowIdx < rows.length - 1 ? "30px" : "0"
-										}}
+										className={`working-process-area h5-working-process-wrapper ${
+											rowIdx < rows.length - 1 ? "sm:mb-[30px] mb-0" : "mb-0"
+										}`}
 									>
 										{row.map((processSingle, idx) => (
 											<ProcessCard2

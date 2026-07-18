@@ -114,7 +114,7 @@ START: Heading CSS
 	.desc {
 		max-width: 360px;
 		margin-bottom: 0;
-		@media #{$sm, $xs} {
+		@media #{$md, $sm, $xs} {
 			max-width: 100%;
 		}
 	}

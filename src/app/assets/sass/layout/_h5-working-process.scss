@@ -23,7 +23,6 @@ START: Working process CSS
 		padding-top: 42px;
 		@media #{$sm,$xs} {
 			padding-top: 0;
-			margin-top: 72px;
 		}
 		&::after {
 			content: "";
@@ -54,9 +53,13 @@ START: Working process CSS
 		@media #{$lg,$md,$sm} {
 			gap: 20px;
 		}
-		@media #{$sm,$xs} {
+		@media #{$sm} {
 			flex-direction: column;
 			gap: 85px;
+		}
+		@media #{$xs} {
+			flex-direction: column;
+			gap: 20px;
 		}
 	}
 
@@ -66,8 +69,11 @@ START: Working process CSS
 		margin-top: 60px;
 		transition: all 0.6s;
 		position: static;
-		@media #{$sm,$xs} {
+		@media #{$sm} {
 			margin-top: 30px;
+		}
+		@media #{$xs} {
+			margin-top: 0;
 		}
 		.h5-working-process {
 			&-indicator {
@@ -117,8 +123,11 @@ START: Working process CSS
 		}
 		&:nth-child(2) {
 			margin-top: 192px;
-			@media #{$sm,$xs} {
+			@media #{$sm} {
 				margin-top: 30px;
+			}
+			@media #{$xs} {
+				margin-top: 0;
 			}
 			.h5-working-process {
 				&-indicator {
@@ -141,11 +150,14 @@ START: Working process CSS
 		}
 		&:nth-child(3) {
 			margin-top: 324px;
-			@media #{$sm,$xs} {
+			@media #{$sm} {
 				margin-top: 30px;
 				&::after {
 					bottom: -30px;
 				}
+			}
+			@media #{$xs} {
+				margin-top: 0;
 			}
 			.h5-working-process {
 				&-indicator {

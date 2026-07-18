@@ -95,19 +95,36 @@ const Footer8 = async () => {
 	const linkedin = footerData?.linkedin || "https://www.linkedin.com/";
 
 	return (
-		<footer className="tj-footer-section footer-2 h5-footer  h6-footer  h8-footer section-gap-x footer-section-wrapper" style={{ position: "relative", overflow: "hidden" }}>
-			<style dangerouslySetInnerHTML={{
-				__html: `
-				.h8-footer, .h8-footer p, .h8-footer a, .h8-footer h5.title, .h8-footer li a, .h8-footer span {
-					color: var(--tj-color-text-body-5) !important;
-				}
-				.h8-footer a:hover, .h8-footer li a:hover {
-					color: var(--tj-color-theme-primary) !important;
-				}
-				.footer-section-wrapper {
-					margin-top: 50px !important;
-				}
-			`}} />
+		<footer className="tj-footer-section footer-2 h5-footer  h6-footer  h8-footer section-gap-x  footer-section-wrapper" style={{ position: "relative", overflow: "hidden" }}>
+		<style
+  dangerouslySetInnerHTML={{
+    __html: `
+      .h8-footer,
+      .h8-footer p,
+      .h8-footer a,
+      .h8-footer h5.title,
+      .h8-footer li a,
+      .h8-footer span {
+        color: var(--tj-color-text-body-5) !important;
+      }
+
+      .h8-footer a:hover,
+      .h8-footer li a:hover {
+        color: var(--tj-color-theme-primary) !important;
+      }
+
+      .footer-section-wrapper {
+        margin-top: 50px !important;
+      }
+
+      @media (max-width: 767px) {
+        .footer-section-wrapper {
+          margin-top: 30px !important;
+        }
+      }
+    `,
+  }}
+/>
 			<div className="h6-footer-logo-area ">
 				<div className="container">
 					<div className="row">

@@ -24,7 +24,7 @@ const TeamCard = ({ teamMember }) => {
 
 	return (
 		<div
-			className={`team-item left-swipe ${isHovered ? "active active-hover" : ""}`}
+			className={`team-item  left-swipe ${isHovered ? "active active-hover" : ""}`}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			style={{ display: "flex", flexDirection: "column", height: "100%" }}

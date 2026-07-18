@@ -67,14 +67,18 @@ const Services4 = async ({ variant } = {}) => {
 								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
 								{heading?.tagline || "Our Solutions"}
 							</span>
-							<h2 className="sec-title title-anim" style={{ maxWidth: "500px", margin: "0 auto" }}>
+							<h2 className="sec-title title-anim" style={{ maxWidth: "800px", margin: "0 auto" }}>
 								{heading?.heading || "Tailor Business Solutions for Corporates."}
 							</h2>
+
+							
 						</div>
+						
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-12">
+						
 						<div className="service-wrapper">
 							{formattedServices?.length
 								? formattedServices.map((service, idx) => (
