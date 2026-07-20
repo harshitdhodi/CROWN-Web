@@ -53,7 +53,7 @@ const Brands4 = async () => {
 										<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
 											<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{clientData?.tagline || "Our PARTNERSHIP"}
 										</span>
-										<h2 className="subtitle-tex title-highlight text-white">
+										<h2 className="subtitle-tex title-highlight !text-white">
 											{clientData?.title || "Powering2 Innovation Through Partnerships with Brands and Many Companies."}
 										</h2>
 										<div
