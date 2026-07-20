@@ -3,7 +3,7 @@ import rtlValue from "./rtlValue";
 
 const tjScrollSlider = () => {
   let mediaMatch = gsap.matchMedia();
-  mediaMatch.add("(min-width: 1200px)", () => {
+  mediaMatch.add("(min-width: 992px)", () => {
     const sliders = gsap.utils.toArray(".tj-scroll-slider");
     if (!sliders?.length) return;
 

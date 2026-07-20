@@ -1,6 +1,4 @@
-'use client';
-
-import { useState, useEffect } from "react";
+"use client";
 import Link from "next/link";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 import Image from "next/image";
@@ -39,11 +37,6 @@ const PortfolioCard5 = ({ portfolio }) => {
 
   // Prefer API image field, then img5 fakedata field, then fallback
   const imgSrc = resolveImage(image || img5);
-  const [imageSrc, setImageSrc] = useState(imgSrc);
-
-  useEffect(() => {
-    setImageSrc(imgSrc);
-  }, [imgSrc]);
 
   const description =
     desc ||
@@ -59,10 +52,10 @@ const PortfolioCard5 = ({ portfolio }) => {
       <div className="project-item h4-project-item h5-project-item">
         <div
           className="project-img"
-          style={{ position: "relative", overflow: "hidden", width: "100%", minHeight: "200px" }}
+          style={{ position: "relative", overflow: "hidden" }}
         >
           <Image
-            src={imageSrc}
+            src={imgSrc}
             alt={title}
             fill
             sizes="(max-width: 576px) 100vw, (max-width: 992px) 50vw, (max-width: 1400px) 400px, 450px"
@@ -71,15 +64,13 @@ const PortfolioCard5 = ({ portfolio }) => {
               objectFit: "cover",
               display: "block",
             }}
-            onError={() => {
-              setImageSrc("/images/project/h5-project-1.webp");
+            onError={(e) => {
+              e.currentTarget.src = "/images/project/h5-project-1.webp";
             }}
           />
         </div>
         <div className="project-content">
-          <span  className="px-2 rounded-md wow fadeInUp"  style={{
-    border: "1px dashed var(--tj-color-theme-primary)",
-  }}>
+          <span className="categories">
             <Link href={href}>{category}</Link>
           </span>
           <div className="project-text">

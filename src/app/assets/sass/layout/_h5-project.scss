@@ -12,7 +12,7 @@ START: Home 5 Project CSS
 		padding: 0;
 		display: flex;
 		flex-wrap: nowrap;
-		@media #{$lg, $md, $sm, $xs} {
+		@media #{$md, $sm, $xs} {
 			gap: 30px;
 			flex-direction: column;
 		}
@@ -26,38 +26,53 @@ START: Home 5 Project CSS
 
 			&:not(:last-child) {
 				padding-inline-end: 30px;
-				@media #{$lg, $md, $sm, $xs} {
+				@media #{$lg} {
+					padding-inline-end: 20px;
+				}
+				@media #{$md, $sm, $xs} {
 					padding-inline-end: 0;
 				}
 			}
-			.h5-project {
-				&-item {
-					display: flex;
-					align-items: center;
-					flex-wrap: nowrap;
-					gap: 60px;
-					@media #{$md} {
-						gap: 40px;
-					}
-					@media #{$sm,$xs} {
-						gap: 20px;
-						flex-direction: column;
-						align-items: flex-start;
-					}
+			.h5-project-item {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				flex-wrap: nowrap;
+				gap: 60px;
+				@media #{$md, $sm, $xs} {
+					gap: 20px;
+					flex-direction: column;
+					align-items: flex-start;
 				}
 			}
 		}
 		&.project-item {
+			height: auto !important;
 			.project-content {
-				max-width: 360px;
+				max-width: 550px;
 				padding-bottom: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
 				@media #{$sm,$xs} {
 					padding: 0 0 10px 0;
 				}
+				.categories {
+					@media #{$md} {
+						display: none !important;
+					}
+				}
 				.title {
 					margin-bottom: 20px;
-					max-width: 308px;
+					width: 100%;
 					font-weight: var(--tj-fw-medium);
+					font-size: 30px;
+					@media #{$lg, $md} {
+						font-size: 26px;
+					}
+					@media #{$sm, $xs} {
+						font-size: 22px;
+					}
 				}
 				.desc {
 					margin-bottom: 24px;
@@ -65,18 +80,22 @@ START: Home 5 Project CSS
 			}
 
 			.project-img {
-				max-width: 615px;
-				height: 505px;
-				@media #{$xl, $lg, $md} {
-					height: 350px;
+				max-width: 500px;
+				height: 400px;
+				@media #{$xl, $lg} {
+					max-width: 420px;
+					height: 320px;
 				}
 
 				@media #{$md} {
-					max-width: 330px;
-					flex-shrink: 0;
+					width: 100%;
+					max-width: 100%;
+					height: 350px;
 				}
 				@media #{$sm, $xs} {
-					height: 300px;
+					width: 100%;
+					max-width: 100%;
+					height: 250px;
 				}
 			}
 		}

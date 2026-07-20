@@ -9,7 +9,7 @@ const tjStackAnimation = selector => {
 					scrollTrigger: {
 						trigger: item,
 						scrub: true,
-						start: "top 50px",
+						start: "top 20px",
 						pin: true,
 						pinSpacing: false,
 						markers: false,
