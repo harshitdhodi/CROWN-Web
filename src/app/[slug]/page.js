@@ -7,6 +7,8 @@ import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import HeroInner from "@/components/sections/hero/HeroInner";
+import getBannerData from "@/lib/getBannerData";
 
 export const dynamic = "force-dynamic";
 
@@ -218,6 +220,26 @@ export default async function CategorySlugPage({ params }) {
     relatedProducts = await fetchRelatedProducts(parentCategory?.slug || product.category);
   }
 
+  // Resolve banner data matching the main category/product pages
+  const bannerPath = category ? "/categories" : "/products";
+  const banner = await getBannerData(bannerPath);
+  const bannerTitle = category ? category.title : (product ? product.name : "");
+  let bgImage = "/images/bg/bg.png";
+  if (banner?.image?.[0]) {
+    bgImage = banner.image[0];
+    if (bgImage.startsWith('/uploads')) {
+      bgImage = `${process.env.CMS_BASE_URL || "http://localhost:3012"}${bgImage}`;
+    }
+  }
+
+  const breadcrums = category
+    ? [
+        { name: "Categories", path: "/categories" }
+      ]
+    : [
+        { name: "Products", path: "/products" }
+      ];
+
   return (
     <div>
       <BackToTop />
@@ -225,16 +247,25 @@ export default async function CategorySlugPage({ params }) {
       <Header isStickyHeader={true} />
       {/* Inject JSON-LD schema from product CMS field */}
       {product?.schema && (
-        <div dangerouslySetInnerHTML={{ __html: product.schema }} />
+        product.schema.trim().startsWith("<script") ? (
+          <div dangerouslySetInnerHTML={{ __html: product.schema }} />
+        ) : (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: product.schema }} />
+        )
       )}
       {/* Inject JSON-LD schema from category CMS field */}
       {category?.schema && (
-        <div dangerouslySetInnerHTML={{ __html: category.schema }} />
+        category.schema.trim().startsWith("<script") ? (
+          <div dangerouslySetInnerHTML={{ __html: category.schema }} />
+        ) : (
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: category.schema }} />
+        )
       )}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
             <HeaderSpace />
+            <HeroInner title={bannerTitle} text={bannerTitle} breadcrums={breadcrums} bgImage={bgImage} />
             {category ? (
               <CategoryDetailsMain
                 category={category}

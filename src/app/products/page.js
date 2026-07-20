@@ -24,23 +24,11 @@ const slugify = (text) =>
         .replace(/^-+/, '')
         .replace(/-+$/, '') || "";
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 // Resolve image URLs reported by the API
 const resolveApiImage = (imagePath) => {
-    if (!imagePath) return "/images/service/service-1.webp";
-    if (Array.isArray(imagePath)) {
-        return resolveApiImage(imagePath[0]);
-    }
-    if (typeof imagePath !== "string") {
-        console.warn("resolveApiImage received non-string imagePath", imagePath);
-        return "/images/service/service-1.webp";
-    }
-    let cleanSrc = imagePath;
-    if (imagePath.includes("/uploads/")) {
-        cleanSrc = "/uploads/" + imagePath.split("/uploads/")[1];
-    } else if (imagePath.startsWith("http")) {
-        return imagePath;
-    }
-    return cleanSrc.startsWith("/") ? `${API_URL}${cleanSrc}` : `${API_URL}/${cleanSrc}`;
+    return resolveCmsImage(imagePath) || "/images/service/service-1.webp";
 };
 
 /** Fetch product data from the backend */

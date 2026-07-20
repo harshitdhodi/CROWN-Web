@@ -22,9 +22,9 @@ const ServiceCard5 = ({ service, idx, lastItemIdx }) => {
             : <i className="tji-service-1"></i>
           }
         </div>
-        <div className="service-content" style={{ maxWidth: "460px" }}>
+        <div className="service-content">
           <span className="no title">{modifyNumber(idx + 1)}.</span>
-          <h3 className="title" style={{ maxWidth: "420px" }}>
+          <h3 className="title">
             <span>{title}</span>
           </h3>
           <p className="desc" style={{ color: "var(--tj-color-text-body-5)" }}>{desc}</p>

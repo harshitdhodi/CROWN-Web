@@ -30,6 +30,7 @@ const FeatureCard3 = ({ feature }) => {
 					borderRadius: "50%",
 					width: "90px",
 					height: "90px",
+					maxWidth: "90px",
 					display: "flex",
 					alignItems: "center",
 					justifyContent: "center",
@@ -40,7 +41,7 @@ const FeatureCard3 = ({ feature }) => {
 						<img
 							src={currentImg}
 							alt={title || ""}
-							style={{ objectFit: "contain",  transition: "opacity 0.3s" }}
+							style={{ width: "95px", height: "95px", objectFit: "contain", display: "block", margin: "auto", transition: "opacity 0.3s" }}
 						/>
 					) : (
 						<i className={icon}></i>

@@ -82,6 +82,13 @@ const About9Client = ({ about }) => {
 	const ach2 = parseAchievement(acheivment2, 10, " Lakh+");
 	const ach3 = parseAchievement(acheivment3, 10000, "+");
 
+	useEffect(() => {
+		import("@/libs/animateInvertText").then((module) => {
+			const animateInvertText = module.default;
+			animateInvertText();
+		});
+	}, []);
+
 	const cardStyle = {
 		background: "var(--tj-color-common-white, white)",
 		padding: "22px 20px",

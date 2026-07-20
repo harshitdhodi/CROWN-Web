@@ -12,7 +12,7 @@ import { getMeta } from "@/lib/getMeta";
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata() {
-	return await getMeta("/categories");
+    return await getMeta("/categories");
 }
 
 // NEXT_PUBLIC_BASE_URL is usually port 3000 (Frontend)
@@ -29,23 +29,11 @@ const slugify = (text) =>
         .replace(/^-+/, '')
         .replace(/-+$/, '') || "";
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 // Helper to resolve image paths from the API
 const resolveApiImage = (imagePath) => {
-    if (!imagePath) return "/images/service/service-1.webp";
-    if (Array.isArray(imagePath)) {
-        return resolveApiImage(imagePath[0]);
-    }
-    if (typeof imagePath !== "string") {
-        console.warn("resolveApiImage received non-string imagePath", imagePath);
-        return "/images/service/service-1.webp";
-    }
-    let cleanSrc = imagePath;
-    if (imagePath.includes("/uploads/")) {
-        cleanSrc = "/uploads/" + imagePath.split("/uploads/")[1];
-    } else if (imagePath.startsWith("http")) {
-        return imagePath;
-    }
-    return cleanSrc.startsWith("/") ? `${API_URL}${cleanSrc}` : `${API_URL}/${cleanSrc}`;
+    return resolveCmsImage(imagePath) || "/images/service/service-1.webp";
 };
 
 async function getCategories() {
@@ -87,6 +75,8 @@ async function getCategories() {
     }
 }
 
+import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
+
 export default async function Categories() {
     const banner = await getBannerData("/categories");
     const bannerTitle = banner?.title || "Categories";
@@ -101,22 +91,24 @@ export default async function Categories() {
     const categories = await getCategories();
 
     return (
-        <div>
-            <BackToTop />
-            <Header />
-            <Header isStickyHeader={true} />
-            <div id="smooth-wrapper">
-                <div id="smooth-content">
-                    <main>
-                        <HeaderSpace />
-                        <HeroInner title={bannerTitle} text={bannerTitle} bgImage={bgImage} />
-                        <PortfoliosPrimary items={categories} />  {/* Category Grid View */}
-                
-                    </main>
-                    <Footer8 />
+        <CmsPageRoot pageSlug="categories">
+            <div>
+                <BackToTop />
+                <Header />
+                <Header isStickyHeader={true} />
+                <div id="smooth-wrapper">
+                    <div id="smooth-content">
+                        <main>
+                            <HeaderSpace />
+                            <HeroInner title={bannerTitle} text={bannerTitle} bgImage={bgImage} />
+                            <PortfoliosPrimary items={categories} />  {/* Category Grid View */}
+
+                        </main>
+                        <Footer8 />
+                    </div>
                 </div>
+                <ClientWrapper />
             </div>
-            <ClientWrapper />
-        </div>
+        </CmsPageRoot>
     );
 }

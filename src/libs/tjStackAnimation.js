@@ -5,18 +5,28 @@ const tjStackAnimation = selector => {
 		let mediaMatch = gsap.matchMedia();
 		mediaMatch.add("(min-width: 992px)", () => {
 			animItems.forEach(item => {
-				gsap.to(item, {
-					opacity: 0,
-					scale: 0.9,
-					y: 50,
+				const tl = gsap.timeline({
 					scrollTrigger: {
 						trigger: item,
 						scrub: true,
-						start: "top top",
+						start: "top 50px",
 						pin: true,
 						pinSpacing: false,
 						markers: false,
 					},
+				});
+
+				// Hold card fully visible at top before animating
+				tl.to(item, {
+					duration: 0.5,
+				});
+
+				// Fade out and scale down
+				tl.to(item, {
+					opacity: 0,
+					scale: 0.9,
+					y: 50,
+					duration: 1,
 				});
 			});
 		});

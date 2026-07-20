@@ -199,6 +199,10 @@ START: Heading CSS
 	);
 }
 
+.title-highlight {
+	color: var(--tj-color-text-body-2) !important;
+}
+
 .line {
 	position: relative;
 	-webkit-background-clip: text;

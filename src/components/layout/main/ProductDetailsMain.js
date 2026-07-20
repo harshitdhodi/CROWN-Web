@@ -33,15 +33,6 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
   console.log("ProductDetailsMain received product:", product);
   return (
     <div>
-      <HeroInner
-        title={product.name}
-        text={product.name}
-        breadcrums={[
-          { name: "Categories", path: "/categories" },
-          { name: "Products", path: "/products" }
-        ]}
-      />
-
       <section className="tj-product-details-area section-gap">
         <div className="container">
           <div className="row row-gap-5">
@@ -53,7 +44,7 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
                     <img
                       src={resolveApiImage(product.image?.[0])}
                       alt={product.name}
-                      style={{ width: "100%", height: "auto", display: 'block' }}
+                      style={{ width: "100%", height: "520px", objectFit: "cover", display: 'block' }}
                     />
                  
                   </div>

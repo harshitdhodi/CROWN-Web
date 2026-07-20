@@ -28,7 +28,11 @@ const PortfolioCard3 = ({ portfolio }) => {
 	return (
 		<div className="project-item">
 			<div className="project-img">
-				<Image src={imgSrc} alt={title} width={434} height={420} />
+				<img
+					src={imgSrc}
+					alt={title}
+					style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+				/>
 			</div>
 			<div className="project-content">
 				<span className="categories">
