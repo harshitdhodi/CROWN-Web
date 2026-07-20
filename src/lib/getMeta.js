@@ -65,7 +65,12 @@ export async function getMeta(slug) {
 	const metaTitle = pageMeta?.metaTitle || "";
 	const metaDescription = pageMeta?.metaDescription || globalSettings?.metaDescription || "";
 	const metaKeyword = pageMeta?.metaKeyword || "";
-	const metaCanonical = pageMeta?.metaCanonical || "";
+	
+	const siteUrl = globalSettings?.siteUrl || "https://www.demo.crownpack.in";
+	const sanitizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
+	const sanitizedSlug = slug === "/" ? "" : (slug.startsWith("/") ? slug : `/${slug}`);
+	const defaultCanonical = `${sanitizedSiteUrl}${sanitizedSlug}`;
+	const metaCanonical = pageMeta?.metaCanonical || defaultCanonical;
 	const ogTitle = pageMeta?.ogTitle || metaTitle;
 	const ogDescription = pageMeta?.ogDescription || metaDescription;
 	const ogImage = resolveMediaUrl(pageMeta?.ogImage || defaultOgImage);
