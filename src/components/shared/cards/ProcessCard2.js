@@ -6,6 +6,7 @@ const ProcessCard2 = ({ processSingle, idx }) => {
 		<div
 			className="process-item  h5-working-process-item wow bounceInUp"
 			data-wow-delay={makeWowDelay(idx, 0.3, 3)}
+			style={{ backgroundColor: "var(--tj-color-theme-bg-3)" }}
 		>
 			<h5 className="h5-working-process-indicator hidden md:block">
 				Step {modifyNumber(idx + 1)}

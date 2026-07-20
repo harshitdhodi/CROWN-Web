@@ -29,17 +29,6 @@ const TeamCard = ({ teamMember }) => {
 			onMouseLeave={() => setIsHovered(false)}
 			style={{ display: "flex", flexDirection: "column", height: "100%" }}
 		>
-			{/* Reveal Background on Hover */}
-			<div 
-				className="team-reveal-bg" 
-				style={{ 
-					backgroundImage: `url("${largeImageSrc}")`,
-					backgroundSize: "contain",
-					backgroundRepeat: "no-repeat",
-					backgroundPosition: "center"
-				}} 
-			></div>
-
 			<div className="team-img" style={{ position: "relative", width: "100%", height: "100%", minHeight: "350px" }}>
 				<div className="team-img-inner" style={{ position: "relative", width: "100%", height: "100%" }}>
 					<Image 
