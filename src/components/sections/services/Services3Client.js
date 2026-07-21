@@ -18,7 +18,7 @@ const Services3Client = ({ services, heading, variant }) => {
 				<div className="row">
 					<div className="col-lg-12">
 						<div className="sec-heading style-3 text-center">
-							<span className="sub-title wow fadeInUp" data-wow-delay=".3s" style={{ border: '1px dashed var(--tj-color-border-1)', padding: '2px 10px' }}>
+							<span className="sub-title bg-none wow fadeInUp" data-wow-delay=".3s" style={{ border: '1px dashed var(--tj-color-border-1)', padding: '2px 10px' }}>
 								<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>{tagline}
 							</span>
 							<div className="sec-heading style-3">

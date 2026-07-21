@@ -42,16 +42,16 @@ const Services2 = async () => {
 					<div className="col-lg-4">
 						<div className="content-wrap slidebar-stickiy">
 							<div className="sec-heading style-2">
-								<span className="sub-title wow fadeInUp" data-wow-delay=".3s">
+								<span className="sub-title wow  fadeInUp" data-wow-delay=".3s" style={{ backgroundColor: 'transparent', padding: '0' }}>
 									<i className="tji-box hidden sm:block mb-2 sm:mb-0"></i> {headingData?.tagline || "Our Solutions"}
 								</span>
 								<h2 className="sec-title text-white text-anim">
 									{headingData?.heading || "Tailored Business Solutions for our Corporates."}
 								</h2>
 							</div>
-							<div className="wow fadeInUp" data-wow-delay=".6s">
+							{/* <div className="wow fadeInUp" data-wow-delay=".6s">
 								<ButtonPrimary text={"More Services"} url={"/services"} />
-							</div>
+							</div> */}
 						</div>
 					</div>
 					<div className="col-lg-8">

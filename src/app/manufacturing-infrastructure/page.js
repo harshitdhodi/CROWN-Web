@@ -24,7 +24,7 @@ const DEFAULT_ORDER = [
 
 export default async function IndustrySolutions() {
     const banner = await getBannerData("/manufacturing-infrastructure");
-    const bannerTitle = banner?.title || "Manufacturing ";
+    const bannerTitle = banner?.title || "Manufacturing & Infrastructure ";
     let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];

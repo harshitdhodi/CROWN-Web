@@ -60,7 +60,7 @@ const Brands4 = async () => {
 											className="about-btn-area-2 mt-5 wow fadeInUp"
 											data-wow-delay="1s"
 										>
-											<ButtonPrimary text={"More Partners"} url={"/about"} />
+											<ButtonPrimary text={"Get In Touch"} url={"/contact"} />
 										</div>
 									</div>
 								</div>

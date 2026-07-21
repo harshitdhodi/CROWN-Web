@@ -28,7 +28,7 @@ const Hero2Client = ({ heroSlides = [] }) => {
 				className="hero-slider"
 				style={{ height: "100%" }}
 			>
-				{heroSlides.map(({ image, heading, subheading }, idx) => (
+				{heroSlides.map(({ image, heading, subheading, btn_text, btn_link }, idx) => (
 					<SwiperSlide
 						key={idx}
 						className="tj-slider-item"
@@ -51,7 +51,7 @@ const Hero2Client = ({ heroSlides = [] }) => {
 										style={{ color: "var(--tj-color-text-body-5)" }}
 									/>
 									<div className="slider-btn">
-										<ButtonPrimary text={"Get Started"} url={"/contact"} />
+										<ButtonPrimary text={btn_text || "Explore More"} url={btn_link || "/about-us"} />
 									</div>
 								</div>
 							</div>
@@ -106,7 +106,7 @@ const Hero2Client = ({ heroSlides = [] }) => {
 					className="circle-text"
 					style={{ backgroundImage: "url('/images/hero/circle-text.webp')" }}
 				></span>
-				<Link className="circle-icon" href="/services" aria-label="Scroll down to services">
+				<Link className="circle-icon" href="/about-us" aria-label="Scroll down to services">
 					<i className="tji-arrow-down-big"></i>
 				</Link>
 			</div>

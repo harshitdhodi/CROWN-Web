@@ -57,7 +57,7 @@ const Services10 = async () => {
 									</h2>
 								</div>
 								<div className="btn-area wow fadeInUp" data-wow-delay=".8s">
-									<ButtonPrimary text={"Explore More"} url={"/services"} />
+									<ButtonPrimary text={"Explore More"} url={"/industry-solutions"} />
 								</div>
 							</div>
 						</div>

@@ -44,6 +44,11 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 
 	return (
 		<div className="service-item-wrapper tj-fadein-right-on-scroll">
+			<style>{`
+				.service-item.style-2:hover {
+					background-color: transparent !important;
+				}
+			`}</style>
 			<div className="service-item style-2 ">
 				<div className="title-area">
 					<div className="service-icon">
@@ -66,7 +71,7 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 						)}
 					</div>
 					<h4 className="title" style={{ color: "var(--tj-color-text-body-5)" }}>
-						<Link href={`/services/${serviceId}`} style={{ color: "var(--tj-color-text-body-5)" }}>{title}</Link>
+						<Link href={`/contact`} style={{ color: "var(--tj-color-text-body-5)" }}>{title}</Link>
 					</h4>
 				</div>
 				<div className="service-content" style={{ color: "var(--tj-color-text-body-5)" }}>

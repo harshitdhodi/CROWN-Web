@@ -60,11 +60,11 @@ const ServiceCard10 = ({ service, idx }) => {
         </div>
         <div className="service-content">
           <h4 className="title text-white">
-            <Link href={`/services/${slug}`}>{title}</Link>
+            <Link href={`/contact`}>{title}</Link>
           </h4>
           <p className="desc">{description}</p>
         </div>
-        <Link href={`/services/${slug}`} className="h9-service-nav" aria-label={`View ${title}`}>
+        <Link href={`/contact`} className="h9-service-nav" aria-label={`View ${title}`}>
           <i className="tji-arrow-right-long"></i>
         </Link>
       </div>

@@ -123,6 +123,7 @@ const nextConfig = {
 	images: {
 		// Keep true only if you're intentionally bypassing Next Image Optimization
 		unoptimized: false,
+		qualities: [25, 50, 75, 80, 100],
 
 		formats: ["image/avif", "image/webp"],
 

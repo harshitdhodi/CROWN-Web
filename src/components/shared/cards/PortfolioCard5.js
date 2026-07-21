@@ -43,9 +43,8 @@ const PortfolioCard5 = ({ portfolio }) => {
     (short_description ? short_description.replace(/<[^>]+>/g, "") : null) ||
     "Through a combination of data-driven insights and innovative approaches, we work closely with you to develop customized solutions.";
 
-  const finalSlug =
-    slug || slugify(category) || slugify(title) || `portfolio-${id}`;
-  const href = categorySlug && slug ? `/${categorySlug}/${slug}` : (finalSlug ? `/${finalSlug}` : `/portfolios/${id}`);
+  const finalSlug = slug || slugify(title) || `portfolio-${id}`;
+  const href = `/${finalSlug}`;
 
   return (
     <div className="h5-project-item-wrapper tj-scroll-slider-item">

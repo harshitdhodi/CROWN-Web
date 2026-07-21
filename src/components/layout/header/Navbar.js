@@ -158,7 +158,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 												<i className="tji-process-1"></i>
 											</span>
 											<span className="mega-menu-service-title">
-												Plant & Infrastructure
+												Manufacturing & Infrastructure
 											</span>
 											<span className="mega-menu-service-nav">
 												<i className="tji-arrow-right-long"></i>

@@ -20,8 +20,8 @@ const DEFAULT_ORDER = [
 ];
 
 export default async function ManufacturingInfrastructure() {
-    const banner = await getBannerData("/manufacturing-infrastructure");
-    const bannerTitle = banner?.title || "Plant & Infrastructure";
+    const banner = await getBannerData("/industry-solutions");
+    const bannerTitle = banner?.title || "Industry Solutions";
     let bgImage = "/images/bg/bg.png";
     if (banner?.image?.[0]) {
         bgImage = banner.image[0];

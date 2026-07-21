@@ -17,6 +17,31 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
   const [resources, setResources] = useState([]);
 
   useEffect(() => {
+    // Check if product has specific resources mapping to backend CMS
+    const productResources = [];
+    
+    if (product?.catalog || product?.brochure) {
+      productResources.push({
+        id: 'catalog',
+        title: 'Product Catalog',
+        pdf: product.catalog || product.brochure
+      });
+    }
+    
+    if (product?.certificate) {
+      productResources.push({
+        id: 'certificate',
+        title: 'Quality Certificate',
+        pdf: product.certificate
+      });
+    }
+
+    if (productResources.length > 0) {
+      setResources(productResources);
+      return;
+    }
+
+    // Fallback to global resources if no product-specific ones are found
     const fetchResources = async () => {
       try {
         const res = await fetch('/api/data/resources');
@@ -29,7 +54,7 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
       }
     };
     fetchResources();
-  }, []);
+  }, [product]);
   console.log("ProductDetailsMain received product:", product);
   return (
     <div>
