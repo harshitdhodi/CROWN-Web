@@ -144,8 +144,24 @@ export default function Footer8Client() {
                     <span>{address}</span>
                   </div>
                   <div className="contact-item">
-                    <Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`}>P: {mobile}</Link>
-                    <Link href={`mailto:${email}`}>M: {email}</Link>
+                    <div className="d-flex align-items-center gap-2">
+                      <Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`}>P: {mobile}</Link>
+                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Phone" data-copy-text={mobile} title="Copy Phone Number">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Phone" data-copy-text={mobile}>
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      </span>
+                    </div>
+                    <div className="d-flex align-items-center gap-2 mt-1">
+                      <Link href={`mailto:${email}`}>M: {email}</Link>
+                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Email" data-copy-text={email} title="Copy Email Address">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Email" data-copy-text={email}>
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

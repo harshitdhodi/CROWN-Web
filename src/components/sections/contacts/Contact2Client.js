@@ -25,6 +25,21 @@ const Contact2Client = ({ isInnerPage = false, styleConfig, initialHeadingData, 
 		return () => document.removeEventListener("mousedown", handler);
 	}, []);
 
+	// Fetch dynamic image and heading data for global presence
+	useEffect(() => {
+		fetch("/api/heading?section=global-presence")
+			.then((res) => res.json())
+			.then((json) => {
+				if (json.success && json.data) {
+					setHeadingData((prev) => ({
+						...prev,
+						...json.data,
+					}));
+				}
+			})
+			.catch((err) => console.error("Failed to fetch global presence heading", err));
+	}, []);
+
 	const handlePinClick = (id) => {
 		setActiveId((prev) => (prev === id ? null : id));
 	};
@@ -44,7 +59,7 @@ const Contact2Client = ({ isInnerPage = false, styleConfig, initialHeadingData, 
 					<div className="col-12 d-flex justify-content-center">
 						<div className="global-map wow fadeInUp" data-wow-delay=".3s" style={{ width: "100%", overflowX: "auto" }}>
 							<div className="global-map-img" style={{ position: "relative", width: "100%", minWidth: "600px" }}>
-								<Image src="/images/bg/map.svg" alt="Global Map" width={600} height={400} style={{ width: "100%", height: "auto" }} />
+								<Image src={headingData?.image || "/images/bg/map.svg"} alt="Global Map" width={600} height={400} style={{ width: "100%", height: "auto" }} />
 
 								{locations.map((loc, idx) => (
 									<div
@@ -97,17 +112,7 @@ const Contact2Client = ({ isInnerPage = false, styleConfig, initialHeadingData, 
 						</div>
 					</div>
 
-					{/* ── Text Overlay (Absolute on md+) ── */}
-					{/* {!isInnerPage && (
-						<div className="col-12 md:absolute md:top-10 md:-right-28 lg:-right-28 md:w-1/2 lg:w-1/3 z-10 d-flex align-items-start md:justify-content-start mt-8 md:mt-0 pointer-events-none">
-							<div className="text-white wow fadeInUp pointer-events-auto" data-wow-delay=".5s" style={{ background: "rgba(0,0,0,0.2)", padding: "20px", borderRadius: "12px", backdropFilter: "blur(5px)" }}>
-								<h2 className="text-white">{headingData.tagline}</h2>
-								<p className="mt-3 text-white" style={{ opacity: 0.8 }}>
-									{headingData.heading}
-								</p>
-							</div>
-						</div>
-					)} */}
+
 
 				</div>
 			</div>

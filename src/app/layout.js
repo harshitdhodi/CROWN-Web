@@ -12,6 +12,7 @@ import "./globals.scss";
 import "./tailwind.css";
 import DeferredStyles from "@/components/shared/wrappers/DeferredStyles";
 import ThemeColorLoader from "@/components/shared/theme/ThemeColorLoader";
+import ActivityTracker from "@/components/analytics/ActivityTracker";
 import { getCmsBase } from "@/lib/seoConfig";
 
 
@@ -242,6 +243,7 @@ export default async function RootLayout({ children }) {
 			<body className={monaSans.variable}>
 				{/* Load CMS-saved colors as CSS variable overrides — runs immediately on mount */}
 				<ThemeColorLoader />
+				<ActivityTracker />
 				{children}
 				{/* Defer fa-icons-slim (~2KB) — slim FA build, loaded after first paint */}
 				<DeferredStyles />

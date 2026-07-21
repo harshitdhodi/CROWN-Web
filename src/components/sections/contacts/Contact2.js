@@ -15,7 +15,7 @@ async function getContactData() {
 		const locJson = await locRes.json();
 
 		return {
-			headingData: headingJson?.success ? { tagline: headingJson.data.tagline || "", heading: headingJson.data.heading || "" } : { tagline: "", heading: "" },
+			headingData: headingJson?.success ? { tagline: headingJson.data.tagline || "", heading: headingJson.data.heading || "", image: headingJson.data.image || "" } : { tagline: "", heading: "", image: "" },
 			locations: locJson?.success && Array.isArray(locJson.data) ? locJson.data : [],
 		};
 	} catch (e) {
