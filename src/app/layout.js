@@ -14,6 +14,7 @@ import DeferredStyles from "@/components/shared/wrappers/DeferredStyles";
 import ThemeColorLoader from "@/components/shared/theme/ThemeColorLoader";
 import ActivityTracker from "@/components/analytics/ActivityTracker";
 import { getCmsBase } from "@/lib/seoConfig";
+import { LogoProvider } from "@/components/shared/providers/LogoProvider";
 
 
 
@@ -129,18 +130,21 @@ export default async function RootLayout({ children }) {
 	let faviconUrl = "/images/icons/spool.svg";
 	let googleAnalyticsId = "";
 	let colorsCss = "";
+	let footerData = null;
 
 	try {
 		const cmsBase = getCmsBase();
 
-		// 1. Fetch favicon from footer collection
-		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon`, { next: { revalidate: 60 } });
+		// 1. Fetch favicon and logos from footer collection
+		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon,logo,headerlogo`, { next: { revalidate: 60 } });
 		if (resFooter.ok) {
 			const json = await resFooter.json();
-			console.log("Footer response:", json);
-			if (json.success && json.data?.length > 0 && json.data[0].favicon?.[0]) {
-				const rawUrl = json.data[0].favicon[0];
-				faviconUrl = rawUrl.startsWith("http") ? rawUrl : `${process.env.NEXT_PUBLIC_BASE_URL}${rawUrl.startsWith("/") ? "" : "/"}${rawUrl}`;
+			if (json.success && json.data?.length > 0) {
+				footerData = json.data[0];
+				if (footerData.favicon?.[0]) {
+					const rawUrl = footerData.favicon[0];
+					faviconUrl = rawUrl.startsWith("http") ? rawUrl : `${process.env.NEXT_PUBLIC_BASE_URL}${rawUrl.startsWith("/") ? "" : "/"}${rawUrl}`;
+				}
 			}
 		}
 
@@ -244,7 +248,9 @@ export default async function RootLayout({ children }) {
 				{/* Load CMS-saved colors as CSS variable overrides — runs immediately on mount */}
 				<ThemeColorLoader />
 				<ActivityTracker />
-				{children}
+				<LogoProvider footerData={footerData}>
+					{children}
+				</LogoProvider>
 				{/* Defer fa-icons-slim (~2KB) — slim FA build, loaded after first paint */}
 				<DeferredStyles />
 			</body>

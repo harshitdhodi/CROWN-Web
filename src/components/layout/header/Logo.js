@@ -1,61 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-
-let cachedFooterData = null;
-let isFetchingFooterData = false;
-let footerDataSubscribers = [];
+import { useLogoData } from "@/components/shared/providers/LogoProvider";
 
 const Logo = ({ headerType, isStickyHeader, isSticky }) => {
 	const defaultLogo = (headerType === 2 || headerType === 5 || headerType === 7 || headerType === 9) && !isStickyHeader
 		? "/images/logos/page3.png"
 		: "/images/logos/page3.png";
 
-	const [footerData, setFooterData] = useState(cachedFooterData);
+	const footerData = useLogoData();
 	const pathname = usePathname();
 	const isHome = pathname === "/";
-
-	useEffect(() => {
-		if (cachedFooterData) {
-			return;
-		}
-
-		const handleData = (data) => setFooterData(data);
-		footerDataSubscribers.push(handleData);
-
-		if (!isFetchingFooterData) {
-			isFetchingFooterData = true;
-			const cmsBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
-			fetch(`${cmsBase}/api/data/footer`)
-				.then(res => res.json())
-				.then(json => {
-					if (json.success && json.data?.length > 0) {
-						cachedFooterData = json.data[0];
-						footerDataSubscribers.forEach(sub => sub(cachedFooterData));
-					}
-				})
-				.catch(err => {
-					console.error("Failed to fetch logo:", err);
-				})
-				.finally(() => {
-					footerDataSubscribers = [];
-					isFetchingFooterData = false;
-				});
-		}
-
-		return () => {
-			footerDataSubscribers = footerDataSubscribers.filter(sub => sub !== handleData);
-		};
-	}, []);
 
 	let logoUrl = defaultLogo;
 	if (footerData) {
 		const cmsLogo = footerData.logo?.[0];
 		const cmsHeaderLogo = footerData.headerlogo?.[0];
-		const cmsBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
+		const cmsBase = "https://demoadmin.crownpack.in";
 
 		const resolveUrl = (url) => {
 			if (!url) return null;
@@ -72,18 +34,18 @@ const Logo = ({ headerType, isStickyHeader, isSticky }) => {
 		if (isHome) {
 			// Home page logic: standard logo before scroll, headerlogo after scroll
 			if (!isSticky && cmsLogo) {
-				logoUrl = resolveUrl(cmsLogo);
+				logoUrl = resolveUrl(cmsLogo) || defaultLogo;
 			} else if (isSticky && cmsHeaderLogo) {
-				logoUrl = resolveUrl(cmsHeaderLogo);
+				logoUrl = resolveUrl(cmsHeaderLogo) || defaultLogo;
 			} else if (cmsHeaderLogo) {
-				logoUrl = resolveUrl(cmsHeaderLogo);
+				logoUrl = resolveUrl(cmsHeaderLogo) || defaultLogo;
 			}
 		} else {
 			// Inner pages: always use the header logo
 			if (cmsHeaderLogo) {
-				logoUrl = resolveUrl(cmsHeaderLogo);
+				logoUrl = resolveUrl(cmsHeaderLogo) || defaultLogo;
 			} else if (cmsLogo) {
-				logoUrl = resolveUrl(cmsLogo);
+				logoUrl = resolveUrl(cmsLogo) || defaultLogo;
 			}
 		}
 	}
