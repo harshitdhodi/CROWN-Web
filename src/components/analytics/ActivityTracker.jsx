@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const CLIENT_DEBOUNCE_MS = 3000; // 3 seconds client-side deduplication window
 
-export function ActivityTracker() {
+function ActivityTrackerInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const sessionIdRef = useRef(null);
@@ -196,4 +196,13 @@ export function ActivityTracker() {
 
   return null;
 }
+
+export function ActivityTracker() {
+  return (
+    <Suspense fallback={null}>
+      <ActivityTrackerInner />
+    </Suspense>
+  );
+}
+
 export default ActivityTracker;
