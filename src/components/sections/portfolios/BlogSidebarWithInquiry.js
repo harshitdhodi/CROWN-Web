@@ -1,16 +1,10 @@
 "use client";
 import Link from "next/link";
-import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 import Image from "next/image";
 import sliceText from "@/libs/sliceText";
-import { useState } from "react";
-import dynamic from "next/dynamic";
-
-const PhoneInput = dynamic(() => import("react-phone-input-2"), { ssr: false });
-import "react-phone-input-2/lib/style.css";
+import ContactForm from "@/components/sections/contacts/ContactForm";
 
 const BlogSidebarWithInquiry = ({ recentBlogs }) => {
-    const [phone, setPhone] = useState("");
 
     return (
         <aside className="tj-blog-sidebar">
@@ -64,69 +58,7 @@ const BlogSidebarWithInquiry = ({ recentBlogs }) => {
                     </p>
                 </div>
                 <div className="sidebar-inquiry-form">
-                    <form action="#" className="inquiry-form-modern">
-                        <div className="form-input inquiry-field">
-                            <label className="inquiry-label">Full Name</label>
-                            <div className="inquiry-input-wrap">
-                                <i className="tji-user"></i>
-                                <input
-                                    type="text"
-                                    placeholder="Enter your full name"
-                                    required
-                                    id="inquiry-name"
-                                />
-                            </div>
-                        </div>
-                        <div className="form-input inquiry-field">
-                            <label className="inquiry-label">Email Address</label>
-                            <div className="inquiry-input-wrap">
-                                <i className="tji-envelope"></i>
-                                <input
-                                    type="email"
-                                    placeholder="Enter your email"
-                                    required
-                                    id="inquiry-email"
-                                />
-                            </div>
-                        </div>
-                        <div className="form-input inquiry-field">
-                            <label className="inquiry-label">Mobile Number</label>
-                            <div className="inquiry-phone-wrap">
-                                <PhoneInput
-                                    country={"in"}
-                                    value={phone}
-                                    onChange={(val) => setPhone(val)}
-                                    inputProps={{
-                                        name: "phone",
-                                        required: true,
-                                        id: "inquiry-phone",
-                                    }}
-                                    containerClass="inquiry-phone-container"
-                                    inputClass="inquiry-phone-input"
-                                    buttonClass="inquiry-phone-button"
-                                    dropdownClass="inquiry-phone-dropdown"
-                                    enableSearch={true}
-                                    searchPlaceholder="Search country..."
-                                    preferredCountries={["in", "us", "gb", "au", "ca", "ae"]}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-input inquiry-field">
-                            <label className="inquiry-label">Your Message</label>
-                            <div className="inquiry-input-wrap inquiry-textarea-wrap">
-                                <i className="tji-comment" style={{ alignSelf: "flex-start", marginTop: "4px" }}></i>
-                                <textarea
-                                    placeholder="Write your message here..."
-                                    required
-                                    id="inquiry-message"
-                                    rows={4}
-                                ></textarea>
-                            </div>
-                        </div>
-                        <div className="inquiry-btn">
-                            <ButtonPrimary text="Submit Inquiry" type="submit" className="inquiry-submit-btn" />
-                        </div>
-                    </form>
+                    <ContactForm compact={true} />
                 </div>
             </div>
 

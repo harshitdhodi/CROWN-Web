@@ -26,6 +26,7 @@ const Portfolios5 = dynamic(() => import("@/components/sections/portfolios/Portf
 const Services3 = dynamic(() => import("@/components/sections/services/Services3"), { ssr: true });
 const Team1 = dynamic(() => import("@/components/sections/teams/Team1"), { ssr: true });
 const Testimonials4 = dynamic(() => import("@/components/sections/testimonials/Testimonials4"), { ssr: true });
+const Faq1 = dynamic(() => import("@/components/sections/faq/Faq1"), { ssr: true });
 import Portfolios4 from "@/components/sections/portfolios/Portfolios4";
 export const revalidate = 0;
 
@@ -43,6 +44,7 @@ const COMPONENT_MAP = {
 	Contact2:           Contact2,           // Global Presence
     Process: (props) => <Process type="quality" {...props} />, //Quality
 	Testimonials4:      Testimonials4,      // cta
+	Faq1:               (props) => <Faq1 page="home" showFallback={true} {...props} />, // FAQ
 };
 
 // Fallback order when CMS is unreachable
@@ -56,6 +58,7 @@ const DEFAULT_ORDER = [
 	"Team1",
 	"Contact2",
 	"Process",
+	"Faq1",
 	"Testimonials4",
 ];
 

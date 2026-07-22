@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-21T11:01:35.055Z",
+  "timestamp": "2026-07-22T09:34:18.126Z",
   "activeKeys": [
     {
       "key": "Hero2",
@@ -40,6 +40,10 @@
     {
       "key": "Testimonials4",
       "existsInMap": true
+    },
+    {
+      "key": "Faq1",
+      "existsInMap": true
     }
   ],
   "componentMapKeys": [
@@ -52,6 +56,7 @@
     "Portfolios4",
     "Contact2",
     "Process",
-    "Testimonials4"
+    "Testimonials4",
+    "Faq1"
   ]
 }

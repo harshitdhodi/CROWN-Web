@@ -26,9 +26,9 @@ const PortfolioCard4 = ({ portfolio }) => {
 				</span> */}
 				<div className="project-text">
 					<h4 className="title">
-						<Link href={`/portfolios/${id}`}>{title}</Link>
+						<Link href={`/manufacturing-infrastructure`}>{title}</Link>
 					</h4>
-					<Link className="tji-icon-btn" href={`/portfolios/${id}`} aria-label={`Read more about ${title}`}>
+					<Link className="tji-icon-btn" href={`/manufacturing-infrastructure`} aria-label={`Read more about ${title}`}>
 						<i className="tji-arrow-right-long"></i>
 					</Link>
 				</div>

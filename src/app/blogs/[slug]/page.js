@@ -4,6 +4,7 @@ import BlogDetailsISR, { slugify } from "@/components/sections/blogs/BlogDetails
 import BackToTop from "@/components/shared/others/BackToTop";
 import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
+import Faq1 from "@/components/sections/faq/Faq1";
 
 export default async function BlogDetails({ params }) {
 	const { slug } = await params;
@@ -18,6 +19,7 @@ export default async function BlogDetails({ params }) {
 					<main>
 						<HeaderSpace />
 						<BlogDetailsISR slug={slug} />
+						<Faq1 page={`blogs/${slug}`} infoPage="blog-details" showFallback={true} />
 					</main>
 					<Footer8 />
 				</div>

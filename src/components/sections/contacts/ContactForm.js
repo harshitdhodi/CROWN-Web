@@ -99,6 +99,12 @@ const ContactForm = ({
             setError("Name, email and message are required.");
             return;
         }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setError("Please enter a valid email address with a domain (e.g. .com).");
+            return;
+        }
         setLoading(true);
         try {
             const res = await fetch("/api/contact", {

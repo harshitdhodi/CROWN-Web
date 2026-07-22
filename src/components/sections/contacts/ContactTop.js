@@ -1,8 +1,24 @@
 'use client';
 
 import Link from "next/link";
+import { useState } from "react";
 
 const ContactTop = ({ headingData, contactData }) => {
+    const [copiedEmail, setCopiedEmail] = useState(false);
+    const [copiedMobile, setCopiedMobile] = useState(false);
+
+    const handleCopy = (e, text, type) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigator.clipboard.writeText(text);
+        if (type === 'email') {
+            setCopiedEmail(true);
+            setTimeout(() => setCopiedEmail(false), 2000);
+        } else {
+            setCopiedMobile(true);
+            setTimeout(() => setCopiedMobile(false), 2000);
+        }
+    };
     const tagline = headingData?.tagline || "Contact info";
     const mainHeading = headingData?.heading || "Reach Out to Us";
 
@@ -75,11 +91,19 @@ const ContactTop = ({ headingData, contactData }) => {
                             <ul className="contact-list flex-grow-1">
                                 <li className="text-break d-flex align-items-center justify-content-center gap-2">
                                   {email}
-                                  <span className="d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Email" data-copy-text={email} title="Copy Email">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Email" data-copy-text={email}>
-                                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                    </svg>
+                                  <span 
+                                    className="d-inline-flex align-items-center position-relative" 
+                                    style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} 
+                                    title="Copy Email"
+                                    onClick={(e) => handleCopy(e, email, 'email')}
+                                  >
+                                    {copiedEmail && <span style={{fontSize: '12px', marginRight: '4px'}}>Copied!</span>}
+                                    {!copiedEmail && (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    )}
                                   </span>
                                 </li>
                             </ul>
@@ -100,11 +124,19 @@ const ContactTop = ({ headingData, contactData }) => {
                             <ul className="contact-list flex-grow-1">
                                 <li className="d-flex align-items-center justify-content-center gap-2">
                                   {mobile}
-                                  <span className="d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Phone" data-copy-text={mobile} title="Copy Phone">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Phone" data-copy-text={mobile}>
-                                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                    </svg>
+                                  <span 
+                                    className="d-inline-flex align-items-center position-relative" 
+                                    style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} 
+                                    title="Copy Phone"
+                                    onClick={(e) => handleCopy(e, mobile, 'mobile')}
+                                  >
+                                    {copiedMobile && <span style={{fontSize: '12px', marginRight: '4px'}}>Copied!</span>}
+                                    {!copiedMobile && (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                    )}
                                   </span>
                                 </li>
                             </ul>

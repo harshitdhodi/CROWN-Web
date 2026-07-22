@@ -105,16 +105,18 @@ const nextConfig = {
 			process.env.NEXT_PUBLIC_API_URL ||
 			"https://demo.crownpack.in";
 
-		return [
-			{
-				source: "/api/:path*",
-				destination: `${cmsBase}/api/:path*`,
-			},
-			{
-				source: "/uploads/:path*",
-				destination: `${cmsBase}/uploads/:path*`,
-			},
-		];
+		return {
+			fallback: [
+				{
+					source: "/api/:path*",
+					destination: `${cmsBase}/api/:path*`,
+				},
+				{
+					source: "/uploads/:path*",
+					destination: `${cmsBase}/uploads/:path*`,
+				},
+			]
+		};
 	},
 
 	// ------------------------------------------------------------------

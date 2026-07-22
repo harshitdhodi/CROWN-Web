@@ -15,6 +15,7 @@ import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import getPageComponents from "@/lib/getPageComponents";
 import getBannerData from "@/lib/getBannerData";
+import Faq1 from "@/components/sections/faq/Faq1";
 
 // Map component keys (matching CMS Page Manager keys) to their JSX elements.
 // The comment beside each entry is the section name shown in the CMS admin.
@@ -27,6 +28,7 @@ const COMPONENT_MAP = {
 	Team1: Team1,                                            // Certificates
 	Services3: (props) => <Services3 variant="journey" {...props} />, // Our Journey
 	Features3: (props) => <Features3 variant="journey" {...props} />, // Why Choose Us
+	Faq1: (props) => <Faq1 page="about-us" showFallback={true} {...props} />, // FAQ
 };
 
 // Fallback order when CMS is unreachable (all sections visible)
@@ -39,6 +41,7 @@ const DEFAULT_ORDER = [
 	"Team1",
 	"Services3",
 	"Features3",
+	"Faq1",
 ];
 
 export default async function About() {

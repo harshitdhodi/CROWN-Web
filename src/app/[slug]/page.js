@@ -9,6 +9,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import HeroInner from "@/components/sections/hero/HeroInner";
 import getBannerData from "@/lib/getBannerData";
+import Faq1 from "@/components/sections/faq/Faq1";
 
 export const dynamic = "force-dynamic";
 
@@ -279,7 +280,7 @@ export default async function CategorySlugPage({ params }) {
                 relatedProducts={relatedProducts.filter(p => p.slug !== slug)}
               />
             )}
-
+            <Faq1 page={slug} infoPage="products" showFallback={true} />
           </main>
           <Footer8 />
         </div>
