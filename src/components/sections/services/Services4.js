@@ -5,8 +5,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 async function getInfrastructureData() {
 	try {
 		const [headingRes, dataRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/heading?section=manufacturing_strength`, { next: { revalidate: 60 } }),
-			fetch(`${BASE_URL}/api/data/manufacturing_strength`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/heading?section=manufacturing_strength`, { next: { revalidate: 0 } }),
+			fetch(`${BASE_URL}/api/data/manufacturing_strength`, { next: { revalidate: 0 } }),
 		]);
 		const headingResult = await headingRes.json();
 		const dataResult = await dataRes.json();
@@ -23,8 +23,8 @@ async function getInfrastructureData() {
 async function getIndustryData() {
 	try {
 		const [headingRes, dataRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 60 } }),
-			fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 0 } }),
+			fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 0 } }),
 		]);
 		const headingResult = await headingRes.json();
 		const dataResult = await dataRes.json();
@@ -71,14 +71,14 @@ const Services4 = async ({ variant } = {}) => {
 								{heading?.heading || "Tailor Business Solutions for Corporates."}
 							</h2>
 
-							
+
 						</div>
-						
+
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-12">
-						
+
 						<div className="service-wrapper">
 							{formattedServices?.length
 								? formattedServices.map((service, idx) => (

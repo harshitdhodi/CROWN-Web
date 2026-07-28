@@ -6,7 +6,7 @@ export async function GET(request, { params }) {
 
 		const cmsResponse = await fetch(
 			`${process.env.CMS_BASE_URL}/api/blogs/${encodeURIComponent(slug)}`,
-			{ next: { revalidate: 3600 } }
+			{ next: { revalidate: 0 } }
 		);
 
 		if (!cmsResponse.ok) {

@@ -6,9 +6,19 @@ import Image from "next/image";
 // Resolve image URL — handles absolute URLs, root-relative paths, and fallback.
 function resolveImage(src, fallback = "/images/project/h5-project-1.webp") {
   if (!src) return fallback;
-  if (src.startsWith("http://") || src.startsWith("https://")) return src;
-  if (src.startsWith("/")) return src;
-  return `/${src}`;
+  if (typeof src !== "string") return fallback;
+  let clean = src.trim();
+  if (!clean) return fallback;
+  if (clean.includes("/uploads/")) {
+    return "/uploads/" + clean.split("/uploads/")[1];
+  }
+  if (clean.startsWith("http://") || clean.startsWith("https://")) {
+    if (clean.includes("localhost") || clean.includes("127.0.0.1")) {
+      return "/uploads/" + clean.split("/uploads/")[1];
+    }
+    return clean;
+  }
+  return clean.startsWith("/") ? clean : `/${clean}`;
 }
 
 function slugify(text) {

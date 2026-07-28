@@ -20,7 +20,7 @@ function slugify(text) {
 async function getCategories() {
   try {
     const res = await fetch(`${BASE_URL}/api/data/our_products`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
 
     if (!res.ok) {
@@ -58,7 +58,7 @@ async function getCategories() {
 async function getHeading() {
   try {
     const res = await fetch(`${BASE_URL}/api/heading?section=home-product`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 0 },
     });
     if (!res.ok) return null;
     const json = await res.json();

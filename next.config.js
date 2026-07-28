@@ -123,8 +123,7 @@ const nextConfig = {
 	// Image Optimization
 	// ------------------------------------------------------------------
 	images: {
-		// Keep true only if you're intentionally bypassing Next Image Optimization
-		unoptimized: false,
+		unoptimized: true,
 		qualities: [25, 50, 75, 80, 100],
 
 		formats: ["image/avif", "image/webp"],
@@ -164,6 +163,11 @@ const nextConfig = {
 			{
 				protocol: "http",
 				hostname: "localhost",
+				pathname: "/**",
+			},
+			{
+				protocol: "http",
+				hostname: "127.0.0.1",
 				pathname: "/**",
 			},
 		],

@@ -6,8 +6,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 async function getWhyChooseData() {
 	try {
 		const [featuresRes, headingRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/data/whychooseus`, { next: { revalidate: 60 } }),
-			fetch(`${BASE_URL}/api/heading?section=why-choose-us`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/data/whychooseus`, { next: { revalidate: 0 } }),
+			fetch(`${BASE_URL}/api/heading?section=why-choose-us`, { next: { revalidate: 0 } }),
 		]);
 
 		const featuresData = featuresRes.ok ? await featuresRes.json() : null;

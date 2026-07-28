@@ -4,10 +4,10 @@ async function getTestimonialsData() {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	try {
 		const [leftRes, rightRes] = await Promise.all([
-			fetch(`${baseUrl}/api/data/review_left`, { next: { revalidate: 60 } }),
-			fetch(`${baseUrl}/api/data/review_right`, { next: { revalidate: 60 } })
+			fetch(`${baseUrl}/api/data/review_left`, { next: { revalidate: 0 } }),
+			fetch(`${baseUrl}/api/data/review_right`, { next: { revalidate: 0 } })
 		]);
-		
+
 		const leftJson = await leftRes.json();
 		const rightJson = await rightRes.json();
 

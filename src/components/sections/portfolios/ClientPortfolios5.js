@@ -9,14 +9,12 @@ const ClientPortfolios5 = ({ portfolio }) => {
 
     const reinit = () => {
       // Kill any existing ScrollTrigger instances that are pinning the
-      // .tj-scroll-slider inside .h5-project. Without this, GSAP keeps the
-      // pin-spacer height that was calculated before images loaded (wrong
-      // height), and refresh() alone cannot fix it.
+      // .tj-scroll-slider inside .h5-project and revert inline pin styles.
       const slider = document.querySelector(".h5-project .tj-scroll-slider");
       if (slider) {
         ScrollTrigger.getAll().forEach((st) => {
-          if (st.trigger === slider || slider.contains(st.trigger)) {
-            st.kill();
+          if (st.trigger === slider || (st.trigger && slider.contains(st.trigger))) {
+            st.kill(true);
           }
         });
       }
@@ -25,8 +23,7 @@ const ClientPortfolios5 = ({ portfolio }) => {
       // has correct dimensions.
       tjScrollSlider();
 
-      // Refresh all remaining triggers so sibling sections (Services9 sticky
-      // panel, etc.) recalculate their positions against the new layout.
+      // Refresh all remaining triggers so sibling sections recalculate positions.
       ScrollTrigger.refresh();
 
       // Notify Services9 and any other siblings.
@@ -45,13 +42,13 @@ const ClientPortfolios5 = ({ portfolio }) => {
     let loaded = 0;
     let fallbackTimer = setTimeout(() => {
       reinit();
-    }, 1500);
+    }, 1000);
 
     const onLoad = () => {
       loaded++;
       if (loaded === imgs.length) {
         clearTimeout(fallbackTimer);
-        setTimeout(reinit, 150);
+        setTimeout(reinit, 100);
       }
     };
 
@@ -63,6 +60,10 @@ const ClientPortfolios5 = ({ portfolio }) => {
         img.addEventListener("error", onLoad, { once: true });
       }
     });
+
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
   }, [portfolio]);
 
   return (

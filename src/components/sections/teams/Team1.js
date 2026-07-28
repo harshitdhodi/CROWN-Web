@@ -16,8 +16,8 @@ async function getTeamData(type) {
 		const [headingRes, dataRes] = await Promise.all([
 			// Use CMS_BASE_URL directly — same pattern as Services9Wrapper/Portfolios5
 			// so the proxy's error-masking doesn't hide a missing section_name document.
-			fetch(`${CMS_BASE_URL}/api/heading?section=${section}`, { next: { revalidate: 60 } }),
-			fetch(`${baseUrl}/api/data/${dataEndpoint}`, { next: { revalidate: 60 } }),
+			fetch(`${CMS_BASE_URL}/api/heading?section=${section}`, { next: { revalidate: 0 } }),
+			fetch(`${baseUrl}/api/data/${dataEndpoint}`, { next: { revalidate: 0 } }),
 		]);
 
 		const headingResult = headingRes.ok ? await headingRes.json() : null;

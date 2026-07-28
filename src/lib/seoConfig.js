@@ -61,17 +61,23 @@ export function resolveCmsImage(src) {
   if (Array.isArray(src)) {
     return resolveCmsImage(src[0]);
   }
-  if (typeof src !== "string") return null;
-  let cleanSrc = src;
-  if (src.includes("/uploads/")) {
-    cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-  } else if (src.startsWith("http://") || src.startsWith("https://")) {
-    if (src.includes("localhost") || src.includes("127.0.0.1")) {
-      cleanSrc = "/uploads/" + src.split("/uploads/")[1];
-    } else {
-      return src;
-    }
+  if (typeof src === "object" && src !== null) {
+    if (src.url) return resolveCmsImage(src.url);
+    if (src.src) return resolveCmsImage(src.src);
+    if (src.path) return resolveCmsImage(src.path);
   }
-  const imageBase = "https://demoadmin.crownpack.in";
-  return cleanSrc.startsWith("/") ? `${imageBase}${cleanSrc}` : `${imageBase}/${cleanSrc}`;
+  if (typeof src !== "string") return null;
+  let cleanSrc = src.trim();
+  if (!cleanSrc) return null;
+
+  if (cleanSrc.includes("/uploads/")) {
+    return "/uploads/" + cleanSrc.split("/uploads/")[1];
+  } else if (cleanSrc.startsWith("http://") || cleanSrc.startsWith("https://")) {
+    if (cleanSrc.includes("localhost") || cleanSrc.includes("127.0.0.1")) {
+      return "/uploads/" + cleanSrc.split("/uploads/")[1];
+    }
+    return cleanSrc;
+  }
+
+  return cleanSrc.startsWith("/") ? cleanSrc : `/${cleanSrc}`;
 }

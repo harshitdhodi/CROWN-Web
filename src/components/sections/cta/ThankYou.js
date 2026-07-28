@@ -22,11 +22,7 @@ const ThankYou = () => {
 									url="/"
 									className="btn-primary me-3"
 								/>
-								<ButtonPrimary
-									text="Get In Touch"
-									url="/contact"
-									className="btn-outline"
-								/>
+								
 							</div>
 						</div>
 					</div>

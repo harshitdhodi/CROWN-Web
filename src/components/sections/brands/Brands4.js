@@ -7,25 +7,45 @@ const BrandSlider3 = dynamic(
 	() => import("@/components/shared/brands/BrandSlider3")
 );
 
-import { resolveCmsImage } from "@/lib/seoConfig";
+import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 
 async function getClientData() {
 	try {
-		const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+		const baseUrl = getCmsBase();
 		const res = await fetch(`${baseUrl}/api/data/clients`, {
-			next: { revalidate: 60 }, // ISR: Revalidate data every 60 seconds
+			next: { revalidate: 0 }, // ISR: Revalidate data every 60 seconds
 		});
+
+		if (!res.ok) {
+			console.error(`Failed to fetch client data: ${res.status}`);
+			return null;
+		}
 
 		const result = await res.json();
 
 		if (result?.success && result.data?.length > 0) {
 			const item = result.data[0];
 
+			let logos = [];
+			result.data.forEach((row) => {
+				const logoField = row.logo || row.image || row.logos || row.images;
+				if (logoField) {
+					if (Array.isArray(logoField)) {
+						logoField.forEach((l) => {
+							const resolved = resolveCmsImage(l);
+							if (resolved) logos.push({ img: resolved });
+						});
+					} else {
+						const resolved = resolveCmsImage(logoField);
+						if (resolved) logos.push({ img: resolved });
+					}
+				}
+			});
+
 			return {
 				...item,
 				hover_image: resolveCmsImage(item.hover_image),
-				// Format logos as objects with an 'img' property, which is standard for components in this template
-				logo: (item.logo || []).map((img) => ({
+				logo: logos.length > 0 ? logos : (item.logo || []).map((img) => ({
 					img: resolveCmsImage(img),
 				})),
 			};

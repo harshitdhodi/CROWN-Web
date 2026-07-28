@@ -2,22 +2,28 @@ import { gsap, ScrollTrigger } from "@/libs/gsap.config";
 import rtlValue from "./rtlValue";
 
 const tjScrollSlider = () => {
-  let mediaMatch = gsap.matchMedia();
+  if (typeof window === "undefined") return;
+
+  const mediaMatch = gsap.matchMedia();
   mediaMatch.add("(min-width: 992px)", () => {
     const sliders = gsap.utils.toArray(".tj-scroll-slider");
     if (!sliders?.length) return;
 
     sliders.forEach((slider) => {
-      // If this slider already has an active ScrollTrigger, skip it.
-      // ClientPortfolios5 kills and re-creates its own trigger after images
-      // load, so we must not create a duplicate here.
-      const existing = ScrollTrigger.getAll().find(
-        (st) => st.trigger === slider || slider.contains(st.trigger)
+      // Find and kill existing triggers on this slider before initializing
+      const existingTriggers = ScrollTrigger.getAll().filter(
+        (st) => st.trigger === slider || (st.trigger && slider.contains(st.trigger))
       );
-      if (existing) return;
+      existingTriggers.forEach((st) => st.kill(true));
 
       const panels = gsap.utils.toArray(".tj-scroll-slider-item", slider);
-      if (!panels.length) return;
+      if (!panels.length || panels.length <= 1) return;
+
+      // Clear any leftover transforms
+      gsap.set(panels, { clearProps: "transform,x,xPercent" });
+
+      // Proportional scroll distance (~320px per item) prevents huge empty white space gaps
+      const scrollDistance = Math.min(Math.max(panels.length * 320, 600), 1800);
 
       gsap.to(panels, {
         xPercent: rtlValue(-100) * (panels.length - 1),
@@ -27,9 +33,12 @@ const tjScrollSlider = () => {
           trigger: slider,
           start: "top+=50 top",
           pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
           scrub: 1,
           markers: false,
-          end: () => "+=" + slider.offsetWidth,
+          end: () => "+=" + scrollDistance,
+          invalidateOnRefresh: true,
         },
       });
     });

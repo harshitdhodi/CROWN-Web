@@ -80,11 +80,14 @@ START: Home 5 Project CSS
 			}
 
 			.project-img {
+				width: 100%;
 				max-width: 500px;
-				height: 400px;
+				height: 440px;
+				border-radius: 12px;
+
 				@media #{$xl, $lg} {
-					max-width: 420px;
-					height: 320px;
+					max-width: 460px;
+					height: 400px;
 				}
 
 				@media #{$md} {

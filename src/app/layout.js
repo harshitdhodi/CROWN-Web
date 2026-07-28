@@ -58,7 +58,7 @@ export async function generateMetadata() {
 		const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s max
 
 		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon`, {
-			next: { revalidate: 3600 }, // Cache for 1 hour (much better than 0)
+			next: { revalidate: 0 }, // Cache for 1 hour (much better than 0)
 			signal: controller.signal,
 		});
 
@@ -83,7 +83,7 @@ export async function generateMetadata() {
 		const timeoutId = setTimeout(() => controller.abort(), 10000);
 
 		const resSettings = await fetch(`${cmsBase}/api/seo/settings`, {
-			next: { revalidate: 3600 }, // Important: don't use revalidate: 0 here
+			next: { revalidate: 0 }, // Important: don't use revalidate: 0 here
 			signal: controller.signal,
 		});
 
@@ -136,7 +136,7 @@ export default async function RootLayout({ children }) {
 		const cmsBase = getCmsBase();
 
 		// 1. Fetch favicon and logos from footer collection
-		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon,logo,headerlogo`, { next: { revalidate: 60 } });
+		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon,logo,headerlogo`, { next: { revalidate: 0 } });
 		if (resFooter.ok) {
 			const json = await resFooter.json();
 			if (json.success && json.data?.length > 0) {
@@ -149,7 +149,7 @@ export default async function RootLayout({ children }) {
 		}
 
 		// 2. Fetch SEO Settings for Google Analytics ID
-		const resSettings = await fetch(`${cmsBase}/api/seo/settings`, { next: { revalidate: 60 } });
+		const resSettings = await fetch(`${cmsBase}/api/seo/settings`, { next: { revalidate: 0 } });
 		if (resSettings.ok) {
 			const json = await resSettings.json();
 			if (json.success && json.data) {
@@ -158,7 +158,7 @@ export default async function RootLayout({ children }) {
 		}
 
 		// 3. Fetch CMS color palette and build CSS variables server-side (eliminates FOUC)
-		const resColors = await fetch(`${cmsBase}/api/colors`, { next: { revalidate: 60 } });
+		const resColors = await fetch(`${cmsBase}/api/colors`, { next: { revalidate: 0 } });
 		if (resColors.ok) {
 			const json = await resColors.json();
 			const c = json?.data?.colors;

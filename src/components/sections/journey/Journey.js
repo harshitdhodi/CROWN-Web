@@ -5,8 +5,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 async function getJourneyData() {
 	try {
 		const [cardsRes, headingRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/data/journey`, { next: { revalidate: 60 } }),
-			fetch(`${BASE_URL}/api/heading?section=journey`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/data/journey`, { next: { revalidate: 0 } }),
+			fetch(`${BASE_URL}/api/heading?section=journey`, { next: { revalidate: 0 } }),
 		]);
 
 		const cardsData = cardsRes.ok ? await cardsRes.json() : null;

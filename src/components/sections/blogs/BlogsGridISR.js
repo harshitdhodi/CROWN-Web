@@ -18,10 +18,10 @@ async function getBlogsData() {
 	try {
 		const headersList = await headers();
 		const cookieHeader = headersList.get("cookie") || "";
-		
+
 		const res = await fetch(`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/blog`, {
 			headers: { cookie: cookieHeader },
-			next: { revalidate: 3600 }, // ISR: Revalidate every hour
+			next: { revalidate: 0 }, // ISR: Revalidate every hour
 		});
 
 		if (!res.ok) return [];

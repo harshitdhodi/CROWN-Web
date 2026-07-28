@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
 	try {
 		const res = await fetch(`${process.env.CMS_BASE_URL}/api/data/catalogue`, {
-			next: { revalidate: 3600 },
+			next: { revalidate: 0 },
 		});
 
 		if (!res.ok) {

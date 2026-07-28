@@ -8,7 +8,7 @@ const resolveImage = (imagePath) => {
 const getALlServices = async () => {
 	try {
 		const res = await fetch(`${cmsBaseUrl}/api/data/service`, {
-			next: { revalidate: 3600 },
+			next: { revalidate: 0 },
 		});
 
 		if (!res.ok) {

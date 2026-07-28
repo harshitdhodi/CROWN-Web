@@ -122,6 +122,12 @@ START: Theme Slider CSS
 			font-size: 18px;
 			line-height: 1.444;
 			color: var(--tj-color-text-body-2);
+			p {
+				color: inherit;
+				margin-bottom: 0;
+				font-size: inherit;
+				line-height: inherit;
+			}
 		}
 		.slider-btn {
 			margin-top: 25px;

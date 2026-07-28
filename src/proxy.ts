@@ -53,7 +53,7 @@ async function fetchHiddenPages(cmsBase: string): Promise<Set<string>> {
     }
 
     const json = await res.json();
-    
+
     if (json.success && Array.isArray(json.data)) {
       const hiddenSet = new Set<string>();
       json.data.forEach((page: any) => {
@@ -68,13 +68,13 @@ async function fetchHiddenPages(cmsBase: string): Promise<Set<string>> {
   } catch (err) {
     console.warn('Failed to fetch page visibility:', (err as Error).message);
   }
-  
+
   return new Set();
 }
 
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
-  
+
   // Skip internal next.js, static files, and api requests
   if (
     pathname.startsWith('/_next') ||
@@ -101,29 +101,29 @@ export async function proxy(request: NextRequest) {
       return NextResponse.redirect(new URL('/', request.url));
     }
   }
-  
+
   try {
     const fullPath = `${pathname}${search}`;
     const resolveUrl = `${cmsBase}/api/seo/resolve?url=${encodeURIComponent(fullPath)}`;
-    
+
     // Call the fast resolve API with a short timeout to prevent slow page load
     const response = await fetch(resolveUrl, {
       signal: AbortSignal.timeout(2000),
-      next: { revalidate: 60 } // cache for 1 minute to prevent database thrashing
+      next: { revalidate: 0 } // cache for 1 minute to prevent database thrashing
     });
-    
+
     if (response.ok) {
       const json = await response.json();
-      
+
       if (json.success && json.data) {
         const { targetUrl, statusCode } = json.data;
-        
+
         let destination = targetUrl;
         // If relative target, resolve to absolute URL using request origin
         if (!destination.startsWith('http')) {
           destination = new URL(destination.startsWith('/') ? destination : `/${destination}`, request.url).toString();
         }
-        
+
         console.log(`[SEO Redirect] Redirecting ${pathname} to ${destination} with status ${statusCode}`);
         return NextResponse.redirect(destination, Number(statusCode || 301));
       }

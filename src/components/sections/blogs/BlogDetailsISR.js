@@ -22,7 +22,7 @@ async function getBlogData(slug) {
 		const cookieHeader = headersList.get("cookie") || "";
 		const res = await fetch(`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/blogs/${slug}`, {
 			headers: { cookie: cookieHeader },
-			next: { revalidate: 3600 },
+			next: { revalidate: 0 },
 		});
 
 		if (!res.ok) return null;
@@ -55,7 +55,7 @@ async function getRecentBlogs(slug) {
 	try {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/blogs/recent/${slug}?exclude=true`,
-			{ next: { revalidate: 3600 } }
+			{ next: { revalidate: 0 } }
 		);
 
 		if (!res.ok) return [];
@@ -63,11 +63,11 @@ async function getRecentBlogs(slug) {
 		const { success, data } = await res.json();
 		return success && data
 			? data.map((blog) => ({
-					title: blog.title,
-					date: blog.date,
-					img: blog.image,
-					slug: slugify(blog.title),
-			  }))
+				title: blog.title,
+				date: blog.date,
+				img: blog.image,
+				slug: slugify(blog.title),
+			}))
 			: [];
 	} catch (error) {
 		console.error("Error fetching recent blogs:", error);

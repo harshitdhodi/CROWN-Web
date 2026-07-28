@@ -202,6 +202,11 @@ export async function generateMetadata({ params }) {
   return {};
 }
 
+import getPageComponents from "@/lib/getPageComponents";
+import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
+
+const DEFAULT_PRODUCT_ORDER = ["HeroInner", "ProductDetailsMain", "Faq1"];
+
 export default async function CategorySlugPage({ params }) {
   const { slug } = await params;
   const allCategories = await fetchAllCategories();
@@ -241,52 +246,77 @@ export default async function CategorySlugPage({ params }) {
         { name: "Products", path: "/products" }
       ];
 
-  return (
-    <div>
-      <BackToTop />
-      <Header />
-      <Header isStickyHeader={true} />
-      {/* Inject JSON-LD schema from product CMS field */}
-      {product?.schema && (
-        product.schema.trim().startsWith("<script") ? (
-          <div dangerouslySetInnerHTML={{ __html: product.schema }} />
-        ) : (
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: product.schema }} />
-        )
-      )}
-      {/* Inject JSON-LD schema from category CMS field */}
-      {category?.schema && (
-        category.schema.trim().startsWith("<script") ? (
-          <div dangerouslySetInnerHTML={{ __html: category.schema }} />
-        ) : (
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: category.schema }} />
-        )
-      )}
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <main>
-            <HeaderSpace />
-            <HeroInner title={bannerTitle} text={bannerTitle} breadcrums={breadcrums} bgImage={bgImage} />
-            {category ? (
-              <CategoryDetailsMain
-                category={category}
-                categories={allCategories}
-                currentSlug={slug}
-              />
-            ) : (
-              <ProductDetailsMain
-                product={product}
-                categories={allCategories}
-                relatedProducts={relatedProducts.filter(p => p.slug !== slug)}
-              />
-            )}
-            <Faq1 page={slug} infoPage="products" showFallback={true} />
-          </main>
-          <Footer8 />
-        </div>
-      </div>
+  const activeKeys = await getPageComponents("product-details", DEFAULT_PRODUCT_ORDER);
 
-      <ClientWrapper />
-    </div>
+  return (
+    <CmsPageRoot pageSlug="product-details">
+      <div>
+        <BackToTop />
+        <Header />
+        <Header isStickyHeader={true} />
+        {/* Inject JSON-LD schema from product CMS field */}
+        {product?.schema && (
+          product.schema.trim().startsWith("<script") ? (
+            <div dangerouslySetInnerHTML={{ __html: product.schema }} />
+          ) : (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: product.schema }} />
+          )
+        )}
+        {/* Inject JSON-LD schema from category CMS field */}
+        {category?.schema && (
+          category.schema.trim().startsWith("<script") ? (
+            <div dangerouslySetInnerHTML={{ __html: category.schema }} />
+          ) : (
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: category.schema }} />
+          )
+        )}
+        <div id="smooth-wrapper">
+          <div id="smooth-content">
+            <main>
+              <HeaderSpace />
+              {activeKeys.map((comp) => {
+                const style = {};
+                if (comp.margin_top) style.marginTop = comp.margin_top;
+                if (comp.margin_bottom) style.marginBottom = comp.margin_bottom;
+                if (comp.padding_top) style.paddingTop = comp.padding_top;
+                if (comp.padding_bottom) style.paddingBottom = comp.padding_bottom;
+
+                let content = null;
+                if (comp.key === "HeroInner") {
+                  content = <HeroInner title={bannerTitle} text={bannerTitle} breadcrums={breadcrums} bgImage={bgImage} />;
+                } else if (comp.key === "ProductDetailsMain" || comp.key === "CategoryDetailsMain") {
+                  content = category ? (
+                    <CategoryDetailsMain
+                      category={category}
+                      categories={allCategories}
+                      currentSlug={slug}
+                    />
+                  ) : (
+                    <ProductDetailsMain
+                      product={product}
+                      categories={allCategories}
+                      relatedProducts={relatedProducts.filter(p => p.slug !== slug)}
+                    />
+                  );
+                } else if (comp.key === "Faq1") {
+                  content = <Faq1 page={slug} infoPage="products" showFallback={true} />;
+                }
+
+                if (!content) return null;
+
+                return (
+                  <div key={comp.key} style={Object.keys(style).length > 0 ? style : undefined}>
+                    {content}
+                  </div>
+                );
+              })}
+            </main>
+            <Footer8 />
+          </div>
+        </div>
+
+        <ClientWrapper />
+      </div>
+    </CmsPageRoot>
   );
 }

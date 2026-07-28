@@ -17,10 +17,10 @@ async function getProcessData(type) {
 	try {
 		const [headingRes, historyRes] = await Promise.all([
 			fetch(`${baseUrl}/api/heading?section=${headingSection}`, {
-				next: { revalidate: 60 }, // Reduced to 60s for easier testing of dynamic updates
+				next: { revalidate: 0 }, // Reduced to 60s for easier testing of dynamic updates
 			}),
 			fetch(`${baseUrl}/api/data/${dataEndpoint}`, {
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}),
 		]);
 
@@ -40,11 +40,13 @@ async function getProcessData(type) {
 const Process = async ({ type = "history" }) => {
 	const { heading, history } = await getProcessData(type);
 	// Reverse history to show oldest to newest and map fields robustly
-	const formattedHistory = [...history].reverse().map(item => ({
-		...item,
-		title: item.title || item.name || "",
-		desc: item.details || item.description || item.subheading || "",
-	}));
+	const formattedHistory = [...history]
+		.filter(item => item.title || item.name || item.details || item.description || item.subheading)
+		.reverse().map(item => ({
+			...item,
+			title: item.title || item.name || "Information pending",
+			desc: item.details || item.description || item.subheading || "Information pending",
+		}));
 
 	return (
 		<section className=" section-gap section-gap-x">

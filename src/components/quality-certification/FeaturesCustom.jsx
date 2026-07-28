@@ -6,8 +6,8 @@ const FeaturesCustom = async () => {
 
     try {
         const [missionRes, headingRes] = await Promise.all([
-            fetch(`${baseUrl}/api/data/compliance-standards`, { next: { revalidate: 60 } }),
-            fetch(`${baseUrl}/api/heading?section=compliance-standards`, { next: { revalidate: 60 } }),
+            fetch(`${baseUrl}/api/data/compliance-standards`, { next: { revalidate: 0 } }),
+            fetch(`${baseUrl}/api/heading?section=compliance-standards`, { next: { revalidate: 0 } }),
         ]);
 
         if (!missionRes.ok) {
@@ -21,14 +21,16 @@ const FeaturesCustom = async () => {
         const headingData = headingRes.ok ? await headingRes.json() : null;
 
         features =
-            missionData?.data?.map((item) => ({
-                ...item,
-                title: item.title,
-                desc: item.description,
-                icon: item.image?.startsWith("/")
-                    ? `${baseUrl}${item.image}`
-                    : item.image || item.img,
-            })) || [];
+            missionData?.data
+                ?.filter((item) => item.heading || item.details || item.image || item.img)
+                ?.map((item) => ({
+                    ...item,
+                    title: item.heading || "Information pending",
+                    desc: item.details || "Information pending",
+                    icon: item.image || item.img,
+                    img: item.image || item.img,
+                    imgLarge: item.image || item.img,
+                })) || [];
 
         sectionHeading = headingData?.success ? headingData.data : null;
     } catch (error) {

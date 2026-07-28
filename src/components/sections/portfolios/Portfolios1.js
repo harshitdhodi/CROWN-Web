@@ -6,7 +6,7 @@ const getGalleryData = async () => {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/gallery`,
 			{
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}
 		);
 		const json = await res.json();
@@ -22,7 +22,7 @@ const getHeadingData = async () => {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/heading?section=gallery`,
 			{
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}
 		);
 		const json = await res.json();

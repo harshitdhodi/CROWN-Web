@@ -38,7 +38,7 @@ async function getProducts() {
         const cookieHeader = headersList.get("cookie") || "";
         const res = await fetch(`${API_URL}/api/data/our_products`, {
             headers: { cookie: cookieHeader },
-            next: { revalidate: 3600 }, // 1‑hour ISR
+            next: { revalidate: 0 }, // 1‑hour ISR
         });
 
         if (!res.ok) {

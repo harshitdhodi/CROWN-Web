@@ -5,7 +5,7 @@ const getServicesData = async () => {
 	try {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/manufacturing_process`,
-			{ next: { revalidate: 60 } }
+			{ next: { revalidate: 0 } }
 		);
 		const json = await res.json();
 		return json.success ? json.data : [];
@@ -19,7 +19,7 @@ const getHeadingData = async () => {
 	try {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/heading?section=industry`,
-			{ next: { revalidate: 60 } }
+			{ next: { revalidate: 0 } }
 		);
 		const json = await res.json();
 		return json.success ? json.data : null;

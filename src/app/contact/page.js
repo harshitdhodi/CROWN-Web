@@ -15,12 +15,67 @@ const CMS_BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
 
 async function safeFetch(url) {
     try {
-        const res = await fetch(url, { next: { revalidate: 3600 } });
+        const res = await fetch(url, { cache: 'no-store' });
         if (!res.ok) return null;
         return await res.json();
     } catch {
         return null;
     }
+}
+
+async function resolveContactMapUrl(mapurl, fallbackAddress) {
+    if (!mapurl) {
+        if (fallbackAddress) {
+            return `https://maps.google.com/maps?q=${encodeURIComponent(fallbackAddress)}&t=m&z=15&output=embed&iwloc=near`;
+        }
+        return null;
+    }
+
+    const rawUrl = String(mapurl).trim();
+
+    if (rawUrl.includes("<iframe")) {
+        const iframeMatch = rawUrl.match(/<iframe.*?src="([^"]+)"/);
+        if (iframeMatch?.[1]) {
+            return iframeMatch[1];
+        }
+    } else if (
+        rawUrl.includes("google.com/maps/embed") ||
+        rawUrl.includes("maps.google.com")
+    ) {
+        return rawUrl;
+    } else if (
+        rawUrl.includes("maps.app.goo.gl") ||
+        rawUrl.includes("goo.gl/maps")
+    ) {
+        try {
+            const mapRes = await fetch(rawUrl, { method: 'HEAD', redirect: 'follow', next: { revalidate: 0 } });
+            const expandedUrl = mapRes.url;
+
+            const pathMatch = expandedUrl.match(/\/place\/([^\/]+)/);
+            const coordsMatch = expandedUrl.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+
+            let query = "";
+            if (pathMatch && pathMatch[1]) {
+                query = pathMatch[1];
+            } else if (coordsMatch) {
+                query = `${coordsMatch[1]},${coordsMatch[2]}`;
+            }
+
+            if (query) {
+                return `https://maps.google.com/maps?q=${query}&output=embed&iwloc=near`;
+            }
+        } catch (err) {
+            console.warn("[ContactPage] Failed to resolve short Google Maps URL:", rawUrl, err?.message);
+        }
+
+        if (fallbackAddress) {
+            return `https://maps.google.com/maps?q=${encodeURIComponent(fallbackAddress)}&t=m&z=15&output=embed&iwloc=near`;
+        }
+    } else if (!rawUrl.startsWith("http")) {
+        return `https://maps.google.com/maps?q=${encodeURIComponent(rawUrl)}&t=m&z=15&output=embed&iwloc=near`;
+    }
+
+    return rawUrl;
 }
 
 export default async function Contact() {
@@ -42,11 +97,11 @@ export default async function Contact() {
 
     const heading = headingData?.success ? headingData.data : null;
     const contact = contactData?.success && contactData.data?.length > 0 ? contactData.data[0] : null;
-    const mapUrl = contact?.mapurl || "";
+    const mapUrl = await resolveContactMapUrl(contact?.mapurl, contact?.address);
 
     const COMPONENT_MAP = {
         ContactTop: <ContactTop headingData={heading} contactData={contact} />,
-        Contact3: <Contact3 mapUrl={mapUrl} formHeading={contact} />,
+        Contact3: <Contact3 mapUrl={mapUrl} formHeading={contact} address={contact?.address} />,
     };
 
     return (

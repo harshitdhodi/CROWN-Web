@@ -15,8 +15,8 @@ const Features = async ({ type }) => {
 
     try {
         const [missionRes, headingRes] = await Promise.all([
-            fetch(`${baseUrl}/api/data/mission_vision`, { next: { revalidate: 60 } }),
-            fetch(`${baseUrl}/api/heading?section=mission-vision`, { next: { revalidate: 60 } }),
+            fetch(`${baseUrl}/api/data/mission_vision`, { next: { revalidate: 0 } }),
+            fetch(`${baseUrl}/api/heading?section=mission-vision`, { next: { revalidate: 0 } }),
         ]);
 
         if (!missionRes.ok) {
@@ -32,19 +32,21 @@ const Features = async ({ type }) => {
         console.log("Fetched Mission & Vision Data:", { missionData, headingData });
 
         features =
-            missionData?.data?.map((item) => {
-                const imgUrl = item.image?.startsWith("/")
-                    ? `${baseUrl}${item.image}`
-                    : item.image || item.img;
-                return {
-                    ...item,
-                    title: item.heading,
-                    desc: item.details,
-                    icon: imgUrl,
-                    img: imgUrl,
-                    imgLarge: imgUrl,
-                };
-            }) || [];
+            missionData?.data
+                ?.filter((item) => item.heading || item.details || item.image || item.img)
+                ?.map((item) => {
+                    const imgUrl = item.image?.startsWith("/")
+                        ? `${baseUrl}${item.image}`
+                        : item.image || item.img;
+                    return {
+                        ...item,
+                        title: item.heading || "Information pending",
+                        desc: item.details || "Information pending",
+                        icon: imgUrl,
+                        img: imgUrl,
+                        imgLarge: imgUrl,
+                    };
+                }) || [];
 
         sectionHeading = headingData?.success ? headingData.data : null;
 

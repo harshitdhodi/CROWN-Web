@@ -8,8 +8,8 @@ const Process2 = async () => {
 
 	try {
 		const [processRes, headingRes] = await Promise.all([
-			fetch(`${baseUrl}/api/data/quality-process`, { next: { revalidate: 60 } }),
-			fetch(`${baseUrl}/api/heading?section=quality-process`, { next: { revalidate: 60 } }),
+			fetch(`${baseUrl}/api/data/quality-process`, { next: { revalidate: 0 } }),
+			fetch(`${baseUrl}/api/heading?section=quality-process`, { next: { revalidate: 0 } }),
 		]);
 
 		if (!processRes.ok) {
@@ -67,17 +67,15 @@ const Process2 = async () => {
 				{rows.map((row, rowIdx) => (
 					<div
 						key={rowIdx}
-						className={`h5-working-process-inner ${
-							rowIdx > 0 ? "mt-5 sm:mt-[72px]" : "mt-0"
-						}`}
+						className={`h5-working-process-inner ${rowIdx > 0 ? "mt-5 sm:mt-[72px]" : "mt-0"
+							}`}
 					>
 						<div className="container">
 							<div className="row">
 								<div className="col-12">
 									<div
-										className={`working-process-area h5-working-process-wrapper ${
-											rowIdx < rows.length - 1 ? "sm:mb-[30px] mb-0" : "mb-0"
-										}`}
+										className={`working-process-area h5-working-process-wrapper ${rowIdx < rows.length - 1 ? "sm:mb-[30px] mb-0" : "mb-0"
+											}`}
 									>
 										{row.map((processSingle, idx) => (
 											<ProcessCard2

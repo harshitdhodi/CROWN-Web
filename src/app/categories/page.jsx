@@ -43,7 +43,7 @@ async function getCategories() {
         // Fetch from API_URL to ensure we hit the backend directly
         const res = await fetch(`${API_URL}/api/data/categories`, {
             headers: { cookie: cookieHeader },
-            next: { revalidate: 3600 },
+            next: { revalidate: 0 },
         });
 
         if (!res.ok) {

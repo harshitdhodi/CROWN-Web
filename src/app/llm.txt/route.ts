@@ -5,7 +5,7 @@ export async function GET(request: Request) {
   const cmsBase = getCmsBase(request.url);
   try {
     const res = await fetch(`${cmsBase}/api/seo/settings`, {
-      next: { revalidate: 300 }
+      next: { revalidate: 0 }
     });
     if (res.ok) {
       const json = await res.json();

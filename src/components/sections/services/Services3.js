@@ -4,7 +4,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 async function getServices() {
 	try {
-		const res = await fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 60 } });
+		const res = await fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 0 } });
 		const result = await res.json();
 		if (result.success && result.data) {
 			return result.data.slice(0, 4).map((item) => ({
@@ -24,7 +24,7 @@ async function getServices() {
 
 async function getHeading() {
 	try {
-		const res = await fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 60 } });
+		const res = await fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 0 } });
 		if (!res.ok) return null;
 		const result = await res.json();
 		return result?.success ? result.data : null;
@@ -37,19 +37,19 @@ async function getHeading() {
 async function getJourneyServices() {
 	try {
 		const [cardsRes, headingRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/data/journey`, { next: { revalidate: 60 } }),
-			fetch(`${BASE_URL}/api/heading?section=journey`, { next: { revalidate: 60 } }),
+			fetch(`${BASE_URL}/api/data/journey`, { next: { revalidate: 0 } }),
+			fetch(`${BASE_URL}/api/heading?section=journey`, { next: { revalidate: 0 } }),
 		]);
 		const cardsData = cardsRes.ok ? await cardsRes.json() : null;
 		const headingData = headingRes.ok ? await headingRes.json() : null;
 
 		const raw = cardsData?.success ? cardsData.data : [];
 		const services = [...raw].reverse().map((item) => ({
-			id:        item.id,
-			title:     item.heading || "",
-			desc:      item.description || "",
-			year:      item.year || "",
-			img2:      item.image || "",
+			id: item.id,
+			title: item.heading || "",
+			desc: item.description || "",
+			year: item.year || "",
+			img2: item.image || "",
 			color_img: null,
 			hover_img: null,
 		}));

@@ -6,26 +6,54 @@ import HeaderSpace from "@/components/shared/others/HeaderSpace";
 import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import Faq1 from "@/components/sections/faq/Faq1";
 
+import getPageComponents from "@/lib/getPageComponents";
+import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
+
+const DEFAULT_BLOG_ORDER = ["BlogDetailsISR", "Faq1"];
+
 export default async function BlogDetails({ params }) {
 	const { slug } = await params;
-	console.log("slug", slug)
+	const activeKeys = await getPageComponents("blog-details", DEFAULT_BLOG_ORDER);
+
 	return (
-		<div>
-			<BackToTop />
-			<Header />
-			<Header isStickyHeader={true} />
-			<div id="smooth-wrapper">
-				<div id="smooth-content">
-					<main>
-						<HeaderSpace />
-						<BlogDetailsISR slug={slug} />
-						<Faq1 page={`blogs/${slug}`} infoPage="blog-details" showFallback={true} />
-					</main>
-					<Footer8 />
+		<CmsPageRoot pageSlug="blog-details">
+			<div>
+				<BackToTop />
+				<Header />
+				<Header isStickyHeader={true} />
+				<div id="smooth-wrapper">
+					<div id="smooth-content">
+						<main>
+							<HeaderSpace />
+							{activeKeys.map((comp) => {
+								const style = {};
+								if (comp.margin_top) style.marginTop = comp.margin_top;
+								if (comp.margin_bottom) style.marginBottom = comp.margin_bottom;
+								if (comp.padding_top) style.paddingTop = comp.padding_top;
+								if (comp.padding_bottom) style.paddingBottom = comp.padding_bottom;
+
+								let content = null;
+								if (comp.key === "BlogDetailsISR") {
+									content = <BlogDetailsISR slug={slug} />;
+								} else if (comp.key === "Faq1") {
+									content = <Faq1 page={`blogs/${slug}`} infoPage="blog-details" showFallback={true} />;
+								}
+
+								if (!content) return null;
+
+								return (
+									<div key={comp.key} style={Object.keys(style).length > 0 ? style : undefined}>
+										{content}
+									</div>
+								);
+							})}
+						</main>
+						<Footer8 />
+					</div>
 				</div>
+				<ClientWrapper />
 			</div>
-			<ClientWrapper />
-		</div>
+		</CmsPageRoot>
 	);
 }
 

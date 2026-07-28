@@ -15,45 +15,69 @@ const resolveApiImage = (src) => {
 const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) => {
   const sidebarCategories = categories.slice(0, 6);
   const [resources, setResources] = useState([]);
+  const [isCatalogActive, setIsCatalogActive] = useState(true);
 
   useEffect(() => {
-    // Check if product has specific resources mapping to backend CMS
-    const productResources = [];
-    
-    if (product?.catalog || product?.brochure) {
-      productResources.push({
-        id: 'catalog',
-        title: 'Product Catalog',
-        pdf: product.catalog || product.brochure
-      });
-    }
-    
-    if (product?.certificate) {
-      productResources.push({
-        id: 'certificate',
-        title: 'Quality Certificate',
-        pdf: product.certificate
-      });
-    }
+    const fetchCatalogStatusAndResources = async () => {
+      let catalogVisible = true;
+      try {
+        const compRes = await fetch('/api/page-components?page=product-details');
+        if (compRes.ok) {
+          const compJson = await compRes.json();
+          if (compJson.success && Array.isArray(compJson.data)) {
+            const catalogComp = compJson.data.find((c) => c.key === 'catalog');
+            if (catalogComp && catalogComp.is_active === false) {
+              catalogVisible = false;
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to check catalog component status:', err);
+      }
 
-    if (productResources.length > 0) {
-      setResources(productResources);
-      return;
-    }
+      setIsCatalogActive(catalogVisible);
 
-    // Fallback to global resources if no product-specific ones are found
-    const fetchResources = async () => {
+      if (!catalogVisible) {
+        setResources([]);
+        return;
+      }
+
+      let list = [];
+
+      if (product?.catalog || product?.brochure) {
+        list.push({
+          id: 'catalog',
+          title: 'Product Catalog',
+          pdf: product.catalog || product.brochure
+        });
+      }
+
+      if (product?.certificate) {
+        list.push({
+          id: 'certificate',
+          title: 'Quality Certificate',
+          pdf: product.certificate
+        });
+      }
+
       try {
         const res = await fetch('/api/data/resources');
         const json = await res.json();
         if (json.success && Array.isArray(json.data)) {
-          setResources(json.data.slice(-2));
+          json.data.forEach(item => {
+            if (!list.some(r => r.id === item.id || (item.pdf && r.pdf === item.pdf))) {
+              list.push(item);
+            }
+          });
         }
       } catch (error) {
         console.error('Failed to fetch resources:', error);
       }
+
+      setResources(list);
     };
-    fetchResources();
+
+    fetchCatalogStatusAndResources();
   }, [product]);
   console.log("ProductDetailsMain received product:", product);
   return (
@@ -221,109 +245,111 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
             <div className="col-lg-4">
               <aside className="tj-main-sidebar">
                 {/* Download Brochure Widget */}
-                <div
-                  className="tj-sidebar-widget wow fadeInUp"
-                  style={{
-                    border: "1px dashed var(--tj-color-theme-primary)",
-                  }}
-                >
-                  <h4 className="widget-title">Our Resources</h4>
-                  <style>{`
-                    .download-item {
-                      display: flex;
-                      align-items: center;
-                      gap: 14px;
-                      padding: 14px 16px;
-                      border-radius: 10px;
-                      border: 1px solid var(--tj-color-border-1);
-                      background: #fff;
-                      color: var(--tj-color-heading-primary);
-                      font-weight: 600;
-                      font-size: 14px;
-                      text-decoration: none;
-                      transition: all 0.25s ease;
-                      margin-bottom: 10px;
-                      position: relative;
-                      overflow: hidden;
-                    }
-                    .download-item::before {
-                      content: '';
-                      position: absolute;
-                      left: 0; top: 0; bottom: 0;
-                      width: 3px;
-                      background: var(--tj-color-theme-primary);
-                      border-radius: 10px 0 0 10px;
-                    }
-                    .download-item:hover {
-                      background: var(--tj-color-theme-primary);
-                      color: #fff;
-                      border-color: var(--tj-color-theme-primary);
-                      transform: translateX(4px);
-                      box-shadow: 0 6px 20px rgba(201,148,68,0.2);
-                    }
-                    .download-item:hover::before { background: rgba(255,255,255,0.4); }
-                    .download-item:hover .dl-icon { color: #fff !important; }
-                    .download-item:hover .dl-arrow { opacity: 1; transform: translateX(0); }
-                    .dl-icon-wrap {
-                      width: 42px; height: 42px;
-                      border-radius: 8px;
-                      background: var(--tj-color-theme-bg, #fdf8f0);
-                      display: flex; align-items: center; justify-content: center;
-                      flex-shrink: 0;
-                      transition: background 0.25s;
-                    }
-                    .download-item:hover .dl-icon-wrap { background: rgba(255,255,255,0.2); }
-                    .dl-icon { font-size: 20px; transition: color 0.25s; }
-                    .dl-text { flex: 1; line-height: 1.3; }
-                    .dl-label { font-size: 11px; font-weight: 500; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
-                    .dl-arrow {
-                      font-size: 14px;
-                      opacity: 0;
-                      transform: translateX(-6px);
-                      transition: all 0.25s;
-                    }
-                    .dl-empty {
-                      text-align: center;
-                      padding: 20px;
-                      font-size: 13px;
-                      color: #94a3b8;
-                      border: 1px dashed var(--tj-color-border-1);
-                      border-radius: 8px;
-                    }
-                  `}</style>
-                  <div>
-                    {resources.map((item) => {
-                      const isCert = item.title.toLowerCase().includes('cert');
-                      return (
-                        <a
-                          key={item.id}
-                          href={item.pdf ? resolveApiImage(item.pdf) : '#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="download-item"
-                        >
-                          <div className="dl-icon-wrap">
-                            <i
-                              className={`fa-light ${isCert ? 'fa-file-shield' : 'fa-file-pdf'} dl-icon`}
-                              style={{ color: isCert ? 'var(--tj-color-theme-primary)' : '#e53e3e' }}
-                            />
-                          </div>
-                          <div className="dl-text">
-                            <div className="dl-label">{isCert ? 'Certificate' : 'PDF Document'}</div>
-                            <div>{item.title}</div>
-                          </div>
-                          <i className="tji-arrow-right dl-arrow" />
-                        </a>
-                      );
-                    })}
-                    {resources.length === 0 && (
-                      <div className="dl-empty">
-                        <i className="fa-light fa-folder-open" style={{ fontSize: '28px', marginBottom: '8px', display: 'block', color: 'var(--tj-color-theme-primary)' }} />
-                        No downloads available
-                      </div>
-                    )}
+                {isCatalogActive && (
+                  <div
+                    className="tj-sidebar-widget wow fadeInUp"
+                    style={{
+                      border: "1px dashed var(--tj-color-theme-primary)",
+                    }}
+                  >
+                    <h4 className="widget-title">Our Resources</h4>
+                    <style>{`
+                      .download-item {
+                        display: flex;
+                        align-items: center;
+                        gap: 14px;
+                        padding: 14px 16px;
+                        border-radius: 10px;
+                        border: 1px solid var(--tj-color-border-1);
+                        background: #fff;
+                        color: var(--tj-color-heading-primary);
+                        font-weight: 600;
+                        font-size: 14px;
+                        text-decoration: none;
+                        transition: all 0.25s ease;
+                        margin-bottom: 10px;
+                        position: relative;
+                        overflow: hidden;
+                      }
+                      .download-item::before {
+                        content: '';
+                        position: absolute;
+                        left: 0; top: 0; bottom: 0;
+                        width: 3px;
+                        background: var(--tj-color-theme-primary);
+                        border-radius: 10px 0 0 10px;
+                      }
+                      .download-item:hover {
+                        background: var(--tj-color-theme-primary);
+                        color: #fff;
+                        border-color: var(--tj-color-theme-primary);
+                        transform: translateX(4px);
+                        box-shadow: 0 6px 20px rgba(201,148,68,0.2);
+                      }
+                      .download-item:hover::before { background: rgba(255,255,255,0.4); }
+                      .download-item:hover .dl-icon { color: #fff !important; }
+                      .download-item:hover .dl-arrow { opacity: 1; transform: translateX(0); }
+                      .dl-icon-wrap {
+                        width: 42px; height: 42px;
+                        border-radius: 8px;
+                        background: var(--tj-color-theme-bg, #fdf8f0);
+                        display: flex; align-items: center; justify-content: center;
+                        flex-shrink: 0;
+                        transition: background 0.25s;
+                      }
+                      .download-item:hover .dl-icon-wrap { background: rgba(255,255,255,0.2); }
+                      .dl-icon { font-size: 20px; transition: color 0.25s; }
+                      .dl-text { flex: 1; line-height: 1.3; }
+                      .dl-label { font-size: 11px; font-weight: 500; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+                      .dl-arrow {
+                        font-size: 14px;
+                        opacity: 0;
+                        transform: translateX(-6px);
+                        transition: all 0.25s;
+                      }
+                      .dl-empty {
+                        text-align: center;
+                        padding: 20px;
+                        font-size: 13px;
+                        color: #94a3b8;
+                        border: 1px dashed var(--tj-color-border-1);
+                        border-radius: 8px;
+                      }
+                    `}</style>
+                    <div>
+                      {resources.map((item) => {
+                        const isCert = item.title.toLowerCase().includes('cert');
+                        return (
+                          <a
+                            key={item.id}
+                            href={item.pdf ? resolveApiImage(item.pdf) : '#'}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="download-item"
+                          >
+                            <div className="dl-icon-wrap">
+                              <i
+                                className={`fa-light ${isCert ? 'fa-file-shield' : 'fa-file-pdf'} dl-icon`}
+                                style={{ color: isCert ? 'var(--tj-color-theme-primary)' : '#e53e3e' }}
+                              />
+                            </div>
+                            <div className="dl-text">
+                              <div className="dl-label">{isCert ? 'Certificate' : 'PDF Document'}</div>
+                              <div>{item.title}</div>
+                            </div>
+                            <i className="tji-arrow-right dl-arrow" />
+                          </a>
+                        );
+                      })}
+                      {resources.length === 0 && (
+                        <div className="dl-empty">
+                          <i className="fa-light fa-folder-open" style={{ fontSize: '28px', marginBottom: '8px', display: 'block', color: 'var(--tj-color-theme-primary)' }} />
+                          No downloads available
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Quick Enquiry Form */}
                 <div className=" wow fadeInUp">

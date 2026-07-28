@@ -10,9 +10,9 @@ const Footer8 = async () => {
 	let contactMapUrl = null;
 	try {
 		const [resFooter, resProducts, resContact] = await Promise.all([
-			fetch(`${cmsBase}/api/data/footer`, { next: { revalidate: 60 } }),
-			fetch(`${cmsBase}/api/data/our_products`, { next: { revalidate: 60 } }),
-			fetch(`${cmsBase}/api/data/contactus?fields=mapurl`, { next: { revalidate: 60 } })
+			fetch(`${cmsBase}/api/data/footer`, { next: { revalidate: 0 } }),
+			fetch(`${cmsBase}/api/data/our_products`, { next: { revalidate: 0 } }),
+			fetch(`${cmsBase}/api/data/contactus?fields=mapurl`, { next: { revalidate: 0 } })
 		]);
 		if (resFooter.ok) {
 			const json = await resFooter.json();
@@ -96,9 +96,9 @@ const Footer8 = async () => {
 
 	return (
 		<footer className="tj-footer-section footer-2 h5-footer  h6-footer  h8-footer section-gap-x  footer-section-wrapper" style={{ position: "relative", overflow: "hidden" }}>
-		<style
-  dangerouslySetInnerHTML={{
-    __html: `
+			<style
+				dangerouslySetInnerHTML={{
+					__html: `
       .h8-footer,
       .h8-footer p,
       .h8-footer a,
@@ -123,8 +123,8 @@ const Footer8 = async () => {
         }
       }
     `,
-  }}
-/>
+				}}
+			/>
 			<div className="h6-footer-logo-area ">
 				<div className="container">
 					<div className="row">

@@ -32,6 +32,11 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
+		if (name === "phone") {
+			const digitsOnly = value.replace(/\D/g, "").slice(0, 10);
+			setFormData((prev) => ({ ...prev, phone: digitsOnly }));
+			return;
+		}
 		setFormData((prev) => ({ ...prev, [name]: value }));
 	};
 
@@ -39,8 +44,75 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 		e.preventDefault();
 		setError("");
 
-		if (!formData.name || !formData.email || !formData.message) {
-			setError("Name, email and message are required");
+		const scriptRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+
+		// Name validation
+		const nameVal = (formData.name || "").trim();
+		if (!nameVal || nameVal.length < 3) {
+			setError("Name must be at least 3 characters long");
+			return;
+		}
+		if (/^\d+$/.test(nameVal)) {
+			setError("Name cannot consist of numbers only");
+			return;
+		}
+		const nameRegex = /^[A-Za-z\s.'_-]+$/;
+		if (!nameRegex.test(nameVal)) {
+			setError("Name can only contain letters, spaces, and basic punctuation");
+			return;
+		}
+		if (scriptRegex.test(nameVal)) {
+			setError("Name contains invalid characters or scripts");
+			return;
+		}
+
+		// Email validation
+		const emailVal = (formData.email || "").trim();
+		if (!emailVal || emailVal.length < 5) {
+			setError("Please enter a valid email address");
+			return;
+		}
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(emailVal)) {
+			setError("Invalid email format (e.g. name@domain.com)");
+			return;
+		}
+		if (scriptRegex.test(emailVal)) {
+			setError("Email contains invalid characters or scripts");
+			return;
+		}
+
+		// Phone validation
+		if (formData.phone) {
+			if (formData.phone.length !== 10) {
+				setError("Phone number must be exactly 10 digits");
+				return;
+			}
+			const phoneRegex = /^[1-9][0-9]{9}$/;
+			if (!phoneRegex.test(formData.phone)) {
+				setError("Phone number must be 10 digits and cannot start with 0");
+				return;
+			}
+		}
+
+		// Product selection validation
+		if (!formData.product_id) {
+			setError("Please select a product of interest");
+			return;
+		}
+
+		// Message validation
+		const messageVal = (formData.message || "").trim();
+		if (!messageVal || messageVal.length < 5) {
+			setError("Message must be at least 5 characters long");
+			return;
+		}
+		if (/^\d+$/.test(messageVal)) {
+			setError("Message cannot consist of numbers only");
+			return;
+		}
+		if (scriptRegex.test(messageVal)) {
+			setError("Message contains invalid characters or scripts");
 			return;
 		}
 
@@ -167,7 +239,10 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 													name="phone"
 													value={formData.phone}
 													onChange={handleChange}
-													placeholder="Phone number"
+													placeholder="Phone number (10 digits)"
+													maxLength={10}
+													minLength={10}
+													pattern="[1-9][0-9]{9}"
 												/>
 											</div>
 										</div>

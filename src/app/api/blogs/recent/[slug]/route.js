@@ -8,7 +8,7 @@ export async function GET(request, { params }) {
 
 		const url = `${process.env.CMS_BASE_URL}/api/blogs/recent/${encodeURIComponent(slug)}${exclude ? "?exclude=true" : ""}`;
 
-		const cmsResponse = await fetch(url, { next: { revalidate: 3600 } });
+		const cmsResponse = await fetch(url, { next: { revalidate: 0 } });
 
 		if (!cmsResponse.ok) {
 			return NextResponse.json({ success: true, data: [] }, { status: 200 });

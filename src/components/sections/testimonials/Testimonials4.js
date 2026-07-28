@@ -4,7 +4,7 @@ import getBannerData from "@/lib/getBannerData";
 async function getProducts() {
 	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 	try {
-		const res = await fetch(`${baseUrl}/api/data/our_products`, { next: { revalidate: 60 } });
+		const res = await fetch(`${baseUrl}/api/data/our_products`, { next: { revalidate: 0 } });
 		const result = await res.json();
 		if (result.success && Array.isArray(result.data)) {
 			return result.data;

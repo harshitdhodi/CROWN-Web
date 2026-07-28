@@ -10,7 +10,7 @@ const getIndustryData = async () => {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/industry`,
 			{
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}
 		);
 		const json = await res.json();
@@ -26,7 +26,7 @@ const getHeadingData = async () => {
 		const res = await fetch(
 			`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/heading?section=industry`,
 			{
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}
 		);
 		const json = await res.json();

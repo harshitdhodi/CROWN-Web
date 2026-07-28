@@ -5,7 +5,7 @@ export default async function getBannerData(pageRoute) {
 	try {
 		const cmsBase = getCmsBase();
 		const res = await fetch(`${cmsBase}/api/data/banner?page=${encodeURIComponent(pageRoute)}`, {
-			next: { revalidate: 60 }
+			next: { revalidate: 0 }
 		});
 		if (res.ok) {
 			const json = await res.json();

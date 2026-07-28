@@ -6,10 +6,10 @@ async function getTeamData() {
 	try {
 		const [headingRes, teamRes] = await Promise.all([
 			fetch(`${baseUrl}/api/heading?section=our-team`, {
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}),
 			fetch(`${baseUrl}/api/data/our_team`, {
-				next: { revalidate: 60 },
+				next: { revalidate: 0 },
 			}),
 		]);
 
