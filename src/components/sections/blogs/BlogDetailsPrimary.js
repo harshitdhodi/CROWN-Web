@@ -7,6 +7,7 @@ import { useEffect } from "react";
 const BlogDetailsPrimary = ({ option, recentBlogs }) => {
   const { currentItem, isPrevItem, isNextItem, prevId, nextId } = option || {};
   const { title, img, details, author, date } = currentItem || {};
+  const authorName = typeof author === "object" ? (author?.name || "Admin") : (author || "Admin");
 
   const blogContent = details
     ? details
@@ -84,7 +85,7 @@ const BlogDetailsPrimary = ({ option, recentBlogs }) => {
                   </div>
                   <div className="cate-text">
                     <span className="degination">Authored by</span>
-                    <h6 className="title">{author}</h6>
+                    <h6 className="title">{authorName}</h6>
                   </div>
                 </div>
                 <div className="category-item">

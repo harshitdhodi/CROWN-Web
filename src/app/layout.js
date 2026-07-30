@@ -15,6 +15,7 @@ import ThemeColorLoader from "@/components/shared/theme/ThemeColorLoader";
 import ActivityTracker from "@/components/analytics/ActivityTracker";
 import { getCmsBase } from "@/lib/seoConfig";
 import { LogoProvider } from "@/components/shared/providers/LogoProvider";
+import TrackingProvider from "@/components/shared/others/TrackingProvider";
 
 
 
@@ -248,6 +249,7 @@ export default async function RootLayout({ children }) {
 				{/* Load CMS-saved colors as CSS variable overrides — runs immediately on mount */}
 				<ThemeColorLoader />
 				<ActivityTracker />
+				<TrackingProvider />
 				<LogoProvider footerData={footerData}>
 					{children}
 				</LogoProvider>

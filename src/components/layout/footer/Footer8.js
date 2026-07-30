@@ -2,12 +2,14 @@ import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 import Link from "next/link";
 import LazyMap from "@/components/shared/LazyMap";
 import Image from "next/image";
+import FooterCopyableContact from "./FooterCopyableContact";
 
 const Footer8 = async () => {
 	const cmsBase = getCmsBase();
 	let footerData = null;
 	let productsData = [];
 	let contactMapUrl = null;
+	let rawMapUrl = null;
 	try {
 		const [resFooter, resProducts, resContact] = await Promise.all([
 			fetch(`${cmsBase}/api/data/footer`, { next: { revalidate: 0 } }),
@@ -28,7 +30,8 @@ const Footer8 = async () => {
 		}
 		if (resContact.ok) {
 			const json = await resContact.json();
-			let mapurl = json.data[0].mapurl;
+			let mapurl = json.data[0]?.mapurl;
+			rawMapUrl = mapurl;
 
 			if (mapurl) {
 				if (typeof mapurl === 'string' && mapurl.includes("<iframe")) {
@@ -94,6 +97,11 @@ const Footer8 = async () => {
 	const twitter = footerData?.twitter || "https://x.com/";
 	const linkedin = footerData?.linkedin || "https://www.linkedin.com/";
 
+	const mapRedirectUrl =
+		rawMapUrl && typeof rawMapUrl === "string" && rawMapUrl.startsWith("http") && !rawMapUrl.includes("<iframe")
+			? rawMapUrl
+			: `https://maps.google.com/maps?q=${encodeURIComponent(address)}`;
+
 	return (
 		<footer className="tj-footer-section footer-2 h5-footer  h6-footer  h8-footer section-gap-x  footer-section-wrapper" style={{ position: "relative", overflow: "hidden" }}>
 			<style
@@ -109,8 +117,15 @@ const Footer8 = async () => {
       }
 
       .h8-footer a:hover,
+      .h8-footer a:hover span,
       .h8-footer li a:hover {
         color: var(--tj-color-theme-primary) !important;
+      }
+
+      .footer-contact-info .contact-item a,
+      .footer-contact-info .contact-item span {
+        font-weight: 400 !important;
+        transition: color 0.3s ease;
       }
 
       .footer-section-wrapper {
@@ -188,27 +203,12 @@ const Footer8 = async () => {
 								<h5 className="title">Our Office</h5>
 								<div className="footer-contact-info">
 									<div className="contact-item">
-										<span>{address}</span>
+										<Link href={mapRedirectUrl} target="_blank" rel="noopener noreferrer">
+											<span>{address}</span>
+										</Link>
 									</div>
 									<div className="contact-item">
-										<div className="d-flex align-items-center gap-2">
-											<Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`}>P: {mobile}</Link>
-											<span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Phone" data-copy-text={mobile} title="Copy Phone Number">
-												<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Phone" data-copy-text={mobile}>
-													<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-													<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-												</svg>
-											</span>
-										</div>
-										<div className="d-flex align-items-center gap-2 mt-1">
-											<Link href={`mailto:${email}`}>M: {email}</Link>
-											<span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Email" data-copy-text={email} title="Copy Email Address">
-												<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Email" data-copy-text={email}>
-													<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-													<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-												</svg>
-											</span>
-										</div>
+										<FooterCopyableContact mobile={mobile} email={email} />
 									</div>
 									{/* <div className="contact-item">
 										<span>

@@ -9,7 +9,27 @@ export default function Footer8Client() {
   const [footerData, setFooterData] = useState(null);
   const [servicesData, setServicesData] = useState([]);
   const [contactMapUrl, setContactMapUrl] = useState(null);
+  const [rawMapUrl, setRawMapUrl] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [copiedFooterEmail, setCopiedFooterEmail] = useState(false);
+  const [copiedFooterPhone, setCopiedFooterPhone] = useState(false);
+
+  const handleFooterCopy = (e, text, type) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(text);
+    if (type === 'email') {
+      setCopiedFooterEmail(true);
+      setTimeout(() => setCopiedFooterEmail(false), 2000);
+    } else {
+      setCopiedFooterPhone(true);
+      setTimeout(() => setCopiedFooterPhone(false), 2000);
+    }
+    try {
+      const { trackEvent, getSessionId } = require('@/lib/tracking');
+      trackEvent({ eventType: 'click', buttonName: type === 'email' ? 'footer_email_copy' : 'footer_phone_copy', sessionId: getSessionId() });
+    } catch (err) {}
+  };
 
   useEffect(() => {
     const fetchFooterData = async () => {
@@ -35,6 +55,7 @@ export default function Footer8Client() {
         if (resContact.ok) {
           const json = await resContact.json();
           const mapurl = json.data?.[0]?.mapurl;
+          setRawMapUrl(mapurl);
 
           if (mapurl) {
             if (typeof mapurl === 'string' && mapurl.includes('<iframe')) {
@@ -87,8 +108,39 @@ export default function Footer8Client() {
   const twitter = footerData?.twitter || 'https://x.com/';
   const linkedin = footerData?.linkedin || 'https://www.linkedin.com/';
 
+  const mapRedirectUrl =
+    rawMapUrl && typeof rawMapUrl === 'string' && rawMapUrl.startsWith('http') && !rawMapUrl.includes('<iframe')
+      ? rawMapUrl
+      : `https://maps.google.com/maps?q=${encodeURIComponent(address)}`;
+
   return (
     <footer className="tj-footer-section footer-2 h5-footer h6-footer h8-footer section-gap-x" style={{ marginTop: '50px' }}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+      .h8-footer,
+      .h8-footer p,
+      .h8-footer a,
+      .h8-footer h5.title,
+      .h8-footer li a,
+      .h8-footer span {
+        color: var(--tj-color-text-body-5) !important;
+      }
+
+      .h8-footer a:hover,
+      .h8-footer a:hover span,
+      .h8-footer li a:hover {
+        color: var(--tj-color-theme-primary) !important;
+      }
+
+      .footer-contact-info .contact-item a,
+      .footer-contact-info .contact-item span {
+        font-weight: 400 !important;
+        transition: color 0.3s ease;
+      }
+    `,
+        }}
+      />
       <div className="h6-footer-logo-area">
         <div className="container">
           <div className="row">
@@ -141,25 +193,39 @@ export default function Footer8Client() {
                 <h5 className="title">Our Office</h5>
                 <div className="footer-contact-info">
                   <div className="contact-item">
-                    <span>{address}</span>
+                    <Link href={mapRedirectUrl} target="_blank" rel="noopener noreferrer">
+                      <span>{address}</span>
+                    </Link>
                   </div>
                   <div className="contact-item">
                     <div className="d-flex align-items-center gap-2">
                       <Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`}>P: {mobile}</Link>
-                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Phone" data-copy-text={mobile} title="Copy Phone Number">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Phone" data-copy-text={mobile}>
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
+                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Phone" data-copy-text={mobile} title="Copy Phone Number" onClick={(e) => handleFooterCopy(e, mobile, 'phone')}>
+                        {copiedFooterPhone ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Phone" data-copy-text={mobile}>
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg>
+                        )}
                       </span>
                     </div>
                     <div className="d-flex align-items-center gap-2 mt-1">
                       <Link href={`mailto:${email}`}>M: {email}</Link>
-                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Email" data-copy-text={email} title="Copy Email Address">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Email" data-copy-text={email}>
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
+                      <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} data-copy="Email" data-copy-text={email} title="Copy Email Address" onClick={(e) => handleFooterCopy(e, email, 'email')}>
+                        {copiedFooterEmail ? (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                        ) : (
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" data-copy="Email" data-copy-text={email}>
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg>
+                        )}
                       </span>
                     </div>
                   </div>

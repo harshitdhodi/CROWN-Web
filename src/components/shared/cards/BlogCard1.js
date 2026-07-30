@@ -6,7 +6,8 @@ import ButtonPrimary from "../buttons/ButtonPrimary";
 
 const BlogCard1 = ({ blog, idx }) => {
 	console.log("idx", blog.id);
-	const { title, desc, id, img, category, date, day, month } = blog || {};
+	const { title, desc, id, img, category, date, day, month, author } = blog || {};
+	const authorName = typeof author === "object" ? (author?.name || "Admin") : (author || "Admin");
 	return (
 		<div className="blog-item wow fadeInUp" data-wow-delay={`0.${idx + 1}s`}>
 			<div className="blog-thumb">
@@ -26,14 +27,9 @@ const BlogCard1 = ({ blog, idx }) => {
 			</div>
 			<div className="blog-content">
 				<div className="blog-meta">
-					<span className="categories">
-						<Link href={`/blogs?category=${makePath(category)}`}>
-							{" "}
-							{category}
-						</Link>
-					</span>
+				
 					<span>
-						By <Link href={`/blogs/${id}`}>Ellinien Loma</Link>
+						By <Link href={`/blogs/${id}`}>{authorName}</Link>
 					</span>
 				</div>
 				<h4 className="title">

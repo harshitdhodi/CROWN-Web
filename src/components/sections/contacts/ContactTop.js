@@ -11,6 +11,13 @@ const ContactTop = ({ headingData, contactData }) => {
         e.preventDefault();
         e.stopPropagation();
         navigator.clipboard.writeText(text);
+        const buttonName = type === 'email' ? 'contact_email_copy' : 'contact_phone_copy';
+        try {
+            const { trackEvent, getSessionId } = require("@/lib/tracking");
+            trackEvent({ eventType: 'click', buttonName, sessionId: getSessionId() });
+        } catch (err) {
+            console.error("Copy tracking failed:", err);
+        }
         if (type === 'email') {
             setCopiedEmail(true);
             setTimeout(() => setCopiedEmail(false), 2000);
@@ -97,12 +104,15 @@ const ContactTop = ({ headingData, contactData }) => {
                                     title="Copy Email"
                                     onClick={(e) => handleCopy(e, email, 'email')}
                                   >
-                                    {copiedEmail && <span style={{fontSize: '12px', marginRight: '4px'}}>Copied!</span>}
-                                    {!copiedEmail && (
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    {copiedEmail ? (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                          <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
+                                    ) : (
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                         </svg>
                                     )}
                                   </span>
                                 </li>
@@ -130,12 +140,15 @@ const ContactTop = ({ headingData, contactData }) => {
                                     title="Copy Phone"
                                     onClick={(e) => handleCopy(e, mobile, 'mobile')}
                                   >
-                                    {copiedMobile && <span style={{fontSize: '12px', marginRight: '4px'}}>Copied!</span>}
-                                    {!copiedMobile && (
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    {copiedMobile ? (
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                          <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
+                                    ) : (
+                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                         </svg>
                                     )}
                                   </span>
                                 </li>

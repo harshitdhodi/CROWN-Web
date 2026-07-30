@@ -185,6 +185,26 @@ const ContactForm = ({
             });
             const result = await res.json();
             if (!res.ok) throw new Error(result.error || "Failed to submit form");
+
+            // Telemetry Tracking
+            try {
+                const { trackEvent, getSessionId } = require("@/lib/tracking");
+                trackEvent({
+                    eventType: 'click',
+                    page: typeof window !== 'undefined' ? window.location.pathname : '/',
+                    buttonName: 'product_inquiry',
+                    sessionId: getSessionId()
+                });
+                trackEvent({
+                    eventType: 'redirect',
+                    page: typeof window !== 'undefined' ? window.location.pathname : '/',
+                    buttonName: 'thank_you_redirect',
+                    sessionId: getSessionId()
+                });
+            } catch (trackErr) {
+                console.error("Telemetry failed:", trackErr);
+            }
+
             setFormData({ name: "", email: "", phone: "", product_id: "", message: "" });
             router.push(redirectPath);
         } catch (err) {
@@ -225,7 +245,13 @@ const ContactForm = ({
                             <div className="form-input">
                                 <div className="tj-nice-select-box">
                                     <div className="tj-select">
-                                        <ReactNiceSelect options={options} getSelectedOption={handleProductSelect} disabled={productsLoading} />
+                                        <ReactNiceSelect
+                                            options={options}
+                                            value={formData.product_id}
+                                            getSelectedOption={handleProductSelect}
+                                            disabled={productsLoading}
+                                            placeholder="Choose a product"
+                                        />
                                     </div>
                                 </div>
                             </div>
