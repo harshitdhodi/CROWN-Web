@@ -397,7 +397,13 @@ const ContactForm = ({
                 <div className="enquiry-field">
                     <label className="enquiry-label">Product of Interest</label>
                     <div className="enquiry-select">
-                        <ReactNiceSelect options={options} getSelectedOption={handleProductSelect} disabled={productsLoading} />
+                        <ReactNiceSelect
+                            options={options}
+                            value={formData.product_id}
+                            getSelectedOption={handleProductSelect}
+                            disabled={productsLoading}
+                            placeholder="Choose a product"
+                        />
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const ReactNiceSelect = ({
 	options = [],
@@ -14,6 +14,7 @@ const ReactNiceSelect = ({
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(() => options[selectedIndex] || options[0] || null);
 	const [currentIndex, setCurrentIndex] = useState(selectedIndex);
+	const selectRef = useRef(null);
 
 	useEffect(() => {
 		if (!options.length) return;
@@ -28,11 +29,28 @@ const ReactNiceSelect = ({
 		setCurrentIndex(nextIndex);
 	}, [options, value, selectedIndex]);
 
+	useEffect(() => {
+		if (!isOpen) return;
+
+		const handleClickOutside = (event) => {
+			if (selectRef.current && !selectRef.current.contains(event.target)) {
+				setIsOpen(false);
+			}
+		};
+
+		document.addEventListener("mousedown", handleClickOutside);
+		document.addEventListener("touchstart", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+			document.removeEventListener("touchstart", handleClickOutside);
+		};
+	}, [isOpen]);
+
 	const { optionName } = selectedOption || {};
 
 	const handleSelect = useCallback(
 		(option, idx) => {
-			if (disabled || !option.value) return;
+			if (disabled || option.disabled) return;
 			setSelectedOption(option);
 			setCurrentIndex(idx);
 			getSelectedOption(option.value);
@@ -48,13 +66,13 @@ const ReactNiceSelect = ({
 
 	return (
 		<div
+			ref={selectRef}
 			data-lenis-prevent
 			className={`nice-select wide ${isOpen ? "open" : ""} ${disabled ? "disabled" : ""} ${
 				className || ""
 			}`}
 			tabIndex={disabled ? -1 : 0}
 			onClick={toggleOpen}
-			onBlur={() => setIsOpen(false)}
 		>
 			<span className="current">{optionName || placeholder}</span>
 
@@ -65,7 +83,7 @@ const ReactNiceSelect = ({
 							key={option.value || `option-${idx}`}
 							data-value={option.value}
 							className={`option ${currentIndex === idx ? "selected focus" : ""} ${
-								!option.value ? "disabled" : ""
+								option.disabled ? "disabled" : ""
 							}`}
 							onMouseDown={(e) => e.preventDefault()}
 							onClick={(e) => { e.stopPropagation(); handleSelect(option, idx); }}
