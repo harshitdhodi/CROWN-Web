@@ -81,6 +81,24 @@ const DEFAULT_PORTFOLIOS = [
   }
 ];
 
+async function fetchCategoryMap() {
+  const categoryMap = {};
+  for (const col of ["product-category", "categories", "product_categories"]) {
+    const catData = await fetchCollectionData(col);
+    if (catData && catData.length > 0) {
+      catData.forEach(c => {
+        const idKey = (c.id || c._id || "").toString();
+        const nameVal = c.category_name || c.name || c.title || c.tagline;
+        const slugVal = c.category_slug || c.slug;
+        if (idKey && nameVal) {
+          categoryMap[idKey] = { name: nameVal, slug: slugVal };
+        }
+      });
+    }
+  }
+  return categoryMap;
+}
+
 async function getCategories() {
   try {
     let data = [];
@@ -93,9 +111,35 @@ async function getCategories() {
       return DEFAULT_PORTFOLIOS;
     }
 
+    const catMap = await fetchCategoryMap();
+
     return data.map((item) => {
       const rawImg = Array.isArray(item.image) ? item.image[0] : (item.image || item.img || item.img5);
       const resolvedImg = resolveCmsImage(rawImg) || "/images/project/project-1.webp";
+
+      // Resolve Category display name
+      let categoryName = "Pharmaceutical Packaging";
+      let categorySlug = "pharmaceutical-packaging";
+
+      if (item.category) {
+        if (typeof item.category === "object" && item.category !== null) {
+          categoryName = item.category.category_name || item.category.name || item.category.title || categoryName;
+          categorySlug = item.category.category_slug || item.category.slug || categorySlug;
+        } else {
+          const catStr = item.category.toString();
+          if (catMap[catStr]) {
+            categoryName = catMap[catStr].name;
+            categorySlug = catMap[catStr].slug || slugify(categoryName);
+          } else if (!/^[0-9a-fA-F]{24}$/.test(catStr)) {
+            // Not a raw ObjectId hex string, so it's already a category name
+            categoryName = catStr;
+            categorySlug = slugify(catStr);
+          }
+        }
+      } else if (item.category_populated) {
+        categoryName = item.category_populated.category_name || item.category_populated.name || item.category_populated.tagline || categoryName;
+        categorySlug = item.category_populated.category_slug || item.category_populated.slug || categorySlug;
+      }
 
       return {
         id: item.id || item._id,
@@ -106,8 +150,8 @@ async function getCategories() {
         desc: (item.short_description || item.description || item.desc || item.category_populated?.short_description || "")
           .replace(/<[^>]+>/g, "")
           .trim(),
-        category: item.category || item.category_populated?.name || item.category_populated?.tagline || item.category_label || "Products",
-        categorySlug: item.categorySlug || item.category_populated?.category_slug || "",
+        category: categoryName,
+        categorySlug: categorySlug,
       };
     });
   } catch (error) {
