@@ -59,10 +59,12 @@ const DEFAULT_SERVICES = [
 	}
 ];
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 async function getServices() {
 	try {
 		let data = [];
-		for (const col of ["services3", "services", "industry"]) {
+		for (const col of ["industry", "services3", "services"]) {
 			data = await fetchCollectionData(col);
 			if (data.length > 0) break;
 		}
@@ -71,16 +73,19 @@ async function getServices() {
 			return DEFAULT_SERVICES;
 		}
 
-		return data.slice(0, 4).map((item) => ({
-			id: item.id || item._id,
-			title: item.title || item.heading || "",
-			desc: item.description || item.desc || "",
-			img2: item.image || item.img2 || "",
-			color_img: item.color_img || null,
-			hover_img: item.hover_img || null,
-			iconName: item.iconName || null,
-			year: item.year || null,
-		}));
+		return data.slice(0, 4).map((item, idx) => {
+			const fallbackImg = `/images/service/service-${(idx % 4) + 1}.webp`;
+			return {
+				id: item.id || item._id,
+				title: item.title || item.heading || "",
+				desc: item.description || item.desc || "",
+				img2: resolveCmsImage(item.image || item.img2 || item.color_img) || fallbackImg,
+				color_img: resolveCmsImage(item.color_img || item.image || item.img2) || fallbackImg,
+				hover_img: resolveCmsImage(item.hover_img || item.color_img || item.image || item.img2) || fallbackImg,
+				iconName: item.iconName || null,
+				year: item.year || null,
+			};
+		});
 	} catch (e) {
 		console.error("Failed to fetch services3 data:", e);
 		return DEFAULT_SERVICES;

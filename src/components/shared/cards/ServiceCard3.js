@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) => {
@@ -14,12 +14,17 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 	} = service || {};
 
 	const [isHovered, setIsHovered] = useState(false);
+	const [imgSrc, setImgSrc] = useState(null);
 	const isJourney = variant === "journey";
 
 	// On industry-solutions: default = color_img (on white bg), hover = hover_img (on primary bg/reveal image)
 	const displayImage = isIndustrySolutions
 		? (isHovered ? (hover_img || color_img) : color_img)
 		: (isHovered ? (hover_img || color_img) : color_img);
+
+	useEffect(() => {
+		setImgSrc(null);
+	}, [displayImage]);
 
 	// Inline styles that override CSS for industry-solutions variant
 	const cardStyle = isIndustrySolutions ? {
@@ -110,11 +115,14 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 							})()
 						) : color_img ? (
 							<Image
-								src={displayImage}
-								alt={title}
+								src={imgSrc || displayImage}
+								alt={title || "Service"}
 								width={60}
 								height={60}
 								style={{ objectFit: "contain", width: "auto", height: "auto" }}
+								onError={() => {
+									setImgSrc("/images/service/service-1.webp");
+								}}
 							/>
 						) : (
 							<i className={iconName ? iconName : "tji-service-1"}></i>
