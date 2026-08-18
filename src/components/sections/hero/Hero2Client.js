@@ -52,8 +52,15 @@ const Hero2Client = ({ heroSlides = [] }) => {
 							></div>
 							<div className="container">
 								<div className="slider-wrapper">
-									<div className="slider-content">
-										{heading && <h1 className="slider-title">{heading}</h1>}
+									<div className="slider-content" style={{ maxWidth: "820px" }}>
+										{heading && (
+											<h1
+												className="slider-title"
+												style={{ fontSize: "clamp(3.2rem, 5.5vw, 5.5rem)", lineHeight: 1.08 }}
+											>
+												{heading}
+											</h1>
+										)}
 										{subheading && (
 											<div
 												className="slider-desc"

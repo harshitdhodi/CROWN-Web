@@ -10,49 +10,72 @@ const ClientPortfolios4 = dynamic(
  * Fetches data at build / revalidation time; does NOT call the API on every
  * page visit or navigation. Passes data to the client-side Swiper wrapper.
  */
-const Portfolios4 = async () => {
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+import { getCmsBase } from "@/lib/seoConfig";
 
-	let equipmentItems = [];
-	let sectionHeading = null;
+const DEFAULT_EQUIPMENT = [
+	{ id: "dummy-g1", title: "Hygienic & GMP-Compliant Environment", img4: "/uploads/1784277083439-u1syl8pv1.png" },
+	{ id: "dummy-g2", title: "Reliable High-Volume Manufacturing", img4: "/uploads/1784277119152-2iwkbrut81w.png" },
+	{ id: "dummy-g3", title: "Experienced & Dedicated Professionals", img4: "/uploads/1784277131046-i47c757ikea.png" },
+	{ id: "dummy-g4", title: "Advanced Manufacturing Technology", img4: "/uploads/1784277147782-ysxf4cokkx.png" }
+];
 
-	try {
-		const [equipmentRes, headingRes] = await Promise.all([
-			fetch(`${baseUrl}/api/data/gallery`, {
-				next: { revalidate: 0 },
-			}),
-			fetch(`${baseUrl}/api/heading?section=gallery`, {
-				next: { revalidate: 0 },
-			}),
-		]);
+async function fetchGalleryItems() {
+	const cmsBase = getCmsBase();
+	const baseUrls = [
+		cmsBase,
+		"http://localhost:3014",
+		"http://127.0.0.1:3014",
+		"https://demoadmin.crownpack.in"
+	];
 
-		if (!equipmentRes.ok) {
-			console.error("Machinery Equipment API failed:", equipmentRes.status);
+	for (const base of baseUrls) {
+		if (!base) continue;
+		for (const col of ["gallery", "manufacturing_strength"]) {
+			try {
+				const res = await fetch(`${base}/api/data/${col}`, { next: { revalidate: 0 } });
+				if (!res.ok) continue;
+				const json = await res.json().catch(() => null);
+				if (json?.success && Array.isArray(json?.data) && json.data.length > 0) {
+					return json.data.map((item) => ({
+						id: item.id || item._id,
+						title: item.title || item.name || "Machinery & Equipment",
+						img4: resolveCmsImage(item.image || item.icon_image) || "/uploads/1784277083439-u1syl8pv1.png",
+					}));
+				}
+			} catch (e) {
+				// ignore and try next
+			}
 		}
-		if (!headingRes.ok) {
-			console.error("Heading API failed:", headingRes.status);
-		}
-
-		const equipmentData = equipmentRes.ok
-			? await equipmentRes.json()
-			: { data: [] };
-		const headingData = headingRes.ok ? await headingRes.json() : null;
-		console.log("Heading", headingData)
-		equipmentItems =
-			equipmentData?.data?.map((item) => {
-				const img4 = resolveCmsImage(item.image) || "/images/project/project-4.webp";
-
-				return {
-					id: item.id,
-					title: item.name,
-					img4,
-				};
-			}) ?? [];
-
-		sectionHeading = headingData?.success ? headingData.data : null;
-	} catch (error) {
-		console.error("Error fetching Machinery & Equipment data:", error);
 	}
+	return DEFAULT_EQUIPMENT;
+}
+
+async function fetchGalleryHeading() {
+	const cmsBase = getCmsBase();
+	const baseUrls = [
+		cmsBase,
+		"http://localhost:3014",
+		"http://127.0.0.1:3014",
+		"https://demoadmin.crownpack.in"
+	];
+
+	for (const base of baseUrls) {
+		if (!base) continue;
+		try {
+			const res = await fetch(`${base}/api/heading?section=gallery`, { next: { revalidate: 0 } });
+			if (!res.ok) continue;
+			const json = await res.json().catch(() => null);
+			if (json?.success && json?.data) return json.data;
+		} catch (e) {}
+	}
+	return null;
+}
+
+const Portfolios4 = async () => {
+	const [equipmentItems, sectionHeading] = await Promise.all([
+		fetchGalleryItems(),
+		fetchGalleryHeading(),
+	]);
 
 	// Duplicate items for continuous carousel effect
 	const portfolio = [...equipmentItems, ...equipmentItems];

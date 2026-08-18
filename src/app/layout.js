@@ -198,8 +198,43 @@ export default async function RootLayout({ children }) {
 	}
 
 	return (
-		<html lang="en" data-scroll-behavior="smooth" dir="ltr">
+		<html lang="en" data-scroll-behavior="smooth" dir="ltr" suppressHydrationWarning>
 			<head>
+				<script dangerouslySetInnerHTML={{ __html: `
+					(function() {
+						function isBis(name) {
+							return typeof name === 'string' && (name === 'bis_skin_checked' || name.indexOf('bis_') === 0);
+						}
+						try {
+							var origSet = Element.prototype.setAttribute;
+							Element.prototype.setAttribute = function(name, value) {
+								if (isBis(name)) return;
+								return origSet.apply(this, arguments);
+							};
+							var origSetNS = Element.prototype.setAttributeNS;
+							Element.prototype.setAttributeNS = function(ns, name, value) {
+								if (isBis(name)) return;
+								return origSetNS.apply(this, arguments);
+							};
+							Object.defineProperty(Element.prototype, 'bis_skin_checked', {
+								get: function() { return undefined; },
+								set: function() { return true; },
+								configurable: true
+							});
+							if (typeof window !== 'undefined' && typeof MutationObserver !== 'undefined') {
+								var obs = new MutationObserver(function(mutations) {
+									for (var i = 0; i < mutations.length; i++) {
+										var m = mutations[i];
+										if (m.type === 'attributes' && isBis(m.attributeName)) {
+											m.target.removeAttribute(m.attributeName);
+										}
+									}
+								});
+								obs.observe(document, { attributes: true, subtree: true });
+							}
+						} catch(e) {}
+					})();
+				` }} />
 				{/* ── Preconnect: establish early connections to reduce TTFB for images ── */}
 				<link rel="preconnect" href="http://localhost:3012" crossOrigin="anonymous" />
 				<link rel="dns-prefetch" href="http://localhost:3012" />

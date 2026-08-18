@@ -2,24 +2,89 @@ import Services3Client from "./Services3Client";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
-async function getServices() {
-	try {
-		const res = await fetch(`${BASE_URL}/api/data/industry`, { next: { revalidate: 0 } });
-		const result = await res.json();
-		if (result.success && result.data) {
-			return result.data.slice(0, 4).map((item) => ({
-				id: item.id,
-				title: item.title,
-				desc: item.description,
-				img2: item.image,
-				color_img: item.color_img,
-				hover_img: item.hover_img,
-			}));
+async function fetchCollectionData(collectionName) {
+	const urls = [
+		`${BASE_URL}/api/data/${collectionName}`,
+		`http://localhost:3014/api/data/${collectionName}`,
+		`http://127.0.0.1:3014/api/data/${collectionName}`,
+	];
+
+	for (const url of urls) {
+		try {
+			const res = await fetch(url, { next: { revalidate: 0 } });
+			if (!res.ok) continue;
+			const json = await res.json().catch(() => null);
+			if (json?.success && Array.isArray(json?.data) && json.data.length > 0) {
+				return json.data;
+			}
+		} catch (e) {
+			// ignore and try next fallback
 		}
-	} catch (e) {
-		console.error("Failed to fetch industry data:", e);
 	}
 	return [];
+}
+
+const DEFAULT_SERVICES = [
+	{
+		id: "dummy-s1",
+		title: "Pharmaceutical Packaging",
+		desc: "High-barrier packaging solutions designed for maximum moisture and light protection.",
+		img2: "/images/service/service-1.webp",
+		color_img: "/uploads/1784022526764-ulwmtlxm1wd.webp",
+		hover_img: "/uploads/1784022526868-aw0l3jrdpkm.webp"
+	},
+	{
+		id: "dummy-s2",
+		title: "Nutraceutical Packaging",
+		desc: "Custom compliance bottles and jars engineered for vitamins and supplements.",
+		img2: "/images/service/service-2.webp",
+		color_img: "/uploads/1784022526868-aw0l3jrdpkm.webp",
+		hover_img: "/uploads/1784022526957-1fy7nsuszva.webp"
+	},
+	{
+		id: "dummy-s3",
+		title: "Food & Beverage Containers",
+		desc: "Food-grade PET and HDPE rigid packaging certified for safety and freshness.",
+		img2: "/images/service/service-3.webp",
+		color_img: "/uploads/1784022526957-1fy7nsuszva.webp",
+		hover_img: "/uploads/1784022527029-idmroj19jjp.webp"
+	},
+	{
+		id: "dummy-s4",
+		title: "Chemical & Industrial Solutions",
+		desc: "Heavy-duty chemical-resistant jerrycans and drums tailored for agrochemicals.",
+		img2: "/images/service/service-4.webp",
+		color_img: "/uploads/1784022527029-idmroj19jjp.webp",
+		hover_img: "/uploads/1784022526764-ulwmtlxm1wd.webp"
+	}
+];
+
+async function getServices() {
+	try {
+		let data = [];
+		for (const col of ["services3", "services", "industry"]) {
+			data = await fetchCollectionData(col);
+			if (data.length > 0) break;
+		}
+
+		if (!data || data.length === 0) {
+			return DEFAULT_SERVICES;
+		}
+
+		return data.slice(0, 4).map((item) => ({
+			id: item.id || item._id,
+			title: item.title || item.heading || "",
+			desc: item.description || item.desc || "",
+			img2: item.image || item.img2 || "",
+			color_img: item.color_img || null,
+			hover_img: item.hover_img || null,
+			iconName: item.iconName || null,
+			year: item.year || null,
+		}));
+	} catch (e) {
+		console.error("Failed to fetch services3 data:", e);
+		return DEFAULT_SERVICES;
+	}
 }
 
 async function getHeading() {

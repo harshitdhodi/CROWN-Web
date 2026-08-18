@@ -17,7 +17,7 @@ async function getProducts() {
 
 const Testimonials4 = async () => {
 	const products = await getProducts();
-	const banner = await getBannerData("/");
+	const banner = await getBannerData("home");
 
 	const bannerTitle = banner?.title || "Drop us a Line Here.";
 	let bgImage = "/images/cta/CTA.png";

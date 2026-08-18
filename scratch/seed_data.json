@@ -1,0 +1,1724 @@
+{
+  "industry": [
+    {
+      "id": "6a17ee6bc6881e9b23f5ae36",
+      "tag": "Pharmaceutical Industry",
+      "title": "Pharmaceutical Packaging Solutions",
+      "image": "/uploads/1784275825294-fhhg91pequr.png",
+      "created_at": "2026-05-28T07:27:39.993Z",
+      "updated_at": "2026-07-17T08:10:28.257Z",
+      "description": "We manufacture high-quality plastic packaging for pharmaceutical products, including dry syrup bottles, tablet containers, dropper bottles, measuring cups, and caps & closures that ensure product safety, hygiene, and regulatory compliance.",
+      "color_img": "/uploads/1784107549365-1rqu86yejhq.png",
+      "hover_img": "/uploads/1784107564828-pzmol7xu8t.png",
+      "_id": "6a17ee6bc6881e9b23f5ae36"
+    },
+    {
+      "id": "6a17ee3fc6881e9b23f5ae35",
+      "tag": "Health & Wellness",
+      "title": "Nutraceutical Packaging",
+      "image": "/uploads/1784275838223-1cwoqdg881b.png",
+      "created_at": "2026-05-28T07:26:55.307Z",
+      "updated_at": "2026-07-17T08:10:40.523Z",
+      "description": "Our durable and food-safe packaging solutions are ideal for vitamins, dietary supplements, herbal products, and nutraceutical formulations, offering excellent protection and an attractive shelf presence.",
+      "color_img": "/uploads/1784107653381-w9zeyv8eb8.png",
+      "hover_img": "/uploads/1784107657734-82gn970ptb.png",
+      "_id": "6a17ee3fc6881e9b23f5ae35"
+    },
+    {
+      "id": "6a17ee16c6881e9b23f5ae34",
+      "tag": "Reliable Protection",
+      "title": "Healthcare Packaging Solutions",
+      "image": "/uploads/1784275856046-6mbtmm3npux.png",
+      "created_at": "2026-05-28T07:26:14.851Z",
+      "updated_at": "2026-07-17T08:10:58.636Z",
+      "description": "We provide precision-engineered plastic packaging for healthcare products, ensuring secure storage, leak-proof sealing, and reliable dispensing for medical and wellness applications.",
+      "color_img": "/uploads/1784107667679-6hjhrhzzmac.png",
+      "hover_img": "/uploads/1784107675513-zehuy9ok5u.png",
+      "_id": "6a17ee16c6881e9b23f5ae34"
+    },
+    {
+      "id": "6a17eddec6881e9b23f5ae33",
+      "tag": "Quality Packaging",
+      "title": "Consumer Healthcare Packaging",
+      "image": "/uploads/1784275872469-q8b1ubqahz.png",
+      "created_at": "2026-05-28T07:25:18.156Z",
+      "updated_at": "2026-07-17T08:11:14.507Z",
+      "description": "Our versatile packaging solutions are suitable for over-the-counter medicines, wellness products, and consumer healthcare brands, combining durability, functionality, and premium appearance for retail markets.",
+      "color_img": "/uploads/1784107701087-r1jij1dic6q.png",
+      "hover_img": "/uploads/1784107695595-9k341er45ol.png",
+      "_id": "6a17eddec6881e9b23f5ae33"
+    }
+  ],
+  "contactus": [
+    {
+      "id": "6a0543fdf03386ea583ace76",
+      "mapurl": "https://maps.app.goo.gl/FKPsXDLBxc1uyZdt5",
+      "_id": "6a0543fdf03386ea583ace76"
+    }
+  ],
+  "page-components": [
+    {
+      "id": "6a2d1d4516bee7941e753476",
+      "page": "contact",
+      "key": "ContactTop",
+      "label": "Contact Top",
+      "order": 1,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:05:09.101Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1d4516bee7941e753476"
+    },
+    {
+      "id": "6a2d1d4516bee7941e753477",
+      "page": "contact",
+      "key": "Contact3",
+      "label": "Contact Form",
+      "order": 2,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:05:09.101Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1d4516bee7941e753477"
+    },
+    {
+      "id": "6a2d1d4516bee7941e753478",
+      "page": "contact",
+      "key": "Cta",
+      "label": "CTA",
+      "order": 3,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:05:09.101Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1d4516bee7941e753478"
+    },
+    {
+      "id": "6a2d1d3b16bee7941e753474",
+      "page": "careers",
+      "key": "Careers1",
+      "label": "Careers List",
+      "order": 1,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:04:59.500Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1d3b16bee7941e753474"
+    },
+    {
+      "id": "6a2d1d3b16bee7941e753475",
+      "page": "careers",
+      "key": "Cta",
+      "label": "CTA",
+      "order": 2,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:04:59.500Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1d3b16bee7941e753475"
+    },
+    {
+      "id": "6a1d5adaeb550ea76a46e96f",
+      "page": "quality-certification",
+      "key": "Features",
+      "label": "Our Mission & Vision",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2026-06-01T10:11:38.610Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d5adaeb550ea76a46e96f"
+    },
+    {
+      "id": "6a1d5adaeb550ea76a46e96e",
+      "page": "quality-certification",
+      "key": "Process2",
+      "label": "Our Process",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2026-06-01T10:11:38.610Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d5adaeb550ea76a46e96e"
+    },
+    {
+      "id": "6a1d5adaeb550ea76a46e970",
+      "page": "quality-certification",
+      "key": "Team1",
+      "label": "Certificates",
+      "order": 3,
+      "is_active": true,
+      "created_at": "2026-06-01T10:11:38.610Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "8rem",
+      "_id": "6a1d5adaeb550ea76a46e970"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f1",
+      "page": "about-us",
+      "key": "HeroInner",
+      "label": "Page Header",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-15T03:38:15.799Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f1"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f2",
+      "page": "about-us",
+      "key": "About9",
+      "label": "Company Overview",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f2"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f3",
+      "page": "about-us",
+      "key": "Features",
+      "label": "Our Mission & Vision",
+      "order": 3,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f3"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f4",
+      "page": "about-us",
+      "key": "Process",
+      "label": "Our History",
+      "order": 4,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f4"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f5",
+      "page": "about-us",
+      "key": "Team2",
+      "label": "Leadership Team",
+      "order": 5,
+      "is_active": false,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f5"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f6",
+      "page": "about-us",
+      "key": "Services4",
+      "label": "Infrastructure",
+      "order": 6,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f6"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f7",
+      "page": "about-us",
+      "key": "Team1",
+      "label": "Certificates",
+      "order": 7,
+      "is_active": false,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f7"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f8",
+      "page": "about-us",
+      "key": "Services3",
+      "label": "Industries We Serve",
+      "order": 8,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f8"
+    },
+    {
+      "id": "6a196b545bf9515e12fd79f9",
+      "page": "about-us",
+      "key": "Cta",
+      "label": "CTA",
+      "order": 9,
+      "is_active": true,
+      "created_at": "2026-05-29T10:32:52.672Z",
+      "updated_at": "2026-07-15T05:27:35.848Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a196b545bf9515e12fd79f9"
+    },
+    {
+      "id": "6a585d3eba27f48083f4ab22",
+      "page": "about-us",
+      "key": "Features3",
+      "created_at": "2026-07-16T04:25:33.004Z",
+      "is_active": true,
+      "label": "Our Journey",
+      "margin_bottom": "",
+      "margin_top": "",
+      "order": 9,
+      "padding_bottom": "",
+      "padding_top": "",
+      "updated_at": "2026-07-16T05:53:23.492Z",
+      "_id": "6a585d3eba27f48083f4ab22"
+    },
+    {
+      "id": "6a2d1eb816bee7941e753482",
+      "page": "industry-solutions",
+      "key": "Services10",
+      "label": "Our Solutions",
+      "order": 1,
+      "is_active": false,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:20.657Z",
+      "updated_at": "2026-07-15T04:35:27.754Z",
+      "_id": "6a2d1eb816bee7941e753482"
+    },
+    {
+      "id": "6a57100dba27f48083f46e53",
+      "key": "About6",
+      "page": "industry-solutions",
+      "created_at": "2026-07-15T04:43:56.866Z",
+      "is_active": true,
+      "label": "About section",
+      "margin_bottom": "",
+      "margin_top": "",
+      "order": 1,
+      "padding_bottom": "",
+      "padding_top": "",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a57100dba27f48083f46e53"
+    },
+    {
+      "id": "6a2d1eb816bee7941e753483",
+      "page": "industry-solutions",
+      "key": "Portfolios10",
+      "label": "Latest Projects",
+      "order": 2,
+      "is_active": false,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:20.657Z",
+      "updated_at": "2026-07-15T04:35:27.754Z",
+      "_id": "6a2d1eb816bee7941e753483"
+    },
+    {
+      "id": "6a570732ba27f48083f46e17",
+      "key": "Services2",
+      "page": "industry-solutions",
+      "created_at": "2026-07-15T04:06:09.995Z",
+      "is_active": true,
+      "label": "Our Solutions 2",
+      "margin_bottom": "",
+      "margin_top": "",
+      "order": 2,
+      "padding_bottom": "",
+      "padding_top": "",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a570732ba27f48083f46e17"
+    },
+    {
+      "id": "6a57100dba27f48083f46e54",
+      "page": "industry-solutions",
+      "key": "Services3",
+      "created_at": "2026-07-15T04:43:56.866Z",
+      "is_active": true,
+      "label": "Our Services",
+      "margin_bottom": "",
+      "margin_top": "",
+      "order": 2,
+      "padding_bottom": "",
+      "padding_top": "",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a57100dba27f48083f46e54"
+    },
+    {
+      "id": "6a2d1fc516bee7941e75348e",
+      "page": "team",
+      "key": "Team1",
+      "label": "Team Grid",
+      "order": 1,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:15:49.729Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1fc516bee7941e75348e"
+    },
+    {
+      "id": "6a2d1fc516bee7941e75348f",
+      "page": "team",
+      "key": "Cta",
+      "label": "CTA",
+      "order": 2,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:15:49.729Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1fc516bee7941e75348f"
+    },
+    {
+      "id": "6a1d4d79eb550ea76a46e96a",
+      "page": "global-presence",
+      "key": "HeroInner",
+      "label": "Page Header",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2026-06-01T09:14:33.953Z",
+      "updated_at": "2026-06-24T09:47:57.573Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d4d79eb550ea76a46e96a"
+    },
+    {
+      "id": "6a1d4d79eb550ea76a46e96b",
+      "page": "global-presence",
+      "key": "Contact2",
+      "label": "Contact Section",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2026-06-01T09:14:33.953Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d4d79eb550ea76a46e96b"
+    },
+    {
+      "id": "6a1d4d79eb550ea76a46e96c",
+      "page": "global-presence",
+      "key": "Team3",
+      "label": "Our Team",
+      "order": 3,
+      "is_active": true,
+      "created_at": "2026-06-01T09:14:33.953Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d4d79eb550ea76a46e96c"
+    },
+    {
+      "id": "6a1d4d79eb550ea76a46e96d",
+      "page": "global-presence",
+      "key": "Team1",
+      "label": "Certificates",
+      "order": 4,
+      "is_active": true,
+      "created_at": "2026-06-01T09:14:33.953Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "margin_bottom": "",
+      "margin_top": "",
+      "padding_bottom": "",
+      "padding_top": "",
+      "_id": "6a1d4d79eb550ea76a46e96d"
+    },
+    {
+      "id": "6a2d1fc116bee7941e75348c",
+      "page": "terms-and-conditions",
+      "key": "TermsAndConditionsPrimary",
+      "label": "Terms and Conditions Text",
+      "order": 1,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:15:45.938Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1fc116bee7941e75348c"
+    },
+    {
+      "id": "6a2d1fc116bee7941e75348d",
+      "page": "terms-and-conditions",
+      "key": "Cta",
+      "label": "CTA",
+      "order": 2,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:15:45.938Z",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a2d1fc116bee7941e75348d"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753484",
+      "page": "manufacturing-infrastructure",
+      "key": "Portfolios4",
+      "label": "Machinery & Equipment",
+      "order": 1,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753484"
+    },
+    {
+      "id": "6a571a48ba27f48083f46e72",
+      "page": "manufacturing-infrastructure",
+      "key": "Services4",
+      "created_at": "2026-07-15T05:27:35.848Z",
+      "is_active": true,
+      "label": "Our Services",
+      "margin_bottom": "",
+      "margin_top": "",
+      "order": 1,
+      "padding_bottom": "",
+      "padding_top": "",
+      "updated_at": "2026-07-16T05:43:43.795Z",
+      "_id": "6a571a48ba27f48083f46e72"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753485",
+      "page": "manufacturing-infrastructure",
+      "key": "ManufacturingProcess",
+      "label": "Manufacturing Process",
+      "order": 2,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753485"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753486",
+      "page": "manufacturing-infrastructure",
+      "key": "Services5",
+      "label": "Quality Control Process",
+      "order": 3,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753486"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753487",
+      "page": "manufacturing-infrastructure",
+      "key": "About6",
+      "label": "Production Capacity",
+      "order": 4,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753487"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753488",
+      "page": "manufacturing-infrastructure",
+      "key": "Portfolios1",
+      "label": "Factory Images",
+      "order": 5,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753488"
+    },
+    {
+      "id": "6a2d1ed516bee7941e753489",
+      "page": "manufacturing-infrastructure",
+      "key": "Services8",
+      "label": "Safety Standards",
+      "order": 6,
+      "is_active": true,
+      "margin_top": "",
+      "margin_bottom": "",
+      "padding_top": "",
+      "padding_bottom": "",
+      "created_at": "2026-06-13T09:11:49.425Z",
+      "updated_at": "2026-07-15T04:43:56.866Z",
+      "_id": "6a2d1ed516bee7941e753489"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Choosing the Right Pharmaceutical Packaging",
+      "slug": "choosing-the-right-pharmaceutical-packaging",
+      "author": "Ellinien Loma",
+      "date": "2026-05-23",
+      "image": "/uploads/1784262495227-gf8s8cb0iv4.png",
+      "details": "<p>The pharmaceutical industry demands packaging solutions that ensure product safety, maintain quality, and comply with stringent regulatory standards. Packaging is more than just a container—it protects medicines from contamination, moisture, light, and environmental factors while ensuring ease of use for patients.</p><p>Different pharmaceutical formulations require specialized packaging designed to meet their unique storage and dispensing requirements.</p><h3>Dry Syrup Bottles</h3><p>Dry syrup bottles are specifically designed to store powdered medicines that require reconstitution before use. Manufactured from high-quality HDPE materials, these bottles provide excellent moisture resistance and help preserve the effectiveness of sensitive formulations.</p><h3>Key Benefits</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Superior moisture protection</p></li><li><p>Lightweight yet highly durable</p></li><li><p>Leak-resistant design</p></li><li><p>Available in multiple capacities</p></li><li><p>Ideal for pediatric formulations</p></li></ul><hr class=\"border-border my-6\"><h3>Tablet Containers</h3><h4>Tablet containers are widely used for tablets, capsules, and nutraceutical products. Their robust construction protects medicines from physical damage while maintaining freshness during storage and transportation.</h4><h3>Advantages</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Excellent chemical resistance</p></li><li><p>Secure screw-cap compatibility</p></li><li><p>Easy labeling and branding</p></li><li><p>Hygienic pharmaceutical-grade material</p></li><li><p>Available in various sizes</p></li></ul><hr class=\"border-border my-6\"><h3>Dropper Bottles</h3><h4>Dropper bottles are designed for precise liquid dosing. They are commonly used for eye drops, ear drops, nasal solutions, herbal extracts, and liquid medicines.</h4><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Accurate dosage dispensing</p></li><li><p>Leak-proof construction</p></li><li><p>Child-friendly usage</p></li><li><p>High dimensional accuracy</p></li><li><p>Suitable for pharmaceutical and healthcare products</p></li></ul><hr class=\"border-border my-6\"><h3>Caps &amp; Closures</h3><p>Caps and closures play a critical role in protecting pharmaceutical products. They provide tamper evidence, leak prevention, and secure sealing to maintain medicine integrity.</p><h4>Benefits</h4><ul class=\"list-disc pl-6 space-y-1\"><li><p>Tight sealing performance</p></li><li><p>Tamper-evident options</p></li><li><p>Pharmaceutical-grade polymers</p></li><li><p>Excellent dimensional precision</p></li><li><p>Compatible with multiple bottle types</p></li></ul><hr class=\"border-border my-6\"><h3>Why Quality Packaging Matters</h3><p>Reliable pharmaceutical packaging helps manufacturers:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Extend product shelf life</p></li><li><p>Prevent contamination</p></li><li><p>Improve patient safety</p></li><li><p>Meet GMP and ISO quality requirements</p></li><li><p>Enhance transportation durability</p></li></ul><p>Choosing the right packaging partner ensures consistent quality, regulatory compliance, and dependable product protection throughout the supply chain.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-05-23T08:50:46.430Z",
+      "updated_at": "2026-07-17T04:39:36.303Z",
+      "altname": "",
+      "imgtitle": "",
+      "meta_description": "",
+      "metatitle": "",
+      "id": "6a116a668f981c61337b515f",
+      "_id": "6a116a668f981c61337b515f"
+    },
+    {
+      "title": "How High-Quality Pharmaceutical Packaging Protects Medicines",
+      "author": "Ellinien Loma",
+      "date": "2026-05-21",
+      "image": "/uploads/1784262621382-z5lajyzilw.png",
+      "details": "<p>Modern pharmaceutical packaging is engineered to preserve medicine quality from the production facility to the patient's hands. Every bottle, container, and closure is manufactured with precision to maintain product integrity and comply with industry regulations.</p><p>High-quality packaging reduces the risk of contamination, prevents leakage, and protects medicines against moisture, oxygen, and external environmental conditions.</p><h3>Precision Manufacturing</h3><p>Advanced injection moulding and blow moulding technologies produce containers with consistent dimensions, smooth finishes, and reliable strength. Automated manufacturing minimizes defects while maintaining high production efficiency.</p><hr class=\"border-border my-6\"><h3>Premium Raw Materials</h3><p>Using pharmaceutical-grade HDPE and PP materials ensures:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Chemical resistance</p></li><li><p>Food-grade safety</p></li><li><p>Excellent durability</p></li><li><p>Moisture protection</p></li><li><p>Long service life</p></li></ul><p>These materials are carefully selected to meet pharmaceutical industry standards.</p><hr class=\"border-border my-6\"><h3>Products Designed for Every Application</h3><h4>Dry Syrup Bottles</h4><p>Designed to safely store powdered formulations that require reconstitution while protecting them from moisture and contamination.</p><h4>Tablet Containers</h4><p>Engineered to keep tablets and capsules secure with excellent sealing performance and convenient storage.</p><h4>Dropper Bottles</h4><p>Manufactured for precise dispensing of liquid medicines while preventing leakage and maintaining dosage accuracy.</p><h4>Caps &amp; Closures</h4><p>Provide secure sealing, tamper evidence, and compatibility with various pharmaceutical bottle designs.</p><hr class=\"border-border my-6\"><h3>Stringent Quality Control</h3><p>Every packaging component undergoes multiple inspection stages including:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Raw material verification</p></li><li><p>Dimensional inspection</p></li><li><p>Functional testing</p></li><li><p>Leak testing</p></li><li><p>Visual quality checks</p></li><li><p>Final packaging inspection</p></li></ul><p>This comprehensive quality process ensures consistent performance and reliability.</p><hr class=\"border-border my-6\"><h3>Benefits for Pharmaceutical Manufacturers</h3><p>Investing in premium packaging solutions helps manufacturers:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Improve product protection</p></li><li><p>Maintain medicine stability</p></li><li><p>Reduce transportation damage</p></li><li><p>Increase customer confidence</p></li><li><p>Meet international quality standards</p></li><li><p>Enhance overall brand reputation</p></li></ul><h3>Conclusion</h3><p>Reliable pharmaceutical packaging is essential for delivering safe and effective medicines. Whether it's dry syrup bottles, tablet containers, dropper bottles, or caps &amp; closures, high-quality packaging contributes significantly to product safety, regulatory compliance, and customer satisfaction. Partnering with an experienced packaging manufacturer ensures consistent quality, precision manufacturing, and dependable performance for every pharmaceutical application.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-05-23T06:00:20.318Z",
+      "updated_at": "2026-07-17T04:39:46.251Z",
+      "altname": "",
+      "imgtitle": "",
+      "meta_description": "",
+      "metatitle": "",
+      "slug": "how-high-quality-pharmaceutical-packaging-protects-medicines",
+      "id": "6a1142743facc053a2a24c4d",
+      "_id": "6a1142743facc053a2a24c4d"
+    }
+  ],
+  "manufacturing_strength": [
+    {
+      "id": "6a5880e89c16333b4a567007",
+      "title": "Hygienic & GMP-Compliant Environment",
+      "description": "Our 10,000+ sq. ft. clean room facility is designed to meet stringent pharmaceutical manufacturing standards, providing a contamination-free environment for safe, hygienic, and reliable packaging production.",
+      "icon_image": "/uploads/1784185043763-rdtjc5vxtp.png",
+      "image": "/uploads/1784277083439-u1syl8pv1.png",
+      "created_at": "2026-07-16T06:57:44.499Z",
+      "updated_at": "2026-07-17T08:31:25.949Z",
+      "altname": "",
+      "imgtitle": "",
+      "_id": "6a5880e89c16333b4a567007"
+    },
+    {
+      "id": "6a5880b29c16333b4a567006",
+      "title": "Reliable High-Volume Manufacturing",
+      "description": "With a production capacity exceeding 10 lakh units per month, we efficiently fulfill bulk orders while ensuring timely delivery and uncompromised product quality for pharmaceutical manufacturers.",
+      "icon_image": "/uploads/1784184992323-zplqtw26g6a.png",
+      "image": "/uploads/1784277119152-2iwkbrut81w.png",
+      "created_at": "2026-07-16T06:56:50.735Z",
+      "updated_at": "2026-07-17T08:32:01.102Z",
+      "altname": "",
+      "imgtitle": "",
+      "_id": "6a5880b29c16333b4a567006"
+    },
+    {
+      "id": "6a5880759c16333b4a567005",
+      "title": "Experienced & Dedicated Professionals",
+      "description": "Our team of highly trained technicians and industry experts oversees every stage of production, ensuring each product is manufactured with accuracy, efficiency, and strict quality control.",
+      "icon_image": "/uploads/1784184917461-gh9m3k5cpk5.png",
+      "image": "/uploads/1784277131046-i47c757ikea.png",
+      "created_at": "2026-07-16T06:55:49.431Z",
+      "updated_at": "2026-07-17T08:32:12.510Z",
+      "altname": "",
+      "imgtitle": "",
+      "_id": "6a5880759c16333b4a567005"
+    },
+    {
+      "id": "6a587ff29c16333b4a567004",
+      "title": "Advanced Manufacturing Technology",
+      "description": "Our production facility is equipped with state-of-the-art machinery and automated systems that ensure precision, consistency, and high-speed manufacturing while maintaining the highest quality standards.",
+      "icon_image": "/uploads/1784184665230-0c243ibp670a.png",
+      "image": "/uploads/1784277147782-ysxf4cokkx.png",
+      "created_at": "2026-07-16T06:53:38.167Z",
+      "updated_at": "2026-07-17T08:32:29.258Z",
+      "altname": "",
+      "imgtitle": "",
+      "_id": "6a587ff29c16333b4a567004"
+    }
+  ],
+  "heading": [
+    {
+      "tagline": "Quality at Every Step",
+      "heading": "Ensuring Quality at Every Stage",
+      "created_at": "2026-06-02T04:12:40.462Z",
+      "updated_at": "2026-06-02T04:56:08.088Z",
+      "section_name": "quality-process",
+      "subheading": "",
+      "id": "6a1e58380defd844327c5046",
+      "_id": "6a1e58380defd844327c5046"
+    },
+    {
+      "tagline": "Choose the Best",
+      "heading": "Empowering Business with Expertise.",
+      "section_name": "mission-vision",
+      "created_at": "2026-05-25T09:37:22.253Z",
+      "updated_at": "2026-05-25T09:37:22.253Z",
+      "id": "6a141852b808854902390564",
+      "_id": "6a141852b808854902390564"
+    },
+    {
+      "tagline": "Visionary Leaders, Stronger Future",
+      "heading": "Values That Inspire Excellence",
+      "subheading": "Our core values guide every aspect of our business, helping us deliver high-quality pharmaceutical packaging with integrity, innovation, reliability, and a strong commitment to customer satisfaction.",
+      "section_name": "core-value",
+      "created_at": "2026-05-26T03:39:25.099Z",
+      "updated_at": "2026-07-16T09:51:30.340Z",
+      "id": "6a1515ed92d725ee2eec2dfa",
+      "_id": "6a1515ed92d725ee2eec2dfa"
+    },
+    {
+      "tagline": "Our Global Presence",
+      "heading": "With offices strategically located across key regions, we deliver seamless solutions and exceptional service worldwide.",
+      "section_name": "global-presence",
+      "created_at": "2026-05-29T05:32:01.803Z",
+      "updated_at": "2026-05-29T05:32:01.803Z",
+      "image": "/uploads/1784601656734-6yd778drghl.webp",
+      "id": "6a1924d174e226ba0831ed4b",
+      "_id": "6a1924d174e226ba0831ed4b"
+    },
+    {
+      "tagline": "Our Growth Story",
+      "heading": "A Journey of Innovation, Quality & Trusted Partnerships",
+      "section_name": "journey",
+      "created_at": "2026-06-02T03:25:18.619Z",
+      "updated_at": "2026-07-16T05:29:21.915Z",
+      "subheading": "From our humble beginnings in 2017 to becoming a trusted partner for leading pharmaceutical companies, our journey has been driven by continuous innovation, uncompromising quality, and a commitment to delivering world-class pharmaceutical packaging solutions.",
+      "id": "6a1e4d1e0defd844327c503c",
+      "_id": "6a1e4d1e0defd844327c503c"
+    },
+    {
+      "tagline": "Our Certificates",
+      "heading": "Building Global Trust Through Certified Excellence",
+      "section_name": "certificates",
+      "created_at": "2026-05-26T11:08:23.811Z",
+      "updated_at": "2026-05-26T11:08:23.811Z",
+      "id": "6a157f277cc3269b02faa923",
+      "_id": "6a157f277cc3269b02faa923"
+    },
+    {
+      "tagline": "Industries We Serve",
+      "heading": "Trusted Manufacturing Excellence",
+      "subheading": "We deliver high-quality manufacturing solutions with advanced technology, skilled expertise, and a strong commitment to timely delivery and customer satisfaction",
+      "section_name": "industries-we-serve",
+      "created_at": "2026-05-27T09:24:14.958Z",
+      "updated_at": "2026-07-15T09:59:11.669Z",
+      "id": "6a16b83e615394f4faf6e539",
+      "_id": "6a16b83e615394f4faf6e539"
+    },
+    {
+      "tagline": "Why Choose Us",
+      "heading": "Excellence That Sets Us Apart",
+      "section_name": "why-choose-us",
+      "created_at": "2026-05-28T08:43:06.884Z",
+      "updated_at": "2026-07-16T08:17:12.098Z",
+      "subheading": "",
+      "id": "6a18001ac6881e9b23f5ae37",
+      "_id": "6a18001ac6881e9b23f5ae37"
+    },
+    {
+      "tagline": "Contact info",
+      "heading": "Reach Out with Us",
+      "section_name": "contact",
+      "created_at": "2026-06-09T06:19:51.466Z",
+      "updated_at": "2026-06-09T06:19:51.466Z",
+      "id": "6a27b0871711dcaca0dbbad9",
+      "_id": "6a27b0871711dcaca0dbbad9"
+    },
+    {
+      "tagline": "Manufacturing Strength",
+      "heading": "Built with Advanced Technology, Driven by Quality Excellence",
+      "subheading": "",
+      "section_name": "manufacturing_strength",
+      "created_at": "2026-06-08T03:52:19.083Z",
+      "updated_at": "2026-07-16T07:01:51.867Z",
+      "id": "6a263c73a7c2305f03b724bb",
+      "_id": "6a263c73a7c2305f03b724bb"
+    }
+  ],
+  "quality-process": [
+    {
+      "id": "6a1e57c20defd844327c5045",
+      "heading": "Continuous Quality Improvement",
+      "description": "Driving Excellence Through Ongoing Innovation\nWe continuously review manufacturing processes, quality procedures, and customer feedback to improve product performance, operational efficiency, and overall customer satisfaction while maintaining the highest quality standards.",
+      "created_at": "2026-06-02T04:10:42.691Z",
+      "updated_at": "2026-07-16T10:33:10.708Z",
+      "_id": "6a1e57c20defd844327c5045"
+    },
+    {
+      "id": "6a1e57b20defd844327c5044",
+      "heading": "Hygiene & Safety",
+      "description": "Maintaining a Clean and Safe Manufacturing Environment\nProduction is carried out in hygienic clean room facilities following strict GMP practices, ensuring contamination-free manufacturing and safe handling of pharmaceutical packaging products.",
+      "created_at": "2026-06-02T04:10:26.641Z",
+      "updated_at": "2026-07-16T10:33:34.089Z",
+      "_id": "6a1e57b20defd844327c5044"
+    },
+    {
+      "id": "6a1e57a30defd844327c5043",
+      "heading": "Final Product Testing",
+      "description": "Every Product Tested Before Dispatch\nFinished products are thoroughly tested for dimensions, sealing performance, strength, appearance, and functionality to ensure they meet pharmaceutical packaging requirements and customer specifications.",
+      "created_at": "2026-06-02T04:10:11.541Z",
+      "updated_at": "2026-07-16T10:33:51.314Z",
+      "_id": "6a1e57a30defd844327c5043"
+    },
+    {
+      "id": "6a1e57880defd844327c5042",
+      "heading": "In-Process Inspection",
+      "description": "Continuous Monitoring During Manufacturing\nOur quality team performs regular inspections throughout the production cycle to verify dimensional accuracy, process consistency, and adherence to predefined quality parameters.",
+      "created_at": "2026-06-02T04:09:44.428Z",
+      "updated_at": "2026-07-16T10:34:13.651Z",
+      "_id": "6a1e57880defd844327c5042"
+    },
+    {
+      "id": "6a1e57770defd844327c5041",
+      "heading": "Raw Material Inspection",
+      "description": "Premium Materials, Verified Before Production\nEvery batch of raw material undergoes comprehensive inspection for quality, purity, strength, and compliance before entering the manufacturing process, ensuring a reliable foundation for every product.",
+      "created_at": "2026-06-02T04:09:27.045Z",
+      "updated_at": "2026-07-16T10:35:37.436Z",
+      "_id": "6a1e57770defd844327c5041"
+    },
+    {
+      "id": "6a1e576a0defd844327c5040",
+      "heading": "Quality Policy",
+      "description": "Committed to Uncompromising Quality\nWe are dedicated to manufacturing pharmaceutical packaging products that consistently meet customer expectations and industry standards through continuous improvement, strict quality management systems, and process excellence.",
+      "created_at": "2026-06-02T04:09:14.397Z",
+      "updated_at": "2026-07-16T10:35:14.207Z",
+      "_id": "6a1e576a0defd844327c5040"
+    }
+  ],
+  "manage-meta": [
+    {
+      "id": "6a59ee5681e9e656e0ffa3b1",
+      "pageName": "thank you",
+      "pageSlug": "/thank-you",
+      "metaTitle": "Thank You | Crown Packaging",
+      "metaDescription": "Thank you for reaching out to Crown Packaging. We appreciate your interest and will get back to you shortly.",
+      "metaKeyword": "crown packaging thank you",
+      "metaCanonical": "",
+      "metaSchema": "",
+      "ogTitle": "Thank You | Crown Packaging",
+      "ogDescription": "Thank you for reaching out to Crown Packaging. We appreciate your interest and will get back to you shortly.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": true,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a59ee5681e9e656e0ffa3b1"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00a7",
+      "pageName": "global presence",
+      "pageSlug": "/global-presence",
+      "metaTitle": "Global Presence | Crown Packaging International Packaging Supply",
+      "metaDescription": "Discover Crown Packaging's global presence, export capabilities, and international supply of pharmaceutical plastic packaging to markets across Asia, Middle East, and beyond.",
+      "metaKeyword": "global pharmaceutical packaging, packaging exports india, international packaging supplier, crown packaging global",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"Crown Packaging Global Presence\",\"url\":\"https://www.crownpackaging.in/global-presence\"}",
+      "ogTitle": "Global Presence | Crown Packaging International Packaging Supply",
+      "ogDescription": "Discover Crown Packaging's global presence, export capabilities, and international supply of pharmaceutical plastic packaging to markets across Asia, Middle East, and beyond.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00a7"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00ab",
+      "pageName": "team",
+      "pageSlug": "/team",
+      "metaTitle": "Leadership Team | Crown Packaging Manufacturing Experts",
+      "metaDescription": "Meet the experienced leadership and technical team driving quality, innovation, and manufacturing excellence at Crown Packaging.",
+      "metaKeyword": "crown packaging team, packaging experts, manufacturing leadership, technical team",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"ProfilePage\",\"name\":\"Crown Packaging Team\",\"url\":\"https://www.crownpackaging.in/team\"}",
+      "ogTitle": "Leadership Team | Crown Packaging Manufacturing Experts",
+      "ogDescription": "Meet the experienced leadership and technical team driving quality, innovation, and manufacturing excellence at Crown Packaging.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00ab"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00a8",
+      "pageName": "industry solutions",
+      "pageSlug": "/industry-solutions",
+      "metaTitle": "Industry Solutions | Crown Packaging Packaging Across Sectors",
+      "metaDescription": "Crown Packaging provides specialized plastic packaging solutions for pharmaceutical, nutraceutical, healthcare, and FMCG industries with consistent quality and compliance.",
+      "metaKeyword": "pharmaceutical industry packaging, nutraceutical packaging solutions, healthcare packaging, FMCG packaging, industry specific packaging",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"Service\",\"name\":\"Industry Packaging Solutions\",\"provider\":{\"@type\":\"Organization\",\"name\":\"Crown Packaging\"}}",
+      "ogTitle": "Industry Solutions | Crown Packaging Packaging Across Sectors",
+      "ogDescription": "Crown Packaging provides specialized plastic packaging solutions for pharmaceutical, nutraceutical, healthcare, and FMCG industries with consistent quality and compliance.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00a8"
+    },
+    {
+      "id": "6a2cd928c7ccfc7bea1e00a0",
+      "pageName": "about us",
+      "pageSlug": "/about-us",
+      "metaTitle": "About Crown Packaging | Trusted Pharmaceutical Packaging Company",
+      "metaDescription": "Learn about Crown Packaging, a trusted manufacturer committed to precision, quality, and innovation in pharmaceutical and healthcare plastic packaging solutions.",
+      "metaKeyword": "about crown packaging, pharmaceutical packaging company, plastic packaging manufacturer india, packaging quality, crown packaging history",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"AboutPage\",\"name\":\"About Crown Packaging\",\"url\":\"https://www.crownpackaging.in/about-us\",\"description\":\"About Crown Packaging — a trusted pharmaceutical packaging manufacturer.\"}",
+      "ogTitle": "About Crown Packaging | Trusted Pharmaceutical Packaging Company",
+      "ogDescription": "Learn about Crown Packaging, a trusted manufacturer committed to precision, quality, and innovation in pharmaceutical and healthcare plastic packaging solutions.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd928c7ccfc7bea1e00a0"
+    },
+    {
+      "id": "6a2cd928c7ccfc7bea1e00a4",
+      "pageName": "careers",
+      "pageSlug": "/careers",
+      "metaTitle": "Careers at Crown Packaging | Join Our Manufacturing Team",
+      "metaDescription": "Explore career opportunities at Crown Packaging and become part of a growing team focused on precision manufacturing, innovation, and quality in pharmaceutical packaging.",
+      "metaKeyword": "crown packaging careers, manufacturing jobs, packaging industry jobs, engineering careers, crown packaging jobs india",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"JobPosting\",\"hiringOrganization\":{\"@type\":\"Organization\",\"name\":\"Crown Packaging\",\"url\":\"https://www.crownpackaging.in\"},\"jobLocation\":{\"@type\":\"Place\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"IN\"}}}",
+      "ogTitle": "Careers at Crown Packaging | Join Our Manufacturing Team",
+      "ogDescription": "Explore career opportunities at Crown Packaging and become part of a growing team focused on precision manufacturing, innovation, and quality in pharmaceutical packaging.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd928c7ccfc7bea1e00a4"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00a9",
+      "pageName": "manufacturing infrastructure",
+      "pageSlug": "/manufacturing-infrastructure",
+      "metaTitle": "Manufacturing Infrastructure | Crown Packaging Production Excellence",
+      "metaDescription": "Explore Crown Packaging's state-of-the-art manufacturing infrastructure featuring advanced injection and blow moulding technology, automated production lines, and stringent quality control.",
+      "metaKeyword": "pharmaceutical packaging plant, blow moulding manufacturer, injection moulding packaging, manufacturing infrastructure, crown packaging facility",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Crown Packaging Manufacturing Infrastructure\",\"url\":\"https://www.crownpackaging.in/manufacturing-infrastructure\"}",
+      "ogTitle": "Manufacturing Infrastructure | Crown Packaging Production Excellence",
+      "ogDescription": "Explore Crown Packaging's state-of-the-art manufacturing infrastructure featuring advanced injection and blow moulding technology, automated production lines, and stringent quality control.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00a9"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00ac",
+      "pageName": "terms and conditions",
+      "pageSlug": "/terms-and-conditions",
+      "metaTitle": "Terms & Conditions | Crown Packaging",
+      "metaDescription": "Read the terms and conditions governing the use of the Crown Packaging website, products, and services.",
+      "metaKeyword": "crown packaging terms, website terms, packaging terms and conditions",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Terms and Conditions\",\"url\":\"https://www.crownpackaging.in/terms-and-conditions\"}",
+      "ogTitle": "Terms & Conditions | Crown Packaging",
+      "ogDescription": "Read the terms and conditions governing the use of the Crown Packaging website, products, and services.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00ac"
+    },
+    {
+      "id": "6a2cd928c7ccfc7bea1e00a5",
+      "pageName": "contact",
+      "pageSlug": "/contact",
+      "metaTitle": "Contact Crown Packaging | Pharmaceutical Packaging Enquiries",
+      "metaDescription": "Get in touch with Crown Packaging for product enquiries, bulk pricing, custom packaging requirements, and technical support for pharmaceutical packaging solutions.",
+      "metaKeyword": "contact crown packaging, pharmaceutical packaging enquiry, packaging manufacturer contact, bulk packaging order",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"ContactPage\",\"name\":\"Contact Crown Packaging\",\"url\":\"https://www.crownpackaging.in/contact\"}",
+      "ogTitle": "Contact Crown Packaging | Pharmaceutical Packaging Enquiries",
+      "ogDescription": "Get in touch with Crown Packaging for product enquiries, bulk pricing, custom packaging requirements, and technical support for pharmaceutical packaging solutions.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd928c7ccfc7bea1e00a5"
+    },
+    {
+      "id": "6a59ee5681e9e656e0ffa3b0",
+      "pageName": "contact/thank you",
+      "pageSlug": "/contact/thank-you",
+      "metaTitle": "Thank You for Your Enquiry | Crown Packaging",
+      "metaDescription": "Thank you for contacting Crown Packaging. Our team will review your enquiry and respond within 24–48 business hours.",
+      "metaKeyword": "crown packaging thank you, enquiry confirmation",
+      "metaCanonical": "",
+      "metaSchema": "",
+      "ogTitle": "Thank You for Your Enquiry | Crown Packaging",
+      "ogDescription": "Thank you for contacting Crown Packaging. Our team will review your enquiry and respond within 24–48 business hours.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": true,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a59ee5681e9e656e0ffa3b0"
+    },
+    {
+      "id": "6a2cd929c7ccfc7bea1e00aa",
+      "pageName": "quality certification",
+      "pageSlug": "/quality-certification",
+      "metaTitle": "Quality & Certifications | Crown Packaging Certified Packaging",
+      "metaDescription": "Crown Packaging maintains the highest quality standards with certifications ensuring safe, hygienic, and compliant pharmaceutical packaging products for global markets.",
+      "metaKeyword": "pharmaceutical packaging certifications, quality packaging standards, ISO certified packaging, GMP packaging manufacturer, crown packaging quality",
+      "metaCanonical": "",
+      "metaSchema": "{\"@context\":\"https://schema.org\",\"@type\":\"WebPage\",\"name\":\"Crown Packaging Quality & Certifications\",\"url\":\"https://www.crownpackaging.in/quality-certification\"}",
+      "ogTitle": "Quality & Certifications | Crown Packaging Certified Packaging",
+      "ogDescription": "Crown Packaging maintains the highest quality standards with certifications ensuring safe, hygienic, and compliant pharmaceutical packaging products for global markets.",
+      "ogImage": "",
+      "ogType": "website",
+      "twitterCard": "summary_large_image",
+      "noIndex": false,
+      "noFollow": false,
+      "faqSchema": "",
+      "isActive": true,
+      "seoScore": 0,
+      "_id": "6a2cd929c7ccfc7bea1e00aa"
+    }
+  ],
+  "footer": [
+    {
+      "id": "6a2ccbb08a258733891806ce",
+      "logo": [
+        "/uploads/1784010905308-foqir68di5s.png"
+      ],
+      "description": "Creating reliable wire and cable products tailored to diverse industrial applications, helping businesses achieve efficiency and dependable connectivity.",
+      "address": "Chhatrapati Shivaji Maharaj Terminus Area, Fort, Mumbai, Maharashtra 400001, India",
+      "mobile": "",
+      "email": "sales@wiretex.com",
+      "facebook": "https://www.facebook.com/wiretexindustries",
+      "instagram": "https://www.instagram.com/wiretexindustries",
+      "twitter": "https://x.com/wiretexofficial",
+      "linkedin": "https://www.linkedin.com/company/wiretex-industries",
+      "created_at": "2026-06-13T03:17:04.600Z",
+      "updated_at": "2026-07-14T06:35:08.554Z",
+      "headerlogo": [
+        "/uploads/1784008860632-siphvnk383c.png"
+      ],
+      "favicon": [
+        "/uploads/1784008855039-swc0j0167ln.png"
+      ],
+      "_id": "6a2ccbb08a258733891806ce"
+    }
+  ],
+  "compliance-standards": [
+    {
+      "id": "6a1e4bc50defd844327c503b",
+      "image": "/uploads/1780370356672-q9hckvim4mp.svg",
+      "title": "IEC Standards",
+      "description": "Cables are tested and manufactured according to internationally recognized electrical safety and performance standards.",
+      "created_at": "2026-06-02T03:19:33.241Z",
+      "updated_at": "2026-06-02T03:19:33.241Z",
+      "_id": "6a1e4bc50defd844327c503b"
+    },
+    {
+      "id": "6a1e4b9d0defd844327c503a",
+      "image": "/uploads/1780370307007-k0o8n768ty.svg",
+      "title": "RoHS Compliant",
+      "description": "Products are manufactured without hazardous substances, supporting environmental safety and global regulations.",
+      "created_at": "2026-06-02T03:18:53.679Z",
+      "updated_at": "2026-06-02T03:18:53.679Z",
+      "_id": "6a1e4b9d0defd844327c503a"
+    },
+    {
+      "id": "6a1e4b7b0defd844327c5039",
+      "image": "/uploads/1780370248559-i7gnmg42pae.svg",
+      "title": "ISO 9001 Certified",
+      "description": "Ensures consistent quality management systems and continuous improvement across manufacturing processes.",
+      "created_at": "2026-06-02T03:18:19.050Z",
+      "updated_at": "2026-06-02T03:18:19.050Z",
+      "_id": "6a1e4b7b0defd844327c5039"
+    }
+  ],
+  "product-category": [
+    {
+      "id": "6a0d59afc9d4e23e3205b72a",
+      "category_name": "Pharmaceutical Packaging",
+      "category_slug": "pharmaceutical-packaging",
+      "short_description": "<p>High-quality pharmaceutical plastic packaging solutions designed for safe medicine storage, accurate dispensing, and regulatory compliance. Our product range includes dry syrup bottles, tablet containers, dropper bottles, measuring cups, and caps &amp; closures manufactured with precision and premium-grade materials.</p>",
+      "tagline": "Precision Packaging for Safer Healthcare",
+      "image": "/uploads/1784275680963-y7a9p2n3ks8.png",
+      "created_at": "2026-05-20T06:50:23.916Z",
+      "updated_at": "2026-07-17T08:08:04.379Z",
+      "alt_name": "",
+      "category_details": "<p>The pharmaceutical industry demands packaging solutions that ensure product safety, hygiene, durability, and dosage accuracy. Our pharmaceutical packaging products are manufactured using high-quality virgin plastic materials in a controlled production environment to meet the strict requirements of medicine manufacturers.</p><p>We offer a comprehensive range of pharmaceutical packaging products including <strong>Dry Syrup Bottles, Tablet Containers, Dropper Bottles, Measuring Cups, and Caps &amp; Closures</strong>. Every product is engineered for leak-proof performance, chemical resistance, dimensional accuracy, and compatibility with pharmaceutical formulations.</p><p>Our manufacturing process incorporates advanced injection and blow molding technologies, rigorous quality inspections, and compliance with industry standards to deliver reliable packaging solutions trusted by pharmaceutical companies. Whether for tablets, syrups, oral liquids, or healthcare products, our packaging is designed to protect product integrity throughout storage, transportation, and end use.</p><p>With customizable sizes, colors, and closure options, we help pharmaceutical brands achieve both functional excellence and premium product presentation while maintaining consistent quality across every batch.</p>",
+      "img_title": "",
+      "parent_category": "",
+      "canonical_link": "",
+      "meta_description": "Leading manufacturer of pharmaceutical plastic packaging products including dry syrup bottles, tablet containers, dropper bottles, measuring cups, and caps & closures. High-quality, hygienic, and customizable packaging solutions.",
+      "meta_keyword": [
+        "pharmaceutical packaging",
+        "pharmaceutical plastic bottles"
+      ],
+      "metatitle": "Pharmaceutical Packaging Manufacturer | Dry Syrup Bottles, Tablet Containers & Closures",
+      "schema": "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"CollectionPage\",\n  \"name\": \"Pharmaceutical Packaging\",\n  \"description\": \"Manufacturer of pharmaceutical packaging products including Dry Syrup Bottles, Tablet Containers, Dropper Bottles, Measuring Cups, and Caps & Closures.\",\n  \"keywords\": [\n    \"Pharmaceutical Packaging\",\n    \"Dry Syrup Bottles\",\n    \"Tablet Containers\",\n    \"Dropper Bottles\",\n    \"Measuring Cups\",\n    \"Caps & Closures\"\n  ]\n}",
+      "_id": "6a0d59afc9d4e23e3205b72a"
+    }
+  ],
+  "our_products": [
+    {
+      "id": "6a574170b299503bdcda5b9d",
+      "category": "6a0d59afc9d4e23e3205b72a",
+      "name": "Dropper Bottles",
+      "image": [
+        "/uploads/1784275721777-bizlnd483kr.png"
+      ],
+      "slug": "dropper-bottles",
+      "industry": "6a17eddec6881e9b23f5ae33",
+      "details": "<p>Our <strong>Dropper Bottles</strong> are precision-engineered to meet the demanding packaging requirements of the pharmaceutical, nutraceutical, and healthcare industries. Manufactured using high-quality pharmaceutical-grade polymers and advanced <strong>Injection Blow Moulding (IBM)</strong> technology, these bottles offer superior quality, dimensional accuracy, and reliable performance.</p><p>Designed for safe and controlled dispensing of liquid formulations, our dropper bottles are lightweight, durable, and compatible with a variety of dropper caps and closures. Each bottle is produced under stringent quality control standards to ensure product safety, consistency, and compliance with pharmaceutical packaging requirements.</p><hr class=\"border-border my-6\"><h3>Product Highlights</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Manufactured using premium pharmaceutical-grade polymers</p></li><li><p>Produced with advanced Injection Blow Moulding (IBM) technology</p></li><li><p>Designed for accurate liquid dispensing</p></li><li><p>Suitable for eye, ear, nasal, and oral liquid formulations</p></li><li><p>Lightweight yet highly durable construction</p></li><li><p>Compatible with multiple dropper caps and closures</p></li><li><p>Available in various capacities to meet diverse packaging needs</p></li><li><p>Manufactured under strict quality assurance processes</p></li></ul><hr class=\"border-border my-6\"><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Gamma sterilization compatible</p></li><li><p>High dimensional accuracy</p></li><li><p>Excellent product consistency</p></li><li><p>Lightweight and durable</p></li><li><p>Leak-proof sealing compatibility</p></li><li><p>Superior chemical resistance</p></li><li><p>Smooth surface finish</p></li><li><p>Hygienic and contamination-resistant</p></li><li><p>Suitable for automated filling lines</p></li><li><p>Excellent barrier against external contaminants</p></li><li><p>Available in multiple sizes and designs</p></li><li><p>Long-lasting product performance</p></li></ul><hr class=\"border-border my-6\"><h3>Applications</h3><p>Our Dropper Bottles are widely used for packaging:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Eye Drops</p></li><li><p>Ear Drops</p></li><li><p>Nasal Drops</p></li><li><p>Oral Drops</p></li><li><p>Pediatric Medicines</p></li><li><p>Herbal Extracts</p></li><li><p>Liquid Nutraceuticals</p></li><li><p>Healthcare Solutions</p></li><li><p>Veterinary Medicines</p></li><li><p>Pharmaceutical Liquid Formulations</p></li></ul><hr class=\"border-border my-6\"><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 125px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Volume (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Overflow Capacity (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Total Height (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Outer Diameter (mm)</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0022</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>8.2</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>44.2</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>21</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0023</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>10 (Model 1)</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>13.1</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>50.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>24</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0024</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>10 (Model 2)</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>17.9</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>56.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0025</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>15</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>20.1</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>61.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0026</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>20</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>23.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>68.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0027</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>69.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>29.5</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>Why Choose Our Dropper Bottles?</h3><p>Our <strong>Dropper Bottles</strong> are manufactured to deliver precision, safety, and reliability for pharmaceutical and healthcare packaging applications. Using advanced manufacturing technology and premium-quality materials, we ensure every bottle meets the highest standards of performance, hygiene, and durability.</p><p>With a wide range of capacities, excellent compatibility with dropper closures, and consistent quality control, our dropper bottles are trusted by pharmaceutical manufacturers for packaging sensitive liquid formulations. Whether you require standard products or customized solutions, we provide dependable packaging designed to protect your products and enhance user convenience.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-07-15T08:14:40.768Z",
+      "updated_at": "2026-07-17T08:08:51.774Z",
+      "canonical_link": "",
+      "meta_description": "",
+      "metatitle": "",
+      "schema": "",
+      "short_description": "Our Dropper Bottles are precision-engineered to meet the demanding packaging requirements of the pharmaceutical, nutraceutical, and healthcare industries.",
+      "_id": "6a574170b299503bdcda5b9d"
+    },
+    {
+      "id": "6a5740f2b299503bdcda5b9c",
+      "category": "6a0d59afc9d4e23e3205b72a",
+      "name": "Caps & Closures",
+      "image": [
+        "/uploads/1784103143258-fhpvwg31sn.png"
+      ],
+      "slug": "caps-closures",
+      "industry": "6a17ee16c6881e9b23f5ae34",
+      "details": "<p>Our <strong>Caps &amp; Closures</strong> are engineered to provide secure sealing, product protection, and user convenience for pharmaceutical, nutraceutical, healthcare, and FMCG packaging applications. Manufactured using premium-quality plastic materials and advanced molding technology, our closures ensure leak-proof performance, tamper evidence, and product integrity throughout storage, transportation, and usage.</p><p>Our product range includes <strong>Pilfer Proof Caps, Screw Caps, and Child-Resistant Caps</strong>, available in multiple sizes and specifications to suit various bottle types and packaging requirements. Every closure is manufactured under stringent quality control processes to ensure consistent performance, dimensional accuracy, and reliable sealing.</p><hr class=\"border-border my-6\"><h2>Product Range</h2><hr class=\"border-border my-6\"><h3>1. Pilfer Proof (Tamper Evident) Caps</h3><h3>Description</h3><p>Our <strong>Pilfer Proof Caps</strong> are designed to provide visible evidence of tampering, ensuring maximum product safety and consumer confidence. These caps feature a tamper-evident ring that breaks upon first opening, making them ideal for pharmaceutical and healthcare packaging.</p><h3>Key Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Tamper-evident sealing</p></li><li><p>Secure and leak-proof closure</p></li><li><p>Excellent bottle compatibility</p></li><li><p>Durable construction</p></li><li><p>Easy opening after first use</p></li><li><p>Moisture and contamination protection</p></li><li><p>Suitable for pharmaceutical products</p></li></ul><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 125px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Size (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Type</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Thread Diameter (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Outer Diameter (mm)</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0048</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>22</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Pilfer Proof / Tamper Evident</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>20.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>27</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0049</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Pilfer Proof / Tamper Evident</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>23.2</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>29.25</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0050</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Pilfer Proof / Tamper Evident (Thick)</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>26.25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0051</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Pilfer Proof / Tamper Evident (Thin)</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>26.25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.5</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>2. Screw Caps</h3><h4>Description</h4><p>Our <strong>Screw Caps</strong> are manufactured to deliver reliable sealing performance for a wide variety of plastic containers. Designed for easy application and removal, these caps offer excellent protection against leakage, contamination, and product spillage while maintaining a secure closure.</p><h4>Key Features</h4><ul class=\"list-disc pl-6 space-y-1\"><li><p>Leak-proof sealing</p></li><li><p>Spill-resistant design</p></li><li><p>Strong thread engagement</p></li><li><p>Easy opening and closing</p></li><li><p>Durable construction</p></li><li><p>Available in multiple sizes</p></li><li><p>Smooth surface finish</p></li><li><p>Suitable for induction sealing</p></li></ul><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 125px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Size (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Type</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Thread Diameter (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Outer Diameter (mm)</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0052</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>23.3</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0053</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>26.15</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0054</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>34.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0055</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>35.75</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>40</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0056</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>45</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>42.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>46.2</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0057</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>58</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>56.3</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>65.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0058</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>63</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Screw</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>64.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>68.5</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>3. Child-Resistant (CRC) Caps</h3><h4>Description</h4><p>Our <strong>Child-Resistant Caps (CRC)</strong> are specifically designed to reduce the risk of accidental opening by children while remaining convenient for adults. Featuring a <strong>press-and-turn mechanism</strong>, these closures help protect sensitive pharmaceutical and chemical products by combining child safety with tamper-evident functionality.</p><h3>Key Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Child-resistant press-and-turn mechanism</p></li><li><p>Tamper-evident security ring</p></li><li><p>Enhanced product safety</p></li><li><p>Excellent grip for easy handling</p></li><li><p>High durability</p></li><li><p>Compatible with various bottle sizes</p></li><li><p>Available in multiple capacities</p></li><li><p>Customization available for bulk orders</p></li></ul><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 125px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Size (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Type</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Thread Diameter (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Outer Diameter (mm)</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0059</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant with Tamper Evident</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>23.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>33</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0060</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant with Tamper Evident</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>26.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>35.9</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0061</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30.8</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>39</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0062</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>35.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>44.5</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>44</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>42.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>52</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0064</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>58</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Child Resistant</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>56.3</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>65.5</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Manufactured using premium-quality plastic materials</p></li><li><p>Leak-proof and spill-resistant performance</p></li><li><p>Tamper-evident sealing options</p></li><li><p>Child-resistant safety mechanisms available</p></li><li><p>Excellent dimensional accuracy</p></li><li><p>Strong thread engagement</p></li><li><p>Durable and lightweight construction</p></li><li><p>Smooth, premium surface finish</p></li><li><p>Moisture and contamination protection</p></li><li><p>Compatible with standard pharmaceutical bottles</p></li><li><p>Available in multiple sizes and designs</p></li><li><p>Suitable for high-speed filling and packaging lines</p></li></ul><hr class=\"border-border my-6\"><h3>Applications</h3><p>Our Caps &amp; Closures are widely used for packaging:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Dry Syrup Bottles</p></li><li><p>Tablet Containers</p></li><li><p>Dropper Bottles</p></li><li><p>Oral Liquid Medicines</p></li><li><p>Pharmaceutical Syrups</p></li><li><p>Nutraceutical Products</p></li><li><p>Healthcare Formulations</p></li><li><p>Veterinary Medicines</p></li><li><p>Herbal Products</p></li><li><p>Consumer Healthcare Products</p></li></ul><hr class=\"border-border my-6\"><h3>Why Choose Our Caps &amp; Closures?</h3><p>Our Caps &amp; Closures are manufactured with a strong focus on safety, quality, and performance. Using advanced manufacturing processes and premium raw materials, we deliver reliable sealing solutions that help preserve product quality while ensuring ease of use and compliance with pharmaceutical packaging standards.</p><p>Whether you require <strong>Pilfer Proof Caps, Screw Caps, or Child-Resistant Closures</strong>, our comprehensive product range offers dependable sealing performance, consistent quality, and customization options to meet the diverse needs of pharmaceutical, nutraceutical, healthcare, and FMCG industries.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-07-15T08:12:34.855Z",
+      "updated_at": "2026-07-17T07:18:04.038Z",
+      "canonical_link": "",
+      "meta_description": "",
+      "metatitle": "",
+      "schema": "",
+      "short_description": "Our Caps & Closures are engineered to provide secure sealing, product protection, and user convenience for pharmaceutical, nutraceutical, healthcare, and FMCG packaging applications. ",
+      "_id": "6a5740f2b299503bdcda5b9c"
+    },
+    {
+      "id": "6a574061b299503bdcda5b9b",
+      "category": "6a0d59afc9d4e23e3205b72a",
+      "name": "Measuring Cups",
+      "image": [
+        "/uploads/1784102993426-fjnd38zdzxh.png"
+      ],
+      "slug": "measuring-cups",
+      "industry": "6a17ee6bc6881e9b23f5ae36",
+      "details": "<p>Our <strong>Polypropylene (PP) Measuring Cups</strong> are designed to provide accurate and convenient dosage measurement for pharmaceutical and healthcare applications. Manufactured using premium-quality polypropylene, these measuring cups ensure precise liquid dispensing, making them an ideal choice for oral syrups, suspensions, and other liquid formulations.</p><p>Available in multiple capacities ranging from <strong>5 ml to 30 ml</strong>, our measuring cups feature clear embossed or printed graduations for easy readability and accurate dosing. Produced under strict quality standards, they are lightweight, durable, and compatible with a wide range of pharmaceutical bottles.</p><hr class=\"border-border my-6\"><h3>Product Highlights</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Manufactured using high-quality pharmaceutical-grade Polypropylene (PP)</p></li><li><p>Designed for accurate oral medicine dosage</p></li><li><p>Available in capacities from 5 ml to 30 ml</p></li><li><p>Compatible with standard pharmaceutical bottle neck sizes</p></li><li><p>Clear embossed and printed measurement markings</p></li><li><p>Lightweight, durable, and reusable</p></li><li><p>Smooth finish for comfortable handling</p></li><li><p>Manufactured under strict quality control standards</p></li></ul><hr class=\"border-border my-6\"><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Accurate liquid measurement</p></li><li><p>Easy-to-read embossed or printed graduations</p></li><li><p>Excellent dimensional accuracy</p></li><li><p>Premium surface finish</p></li><li><p>Lightweight and durable construction</p></li><li><p>Chemical and moisture resistant</p></li><li><p>Hygienic and contamination-free</p></li><li><p>Easy to clean and handle</p></li><li><p>Suitable for pharmaceutical and healthcare applications</p></li><li><p>Compatible with multiple bottle sizes</p></li></ul><hr class=\"border-border my-6\"><h3>Applications</h3><p>Our Measuring Cups are widely used for:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Oral Syrups</p></li><li><p>Pediatric Medicines</p></li><li><p>Cough Syrups</p></li><li><p>Liquid Antibiotics</p></li><li><p>Nutraceutical Syrups</p></li><li><p>Herbal Formulations</p></li><li><p>Healthcare Liquid Products</p></li><li><p>Veterinary Medicines</p></li></ul><hr class=\"border-border my-6\"><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 150px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Dispensing Marking (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Total Height (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Lock ID (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Collar Diameter (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Neck Size (mm)</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0064</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>34.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>27.20</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0065</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>10</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>19.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>29.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0066</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>15</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>23.2</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>35.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0067</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25.8</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>31.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>46.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>Why Choose Our Measuring Cups?</h3><p>Our PP Measuring Cups are manufactured to deliver consistent accuracy, durability, and user convenience. Designed specifically for pharmaceutical and healthcare packaging, they ensure reliable dosage measurement while maintaining high standards of hygiene and quality. Their robust construction, precise graduations, and compatibility with various bottle types make them a trusted choice for pharmaceutical manufacturers and healthcare brands.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-07-15T08:10:09.725Z",
+      "updated_at": "2026-07-17T07:19:08.957Z",
+      "canonical_link": "",
+      "meta_description": "",
+      "metatitle": "",
+      "schema": "",
+      "short_description": "Our Polypropylene (PP) Measuring Cups are designed to provide accurate and convenient dosage measurement for pharmaceutical and healthcare applications.",
+      "_id": "6a574061b299503bdcda5b9b"
+    },
+    {
+      "id": "6a573fc7b299503bdcda5b9a",
+      "category": "6a0d59afc9d4e23e3205b72a",
+      "name": "Dry Syrup Bottles",
+      "image": [
+        "/uploads/1784100537384-c7eruek2n75.png"
+      ],
+      "slug": "dry-syrup-bottles",
+      "industry": "6a17ee3fc6881e9b23f5ae35",
+      "details": "<p>Our <strong>HDPE Dry Syrup Bottles</strong> are specially designed to meet the stringent packaging requirements of the pharmaceutical industry. Manufactured using premium-quality HDPE material and advanced blow moulding technology, these bottles provide excellent protection against moisture, contamination, and external environmental factors, ensuring the stability and extended shelf life of dry syrup formulations.</p><p>Available in <strong>Dome</strong> and <strong>Conical</strong> designs with standard neck sizes, our bottles are compatible with a wide range of caps and closures, offering secure sealing and convenient dispensing. Every bottle undergoes stringent quality inspections to ensure dimensional accuracy, durability, and consistent performance, making them a trusted choice for pharmaceutical manufacturers.</p><hr class=\"border-border my-6\"><h3>Product Highlights</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Manufactured from high-quality pharmaceutical-grade HDPE.</p></li><li><p>Produced using advanced blow moulding technology.</p></li><li><p>Available in Dome and Conical bottle designs.</p></li><li><p>Compatible with multiple cap and closure options.</p></li><li><p>Airtight construction protects against moisture and contaminants.</p></li><li><p>Designed for safe storage, transportation, and handling.</p></li><li><p>Suitable for various pharmaceutical dry syrup formulations.</p></li><li><p>Available in multiple capacities to meet diverse packaging requirements.</p></li></ul><hr class=\"border-border my-6\"><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Excellent moisture barrier protection</p></li><li><p>Leak-proof sealing performance</p></li><li><p>Lightweight yet highly durable</p></li><li><p>High chemical resistance</p></li><li><p>Superior dimensional stability</p></li><li><p>Smooth surface with premium finish</p></li><li><p>Tamper-evident closure compatibility</p></li><li><p>Hygienic and contamination-resistant</p></li><li><p>Easy filling and dispensing</p></li><li><p>Long shelf-life protection</p></li></ul><hr class=\"border-border my-6\"><h3>Applications</h3><p>Our Dry Syrup Bottles are widely used for packaging:</p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Antibiotic Dry Syrups</p></li><li><p>Pediatric Syrups</p></li><li><p>Oral Suspension Powders</p></li><li><p>Reconstitutable Medicines</p></li><li><p>Prescription Dry Formulations</p></li><li><p>Nutraceutical Powder Suspensions</p></li><li><p>Veterinary Dry Syrups</p></li></ul><hr class=\"border-border my-6\"><h3>Available Variants</h3><table class=\"border-collapse border border-border\" style=\"min-width: 175px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Capacity (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Neck Size (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Overflow Capacity (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Height (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Compatible Cap</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Shape</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0039</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>25</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>40</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>75.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0062</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Dome</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0040</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>45</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>77.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0065</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Dome</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0041</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>30</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>120</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>98.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063 / PM0073</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Conical</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0042</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>120</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>98.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Conical</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0043</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>85</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>93.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063 / PM0073 / PM0065</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Dome</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0044</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>130</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>98.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063 / PM0075</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Conical</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0045</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>100</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>140</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>109.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0073</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Dome</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0046</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>100</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>150</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>116.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063 / PM0073</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Conical</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0047</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>150</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>28</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>150</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>116.0</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0063 / PM0073</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>Conical</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>Why Choose Our Dry Syrup Bottles?</h3><p>Our bottles are engineered to provide reliable pharmaceutical packaging solutions with an emphasis on quality, safety, and functionality. Manufactured under strict quality control standards, they offer excellent sealing performance, durability, and compatibility with standard closures, making them ideal for pharmaceutical manufacturers seeking dependable packaging solutions.</p><p>Whether you require standard sizes or customized packaging options, our Dry Syrup Bottles deliver the performance, consistency, and protection your products deserve.</p>",
+      "meta_keyword": [],
+      "created_at": "2026-07-15T08:07:35.915Z",
+      "updated_at": "2026-07-17T07:19:39.891Z",
+      "canonical_link": "",
+      "meta_description": "",
+      "metatitle": "",
+      "schema": "",
+      "short_description": "Our HDPE Dry Syrup Bottles are specially designed to meet the stringent packaging requirements of the pharmaceutical industry.",
+      "_id": "6a573fc7b299503bdcda5b9a"
+    },
+    {
+      "id": "6a1e877076dbcc921bb5af8d",
+      "category": "6a0d59afc9d4e23e3205b72a",
+      "name": "Tablet Containers",
+      "image": [
+        "/uploads/1784100378081-2yx4c0xrl8q.jpg"
+      ],
+      "slug": "tablet-containers",
+      "industry": "6a17ee6bc6881e9b23f5ae36",
+      "details": "<p>Our <strong>Tablet Containers</strong> are manufactured using premium-quality HDPE material to provide safe, durable, and hygienic packaging for pharmaceutical and nutraceutical products. Designed with precision and manufactured under stringent quality standards, these containers offer excellent protection against moisture and contamination while ensuring secure storage and transportation.</p><p>Suitable for tablets, capsules, and dietary supplements, our containers are available in multiple capacities to meet the diverse packaging requirements of the healthcare industry.</p><hr class=\"border-border my-6\"><h3>Key Specifications</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Manufactured using high-quality pharmaceutical-grade HDPE material.</p></li><li><p>Produced with advanced automated machinery for consistent quality and precision.</p></li><li><p>Leak-proof construction with secure sealing performance.</p></li><li><p>Excellent dimensional accuracy and superior finish.</p></li><li><p>Available in multiple capacities and neck sizes.</p></li><li><p>Designed for safe storage and transportation.</p></li><li><p>Suitable for pharmaceutical, nutraceutical, and healthcare applications.</p></li><li><p>Manufactured under strict quality control procedures.</p></li></ul><hr class=\"border-border my-6\"><h3>Product Specifications</h3><table class=\"border-collapse border border-border\" style=\"min-width: 150px;\"><colgroup><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"><col style=\"min-width: 25px;\"></colgroup><tbody><tr class=\"border-b border-border\"><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Reference No.</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Size (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Neck Size (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Overflow Capacity (ml)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Height (mm)</p></th><th class=\"bg-muted border border-border px-3 py-2 font-semibold\" colspan=\"1\" rowspan=\"1\"><p>Cap Reference</p></th></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0029</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>40</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>50</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0066 / 0074</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0030</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>50</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>77</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0068 / 0075</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0031</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>60</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>32</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>67</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>74.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0066 / 0074</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0032</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>85</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>97</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>77</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0068 / 0075</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0033</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>100</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>117</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>83.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0068 / 0075</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0034</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>150</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>170</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>93.5</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0068 / 0075</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0035</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>160</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>45</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>160</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>82</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0069 / 0076</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0036</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>200</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>36</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>225</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>116</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0068 / 0075</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0037</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>300</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>45</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>310</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>120</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0069 / 0077</p></td></tr><tr class=\"border-b border-border\"><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PM0038</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>550</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>56</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>570</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>132</p></td><td class=\"border border-border px-3 py-2\" colspan=\"1\" rowspan=\"1\"><p>PMP0069 / 0077</p></td></tr></tbody></table><hr class=\"border-border my-6\"><h3>Features</h3><ul class=\"list-disc pl-6 space-y-1\"><li><p>Leak-proof and secure sealing</p></li><li><p>Tight-fitting caps</p></li><li><p>Tamper-evident locking system</p></li><li><p>Excellent stacking strength</p></li><li><p>Lightweight yet durable construction</p></li><li><p>Moisture-resistant packaging</p></li><li><p>Corrosion and contamination-free</p></li><li><p>Available in multiple colors</p></li><li><p>Custom printing and branding options</p></li><li><p>Attractive designs and finishes</p></li></ul><p></p>",
+      "created_at": "2026-06-02T07:34:08.745Z",
+      "updated_at": "2026-07-17T07:20:04.393Z",
+      "canonical_link": "",
+      "meta_description": "",
+      "meta_keyword": [],
+      "metatitle": "",
+      "schema": "",
+      "short_description": "Our Tablet Containers are manufactured using premium-quality HDPE material to provide safe, durable, and hygienic packaging for pharmaceutical and nutraceutical products.",
+      "_id": "6a1e877076dbcc921bb5af8d"
+    }
+  ],
+  "manufacturing_process": [
+    {
+      "id": "6a23c17775522c97f75f1eb2",
+      "title": "Blow Moulding",
+      "description": "<h3>Precision Bottle Manufacturing</h3><p></p><ul class=\"list-disc pl-6 space-y-1\"><li><p>HDPE or PP granules are melted and formed into a hollow tube (parison).</p></li><li><p>Compressed air expands the molten plastic inside a precision mould to achieve the desired bottle shape.</p></li><li><p>The bottles are cooled, trimmed, and thoroughly inspected before moving to the next stage.</p></li></ul><p></p>",
+      "created_at": "2026-06-06T06:43:03.045Z",
+      "updated_at": "2026-07-17T03:51:04.001Z",
+      "icon_image": "/uploads/1784260101274-c9sggbmasc.png",
+      "_id": "6a23c17775522c97f75f1eb2"
+    },
+    {
+      "id": "6a23c16775522c97f75f1eb1",
+      "title": "Injection Moulding",
+      "description": "<h3>High-Precision Component Production</h3><p></p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Plastic granules are heated until molten and injected into precision-engineered moulds.</p></li><li><p>The moulded components are cooled and automatically ejected from the machine.</p></li><li><p>Every component undergoes quality inspection before packaging and storage.</p></li></ul><p></p>",
+      "created_at": "2026-06-06T06:42:47.686Z",
+      "updated_at": "2026-07-17T03:51:23.363Z",
+      "icon_image": "/uploads/1784260143836-qp889em2zvn.png",
+      "_id": "6a23c16775522c97f75f1eb1"
+    },
+    {
+      "id": "6a23c14175522c97f75f1eaf",
+      "title": "Tooling & Mould Development",
+      "description": "<h3>Custom Mould Design &amp; Development</h3><p></p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Product designs are developed using advanced CAD/CAM software based on customer specifications.</p></li><li><p>Precision moulds are manufactured and tested for dimensional accuracy and performance.</p></li><li><p>Regular maintenance and validation ensure reliable production throughout the mould's lifecycle.</p></li></ul><p></p>",
+      "created_at": "2026-06-06T06:42:09.301Z",
+      "updated_at": "2026-07-17T03:52:52.606Z",
+      "icon_image": "/uploads/1784260369961-jxqfqnmw0c8.png",
+      "_id": "6a23c14175522c97f75f1eaf"
+    },
+    {
+      "id": "6a23c13375522c97f75f1eae",
+      "title": "Production Capacity",
+      "description": "<h3>High-Volume Manufacturing Capability</h3><p></p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Production schedules are planned based on customer orders and delivery timelines.</p></li><li><p>Multiple production lines operate simultaneously to maximize manufacturing output.</p></li><li><p>Finished products are inspected, recorded, and transferred for packaging and dispatch.</p></li></ul><p></p>",
+      "created_at": "2026-06-06T06:41:55.549Z",
+      "updated_at": "2026-07-17T03:53:30.025Z",
+      "icon_image": "/uploads/1784260387276-g3y6vu1j7ui.png",
+      "_id": "6a23c13375522c97f75f1eae"
+    },
+    {
+      "id": "6a23c11e75522c97f75f1ead",
+      "title": "Machinery & Technology",
+      "description": "<h3>Advanced Manufacturing Equipment</h3><p></p><ul class=\"list-disc pl-6 space-y-1\"><li><p>Automated machinery performs moulding operations with precise process control.</p></li><li><p>Quality inspection equipment verifies dimensions, weight, and product consistency.</p></li><li><p>Preventive maintenance is regularly carried out to ensure uninterrupted production.</p></li></ul><p></p>",
+      "created_at": "2026-06-06T06:41:34.355Z",
+      "updated_at": "2026-07-17T03:54:17.693Z",
+      "icon_image": "/uploads/1784260430355-ji6fvxm1j2.png",
+      "_id": "6a23c11e75522c97f75f1ead"
+    }
+  ],
+  "journey": [
+    {
+      "id": "6a586a5d9c16333b4a566ffc",
+      "heading": "Serving Leading Pharmaceutical Brands",
+      "year": "Present",
+      "description": "Today, we are a trusted packaging partner for renowned pharmaceutical and healthcare brands, delivering reliable, innovative, and high-quality packaging solutions that comply with the highest industry standards.",
+      "image": "/uploads/1784179291299-9855r82yccb.png",
+      "created_at": "2026-07-16T05:21:33.158Z",
+      "updated_at": "2026-07-16T05:21:33.158Z",
+      "_id": "6a586a5d9c16333b4a566ffc"
+    },
+    {
+      "id": "6a586a319c16333b4a566ffb",
+      "heading": "Growth in Pharmaceutical Packaging Segment",
+      "year": "2021 – 2023",
+      "description": "With continuous investments in advanced manufacturing technology, clean-room facilities, and stringent quality control, we strengthened our presence in the pharmaceutical packaging industry while building long-term relationships with leading healthcare companies.",
+      "image": "/uploads/1784179247129-qit23sgq27i.png",
+      "created_at": "2026-07-16T05:20:49.179Z",
+      "updated_at": "2026-07-16T05:20:49.179Z",
+      "_id": "6a586a319c16333b4a566ffb"
+    },
+    {
+      "id": "6a5869f09c16333b4a566ffa",
+      "heading": "Expansion of Product Portfolio",
+      "year": "2018 – 2020",
+      "description": "We broadened our product range by introducing a variety of pharmaceutical packaging solutions, including tablet containers, dry syrup bottles, dropper bottles, and caps & closures to meet evolving industry requirements.",
+      "image": "/uploads/1784179182457-qtg4tqjvd1l.png",
+      "created_at": "2026-07-16T05:19:44.818Z",
+      "updated_at": "2026-07-16T05:19:44.818Z",
+      "_id": "6a5869f09c16333b4a566ffa"
+    },
+    {
+      "id": "6a5866129c16333b4a566ff8",
+      "heading": "Company Established",
+      "description": "The foundation of our company was laid with a vision to manufacture high-quality pharmaceutical plastic packaging solutions. From day one, our focus has been on precision, quality, and customer satisfaction.",
+      "image": "/uploads/1784178192017-rtlryoojrhb.png",
+      "created_at": "2026-07-16T05:03:14.166Z",
+      "updated_at": "2026-07-16T05:14:16.867Z",
+      "altname": "",
+      "imgtitle": "",
+      "year": "2017",
+      "_id": "6a5866129c16333b4a566ff8"
+    }
+  ],
+  "core_value": [
+    {
+      "id": "6a58a7469c16333b4a567012",
+      "title": "Reliability",
+      "description": "Our commitment to consistent quality, dependable service, and on-time performance makes us a trusted manufacturing partner.",
+      "created_at": "2026-07-16T09:41:26.060Z",
+      "updated_at": "2026-07-16T09:41:26.060Z",
+      "_id": "6a58a7469c16333b4a567012"
+    },
+    {
+      "id": "6a58a7379c16333b4a567011",
+      "title": "Customer Focus",
+      "description": "We understand our customers' needs and provide customized solutions backed by responsive support and timely delivery.",
+      "created_at": "2026-07-16T09:41:11.706Z",
+      "updated_at": "2026-07-16T09:41:11.706Z",
+      "_id": "6a58a7379c16333b4a567011"
+    },
+    {
+      "id": "6a58a7279c16333b4a567010",
+      "title": "Innovation",
+      "description": "We embrace modern technologies and continuous improvement to develop efficient and advanced packaging solutions.",
+      "created_at": "2026-07-16T09:40:55.188Z",
+      "updated_at": "2026-07-16T09:40:55.188Z",
+      "_id": "6a58a7279c16333b4a567010"
+    },
+    {
+      "id": "6a58a7189c16333b4a56700f",
+      "title": "Integrity",
+      "description": "We conduct business with honesty, transparency, and ethical practices, building trust with every client.",
+      "created_at": "2026-07-16T09:40:40.043Z",
+      "updated_at": "2026-07-16T09:40:40.043Z",
+      "_id": "6a58a7189c16333b4a56700f"
+    },
+    {
+      "id": "6a58a7059c16333b4a56700e",
+      "title": "Quality",
+      "description": "We maintain the highest standards to deliver safe, durable, and reliable pharmaceutical packaging solutions.",
+      "created_at": "2026-07-16T09:40:21.030Z",
+      "updated_at": "2026-07-16T09:40:21.030Z",
+      "_id": "6a58a7059c16333b4a56700e"
+    }
+  ],
+  "mission_vision": [
+    {
+      "id": "6a141f11b80885490239056b",
+      "heading": "Our Value",
+      "details": "We maintain strict quality standards and continuous improvement processes to ensure every product meets industry requirements and customer expectations.",
+      "image": "/uploads/1779703562654-gouoidgoc1t.svg",
+      "created_at": "2026-05-25T10:06:09.824Z",
+      "updated_at": "2026-05-25T10:06:09.824Z",
+      "_id": "6a141f11b80885490239056b"
+    },
+    {
+      "id": "6a141ef1b80885490239056a",
+      "heading": "Our Vision",
+      "details": "To become a globally trusted manufacturing partner known for innovation, reliability, sustainability, and excellence across every stage of production.",
+      "image": "/uploads/1779703533952-syq8gqa81xl.svg",
+      "created_at": "2026-05-25T10:05:37.262Z",
+      "updated_at": "2026-05-25T10:05:37.262Z",
+      "_id": "6a141ef1b80885490239056a"
+    },
+    {
+      "id": "6a141ec8b808854902390569",
+      "heading": "Our Mission",
+      "details": "To deliver high-quality manufacturing solutions through advanced technology, precision engineering, and customer-focused services that drive industrial growth .",
+      "image": "/uploads/1779703492569-ldlcm4xj8z.svg",
+      "created_at": "2026-05-25T10:04:56.471Z",
+      "updated_at": "2026-05-25T11:47:03.144Z",
+      "_id": "6a141ec8b808854902390569"
+    }
+  ],
+  "certificates": [
+    {
+      "id": "6a157df67cc3269b02faa922",
+      "image": "/uploads/1784113107209-kx42v0qzbxh.png",
+      "created_at": "2026-05-26T11:03:18.455Z",
+      "updated_at": "2026-07-15T10:58:29.647Z",
+      "_id": "6a157df67cc3269b02faa922"
+    },
+    {
+      "id": "6a157dee7cc3269b02faa921",
+      "image": "/uploads/1784113132443-oxopm6a6x.png",
+      "created_at": "2026-05-26T11:03:10.379Z",
+      "updated_at": "2026-07-15T10:58:55.003Z",
+      "_id": "6a157dee7cc3269b02faa921"
+    },
+    {
+      "id": "6a157de87cc3269b02faa920",
+      "image": "/uploads/1784113147388-06yvey2vp5nr.png",
+      "created_at": "2026-05-26T11:03:04.761Z",
+      "updated_at": "2026-07-15T10:59:08.805Z",
+      "_id": "6a157de87cc3269b02faa920"
+    },
+    {
+      "id": "6a157de07cc3269b02faa91f",
+      "image": "/uploads/1784113161491-zcjaczcedyc.png",
+      "created_at": "2026-05-26T11:02:56.848Z",
+      "updated_at": "2026-07-15T10:59:22.857Z",
+      "_id": "6a157de07cc3269b02faa91f"
+    }
+  ],
+  "seo_global": [
+    {
+      "_id": "6a55c7704a33aa1811df2857",
+      "type": "global",
+      "siteName": "Wiretex Manufacturing",
+      "siteUrl": "https://www.wiretex.com",
+      "googleAnalyticsId": "",
+      "searchConsoleVerification": "",
+      "twitterHandle": "",
+      "defaultOgImage": "",
+      "socialLinks": [
+        {
+          "platformName": "LinkedIn",
+          "url": "https://linkedin.com"
+        },
+        {
+          "platformName": "Twitter",
+          "url": "https://twitter.com"
+        },
+        {
+          "platformName": "Facebook",
+          "url": "https://facebook.com"
+        }
+      ],
+      "businessName": "Wiretex Ltd.",
+      "businessPhone": "",
+      "businessEmail": "",
+      "locations": [
+        {
+          "locationName": "Headquarters",
+          "phone": "",
+          "hours": "9 AM - 5 PM",
+          "address": "",
+          "city": "",
+          "zip": ""
+        }
+      ],
+      "robotsTxt": "User-agent: *\nDisallow: /api/\n\nSitemap: https://www.wiretex.com/sitemap.xml",
+      "llmTxt": "# Wiretex Manufacturing\n\n## About Us\nWiretex is a leading manufacturer of high-quality industrial components.\n\n## Products & Solutions\n- Precision wires\n- Metal grids\n- Specialized steel meshes",
+      "created_at": "2026-07-14T05:21:52.405Z",
+      "updated_at": "2026-07-28T05:51:41.515Z"
+    }
+  ],
+  "global-presence": [
+    {
+      "id": "6a363a9f6553aa685ffdad28",
+      "label": "Spain Office",
+      "address": "Gran Vía 45, 28013 Madrid, Spain",
+      "phone": {
+        "href": "tel:+34911234567",
+        "label": "+34 91 123 4567"
+      },
+      "email": {
+        "href": "mailto:spain@wiretex.com",
+        "label": "spain@wiretex.com"
+      },
+      "position": {
+        "top": "29.6%",
+        "left": "62.2%"
+      },
+      "created_at": "2026-06-20T07:00:47.941Z",
+      "updated_at": "2026-06-20T07:00:47.941Z",
+      "_id": "6a363a9f6553aa685ffdad28"
+    },
+    {
+      "id": "6a363a626553aa685ffdad27",
+      "label": "Italy Office",
+      "address": "Via Roma 100, 00184 Rome, Italy",
+      "phone": {
+        "href": "tel:+390669821234",
+        "label": "+39 06 6982 1234"
+      },
+      "email": {
+        "href": "mailto:italy@wiretex.com",
+        "label": "italy@wiretex.com"
+      },
+      "position": {
+        "top": "73.9%",
+        "left": "29.7%"
+      },
+      "created_at": "2026-06-20T06:59:46.611Z",
+      "updated_at": "2026-06-20T06:59:46.611Z",
+      "_id": "6a363a626553aa685ffdad27"
+    },
+    {
+      "id": "6a363a136553aa685ffdad26",
+      "label": "France Office",
+      "address": "10 Avenue des Champs-Élysées, 75008 Paris, France",
+      "phone": {
+        "href": "tel:+33142685300",
+        "label": "+33 1 42 68 53 00"
+      },
+      "email": {
+        "href": "mailto:france@wiretex.com",
+        "label": "france@wiretex.com"
+      },
+      "position": {
+        "top": "63.0%",
+        "left": "52.1%"
+      },
+      "created_at": "2026-06-20T06:58:27.354Z",
+      "updated_at": "2026-06-20T06:58:27.354Z",
+      "_id": "6a363a136553aa685ffdad26"
+    },
+    {
+      "id": "6a3639ca6553aa685ffdad25",
+      "label": "Germany Office",
+      "address": "Friedrichstraße 123, 10117 Berlin, Germany",
+      "phone": {
+        "href": "tel:+493012345678",
+        "label": "+49 30 12345678"
+      },
+      "email": {
+        "href": "mailto:germany@wiretex.com",
+        "label": "germany@wiretex.com"
+      },
+      "position": {
+        "top": "36.8%",
+        "left": "16.7%"
+      },
+      "created_at": "2026-06-20T06:57:14.911Z",
+      "updated_at": "2026-06-20T06:57:14.911Z",
+      "_id": "6a3639ca6553aa685ffdad25"
+    },
+    {
+      "id": "6a3639886553aa685ffdad24",
+      "label": "United Kingdom Office",
+      "address": "25 Baker Street, London W1U 8EW, United Kingdom",
+      "phone": {
+        "href": "tel:+442079460958",
+        "label": "+44 20 7946 0958"
+      },
+      "email": {
+        "href": "mailto:uk@wiretex.com",
+        "label": "uk@wiretex.com"
+      },
+      "position": {
+        "top": "22.7%",
+        "left": "74.0%"
+      },
+      "created_at": "2026-06-20T06:56:08.368Z",
+      "updated_at": "2026-06-20T06:56:08.368Z",
+      "_id": "6a3639886553aa685ffdad24"
+    },
+    {
+      "id": "6a3639376553aa685ffdad23",
+      "label": "Canada Office",
+      "address": "100 King Street West, Toronto, ON M5X 1A9, Canada",
+      "phone": {
+        "href": "tel:+14165554567",
+        "label": "+1 (416) 555-4567"
+      },
+      "email": {
+        "href": "mailto:canada@wiretex.com",
+        "label": "canada@wiretex.com"
+      },
+      "position": {
+        "top": "16.6%",
+        "left": "34.9%"
+      },
+      "created_at": "2026-06-20T06:54:47.674Z",
+      "updated_at": "2026-06-20T06:54:47.674Z",
+      "_id": "6a3639376553aa685ffdad23"
+    },
+    {
+      "id": "6a19371627bdf26bccf2d007",
+      "label": "Head Office",
+      "address": "3rd Floor, Sapphire, Daman Rd, Above Axis Bank, Daulat Nagar",
+      "phone": {
+        "href": "8347980883",
+        "label": "+918347980883"
+      },
+      "email": {
+        "href": "harshitdhodi.rndtechnosoft@gmail.com",
+        "label": "harshitdhodi.rndtechnosoft@gmail.com"
+      },
+      "position": {
+        "top": "55.1%",
+        "left": "66.2%"
+      },
+      "created_at": "2026-05-29T06:49:58.713Z",
+      "updated_at": "2026-05-29T06:54:19.574Z",
+      "_id": "6a19371627bdf26bccf2d007"
+    }
+  ],
+  "whychooseus": [
+    {
+      "id": "6a5892c89c16333b4a56700a",
+      "heading": "Achievement Counter",
+      "details": "Trusted by Industry Leaders\n\n10+\nYears of Manufacturing Excellence",
+      "color_img": "/uploads/1784189630669-qpqoe212slm.png",
+      "hover_img": "/uploads/1784189636824-ni0k0yvtso.png",
+      "created_at": "2026-07-16T08:14:00.917Z",
+      "updated_at": "2026-07-16T08:14:00.917Z",
+      "_id": "6a5892c89c16333b4a56700a"
+    },
+    {
+      "id": "6a5892929c16333b4a567009",
+      "heading": "Customer-Centric Approach",
+      "details": "We work closely with our clients to provide customized packaging solutions, timely deliveries, and dedicated support.",
+      "color_img": "/uploads/1784189578262-mk6zp4r7v.png",
+      "hover_img": "/uploads/1784189583647-yb6kavpcii.png",
+      "created_at": "2026-07-16T08:13:06.182Z",
+      "updated_at": "2026-07-16T08:13:06.182Z",
+      "_id": "6a5892929c16333b4a567009"
+    },
+    {
+      "id": "6a58926d9c16333b4a567008",
+      "heading": "Certified Quality",
+      "details": "Every product is manufactured under strict ISO and GMP standards, ensuring safety, consistency, and regulatory compliance.",
+      "color_img": "/uploads/1784189537144-ixygb85k4ze.png",
+      "hover_img": "/uploads/1784189543056-bnsc6t30xmw.png",
+      "created_at": "2026-07-16T08:12:29.739Z",
+      "updated_at": "2026-07-16T08:12:29.739Z",
+      "_id": "6a58926d9c16333b4a567008"
+    },
+    {
+      "id": "6a0d918087816d0ce12a6e2f",
+      "heading": "Advanced Manufacturing",
+      "details": "We utilize modern machinery and automated production processes to manufacture high-quality pharmaceutical packaging with precision.",
+      "color_img": "/uploads/1784189239811-nnymdyf1q.jpg",
+      "hover_img": "/uploads/1784189402561-6idyohoockv.png",
+      "created_at": "2026-05-20T10:48:32.454Z",
+      "updated_at": "2026-07-16T08:10:04.591Z",
+      "_id": "6a0d918087816d0ce12a6e2f"
+    },
+    {
+      "id": "6a0d907987816d0ce12a6e2e",
+      "heading": "Experienced Team",
+      "details": "Our skilled professionals combine technical expertise with industry knowledge to deliver reliable and innovative packaging solutions.",
+      "color_img": "/uploads/1784189451011-xakuhap8fms.png",
+      "hover_img": "/uploads/1784189457386-1laaakuvsvt.png",
+      "created_at": "2026-05-20T10:44:09.309Z",
+      "updated_at": "2026-07-16T08:11:00.355Z",
+      "_id": "6a0d907987816d0ce12a6e2e"
+    }
+  ],
+  "banner": [
+    {
+      "id": "6a337bdbf8317b33a1d08dc5",
+      "image": [
+        "/uploads/1784276950988-zc91b5tr0qb.png"
+      ],
+      "title": "About Us",
+      "page": "/about-us",
+      "created_at": "2026-06-18T05:02:19.299Z",
+      "updated_at": "2026-07-17T08:29:14.030Z",
+      "altname": "",
+      "imgtitle": "",
+      "_id": "6a337bdbf8317b33a1d08dc5"
+    }
+  ]
+}

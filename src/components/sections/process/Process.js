@@ -37,10 +37,18 @@ async function getProcessData(type) {
 	}
 }
 
+const DEFAULT_PROCESS_STEPS = [
+	{ id: "dummy-pr1", title: "Cleanroom Manufacturing", details: "Production inside ISO Class 8 cleanrooms ensuring ultra-hygienic conditions." },
+	{ id: "dummy-pr2", title: "Automated Vision Inspection", details: "100% camera-based dimensional accuracy and defect check on every bottle." },
+	{ id: "dummy-pr3", title: "Strict Quality Control", details: "Physical leak testing, drop tests, and chemical compatibility evaluations." },
+	{ id: "dummy-pr4", title: "Dust-Free Protective Packaging", details: "Double-bagged sealed carton packaging for safe transit to pharmaceutical clients." }
+];
+
 const Process = async ({ type = "history" }) => {
 	const { heading, history } = await getProcessData(type);
 	// Reverse history to show oldest to newest and map fields robustly
-	const formattedHistory = [...history]
+	let rawHistory = history && history.length > 0 ? history : DEFAULT_PROCESS_STEPS;
+	const formattedHistory = [...rawHistory]
 		.filter(item => item.title || item.name || item.details || item.description || item.subheading)
 		.reverse().map(item => ({
 			...item,

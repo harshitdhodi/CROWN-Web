@@ -16,57 +16,117 @@ function slugify(text) {
     : "";
 }
 
-// ISR Fetch Function
+async function fetchCollectionData(collectionName) {
+  const urls = [
+    `${BASE_URL}/api/data/${collectionName}`,
+    `http://localhost:3014/api/data/${collectionName}`,
+    `http://127.0.0.1:3014/api/data/${collectionName}`,
+  ];
+
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, { next: { revalidate: 0 } });
+      if (!res.ok) continue;
+      const json = await res.json().catch(() => null);
+      if (json?.success && Array.isArray(json?.data) && json.data.length > 0) {
+        return json.data;
+      }
+    } catch (e) {
+      // ignore and try next fallback
+    }
+  }
+  return [];
+}
+
+const DEFAULT_PORTFOLIOS = [
+  {
+    id: "dummy-p1",
+    title: "Dropper Bottles",
+    slug: "dropper-bottles",
+    image: "/images/project/project-1.webp",
+    img5: "/images/project/project-1.webp",
+    desc: "Precision-engineered dropper bottles designed for pharmaceutical and healthcare dosage accuracy.",
+    category: "Connect",
+    categorySlug: "connect"
+  },
+  {
+    id: "dummy-p2",
+    title: "Caps & Closures",
+    slug: "caps-closures",
+    image: "/images/project/project-2.webp",
+    img5: "/images/project/project-2.webp",
+    desc: "Tamper-evident and child-resistant closures ensuring product safety and leak-proof sealing.",
+    category: "Connect",
+    categorySlug: "connect"
+  },
+  {
+    id: "dummy-p3",
+    title: "Measuring Cups",
+    slug: "measuring-cups",
+    image: "/images/project/project-3.webp",
+    img5: "/images/project/project-3.webp",
+    desc: "Food-grade PP measuring cups for precise liquid medicine dispensing.",
+    category: "Connect",
+    categorySlug: "connect"
+  },
+  {
+    id: "dummy-p4",
+    title: "Dry Syrup Bottles",
+    slug: "dry-syrup-bottles",
+    image: "/images/project/project-4.webp",
+    img5: "/images/project/project-4.webp",
+    desc: "HDPE dry syrup bottles engineered for optimal shelf life and moisture protection.",
+    category: "Connect",
+    categorySlug: "connect"
+  }
+];
+
 async function getCategories() {
   try {
-    const res = await fetch(`${BASE_URL}/api/data/our_products`, {
-      next: { revalidate: 0 },
-    });
-
-    if (!res.ok) {
-      const errorBody = await res.text().catch(() => "No response body");
-      console.error(
-        `Failed to fetch categories: ${res.status} ${res.statusText} - ${errorBody}`
-      );
-      return [];
+    let data = [];
+    for (const col of ["portfolios", "projects", "our_products"]) {
+      data = await fetchCollectionData(col);
+      if (data.length > 0) break;
     }
 
-    const { success, data } = await res.json();
-
-    if (!success || !data) {
-      console.warn("API returned no data or success was false.");
-      return [];
+    if (!data || data.length === 0) {
+      return DEFAULT_PORTFOLIOS;
     }
 
     return data.map((item) => ({
-      id: item.id,
-      title: item.name || "Dropper Bottles",
-      slug: item.slug || slugify(item.name || item.id),
-      // Pass the resolved image as both `image` (primary) and `img5` (fallback key)
-      image: resolveCmsImage(item.image),
-      img5: resolveCmsImage(item.image),
-      desc: item.category_populated?.short_description?.replace(/<[^>]+>/g, "") || "",
-      category: item.category_populated?.tagline || item.category_label || "Connect",
-      categorySlug: item.category_populated?.category_slug || "",
+      id: item.id || item._id,
+      title: item.title || item.name || "Dropper Bottles",
+      slug: item.slug || slugify(item.title || item.name || item.id),
+      image: resolveCmsImage(Array.isArray(item.image) ? item.image[0] : item.image) || "/images/project/project-1.webp",
+      img5: resolveCmsImage(Array.isArray(item.image) ? item.image[0] : item.image) || "/images/project/project-1.webp",
+      desc: item.short_description || item.description || item.desc || item.category_populated?.short_description?.replace(/<[^>]+>/g, "") || "",
+      category: item.category || item.category_populated?.tagline || item.category_label || "Connect",
+      categorySlug: item.categorySlug || item.category_populated?.category_slug || "",
     }));
   } catch (error) {
-    console.error("Error fetching or parsing categories:", error);
-    return [];
+    console.error("Error fetching or parsing portfolios:", error);
+    return DEFAULT_PORTFOLIOS;
   }
 }
 
 async function getHeading() {
-  try {
-    const res = await fetch(`${BASE_URL}/api/heading?section=home-product`, {
-      next: { revalidate: 0 },
-    });
-    if (!res.ok) return null;
-    const json = await res.json();
-    return json?.success ? json.data : null;
-  } catch (error) {
-    console.error("Error fetching heading:", error);
-    return null;
+  const urls = [
+    `${BASE_URL}/api/heading?section=home-product`,
+    `http://localhost:3014/api/heading?section=home-product`,
+    `http://127.0.0.1:3014/api/heading?section=home-product`,
+  ];
+
+  for (const url of urls) {
+    try {
+      const res = await fetch(url, { next: { revalidate: 0 } });
+      if (!res.ok) continue;
+      const json = await res.json().catch(() => null);
+      if (json?.success && json?.data) return json.data;
+    } catch (error) {
+      // try next URL
+    }
   }
+  return null;
 }
 
 // Server Component — fetches data, passes to client child

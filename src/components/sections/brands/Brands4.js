@@ -10,54 +10,73 @@ const BrandSlider3 = dynamic(
 import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 
 async function getClientData() {
-	try {
-		const baseUrl = getCmsBase();
-		const res = await fetch(`${baseUrl}/api/data/clients`, {
-			next: { revalidate: 0 }, // ISR: Revalidate data every 60 seconds
-		});
+	const cmsBase = getCmsBase();
+	const baseUrls = [
+		cmsBase,
+		"http://localhost:3014",
+		"http://127.0.0.1:3014",
+		"https://demoadmin.crownpack.in"
+	];
 
-		if (!res.ok) {
-			console.error(`Failed to fetch client data: ${res.status}`);
-			return null;
-		}
+	for (const base of baseUrls) {
+		if (!base) continue;
+		for (const col of ["clients", "whychooseus"]) {
+			try {
+				const res = await fetch(`${base}/api/data/${col}`, { next: { revalidate: 0 } });
+				if (!res.ok) continue;
+				const result = await res.json().catch(() => null);
 
-		const result = await res.json();
+				if (result?.success && result.data?.length > 0) {
+					const item = result.data[0];
+					let logos = [];
+					result.data.forEach((row) => {
+						const logoField = row.logo || row.image || row.logos || row.images || row.color_img;
+						if (logoField) {
+							if (Array.isArray(logoField)) {
+								logoField.forEach((l) => {
+									const resolved = resolveCmsImage(l);
+									if (resolved) logos.push({ img: resolved });
+								});
+							} else {
+								const resolved = resolveCmsImage(logoField);
+								if (resolved) logos.push({ img: resolved });
+							}
+						}
+					});
 
-		if (result?.success && result.data?.length > 0) {
-			const item = result.data[0];
-
-			let logos = [];
-			result.data.forEach((row) => {
-				const logoField = row.logo || row.image || row.logos || row.images;
-				if (logoField) {
-					if (Array.isArray(logoField)) {
-						logoField.forEach((l) => {
-							const resolved = resolveCmsImage(l);
-							if (resolved) logos.push({ img: resolved });
-						});
-					} else {
-						const resolved = resolveCmsImage(logoField);
-						if (resolved) logos.push({ img: resolved });
-					}
+					return {
+						...item,
+						hover_image: resolveCmsImage(item.hover_image),
+						logo: logos.length > 0 ? logos : (item.logo || []).map((img) => ({
+							img: resolveCmsImage(img),
+						})),
+					};
 				}
-			});
-
-			return {
-				...item,
-				hover_image: resolveCmsImage(item.hover_image),
-				logo: logos.length > 0 ? logos : (item.logo || []).map((img) => ({
-					img: resolveCmsImage(img),
-				})),
-			};
+			} catch (error) {
+				// try next
+			}
 		}
-	} catch (error) {
-		console.error("Error fetching client data:", error);
 	}
 	return null;
 }
 
+const DEFAULT_BRAND_DATA = {
+	tagline: "Our PARTNERSHIP",
+	title: "Powering Innovation Through Partnerships with Brands and Many Companies.",
+	logo: [
+		{ img: "/images/logos/logo.webp" },
+		{ img: "/images/logos/logo.webp" },
+		{ img: "/images/logos/logo.webp" },
+		{ img: "/images/logos/logo.webp" },
+		{ img: "/images/logos/logo.webp" }
+	]
+};
+
 const Brands4 = async () => {
-	const clientData = await getClientData();
+	const fetchedClientData = await getClientData();
+	const clientData = (fetchedClientData && fetchedClientData.logo?.length > 0)
+		? fetchedClientData
+		: DEFAULT_BRAND_DATA;
 
 	return (
 		<section className="tj-contact-section  section-gap section-gap-x h6-project brands-section-wrapper">
