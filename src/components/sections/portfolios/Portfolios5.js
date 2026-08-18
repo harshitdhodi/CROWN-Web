@@ -84,7 +84,7 @@ const DEFAULT_PORTFOLIOS = [
 async function getCategories() {
   try {
     let data = [];
-    for (const col of ["portfolios", "projects", "our_products"]) {
+    for (const col of ["our_products", "projects", "portfolios"]) {
       data = await fetchCollectionData(col);
       if (data.length > 0) break;
     }
@@ -93,16 +93,23 @@ async function getCategories() {
       return DEFAULT_PORTFOLIOS;
     }
 
-    return data.map((item) => ({
-      id: item.id || item._id,
-      title: item.title || item.name || "Dropper Bottles",
-      slug: item.slug || slugify(item.title || item.name || item.id),
-      image: resolveCmsImage(Array.isArray(item.image) ? item.image[0] : item.image) || "/images/project/project-1.webp",
-      img5: resolveCmsImage(Array.isArray(item.image) ? item.image[0] : item.image) || "/images/project/project-1.webp",
-      desc: item.short_description || item.description || item.desc || item.category_populated?.short_description?.replace(/<[^>]+>/g, "") || "",
-      category: item.category || item.category_populated?.tagline || item.category_label || "Connect",
-      categorySlug: item.categorySlug || item.category_populated?.category_slug || "",
-    }));
+    return data.map((item) => {
+      const rawImg = Array.isArray(item.image) ? item.image[0] : (item.image || item.img || item.img5);
+      const resolvedImg = resolveCmsImage(rawImg) || "/images/project/project-1.webp";
+
+      return {
+        id: item.id || item._id,
+        title: item.name || item.title || "Product Showcase",
+        slug: item.slug || slugify(item.name || item.title || item.id),
+        image: resolvedImg,
+        img5: resolvedImg,
+        desc: (item.short_description || item.description || item.desc || item.category_populated?.short_description || "")
+          .replace(/<[^>]+>/g, "")
+          .trim(),
+        category: item.category || item.category_populated?.name || item.category_populated?.tagline || item.category_label || "Products",
+        categorySlug: item.categorySlug || item.category_populated?.category_slug || "",
+      };
+    });
   } catch (error) {
     console.error("Error fetching or parsing portfolios:", error);
     return DEFAULT_PORTFOLIOS;
