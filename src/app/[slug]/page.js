@@ -250,6 +250,23 @@ export default async function CategorySlugPage({ params }) {
 
   const activeKeys = await getPageComponents("product-details", DEFAULT_PRODUCT_ORDER);
 
+  let initialResources = [];
+  try {
+    const cmsBase = process.env.CMS_BASE_URL || "http://localhost:3014";
+    const resRes = await fetch(`${cmsBase}/api/data/resources`, { next: { revalidate: 0 }, cache: 'no-store' });
+    if (resRes.ok) {
+      const resJson = await resRes.json();
+      if (resJson.success && Array.isArray(resJson.data)) {
+        initialResources = resJson.data.map(item => ({
+          id: item.id || item._id,
+          title: item.title || item.name || item.heading || 'Brochure PDF',
+          pdf: item.pdf || item.file || item.brochure || item.url,
+          category: item.category || 'Brochure',
+        }));
+      }
+    }
+  } catch (e) {}
+
   return (
     <CmsPageRoot pageSlug="product-details">
       <div>
@@ -298,6 +315,7 @@ export default async function CategorySlugPage({ params }) {
                       product={product}
                       categories={allCategories}
                       relatedProducts={relatedProducts.filter(p => p.slug !== slug)}
+                      initialResources={initialResources}
                     />
                   );
                 } else if (comp.key === "Faq1") {

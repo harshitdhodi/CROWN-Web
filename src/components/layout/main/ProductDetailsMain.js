@@ -5,16 +5,16 @@ import ContactForm from "@/components/sections/contacts/ContactForm";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-import { resolveCmsImage } from "@/lib/seoConfig";
+import { resolveCmsImage, getCmsBase } from "@/lib/seoConfig";
 
 const resolveApiImage = (src) => {
   if (!src) return "/images/project/h5-project-1.webp";
   return resolveCmsImage(src) || "/images/project/h5-project-1.webp";
 };
 
-const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) => {
+const ProductDetailsMain = ({ product, categories = [], relatedProducts = [], initialResources = [] }) => {
   const sidebarCategories = categories.slice(0, 6);
-  const [resources, setResources] = useState([]);
+  const [resources, setResources] = useState(initialResources);
   const [isCatalogActive, setIsCatalogActive] = useState(true);
 
   useEffect(() => {
@@ -48,7 +48,8 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
         list.push({
           id: 'catalog',
           title: 'Product Catalog',
-          pdf: product.catalog || product.brochure
+          pdf: product.catalog || product.brochure,
+          category: 'Catalog',
         });
       }
 
@@ -56,17 +57,42 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
         list.push({
           id: 'certificate',
           title: 'Quality Certificate',
-          pdf: product.certificate
+          pdf: product.certificate,
+          category: 'Certificate',
         });
       }
 
       try {
-        const res = await fetch('/api/data/resources');
-        const json = await res.json();
-        if (json.success && Array.isArray(json.data)) {
+        let json = null;
+        const urls = [
+          '/api/data/resources',
+          'http://localhost:3014/api/data/resources',
+          `${getCmsBase()}/api/data/resources`
+        ];
+        for (const u of urls) {
+          try {
+            const res = await fetch(u, { cache: 'no-store' });
+            if (res.ok) {
+              const parsed = await res.json();
+              if (parsed?.success && Array.isArray(parsed?.data) && parsed.data.length > 0) {
+                json = parsed;
+                break;
+              }
+            }
+          } catch (e) {}
+        }
+
+        if (json?.success && Array.isArray(json?.data)) {
           json.data.forEach(item => {
-            if (!list.some(r => r.id === item.id || (item.pdf && r.pdf === item.pdf))) {
-              list.push(item);
+            const itemTitle = item.title || item.name || item.heading || 'Brochure PDF';
+            const itemPdf = item.pdf || item.file || item.brochure || item.url;
+            if (itemPdf && !list.some(r => r.id === (item.id || item._id) || r.pdf === itemPdf)) {
+              list.push({
+                id: item.id || item._id,
+                title: itemTitle,
+                pdf: itemPdf,
+                category: item.category || 'Brochure',
+              });
             }
           });
         }
