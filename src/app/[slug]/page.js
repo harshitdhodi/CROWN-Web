@@ -17,10 +17,14 @@ const BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://CROWN Packaging.rndtd.com";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 function resolveImage(src) {
   if (!src) return null;
-  if (src.startsWith("http")) return src;
-  return src.startsWith("/") ? `${API_URL}${src}` : `${API_URL}/${src}`;
+  const resolved = resolveCmsImage(src);
+  if (!resolved) return null;
+  if (resolved.startsWith("http")) return resolved;
+  return `${SITE_URL}${resolved.startsWith("/") ? resolved : `/${resolved}`}`;
 }
 
 function slugify(text) {
@@ -141,8 +145,8 @@ export async function generateMetadata({ params }) {
     const keywords = Array.isArray(product.meta_keyword)
       ? product.meta_keyword.join(", ")
       : product.meta_keyword || "";
-    const canonical = product.canonical_link || `${SITE_URL}/${slug}`;
-    const ogImage = resolveImage(product.image?.[0]);
+    const canonical = product.canonical_link || product.metaCanonical || product.canonical_url || `${SITE_URL}/${slug}`;
+    const ogImage = resolveImage(product?.image);
 
     return {
       title,
@@ -173,10 +177,8 @@ export async function generateMetadata({ params }) {
     const keywords = Array.isArray(category.meta_keyword)
       ? category.meta_keyword.join(", ")
       : category.meta_keyword || "";
-    const canonical = category.canonical_link || `${SITE_URL}/${slug}`;
-    const ogImage = resolveImage(
-      typeof category.image === "string" ? category.image : category.image?.[0]
-    );
+    const canonical = category.canonical_link || category.metaCanonical || category.canonical_url || `${SITE_URL}/${slug}`;
+    const ogImage = resolveImage(category?.image);
 
     return {
       title,

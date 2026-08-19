@@ -85,7 +85,7 @@ const Footer8 = async () => {
 		console.error("[Footer8] Failed to fetch footer data:", err?.message);
 	}
 
-	const rawLogoUrl = footerData?.logo?.[0];
+	const rawLogoUrl = Array.isArray(footerData?.logo) ? footerData.logo[0] : footerData?.logo;
 	const logoUrl = resolveCmsImage(rawLogoUrl) || "/images/logos/logo-large.webp";
 	const description = footerData?.description || "Developing personalze our customer journeys to increase satisfaction & loyalty of our expansion. CROWN Packaging has been a game.";
 	const address = footerData?.address || "993 Renner Burg, West Rond, MT 94251-030, USA.";
@@ -122,6 +122,15 @@ const Footer8 = async () => {
         color: var(--tj-color-theme-primary) !important;
       }
 
+      .h6-footer-logo img,
+      .h8-footer-logo img {
+        max-height: 115px !important;
+        max-width: 240px !important;
+        height: auto !important;
+        width: auto !important;
+        object-fit: contain !important;
+      }
+
       .footer-contact-info .contact-item a,
       .footer-contact-info .contact-item span {
         font-weight: 400 !important;
@@ -152,7 +161,7 @@ const Footer8 = async () => {
 										className="wow fadeInLeftBig"
 										data-wow-delay=".3s"
 									>
-										<Image src={logoUrl} alt="Logo" width={140} height={75} style={{ height: "auto" }} />
+										<img src={logoUrl} alt="Logo" style={{ height: "auto", maxHeight: "115px", maxWidth: "240px", width: "auto", objectFit: "contain" }} />
 									</Link>
 								</div>
 								<div

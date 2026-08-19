@@ -17,7 +17,7 @@ const MobileMenu = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
 	});
 
 	useEffect(() => {
-		const cmsBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
+		const cmsBase = "https://demoadmin.crownpack.in";
 		fetch(`${cmsBase}/api/data/footer`)
 			.then(res => res.json())
 			.then(json => {
@@ -25,9 +25,10 @@ const MobileMenu = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
 					const d = json.data[0];
 
 					// Logo
-					if (d.headerlogo?.[0]) {
-						const rawLogo = d.headerlogo[0];
-						setLogoUrl(rawLogo.startsWith("/") ? `${cmsBase}${rawLogo}` : rawLogo);
+					const rawHeaderLogo = Array.isArray(d.headerlogo) ? d.headerlogo[0] : d.headerlogo || d.logo;
+					if (rawHeaderLogo) {
+						const logo = rawHeaderLogo.startsWith("/") ? `${cmsBase}${rawHeaderLogo}` : rawHeaderLogo;
+						setLogoUrl(logo);
 					}
 
 					// Contact info & socials

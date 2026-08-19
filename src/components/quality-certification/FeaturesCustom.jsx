@@ -1,20 +1,22 @@
+import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
+
 const FeaturesCustom = async () => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+    const cmsBase = getCmsBase();
 
     let features = [];
     let sectionHeading = null;
 
     try {
         const [missionRes, headingRes] = await Promise.all([
-            fetch(`${baseUrl}/api/data/compliance-standards`, { next: { revalidate: 0 } }),
-            fetch(`${baseUrl}/api/heading?section=compliance-standards`, { next: { revalidate: 0 } }),
+            fetch(`${cmsBase}/api/data/compliance-standards`, { next: { revalidate: 0 } }),
+            fetch(`${cmsBase}/api/heading?section=compliance-standards`, { next: { revalidate: 0 } }),
         ]);
 
         if (!missionRes.ok) {
-            console.error("Mission API failed:", missionRes.status, await missionRes.text());
+            console.error("Compliance Standards API failed:", missionRes.status, await missionRes.text().catch(() => ''));
         }
         if (!headingRes.ok) {
-            console.error("Heading API failed:", headingRes.status, await headingRes.text());
+            console.error("Heading API failed:", headingRes.status, await headingRes.text().catch(() => ''));
         }
 
         const missionData = missionRes.ok ? await missionRes.json() : { data: [] };
@@ -22,14 +24,12 @@ const FeaturesCustom = async () => {
 
         features =
             missionData?.data
-                ?.filter((item) => item.heading || item.details || item.image || item.img)
+                ?.filter((item) => item.title || item.heading || item.description || item.details || item.image || item.img)
                 ?.map((item) => ({
                     ...item,
-                    title: item.heading || "Information pending",
-                    desc: item.details || "Information pending",
-                    icon: item.image || item.img,
-                    img: item.image || item.img,
-                    imgLarge: item.image || item.img,
+                    title: item.title || item.heading || "Information pending",
+                    desc: item.description || item.details || "Information pending",
+                    icon: resolveCmsImage(item.image || item.img),
                 })) || [];
 
         sectionHeading = headingData?.success ? headingData.data : null;
@@ -45,7 +45,7 @@ const FeaturesCustom = async () => {
                         <div className="sec-heading  sec-heading-wrap text-center">
                             <span className="sub-title wow fadeInUp bg-transparent border border-dashed border-gray-300 px-3 py-1 rounded-full" data-wow-delay=".3s" style={{ border: '1px dashed var(--tj-color-border-1)' }}>
                                 <i className="tji-box hidden sm:block mb-2 sm:mb-0"></i>
-                                {sectionHeading?.tagline || "Choose the Best"}
+                                {sectionHeading?.tagline || "Choose1 the Best"}
                             </span>
                             <h2 className="max-w-4xl mx-auto sec-title title-anim">
                                 {sectionHeading?.heading || "Empowering Business with Expertise."}
@@ -61,18 +61,22 @@ const FeaturesCustom = async () => {
                                 <div className="choose-box choose-icon-style ">
                                     <div className="choose-content">
                                         <div className="choose-icon">
-                                            <img
-                                                src={feature.icon}
-                                                alt={feature.title}
-                                                className="icon-light"
-
-                                            />
-                                            <img
-                                                src={feature.icon}
-                                                alt={feature.title}
-                                                className="icon-dark"
-
-                                            />
+                                            {feature.icon ? (
+                                                <>
+                                                    <img
+                                                        src={feature.icon}
+                                                        alt={feature.title}
+                                                        className="icon-light"
+                                                    />
+                                                    <img
+                                                        src={feature.icon}
+                                                        alt={feature.title}
+                                                        className="icon-dark"
+                                                    />
+                                                </>
+                                            ) : (
+                                                <i className="tji-excellence text-6xl"></i>
+                                            )}
                                         </div>
                                         <h4 className="title">{feature.title}</h4>
                                         <p className="desc">{feature.desc}</p>
@@ -97,42 +101,44 @@ const FeaturesCustom = async () => {
                     border: 1px dashed var(--tj-color-theme-primary) !important;
                 }
 
-                .choose-icon-style .choose-icon img {
-                    width: 60px;
-                    height: 60px;
-                    object-fit: contain;
-}
                 .choose-icon-style .choose-icon {
-                    width: 140px;
-                    height: 100px;
-                    aspect-ratio: 1 / 1; 
-                    background-color: var(--tj-color-grey-1);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 auto 30px;
-                    transition: all 0.4s ease;
-                    color: var(--tj-color-theme-primary);
-                    flex-shrink: 0;
-                    overflow: hidden;
+                    width: 120px !important;
+                    height: 120px !important;
+                    max-width: 120px !important;
+                    max-height: 120px !important;
+                    min-width: 120px !important;
+                    min-height: 120px !important;
+                    background-color: var(--tj-color-grey-1) !important;
+                    border-radius: 50% !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    margin: 0 auto 30px !important;
+                    transition: all 0.4s ease !important;
+                    color: var(--tj-color-theme-primary) !important;
+                    flex-shrink: 0 !important;
+                    overflow: hidden !important;
+                    aspect-ratio: 1 / 1 !important;
                 }
                 .choose-icon-style .choose-icon img {
-                    width: 60px;
-                    height: auto;
-                    object-fit: contain;
+                    width: 75px !important;
+                    height: 75px !important;
+                    max-width: 75px !important;
+                    max-height: 75px !important;
+                    object-fit: contain !important;
                 }
                 .choose-icon-style:hover .icon-light {
-                    display: none;
+                    display: none !important;
                 }
                 .choose-icon-style:hover .icon-dark {
-                    display: block;
-                    filter: brightness(0) invert(1);
+                    display: block !important;
+                    filter: brightness(0) invert(1) !important;
                 }
                 .choose-icon-style:hover .choose-icon {
-                    background-color: var(--tj-color-theme-primary);
-                    box-shadow: 0 10px 30px rgba(30, 138, 138, 0.25);
-                 
+                    animation: none !important;
+                    transform: none !important;
+                    background-color: var(--tj-color-theme-primary) !important;
+                    box-shadow: 0 10px 30px rgba(30, 138, 138, 0.25) !important;
                 }
                 .choose-icon-style:hover {
                     background-color: #ffffff !important;

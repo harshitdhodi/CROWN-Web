@@ -91,8 +91,8 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
                 <div className="product-main-image wow fadeInUp" data-wow-delay=".1s">
                   <div className="image-box" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', border: '1px solid var(--tj-color-border-1)', marginBottom: '30px' }}>
                     <img
-                      src={resolveApiImage(product.image?.[0])}
-                      alt={product.name}
+                      src={resolveApiImage(product?.image)}
+                      alt={product?.name || "Product Image"}
                       style={{ width: "100%", height: "520px", objectFit: "cover", display: 'block' }}
                     />
                  
@@ -214,8 +214,8 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
                             <Link href={`/${item.slug}`}>
                               <div className="item-img" style={{ height: '180px', overflow: 'hidden' }}>
                                 <img
-                                  src={resolveApiImage(item.image?.[0])}
-                                  alt={item.name}
+                                  src={resolveApiImage(item?.image)}
+                                  alt={item?.name}
                                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 />
                               </div>
@@ -252,7 +252,7 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [] }) 
                       border: "1px dashed var(--tj-color-theme-primary)",
                     }}
                   >
-                    <h4 className="widget-title">Our Resources</h4>
+                    <h4 className="widget-title">Downloads & Brochures</h4>
                     <style>{`
                       .download-item {
                         display: flex;

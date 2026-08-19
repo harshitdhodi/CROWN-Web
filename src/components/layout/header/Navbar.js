@@ -110,7 +110,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 						</ul>
 					</li>
 
-					{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions'] || !hiddenPages['events'] || !hiddenPages['downloads']) && (
+					{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
 						<li
 							className={`has-dropdown ${pagesNav?.isActive ? "current-menu-ancestor" : ""
 								}`}
@@ -175,38 +175,6 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 											</span>
 											<span className="mega-menu-service-title">
 												Industry Solutions
-											</span>
-											<span className="mega-menu-service-nav">
-												<i className="tji-arrow-right-long"></i>
-												<i className="tji-arrow-right-long"></i>
-											</span>
-										</Link>
-									</li>
-								)}
-								{!hiddenPages['events'] && (
-									<li>
-										<Link className="mega-menu-service-single" href="/events" prefetch={false}>
-											<span className="mega-menu-service-icon">
-												<i className="tji-calendar"></i>
-											</span>
-											<span className="mega-menu-service-title">
-												Our Events
-											</span>
-											<span className="mega-menu-service-nav">
-												<i className="tji-arrow-right-long"></i>
-												<i className="tji-arrow-right-long"></i>
-											</span>
-										</Link>
-									</li>
-								)}
-								{!hiddenPages['downloads'] && (
-									<li>
-										<Link className="mega-menu-service-single" href="/downloads" prefetch={false}>
-											<span className="mega-menu-service-icon">
-												<i className="tji-download"></i>
-											</span>
-											<span className="mega-menu-service-title">
-												Our Resources
 											</span>
 											<span className="mega-menu-service-nav">
 												<i className="tji-arrow-right-long"></i>

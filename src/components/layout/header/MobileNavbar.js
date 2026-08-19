@@ -83,14 +83,12 @@ const MobileNavbar = () => {
 							</MobileMenuItem>
 
 							{/* ── Excellence & Reach (dropdown) ── */}
-							{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions'] || !hiddenPages['events'] || !hiddenPages['downloads']) && (
+							{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
 								<MobileMenuItem text="Excellence & Reach" url="#">
 									{!hiddenPages['global-presence'] && <li><Link href="/global-presence">Global Presence</Link></li>}
 									{!hiddenPages['quality-certification'] && <li><Link href="/quality-certification">Quality &amp; Certifications</Link></li>}
 									{!hiddenPages['manufacturing-infrastructure'] && <li><Link href="/manufacturing-infrastructure">Plant &amp; Infrastructure</Link></li>}
 									{!hiddenPages['industry-solutions'] && <li><Link href="/industry-solutions">Industry Solutions</Link></li>}
-									{!hiddenPages['events'] && <li><Link href="/events">Our Events</Link></li>}
-									{!hiddenPages['downloads'] && <li><Link href="/downloads">Our Resources</Link></li>}
 								</MobileMenuItem>
 							)}
 

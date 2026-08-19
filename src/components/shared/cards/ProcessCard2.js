@@ -1,10 +1,14 @@
 import makeWowDelay from "@/libs/makeWowDelay";
 import modifyNumber from "@/libs/modifyNumber";
-const ProcessCard2 = ({ processSingle, idx }) => {
-	const { title, img, desc, id } = processSingle ? processSingle : {};
+
+const ProcessCard2 = ({ processSingle, process, idx = 0 }) => {
+	const item = processSingle || process || {};
+	const finalTitle = item.heading || item.title || "";
+	const finalDesc = item.description || item.desc || item.details || "";
+
 	return (
 		<div
-			className="process-item  h5-working-process-item wow bounceInUp"
+			className="process-item h5-working-process-item wow bounceInUp"
 			data-wow-delay={makeWowDelay(idx, 0.3, 3)}
 			style={{ backgroundColor: "var(--tj-color-theme-bg-3)" }}
 		>
@@ -15,8 +19,10 @@ const ProcessCard2 = ({ processSingle, idx }) => {
 				<span>{modifyNumber(idx + 1)}</span>
 			</div>
 			<div className="process-content">
-				<h4 className="title">{title}</h4>
-				<p className="desc " style={{color:"var(--tj-color-common-white)"}}>{desc}</p>
+				<h4 className="title">{finalTitle}</h4>
+				<p className="desc" style={{ color: "var(--tj-color-common-white)", whiteSpace: "pre-line" }}>
+					{finalDesc}
+				</p>
 			</div>
 		</div>
 	);

@@ -29,17 +29,16 @@ const ContactTop = ({ headingData, contactData }) => {
     const tagline = headingData?.tagline || "Contact info";
     const mainHeading = headingData?.heading || "Reach Out to Us";
 
-    const address = contactData?.address || "993 Renner Burg, West Rond, MT 94251-030";
+    const address = contactData?.address || "3rd Floor, Sapphire, Valsad Rd, Above Axis Bank, Daulat Nagar";
 
     const rawEmail = contactData?.email;
     const email = Array.isArray(rawEmail)
-        ? rawEmail[0] || "support@CROWN Packaging.com"
-        : String(rawEmail || "support@CROWN Packaging.com");
+        ? rawEmail[0] || "info@crownpack.com"
+        : String(rawEmail || "info@crownpack.com");
 
-    const rawMobile = contactData?.mobile;
-    const mobile = Array.isArray(rawMobile)
-        ? rawMobile[0] || "+1 (009) 544-7818"
-        : String(rawMobile || "+1 (009) 544-7818");
+    const rawPhone = contactData?.phone || contactData?.mobile || "8347980886";
+    const phoneStr = Array.isArray(rawPhone) ? rawPhone[0] : String(rawPhone);
+    const mobileDisplay = phoneStr.startsWith("+") ? phoneStr : `+91 ${phoneStr}`;
 
     const locationLabel = contactData?.location_label || "Our Location";
     const emailLabel = contactData?.email_label || "Email us";
@@ -47,7 +46,9 @@ const ContactTop = ({ headingData, contactData }) => {
     const whatsappLabel = contactData?.whatsapp_label || "WhatsApp";
 
     const mapUrl = contactData?.mapurl || "#";
-    const whatsappUrl = `https://wa.me/${mobile.replace(/\D/g, "")}`;
+    const cleanDigits = phoneStr.replace(/\D/g, "");
+    const whatsappDigits = cleanDigits.startsWith("91") ? cleanDigits : `91${cleanDigits}`;
+    const whatsappUrl = `https://wa.me/${whatsappDigits}`;
 
     return (
         <div className="tj-contact-area section-gap">
@@ -80,7 +81,7 @@ const ContactTop = ({ headingData, contactData }) => {
                                 <i className="tji-location-3"></i>
                             </div>
                             <h3 className="contact-title">{locationLabel}</h3>
-                            <p className="flex-grow-1 text-break">{address}</p>
+                            <p className="flex-grow-1 text-break text-center">{address}</p>
                         </Link>
                     </div>
 
@@ -123,7 +124,7 @@ const ContactTop = ({ headingData, contactData }) => {
                     {/* Phone */}
                     <div className="col-xl-3 col-lg-6 col-sm-6">
                         <Link
-                            href={`tel:${mobile}`}
+                            href={`tel:${phoneStr}`}
                             className="contact-item style-2 wow fadeInUp justify-center items-center h-100 d-flex flex-column"
                             data-wow-delay=".7s"
                         >
@@ -133,12 +134,12 @@ const ContactTop = ({ headingData, contactData }) => {
                             <h3 className="contact-title">{callLabel}</h3>
                             <ul className="contact-list flex-grow-1">
                                 <li className="d-flex align-items-center justify-content-center gap-2">
-                                  {mobile}
+                                  {mobileDisplay}
                                   <span 
                                     className="d-inline-flex align-items-center position-relative" 
                                     style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} 
                                     title="Copy Phone"
-                                    onClick={(e) => handleCopy(e, mobile, 'mobile')}
+                                    onClick={(e) => handleCopy(e, mobileDisplay, 'mobile')}
                                   >
                                     {copiedMobile ? (
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -170,7 +171,9 @@ const ContactTop = ({ headingData, contactData }) => {
                             </div>
                             <h3 className="contact-title">{whatsappLabel}</h3>
                             <ul className="contact-list flex-grow-1">
-                                <li>Chat on WhatsApp</li>
+                                <li className="d-flex align-items-center justify-content-center gap-2">
+                                  {mobileDisplay}
+                                </li>
                             </ul>
                         </Link>
                     </div>

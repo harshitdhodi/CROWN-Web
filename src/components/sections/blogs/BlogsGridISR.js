@@ -19,7 +19,7 @@ async function getBlogsData() {
 		const headersList = await headers();
 		const cookieHeader = headersList.get("cookie") || "";
 
-		const res = await fetch(`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/blog`, {
+		const res = await fetch(`${process.env.CMS_BASE_URL || "http://localhost:3012"}/api/data/blogs`, {
 			headers: { cookie: cookieHeader },
 			next: { revalidate: 0 }, // ISR: Revalidate every hour
 		});
@@ -31,14 +31,14 @@ async function getBlogsData() {
 
 		// Map API format to component format
 		return data.map((item) => ({
-			id: slugify(item.title),
+			id: item.slug || slugify(item.title),
 			title: item.title,
 			img: item.image,
 			author: item.author,
 			date: item.date,
 			// Strip HTML tags for the short description
 			desc: item.details?.replace(/<[^>]+>/g, "").substring(0, 120) + "...",
-			category: "Business", // Default if not in API
+			category: "Pharmaceuticals", // Default if not in API
 		}));
 	} catch (error) {
 		console.error("Error fetching blogs:", error);

@@ -6,14 +6,17 @@ const ContactMenu = ({ isContactOpen, setIsContactOpen }) => {
 	const [logoUrl, setLogoUrl] = useState("/images/logos/logo-2.webp");
 
 	useEffect(() => {
-		const cmsBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
+		const cmsBase = "https://demoadmin.crownpack.in";
 		fetch(`${cmsBase}/api/data/footer`)
 			.then(res => res.json())
 			.then(json => {
-				if (json.success && json.data?.length > 0 && json.data[0].headerlogo?.[0]) {
-					const rawLogo = json.data[0].headerlogo[0];
-					const logo = rawLogo.startsWith("/") ? `${cmsBase}${rawLogo}` : rawLogo;
-					setLogoUrl(logo);
+				if (json.success && json.data?.length > 0) {
+					const d = json.data[0];
+					const rawHeaderLogo = Array.isArray(d.headerlogo) ? d.headerlogo[0] : d.headerlogo || d.logo;
+					if (rawHeaderLogo) {
+						const logo = rawHeaderLogo.startsWith("/") ? `${cmsBase}${rawHeaderLogo}` : rawHeaderLogo;
+						setLogoUrl(logo);
+					}
 				}
 			})
 			.catch(err => console.error("Failed to fetch logo:", err));

@@ -1,12 +1,11 @@
 'use client';
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) => {
 	const {
 		title,
 		desc,
-		img2 = "/images/service/service-2.webp",
+		img2,
 		color_img,
 		hover_img,
 		iconName,
@@ -17,10 +16,11 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 	const [imgSrc, setImgSrc] = useState(null);
 	const isJourney = variant === "journey";
 
-	// On industry-solutions: default = color_img (on white bg), hover = hover_img (on primary bg/reveal image)
-	const displayImage = isIndustrySolutions
-		? (isHovered ? (hover_img || color_img) : color_img)
-		: (isHovered ? (hover_img || color_img) : color_img);
+	const fallbackProductImg = img2 || color_img || hover_img;
+
+	const displayImage = isHovered
+		? (hover_img || color_img || fallbackProductImg)
+		: (color_img || fallbackProductImg || hover_img);
 
 	useEffect(() => {
 		setImgSrc(null);
@@ -51,7 +51,7 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 	} : {};
 
 	const revealBgStyle = {
-		backgroundImage: `url('${img2}')`,
+		backgroundImage: fallbackProductImg ? `url('${fallbackProductImg}')` : undefined,
 		...(isHovered && {
 			transform: "translate(-85%, -50%) scale(1)",
 		})
@@ -69,9 +69,7 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 				<div className="service-title" style={isJourney ? { maxWidth: "320px" } : {}}>
 					<div className="service-icon" style={isHovered ? { background: "transparent", border: "none", boxShadow: "none", transition: "none" } : { transition: "none" }}>
 						{isJourney ? (
-							// Year badge — larger circle, range years split vertically
 							(() => {
-								// Split "2018 – 2020" → ["2018", "2020"], single year stays one line
 								const parts = year ? year.split(/\s*[–—-]\s*/) : ["—"];
 								const isRange = parts.length > 1;
 								return (
@@ -113,15 +111,15 @@ const ServiceCard3 = ({ service, idx, lastItem, isIndustrySolutions, variant }) 
 									</span>
 								);
 							})()
-						) : color_img ? (
-							<Image
+						) : displayImage ? (
+							<img
 								src={imgSrc || displayImage}
 								alt={title || "Service"}
-								width={60}
-								height={60}
-								style={{ objectFit: "contain", width: "auto", height: "auto" }}
+								style={{ width: "60px", height: "60px", objectFit: "contain" }}
 								onError={() => {
-									setImgSrc("/images/service/service-1.webp");
+									if (fallbackProductImg && imgSrc !== fallbackProductImg) {
+										setImgSrc(fallbackProductImg);
+									}
 								}}
 							/>
 						) : (

@@ -33,9 +33,17 @@ async function fetchCmsData(url, revalidate = 60) {
 
 function buildFallbackMetadata(slug, siteName = "CROWN Packaging") {
 	const pageTitle = slugToTitle(slug);
+	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.demo.crownpack.in";
+	const sanitizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
+	const sanitizedSlug = slug === "/" ? "" : (slug.startsWith("/") ? slug : `/${slug}`);
+	const canonical = `${sanitizedSiteUrl}${sanitizedSlug}`;
+
 	return {
 		title: `${pageTitle} | ${siteName}`,
 		description: `${pageTitle} - ${siteName}`,
+		alternates: {
+			canonical,
+		},
 	};
 }
 
@@ -52,6 +60,12 @@ export async function getMeta(slug) {
 	const defaultOgImage = globalSettings?.defaultOgImage || "";
 	const twitterHandle = globalSettings?.twitterHandle || "";
 
+	const siteUrl = globalSettings?.siteUrl || process.env.NEXT_PUBLIC_SITE_URL || "https://www.demo.crownpack.in";
+	const sanitizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
+	const sanitizedSlug = slug === "/" ? "" : (slug.startsWith("/") ? slug : `/${slug}`);
+	const defaultCanonical = `${sanitizedSiteUrl}${sanitizedSlug}`;
+	const metaCanonical = pageMeta?.canonical_link || pageMeta?.metaCanonical || pageMeta?.canonical_url || pageMeta?.canonicalUrl || defaultCanonical;
+
 	if (!pageMeta && !globalSettings) {
 		return buildFallbackMetadata(slug, siteName);
 	}
@@ -65,12 +79,7 @@ export async function getMeta(slug) {
 	const metaTitle = pageMeta?.metaTitle || "";
 	const metaDescription = pageMeta?.metaDescription || globalSettings?.metaDescription || "";
 	const metaKeyword = pageMeta?.metaKeyword || "";
-	
-	const siteUrl = globalSettings?.siteUrl || "https://www.demo.crownpack.in";
-	const sanitizedSiteUrl = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
-	const sanitizedSlug = slug === "/" ? "" : (slug.startsWith("/") ? slug : `/${slug}`);
-	const defaultCanonical = `${sanitizedSiteUrl}${sanitizedSlug}`;
-	const metaCanonical = pageMeta?.metaCanonical || defaultCanonical;
+
 	const ogTitle = pageMeta?.ogTitle || metaTitle;
 	const ogDescription = pageMeta?.ogDescription || metaDescription;
 	const ogImage = resolveMediaUrl(pageMeta?.ogImage || defaultOgImage);
@@ -87,6 +96,9 @@ export async function getMeta(slug) {
 		title: fullTitle,
 		description: metaDescription || buildFallbackMetadata(slug, siteName).description,
 		keywords: metaKeyword ? metaKeyword.split(",").map((k) => k.trim()) : undefined,
+		alternates: {
+			canonical: metaCanonical,
+		},
 		robots: {
 			index: !noIndex,
 			follow: !noFollow,
@@ -94,6 +106,7 @@ export async function getMeta(slug) {
 		openGraph: {
 			title: ogTitle || fullTitle,
 			description: ogDescription || metaDescription,
+			url: metaCanonical,
 			type: ogType,
 			images: ogImage ? [{ url: ogImage }] : undefined,
 		},
@@ -109,12 +122,6 @@ export async function getMeta(slug) {
 				: undefined,
 		},
 	};
-
-	if (metaCanonical) {
-		metadata.alternates = {
-			canonical: metaCanonical,
-		};
-	}
 
 	if (pageMeta?.metaSchema || pageMeta?.faqSchema) {
 		metadata.other = {};

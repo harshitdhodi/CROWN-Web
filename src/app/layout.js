@@ -137,14 +137,15 @@ export default async function RootLayout({ children }) {
 		const cmsBase = getCmsBase();
 
 		// 1. Fetch favicon and logos from footer collection
-		const resFooter = await fetch(`${cmsBase}/api/data/footer?fields=favicon,logo,headerlogo`, { next: { revalidate: 0 } });
+		const resFooter = await fetch(`${cmsBase}/api/data/footer`, { next: { revalidate: 0 } });
 		if (resFooter.ok) {
 			const json = await resFooter.json();
 			if (json.success && json.data?.length > 0) {
 				footerData = json.data[0];
-				if (footerData.favicon?.[0]) {
-					const rawUrl = footerData.favicon[0];
-					faviconUrl = rawUrl.startsWith("http") ? rawUrl : `${process.env.NEXT_PUBLIC_BASE_URL}${rawUrl.startsWith("/") ? "" : "/"}${rawUrl}`;
+				const rawFavicon = Array.isArray(footerData.favicon) ? footerData.favicon[0] : footerData.favicon;
+				if (rawFavicon) {
+					const { resolveCmsImage } = await import("@/lib/seoConfig");
+					faviconUrl = resolveCmsImage(rawFavicon) || faviconUrl;
 				}
 			}
 		}

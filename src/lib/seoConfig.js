@@ -23,8 +23,8 @@ export function getCmsBase(requestUrl) {
     return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
   }
 
-  // 4. Default to configured env variables or production fallback
-  return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3014';
+  // 4. Default fallback
+  return process.env.CMS_BASE_URL || process.env.NEXT_PUBLIC_API_URL || 'https://demoadmin.crownpack.in';
 }
 
 export function getSiteUrl(requestUrl) {
@@ -70,14 +70,33 @@ export function resolveCmsImage(src) {
   let cleanSrc = src.trim();
   if (!cleanSrc) return null;
 
+  if (cleanSrc.startsWith("[")) {
+    try {
+      const parsed = JSON.parse(cleanSrc);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return resolveCmsImage(parsed[0]);
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  const cmsBase = getCmsBase();
+
   if (cleanSrc.includes("/uploads/")) {
-    return "/uploads/" + cleanSrc.split("/uploads/")[1];
+    const uploadPath = "/uploads/" + cleanSrc.split("/uploads/")[1];
+    return `${cmsBase}${uploadPath}`;
   } else if (cleanSrc.startsWith("http://") || cleanSrc.startsWith("https://")) {
-    if (cleanSrc.includes("localhost") || cleanSrc.includes("127.0.0.1")) {
-      return "/uploads/" + cleanSrc.split("/uploads/")[1];
+    if (cleanSrc.includes("/uploads/")) {
+      const uploadPath = "/uploads/" + cleanSrc.split("/uploads/")[1];
+      return `${cmsBase}${uploadPath}`;
     }
     return cleanSrc;
   }
 
-  return cleanSrc.startsWith("/") ? cleanSrc : `/${cleanSrc}`;
+  if (cleanSrc.startsWith("/")) {
+    return `${cmsBase}${cleanSrc}`;
+  }
+
+  return `${cmsBase}/${cleanSrc}`;
 }

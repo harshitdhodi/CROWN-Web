@@ -8,8 +8,62 @@ import Faq1 from "@/components/sections/faq/Faq1";
 
 import getPageComponents from "@/lib/getPageComponents";
 import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
+import { resolveCmsImage, getSiteUrl, getCmsBase } from "@/lib/seoConfig";
 
 const DEFAULT_BLOG_ORDER = ["BlogDetailsISR", "Faq1"];
+
+export async function generateMetadata({ params }) {
+	const { slug } = await params;
+	const cmsBase = getCmsBase();
+	const siteUrl = getSiteUrl();
+
+	try {
+		const res = await fetch(`${cmsBase}/api/blogs/${encodeURIComponent(slug)}`, {
+			next: { revalidate: 60 },
+		});
+		if (!res.ok) return {};
+		const { success, data } = await res.json();
+		if (!success || !data) return {};
+
+		const title = data.metatitle || data.title;
+		const description =
+			data.meta_description ||
+			data.short_description ||
+			data.details?.replace(/<[^>]+>/g, "").substring(0, 160) ||
+			"";
+		const keywords = Array.isArray(data.meta_keyword)
+			? data.meta_keyword.join(", ")
+			: data.meta_keyword || "";
+		const canonical =
+			data.canonical_link ||
+			data.metaCanonical ||
+			data.canonical_url ||
+			`${siteUrl}/blogs/${slug}`;
+		const ogImage = resolveCmsImage(data.image);
+
+		return {
+			title: `${title} | CROWN Packaging`,
+			description,
+			keywords,
+			alternates: { canonical },
+			openGraph: {
+				title,
+				description,
+				url: canonical,
+				type: "article",
+				...(ogImage && { images: [{ url: ogImage, alt: title }] }),
+			},
+			twitter: {
+				card: "summary_large_image",
+				title,
+				description,
+				...(ogImage && { images: [ogImage] }),
+			},
+		};
+	} catch (err) {
+		return {};
+	}
+}
 
 export default async function BlogDetails({ params }) {
 	const { slug } = await params;
@@ -59,9 +113,8 @@ export default async function BlogDetails({ params }) {
 
 export async function generateStaticParams() {
 	try {
-		// Use CMS_BASE_URL directly — server-side fetches bypass Next.js rewrites
-		const cmsBaseUrl = process.env.CMS_BASE_URL || "http://localhost:3012";
-		const res = await fetch(`${cmsBaseUrl}/api/data/blog`);
+		const cmsBaseUrl = getCmsBase();
+		const res = await fetch(`${cmsBaseUrl}/api/data/blogs`);
 
 		if (!res.ok) {
 			const errorBody = await res.text().catch(() => "No response body");
@@ -76,7 +129,7 @@ export async function generateStaticParams() {
 			return [];
 		}
 
-		return data.map((blog) => ({ slug: slugify(blog.title) }));
+		return data.map((blog) => ({ slug: blog.slug || slugify(blog.title) }));
 	} catch (error) {
 		console.error("Error in generateStaticParams:", error);
 		return [];

@@ -22,7 +22,7 @@ async function getTeamData(type) {
 	try {
 		const [headingRes, dataRes] = await Promise.all([
 			fetch(`${CMS_BASE_URL}/api/heading?section=${section}`, { next: { revalidate: 0 } }),
-			fetch(`${baseUrl}/api/data/${dataEndpoint}`, { next: { revalidate: 0 } }),
+			fetch(`${CMS_BASE_URL}/api/data/${dataEndpoint}`, { next: { revalidate: 0 } }),
 		]);
 
 		const headingResult = headingRes.ok ? await headingRes.json() : null;

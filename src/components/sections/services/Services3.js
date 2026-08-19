@@ -1,17 +1,18 @@
 import Services3Client from "./Services3Client";
+import { resolveCmsImage } from "@/lib/seoConfig";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3013";
 
 async function fetchCollectionData(collectionName) {
 	const urls = [
-		`${BASE_URL}/api/data/${collectionName}`,
 		`http://localhost:3014/api/data/${collectionName}`,
 		`http://127.0.0.1:3014/api/data/${collectionName}`,
+		`${BASE_URL}/api/data/${collectionName}`,
 	];
 
 	for (const url of urls) {
 		try {
-			const res = await fetch(url, { next: { revalidate: 0 } });
+			const res = await fetch(url, { next: { revalidate: 0 }, cache: 'no-store' });
 			if (!res.ok) continue;
 			const json = await res.json().catch(() => null);
 			if (json?.success && Array.isArray(json?.data) && json.data.length > 0) {
@@ -59,29 +60,39 @@ const DEFAULT_SERVICES = [
 	}
 ];
 
-import { resolveCmsImage } from "@/lib/seoConfig";
-
 async function getServices() {
 	try {
-		let data = [];
-		for (const col of ["industry", "services3", "services"]) {
-			data = await fetchCollectionData(col);
-			if (data.length > 0) break;
+		let data = await fetchCollectionData("services3");
+		if (!data || data.length === 0) {
+			data = await fetchCollectionData("industry");
+		}
+		if (!data || data.length === 0) {
+			data = await fetchCollectionData("services");
 		}
 
 		if (!data || data.length === 0) {
 			return DEFAULT_SERVICES;
 		}
 
-		return data.slice(0, 4).map((item, idx) => {
+		return data.slice(0, 10).map((item, idx) => {
 			const fallbackImg = `/images/service/service-${(idx % 4) + 1}.webp`;
+			const rawMain = resolveCmsImage(item.image);
+			const rawColor = resolveCmsImage(item.color_img);
+			const rawHover = resolveCmsImage(item.hover_img);
+
+			const mainImg = rawMain || rawColor || rawHover || fallbackImg;
+			const colorImg = rawColor || rawMain || rawHover || fallbackImg;
+			const hoverImg = rawHover || rawColor || rawMain || fallbackImg;
+
 			return {
 				id: item.id || item._id,
 				title: item.title || item.heading || "",
+				tag: item.tag || "",
 				desc: item.description || item.desc || "",
-				img2: resolveCmsImage(item.image || item.img2 || item.color_img) || fallbackImg,
-				color_img: resolveCmsImage(item.color_img || item.image || item.img2) || fallbackImg,
-				hover_img: resolveCmsImage(item.hover_img || item.color_img || item.image || item.img2) || fallbackImg,
+				image: mainImg,
+				img2: mainImg,
+				color_img: colorImg,
+				hover_img: hoverImg,
 				iconName: item.iconName || null,
 				year: item.year || null,
 			};
@@ -94,7 +105,7 @@ async function getServices() {
 
 async function getHeading() {
 	try {
-		const res = await fetch(`${BASE_URL}/api/heading?section=industries-we-serve`, { next: { revalidate: 0 } });
+		const res = await fetch(`http://localhost:3014/api/heading?section=industries-we-serve`, { next: { revalidate: 0 }, cache: 'no-store' });
 		if (!res.ok) return null;
 		const result = await res.json();
 		return result?.success ? result.data : null;
@@ -107,8 +118,8 @@ async function getHeading() {
 async function getJourneyServices() {
 	try {
 		const [cardsRes, headingRes] = await Promise.all([
-			fetch(`${BASE_URL}/api/data/journey`, { next: { revalidate: 0 } }),
-			fetch(`${BASE_URL}/api/heading?section=journey`, { next: { revalidate: 0 } }),
+			fetch(`http://localhost:3014/api/data/journey`, { next: { revalidate: 0 }, cache: 'no-store' }),
+			fetch(`http://localhost:3014/api/heading?section=journey`, { next: { revalidate: 0 }, cache: 'no-store' }),
 		]);
 		const cardsData = cardsRes.ok ? await cardsRes.json() : null;
 		const headingData = headingRes.ok ? await headingRes.json() : null;
@@ -119,7 +130,7 @@ async function getJourneyServices() {
 			title: item.heading || "",
 			desc: item.description || "",
 			year: item.year || "",
-			img2: item.image || "",
+			img2: resolveCmsImage(item.image) || "",
 			color_img: null,
 			hover_img: null,
 		}));
@@ -134,8 +145,6 @@ async function getJourneyServices() {
 	}
 }
 
-// variant="journey" → fetches journey API, shows year badge instead of image (about-us page)
-// default           → fetches industry API, shows image/icon (everywhere else)
 const Services3 = async ({ variant } = {}) => {
 	if (variant === "journey") {
 		const { services, heading } = await getJourneyServices();

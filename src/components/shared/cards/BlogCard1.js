@@ -4,18 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import ButtonPrimary from "../buttons/ButtonPrimary";
 
+import { resolveCmsImage } from "@/lib/seoConfig";
+
 const BlogCard1 = ({ blog, idx }) => {
-	console.log("idx", blog.id);
 	const { title, desc, id, img, category, date, day, month, author } = blog || {};
 	const authorName = typeof author === "object" ? (author?.name || "Admin") : (author || "Admin");
+	const imgSrc = resolveCmsImage(img) || "/images/blog/blog-1.webp";
+
 	return (
 		<div className="blog-item wow fadeInUp" data-wow-delay={`0.${idx + 1}s`}>
 			<div className="blog-thumb">
 				<Link href={`/blogs/${id}`}>
 					{" "}
 					<Image
-						src={img ? img : "/images/blog/blog-1.webp"}
-						alt="Images"
+						src={imgSrc}
+						alt={title || "Blog Image"}
 						width={870}
 						height={450}
 					/>

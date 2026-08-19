@@ -8,8 +8,6 @@ const PAGE_KEY_TO_ROUTE: Record<string, string> = {
   'blogs': '/blogs',
   'careers': '/careers',
   'contact': '/contact',
-  'events': '/events',
-  'downloads': '/downloads',
   'global-presence': '/global-presence',
   'industry-solutions': '/industry-solutions',
   'manufacturing-infrastructure': '/manufacturing-infrastructure',

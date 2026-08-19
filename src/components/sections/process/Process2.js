@@ -1,15 +1,16 @@
 import ProcessCard2 from "@/components/shared/cards/ProcessCard2";
+import { getCmsBase } from "@/lib/seoConfig";
 
 const Process2 = async () => {
-	const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+	const CMS_BASE_URL = getCmsBase();
 
 	let processes = [];
 	let sectionHeading = null;
 
 	try {
 		const [processRes, headingRes] = await Promise.all([
-			fetch(`${baseUrl}/api/data/quality-process`, { next: { revalidate: 0 } }),
-			fetch(`${baseUrl}/api/heading?section=quality-process`, { next: { revalidate: 0 } }),
+			fetch(`${CMS_BASE_URL}/api/data/quality-process`, { next: { revalidate: 0 } }),
+			fetch(`${CMS_BASE_URL}/api/heading?section=quality-process`, { next: { revalidate: 0 } }),
 		]);
 
 		if (!processRes.ok) {
@@ -21,12 +22,12 @@ const Process2 = async () => {
 
 		const processData = processRes.ok ? await processRes.json() : { data: [] };
 		const headingData = headingRes.ok ? await headingRes.json() : null;
-		console.log("Fetched Process data:", processData);
+
 		processes =
-			processData?.data?.slice().reverse().map((item) => ({
+			processData?.data?.map((item) => ({
 				id: item.id,
-				title: item.heading,
-				desc: item.description,
+				heading: item.heading || item.title,
+				description: item.description || item.desc || item.details,
 			})) || [];
 
 		sectionHeading = headingData?.success ? headingData.data : null;
@@ -34,7 +35,7 @@ const Process2 = async () => {
 		console.error("Error fetching Process data:", error);
 	}
 
-	// Helper to chunk array into rows
+	// Helper to chunk array into rows of 3
 	const chunkArray = (arr, size) =>
 		arr.reduce(
 			(acc, _, i) =>
@@ -57,7 +58,6 @@ const Process2 = async () => {
 							<h2 className="max-w-4xl mx-auto sec-title title-anim text-white">
 								{sectionHeading?.heading || "Seamless Process and Great Results."}
 							</h2>
-
 						</div>
 					</div>
 				</div>
@@ -67,19 +67,21 @@ const Process2 = async () => {
 				{rows.map((row, rowIdx) => (
 					<div
 						key={rowIdx}
-						className={`h5-working-process-inner ${rowIdx > 0 ? "mt-5 sm:mt-[72px]" : "mt-0"
-							}`}
+						className={`h5-working-process-inner ${
+							rowIdx > 0 ? "mt-5 sm:mt-[72px]" : "mt-0"
+						}`}
 					>
 						<div className="container">
 							<div className="row">
 								<div className="col-12">
 									<div
-										className={`working-process-area h5-working-process-wrapper ${rowIdx < rows.length - 1 ? "sm:mb-[30px] mb-0" : "mb-0"
-											}`}
+										className={`working-process-area h5-working-process-wrapper ${
+											rowIdx < rows.length - 1 ? "sm:mb-[30px] mb-0" : "mb-0"
+										}`}
 									>
 										{row.map((processSingle, idx) => (
 											<ProcessCard2
-												key={processSingle.id}
+												key={processSingle.id || idx}
 												processSingle={processSingle}
 												idx={rowIdx * 3 + idx}
 											/>
@@ -91,35 +93,6 @@ const Process2 = async () => {
 					</div>
 				))}
 			</div>
-
-			<div
-				style={{
-					position: "absolute",
-					top: "-100px",
-					right: "-100px",
-					width: "400px",
-					height: "400px",
-					backgroundColor: "var(--tj-color-theme-primary)",
-					filter: "blur(150px)",
-					zIndex: -1,
-					borderRadius: "50%",
-					opacity: 0.5,
-				}}
-			></div>
-			<div
-				style={{
-					position: "absolute",
-					bottom: "-100px",
-					left: "-100px",
-					width: "400px",
-					height: "400px",
-					backgroundColor: "var(--tj-color-theme-primary)",
-					filter: "blur(150px)",
-					zIndex: -1,
-					borderRadius: "50%",
-					opacity: 0.5,
-				}}
-			></div>
 		</section>
 	);
 };

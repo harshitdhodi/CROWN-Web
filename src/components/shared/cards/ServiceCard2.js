@@ -1,13 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
-
-function resolveImage(src, fallback = "/images/service/h9-service-1.webp") {
-	if (!src) return fallback;
-	if (src.startsWith("http://") || src.startsWith("https://")) return src;
-	if (src.startsWith("/")) return src;
-	return `/${src}`;
-}
+import { resolveCmsImage } from "@/lib/seoConfig";
 
 const ServiceCard2 = ({ service, idx, lastItem }) => {
 	const {
@@ -17,6 +10,9 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 		id,
 		slug,
 		icon_image,
+		image,
+		color_img,
+		hover_img,
 		iconName,
 	} = service || {};
 
@@ -25,7 +21,10 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 		description ||
 		"Through a combination of data-driven insights and innovative approaches, we work closely with you to develop customized.";
 
-	// Replace <li> bullet points with tji-list icon — flex-start so icon aligns top for multiline text
+	const rawImg = image || color_img || icon_image || hover_img || "";
+	const resolvedImg = resolveCmsImage(rawImg);
+
+	// Replace <li> bullet points with tji-list icon
 	const processedDescription = cardDescription
 		.replace(
 			/<li>/gi,
@@ -40,32 +39,27 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 			'<p style="color:var(--tj-color-text-body-5);"$1'
 		);
 
-	const serviceId = slug || id || "";
-
 	return (
 		<div className="service-item-wrapper tj-fadein-right-on-scroll">
 			<style>{`
 				.service-item.style-2:hover {
 					background-color: transparent !important;
 				}
+				.service-item.style-2 .service-icon img {
+					width: 55px;
+					height: 55px;
+					object-fit: contain;
+				}
 			`}</style>
-			<div className="service-item style-2 ">
+			<div className="service-item style-2">
 				<div className="title-area">
 					<div className="service-icon">
-						{icon_image ? (
-							<div style={{ position: "relative", width: "48px", height: "48px" }}>
-								<Image
-									src={resolveImage(icon_image)}
-									alt={title || "Service icon"}
-									fill
-									sizes="48px"
-									quality={85}
-									style={{ objectFit: "contain" }}
-									onError={(e) => {
-										e.currentTarget.style.display = "none";
-									}}
-								/>
-							</div>
+						{resolvedImg ? (
+							<img
+								src={resolvedImg}
+								alt={title || "Service icon"}
+								style={{ width: "55px", height: "55px", objectFit: "contain" }}
+							/>
 						) : (
 							<i className={iconName ? iconName : "tji-service-1"}></i>
 						)}
@@ -75,10 +69,11 @@ const ServiceCard2 = ({ service, idx, lastItem }) => {
 					</h4>
 				</div>
 				<div className="service-content" style={{ color: "var(--tj-color-text-body-5)" }}>
-					<p
+					<div
 						className="desc"
 						style={{ color: "var(--tj-color-text-body-5)" }}
 						dangerouslySetInnerHTML={{ __html: processedDescription }}
+						suppressHydrationWarning
 					/>
 				</div>
 			</div>
