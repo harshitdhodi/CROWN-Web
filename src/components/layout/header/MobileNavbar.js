@@ -7,6 +7,7 @@ import { sortProductsBySequence } from "@/libs/sortProducts";
 const MobileNavbar = () => {
 	const [products, setProducts] = useState([]);
 	const [hiddenPages, setHiddenPages] = useState({});
+	const SHOW_GLOBAL_PRESENCE = false; // Set to true to show Global Presence tab in mobile menu
 	const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
 	useEffect(() => {
@@ -84,9 +85,9 @@ const MobileNavbar = () => {
 							</MobileMenuItem>
 
 							{/* ── Excellence & Reach (dropdown) ── */}
-							{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
+							{((SHOW_GLOBAL_PRESENCE && !hiddenPages['global-presence']) || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
 								<MobileMenuItem text="Excellence & Reach" url="#">
-									{!hiddenPages['global-presence'] && <li><Link href="/global-presence">Global Presence</Link></li>}
+									{SHOW_GLOBAL_PRESENCE && !hiddenPages['global-presence'] && <li><Link href="/global-presence">Global Presence</Link></li>}
 									{!hiddenPages['quality-certification'] && <li><Link href="/quality-certification">Quality &amp; Certifications</Link></li>}
 									{!hiddenPages['manufacturing-infrastructure'] && <li><Link href="/manufacturing-infrastructure">Plant &amp; Infrastructure</Link></li>}
 									{!hiddenPages['industry-solutions'] && <li><Link href="/industry-solutions">Industry Solutions</Link></li>}

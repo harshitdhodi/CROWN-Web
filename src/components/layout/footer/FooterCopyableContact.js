@@ -27,37 +27,51 @@ export default function FooterCopyableContact({ mobile, email }) {
   };
 
   return (
-    <>
-      <div className="d-flex align-items-center gap-2">
-        <Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`}>P: {mobile}</Link>
-        <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} title="Copy Phone Number" onClick={(e) => handleCopy(e, mobile, 'phone')}>
+    <div style={{ width: '100%' }}>
+      <div className="d-flex align-items-center flex-nowrap gap-1" style={{ whiteSpace: 'nowrap' }}>
+        <Link href={`tel:${mobile.replace(/[^0-9+]/g, '')}`} style={{ whiteSpace: 'nowrap' }}>
+          P: {mobile}
+        </Link>
+        <span
+          className="ms-1 d-inline-flex align-items-center flex-shrink-0"
+          style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }}
+          title="Copy Phone Number"
+          onClick={(e) => handleCopy(e, mobile, 'phone')}
+        >
           {copiedPhone ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
           )}
         </span>
       </div>
-      <div className="d-flex align-items-center gap-2 mt-1">
-        <Link href={`mailto:${email}`}>M: {email}</Link>
-        <span className="ms-2 d-inline-flex align-items-center" style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }} title="Copy Email Address" onClick={(e) => handleCopy(e, email, 'email')}>
+      <div className="d-flex align-items-center flex-nowrap gap-1 mt-1" style={{ whiteSpace: 'nowrap' }}>
+        <Link href={`mailto:${email}`} style={{ whiteSpace: 'nowrap' }}>
+          M: {email}
+        </Link>
+        <span
+          className="ms-1 d-inline-flex align-items-center flex-shrink-0"
+          style={{ cursor: 'pointer', color: 'var(--tj-theme-primary, #c29742)' }}
+          title="Copy Email Address"
+          onClick={(e) => handleCopy(e, email, 'email')}
+        >
           {copiedEmail ? (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
           )}
         </span>
       </div>
-    </>
+    </div>
   );
 }

@@ -291,18 +291,18 @@ export default function Footer8Client() {
           </div>
         </div>
       </div>
-      <div className="tj-copyright-area-2 h5-footer-copyright h8-footer-copyright">
+      <div className="tj-copyright-area-2 h5-footer-copyright h8-footer-copyright" style={{ borderTop: "1px solid rgba(255, 255, 255, 0.1)" }}>
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="copyright-content-area">
+              <div className="copyright-content-area text-center py-3">
                 <div className="copyright-text">
-                  <p>
+                  <p className="mb-0" style={{ fontSize: "14px", color: "var(--tj-color-text-body-2, #a9b8b8)" }}>
                     &copy; {new Date().getFullYear()}{' '}
-                    <Link href="#" prefetch={false}>
-                      CROWN Packaging
+                    <Link href="/" prefetch={false} style={{ fontWeight: "600", color: "var(--tj-color-common-white, #ffffff)" }}>
+                      CROWN PACKAGING.
                     </Link>{' '}
-                    All right reserved
+                    All Rights Reserved.
                   </p>
                 </div>
               </div>

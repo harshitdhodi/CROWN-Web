@@ -23,6 +23,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 	const [dynamicServices, setDynamicServices] = useState([]);
 	const [products, setProducts] = useState([]);
 	const [hiddenPages, setHiddenPages] = useState({});
+	const SHOW_GLOBAL_PRESENCE = false; // Set to true to show Global Presence tab in menu
 	const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
 	useEffect(() => {
@@ -112,7 +113,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 						</ul>
 					</li>
 
-					{(!hiddenPages['global-presence'] || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
+					{((SHOW_GLOBAL_PRESENCE && !hiddenPages['global-presence']) || !hiddenPages['quality-certification'] || !hiddenPages['manufacturing-infrastructure'] || !hiddenPages['industry-solutions']) && (
 						<li
 							className={`has-dropdown ${pagesNav?.isActive ? "current-menu-ancestor" : ""
 								}`}
@@ -121,7 +122,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 								Excellence & Reach
 							</Link>
 							<ul className="sub-menu mega-menu-service">
-								{!hiddenPages['global-presence'] && (
+								{SHOW_GLOBAL_PRESENCE && !hiddenPages['global-presence'] && (
 									<li>
 										<Link className="mega-menu-service-single" href="/global-presence" prefetch={false}>
 											<span className="mega-menu-service-icon">
