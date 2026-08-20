@@ -6,8 +6,7 @@ import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
 const DEFAULT_CERTIFICATES = [
 	{ id: "dummy-c1", heading: "ISO 9001:2015 Certification", name: "ISO 9001:2015 Certification", description: "Quality Management System", desig: "Quality Management System", img: "/uploads/1784178192017-rtlryoojrhb.png", image: "/uploads/1784178192017-rtlryoojrhb.png" },
 	{ id: "dummy-c2", heading: "Cleanroom Facility Standard", name: "Cleanroom Facility Standard", description: "ISO Class 8 Cleanroom", desig: "ISO Class 8 Cleanroom", img: "/uploads/1784178241405-jd7bmrsjqoj.png", image: "/uploads/1784178241405-jd7bmrsjqoj.png" },
-	{ id: "dummy-c3", heading: "US FDA DMF Registered", name: "US FDA DMF Registered", description: "Drug Master File Compliance", desig: "Drug Master File Compliance", img: "/uploads/1784178360081-lb5aqdgdsm.png", image: "/uploads/1784178360081-lb5aqdgdsm.png" },
-	{ id: "dummy-c4", heading: "GMP Certified Packaging", name: "GMP Certified Packaging", description: "Good Manufacturing Practice", desig: "Good Manufacturing Practice", img: "/uploads/1784178437774-ue8d842b8j.png", image: "/uploads/1784178437774-ue8d842b8j.png" }
+	{ id: "dummy-c3", heading: "US FDA DMF Registered", name: "US FDA DMF Registered", description: "Drug Master File Compliance", desig: "Drug Master File Compliance", img: "/uploads/1784178360081-lb5aqdgdsm.png", image: "/uploads/1784178360081-lb5aqdgdsm.png" }
 ];
 
 async function getTeamData(type) {
@@ -31,13 +30,14 @@ async function getTeamData(type) {
 		if (headingResult?.success) heading = headingResult.data || {};
 
 		if (type === 3) {
-			items = dataResult?.success && dataResult.data?.length ? dataResult.data : DEFAULT_CERTIFICATES;
+			const fetchedData = dataResult?.success && dataResult.data?.length ? dataResult.data : DEFAULT_CERTIFICATES;
+			items = fetchedData.slice(0, 3);
 		} else {
 			items = dataResult?.success && dataResult.data?.length ? dataResult.data : getTeamMembers();
 		}
 	} catch (error) {
 		console.error("Error fetching data:", error);
-		items = type === 3 ? DEFAULT_CERTIFICATES : getTeamMembers();
+		items = type === 3 ? DEFAULT_CERTIFICATES.slice(0, 3) : getTeamMembers();
 	}
 
 	const formattedItems = (items || []).map((item) => {

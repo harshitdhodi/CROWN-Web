@@ -1,3 +1,4 @@
+import { sortProductsBySequence } from "./sortProducts";
 const cmsBaseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3012";
 
 export async function fetchProducts() {
@@ -7,7 +8,7 @@ export async function fetchProducts() {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
 		const data = await response.json();
-		return data?.success ? data.data : [];
+		return data?.success ? sortProductsBySequence(data.data) : [];
 	} catch (error) {
 		console.error("Error fetching products:", error);
 		return [];

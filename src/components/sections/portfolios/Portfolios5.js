@@ -2,6 +2,7 @@ import ButtonPrimary from "@/components/shared/buttons/ButtonPrimary";
 import ClientPortfolios5 from "./ClientPortfolios5.js";
 
 import { getCmsBase, resolveCmsImage } from "@/lib/seoConfig";
+import { sortProductsBySequence } from "@/libs/sortProducts";
 
 const BASE_URL = getCmsBase();
 
@@ -40,12 +41,32 @@ async function fetchCollectionData(collectionName) {
 
 const DEFAULT_PORTFOLIOS = [
   {
+    id: "dummy-p4",
+    title: "Dry Syrup Bottles",
+    slug: "dry-syrup-bottles",
+    image: "/images/project/project-4.webp",
+    img5: "/images/project/project-4.webp",
+    desc: "HDPE dry syrup bottles engineered for optimal shelf life and moisture protection.",
+    category: "Connect",
+    categorySlug: "connect"
+  },
+  {
     id: "dummy-p1",
     title: "Dropper Bottles",
     slug: "dropper-bottles",
     image: "/images/project/project-1.webp",
     img5: "/images/project/project-1.webp",
     desc: "Precision-engineered dropper bottles designed for pharmaceutical and healthcare dosage accuracy.",
+    category: "Connect",
+    categorySlug: "connect"
+  },
+  {
+    id: "dummy-p5",
+    title: "Tablet Containers",
+    slug: "tablet-containers",
+    image: "/images/project/project-2.webp",
+    img5: "/images/project/project-2.webp",
+    desc: "High-grade HDPE containers providing moisture-resistant, secure storage for tablets and capsules.",
     category: "Connect",
     categorySlug: "connect"
   },
@@ -66,16 +87,6 @@ const DEFAULT_PORTFOLIOS = [
     image: "/images/project/project-3.webp",
     img5: "/images/project/project-3.webp",
     desc: "Food-grade PP measuring cups for precise liquid medicine dispensing.",
-    category: "Connect",
-    categorySlug: "connect"
-  },
-  {
-    id: "dummy-p4",
-    title: "Dry Syrup Bottles",
-    slug: "dry-syrup-bottles",
-    image: "/images/project/project-4.webp",
-    img5: "/images/project/project-4.webp",
-    desc: "HDPE dry syrup bottles engineered for optimal shelf life and moisture protection.",
     category: "Connect",
     categorySlug: "connect"
   }
@@ -113,7 +124,7 @@ async function getCategories() {
 
     const catMap = await fetchCategoryMap();
 
-    return data.map((item) => {
+    const mapped = data.map((item) => {
       const rawImg = Array.isArray(item.image) ? item.image[0] : (item.image || item.img || item.img5);
       const resolvedImg = resolveCmsImage(rawImg) || "/images/project/project-1.webp";
 
@@ -154,6 +165,8 @@ async function getCategories() {
         categorySlug: categorySlug,
       };
     });
+
+    return sortProductsBySequence(mapped);
   } catch (error) {
     console.error("Error fetching or parsing portfolios:", error);
     return DEFAULT_PORTFOLIOS;

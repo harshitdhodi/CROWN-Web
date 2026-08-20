@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenuItem from "./MobileMenuItem";
+import { sortProductsBySequence } from "@/libs/sortProducts";
 
 const MobileNavbar = () => {
 	const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ const MobileNavbar = () => {
 		// Fetch products for the Products dropdown
 		fetch(`${API_URL}/api/data/our_products`)
 			.then((r) => r.json())
-			.then((json) => { if (json.success && Array.isArray(json.data)) setProducts(json.data); })
+			.then((json) => { if (json.success && Array.isArray(json.data)) setProducts(sortProductsBySequence(json.data)); })
 			.catch(() => { });
 
 		// Fetch page visibility

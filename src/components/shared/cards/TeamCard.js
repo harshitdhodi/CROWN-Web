@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const TeamCard = ({ teamMember }) => {
+const TeamCard = ({ teamMember, minHeight = "350px" }) => {
 	const [isHovered, setIsHovered] = useState(false);
 	const {
 		id,
@@ -29,14 +29,14 @@ const TeamCard = ({ teamMember }) => {
 			onMouseLeave={() => setIsHovered(false)}
 			style={{ display: "flex", flexDirection: "column", height: "100%" }}
 		>
-			<div className="team-img" style={{ position: "relative", width: "100%", height: "100%", minHeight: "350px" }}>
+			<div className="team-img" style={{ position: "relative", width: "100%", height: "100%", minHeight }}>
 				<div className="team-img-inner" style={{ position: "relative", width: "100%", height: "100%" }}>
-					<Image 
-						src={imageSrc} 
-						alt="" 
-						fill 
-						sizes="(max-width: 768px) 100vw, 33vw" 
-						style={{ objectFit: "fill" }} 
+					<Image
+						src={imageSrc}
+						alt=""
+						fill
+						sizes="(max-width: 768px) 100vw, 33vw"
+						style={{ objectFit: "fill" }}
 						onError={() => {
 							setImageSrc("/images/team/team-1.webp");
 							setLargeImageSrc("/images/team/team-1.webp");
@@ -44,7 +44,7 @@ const TeamCard = ({ teamMember }) => {
 					/>
 				</div>
 			</div>
-			
+
 		</div>
 	);
 };

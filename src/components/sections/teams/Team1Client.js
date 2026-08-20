@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 const Team1Client = ({ type, initialItems, heading }) => {
 	const pathname = usePathname();
 	const isGlobalPresencePage = pathname === "/global-presence";
-	const items = initialItems || [];
+	const items = type === 3 ? (initialItems || []).slice(0, 3) : (initialItems || []);
 
-	const limit = type === 2 ? 8 : 4;
+	const limit = type === 2 ? 8 : type === 3 ? 3 : 4;
 	// get pagination details
 	const {
 		currentItems,
@@ -59,11 +59,11 @@ const Team1Client = ({ type, initialItems, heading }) => {
 					</div>
 				)}
 
-				<div className="row leftSwipeWrap sm:gap-0 gy-4  gap-12">
+				<div className={`row leftSwipeWrap sm:gap-0 gy-4 gap-12 ${type === 3 ? "justify-content-center" : ""}`}>
 					{currentItems?.length
 						? currentItems.map((item, idx) => (
-							<div key={idx} className="col-lg-3 col-sm-6 md:mb-4 mb-lg-0 ">
-								<TeamCard teamMember={item} />
+							<div key={idx} className={type === 3 ? "col-lg-4 col-md-4 col-sm-6 md:mb-4 mb-lg-0" : "col-lg-3 col-sm-6 md:mb-4 mb-lg-0"}>
+								<TeamCard teamMember={item} minHeight={type === 3 ? "500px" : "350px"} />
 							</div>
 						))
 						: ""}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import LazyMap from "@/components/shared/LazyMap";
 import Image from "next/image";
 import FooterCopyableContact from "./FooterCopyableContact";
+import { sortProductsBySequence } from "@/libs/sortProducts";
 
 const Footer8 = async () => {
 	const cmsBase = getCmsBase();
@@ -25,7 +26,7 @@ const Footer8 = async () => {
 		if (resProducts.ok) {
 			const json = await resProducts.json();
 			if (json.success && Array.isArray(json.data)) {
-				productsData = json.data.slice(0, 6);
+				productsData = sortProductsBySequence(json.data).slice(0, 6);
 			}
 		}
 		if (resContact.ok) {

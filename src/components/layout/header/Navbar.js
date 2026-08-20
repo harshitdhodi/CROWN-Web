@@ -1,6 +1,8 @@
 "use client";
 import useActiveLink from "@/hooks/useActiveLink";
 import getNavItems from "@/libs/getNavItems";
+import { sortProductsBySequence } from "@/libs/sortProducts";
+
 import "@/libs/i18n";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -39,7 +41,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 		// Fetch products for the categories mega-menu
 		fetch(`${API_URL}/api/data/our_products`)
 			.then((res) => res.json())
-			.then((json) => { if (json.success && Array.isArray(json.data)) setProducts(json.data); })
+			.then((json) => { if (json.success && Array.isArray(json.data)) setProducts(sortProductsBySequence(json.data)); })
 			.catch(() => setProducts([]));
 
 		// Fetch page visibility

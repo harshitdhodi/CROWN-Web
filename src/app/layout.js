@@ -201,7 +201,8 @@ export default async function RootLayout({ children }) {
 	return (
 		<html lang="en" data-scroll-behavior="smooth" dir="ltr" suppressHydrationWarning>
 			<head>
-				<script dangerouslySetInnerHTML={{ __html: `
+				<script dangerouslySetInnerHTML={{
+					__html: `
 					(function() {
 						function isBis(name) {
 							return typeof name === 'string' && (name === 'bis_skin_checked' || name.indexOf('bis_') === 0);

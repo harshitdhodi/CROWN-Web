@@ -25,6 +25,7 @@ const slugify = (text) =>
         .replace(/-+$/, '') || "";
 
 import { resolveCmsImage } from "@/lib/seoConfig";
+import { sortProductsBySequence } from "@/libs/sortProducts";
 
 // Resolve image URLs reported by the API
 const resolveApiImage = (imagePath) => {
@@ -54,7 +55,7 @@ async function getProducts() {
         }
 
         // Adapt the API shape to what PortfoliosPrimary expects
-        return data.map((item) => {
+        const mapped = data.map((item) => {
             const title = item.product_name || item.name || item.title || `Product ${item.id}`;
             const slugSource = item.product_slug || item.slug || title;
             return {
@@ -73,6 +74,8 @@ async function getProducts() {
                     "Product",
             };
         });
+
+        return sortProductsBySequence(mapped);
     } catch (error) {
         console.error("Error fetching or parsing products:", error);
         return [];
