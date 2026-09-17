@@ -8,9 +8,11 @@ import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
 import getPageComponents from "@/lib/getPageComponents";
 
+import Cta from "@/components/sections/cta/Cta";
+
 const COMPONENT_MAP = {
 	Team1: <Team1 type={2} />,
-
+	Cta: <Cta />,
 };
 
 const DEFAULT_ORDER = [

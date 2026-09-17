@@ -40,7 +40,7 @@ export default async function QualityCertification() {
     const activeKeys = await getPageComponents("quality-certification", DEFAULT_ORDER);
 
     return (
-        <CmsPageRoot pageSlug="quality-certification ">
+        <CmsPageRoot pageSlug="quality-certification">
             <div>
                 <BackToTop />
                 <Header />

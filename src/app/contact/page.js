@@ -10,6 +10,7 @@ import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import CmsPageRoot from "@/components/shared/theme/CmsPageRoot";
 import getPageComponents from "@/lib/getPageComponents";
 import { getMeta } from "@/lib/getMeta";
+import Cta from "@/components/sections/cta/Cta";
 
 const CMS_BASE_URL = process.env.CMS_BASE_URL || "http://localhost:3012";
 
@@ -102,6 +103,7 @@ export default async function Contact() {
     const COMPONENT_MAP = {
         ContactTop: <ContactTop headingData={heading} contactData={contact} />,
         Contact3: <Contact3 mapUrl={mapUrl} formHeading={contact} address={contact?.address} />,
+        Cta: <Cta />,
     };
 
     return (
