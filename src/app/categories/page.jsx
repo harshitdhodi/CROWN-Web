@@ -9,7 +9,6 @@ import ClientWrapper from "@/components/shared/wrappers/ClientWrapper";
 import { headers } from "next/headers";
 import { getMeta } from "@/lib/getMeta";
 import getPageComponents from "@/lib/getPageComponents";
-import Cta from "@/components/sections/cta/Cta";
 
 export const dynamic = "force-dynamic";
 
@@ -92,12 +91,11 @@ export default async function Categories() {
 
     const [categories, activeKeys] = await Promise.all([
         getCategories(),
-        getPageComponents("categories", ["PortfoliosPrimary", "Cta"]),
+        getPageComponents("categories", ["PortfoliosPrimary"]),
     ]);
 
     const COMPONENT_MAP = {
         PortfoliosPrimary: <PortfoliosPrimary items={categories} />,
-        Cta: <Cta />,
     };
 
     return (

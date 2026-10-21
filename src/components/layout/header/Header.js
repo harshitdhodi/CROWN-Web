@@ -80,7 +80,7 @@ const Header = ({
 								<div className="flex items-center gap-4">
 									{/* CTA button — desktop only */}
 									<div className="header-button d-none d-lg-inline-flex">
-										<ButtonPrimary text={"Get a Quote"} url={"/contact"} />
+										<ButtonPrimary text={"Get a Quote"} url={"/contact-us"} />
 									</div>
 									{/* <!-- menu bar (mobile) --> */}
 									<div

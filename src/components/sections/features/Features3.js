@@ -95,7 +95,7 @@ const Features3 = async () => {
 								<h2 className="sec-title title-anim">{title}</h2>
 							</div>
 							<Link
-								href="/contact"
+								href="/contact-us"
 								className="tj-primary-btn wow fadeInUp"
 								data-wow-delay=".5s"
 							>

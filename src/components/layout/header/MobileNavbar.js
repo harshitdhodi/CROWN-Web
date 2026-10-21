@@ -103,7 +103,7 @@ const MobileNavbar = () => {
 
 							{/* ── Contact Us ── */}
 							<li className="mean-last">
-								<Link href="/contact">Contact Us</Link>
+								<Link href="/contact-us">Contact Us</Link>
 							</li>
 						</ul>
 					</nav>

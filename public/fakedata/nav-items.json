@@ -114,7 +114,7 @@
 					},
 					{ "id": 8, "name": "Feedbacks", "path": "#", "badge": null },
 					{ "id": 9, "name": "Faq", "path": "/faq", "badge": null },
-					{ "id": 10, "name": "Conatct", "path": "/contact", "badge": null }
+					{ "id": 10, "name": "Contact", "path": "/contact-us", "badge": null }
 				]
 			},
 			{
@@ -322,6 +322,6 @@
 	{
 		"id": 6,
 		"name": "Contact",
-		"path": "/contact"
+		"path": "/contact-us"
 	}
 ]

@@ -9,7 +9,7 @@ const HeaderTop = ({ type }) => {
 						<div className="header-top-content">
 							<p className="topbar-text">
 								<i className="tji-excellence"></i>Recognized for Excellence{" "}
-								<Link href="/contact">Join us Now</Link>
+								<Link href="/contact-us">Join us Now</Link>
 							</p>
 							<div className="header-info">
 								<div className="info-item">

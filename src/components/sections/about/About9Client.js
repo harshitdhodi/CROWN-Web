@@ -299,7 +299,7 @@ const About9Client = ({ about }) => {
 
 								{/* Action buttons */}
 								<div style={{ display: "flex", alignItems: "center", gap: "25px", flexWrap: "wrap" }}>
-									<Link href="/contact" className="tj-primary-btn" style={btnStyle}>
+									<Link href="/contact-us" className="tj-primary-btn" style={btnStyle}>
 										Know more us
 										<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
 											<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -377,7 +377,7 @@ const About9Client = ({ about }) => {
 
 						{/* Action Buttons */}
 						<div style={{ display: "flex", alignItems: "center", gap: "25px", flexWrap: "wrap" }}>
-							<Link href="/contact" className="tj-primary-btn" style={btnStyle}>
+							<Link href="/contact-us" className="tj-primary-btn" style={btnStyle}>
 								Know more us
 								<svg width="14" height="14" viewBox="0 0 24 24" fill="none">
 									<path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />

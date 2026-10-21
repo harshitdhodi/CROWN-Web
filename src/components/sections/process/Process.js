@@ -76,7 +76,7 @@ const Process = async ({ type = "history" }) => {
 									{heading?.subheading || "Developing personalized customer journeys to increase satisfaction and loyalty."}
 								</p>
 								<div className="btn-wrap wow fadeInUp" data-wow-delay=".6s">
-									<ButtonPrimary text={"Request a Call"} url={"/contact"} />
+									<ButtonPrimary text={"Request a Call"} url={"/contact-us"} />
 								</div>
 							</div>
 						</div>

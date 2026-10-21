@@ -17,7 +17,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 	const serviceNav = makeActiveLink(navItems[2] || { name: "Services", path: "/services" });
 	const portfolioNav = makeActiveLink(navItems[3] || { name: "Portfolio", path: "/portfolios" });
 	const blogNav = makeActiveLink(navItems[4] || { name: "Blogs", path: "/blogs" });
-	const contactNav = makeActiveLink(navItems[5] || { name: "Contact Us", path: "/contact" });
+	const contactNav = makeActiveLink(navItems[5] || { name: "Contact Us", path: "/contact-us" });
 
 	const [categories, setCategories] = useState([]);
 	const [dynamicServices, setDynamicServices] = useState([]);
@@ -34,7 +34,7 @@ const Navbar = ({ headerType, isStickyHeader }) => {
 			.catch(() => setCategories([]));
 
 		// Fetch services for the mega-menu dropdown
-		fetch(`${API_URL}/api/data/service`)
+		fetch(`${API_URL}/api/data/services3`)
 			.then((res) => res.json())
 			.then((json) => { if (json.success && Array.isArray(json.data)) setDynamicServices(json.data); })
 			.catch(() => setDynamicServices([]));

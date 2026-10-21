@@ -217,7 +217,7 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [], in
                       <p style={{ margin: 0, opacity: 0.8 }}>Contact our sales team for bulk pricing and technical consultation.</p>
                     </div>
                     <div className="cta-actions">
-                      <Link href="/contact" className="tj-btn-primary">Get A Quote</Link>
+                      <Link href="/contact-us" className="tj-btn-primary">Get A Quote</Link>
                     </div>
                   </div>
                 </div>

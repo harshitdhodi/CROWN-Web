@@ -67,7 +67,7 @@ const Testimonials6Client = ({ leftData, reviews }) => {
 										className="d-none d-lg-inline-flex wow fadeInUp"
 										data-wow-delay=".6s"
 									>
-										<ButtonPrimary text={"Explore More"} url={"/contact"} />
+										<ButtonPrimary text={"Explore More"} url={"/contact-us"} />
 									</div>
 								</div>
 							</div>

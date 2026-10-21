@@ -261,7 +261,7 @@ const Footer8 = async () => {
 									<li><Link href="/products" prefetch={false}>Products</Link></li>
 									<li><Link href="/categories" prefetch={false}>Categories</Link></li>
 									<li><Link href="/blogs" prefetch={false}>Blogs</Link></li>
-									<li><Link href="/contact" prefetch={false}>Contact</Link></li>
+									<li><Link href="/contact-us" prefetch={false}>Contact</Link></li>
 								</ul>
 							</div>
 						</div>
@@ -306,7 +306,16 @@ const Footer8 = async () => {
 										<Link href="/" prefetch={false} style={{ fontWeight: "600", color: "var(--tj-color-common-white, #ffffff)" }}>
 											CROWN PACKAGING.
 										</Link>{" "}
-										All Rights Reserved.
+										All Rights Reserved by{" "}
+										<Link
+											href="https://rndtechnosoft.com"
+											target="_blank"
+											rel="noopener noreferrer"
+											style={{ fontWeight: "600", color: "var(--tj-color-common-white, #ffffff)" }}
+										>
+											RND Technosoft
+										</Link>
+										.
 									</p>
 								</div>
 							</div>

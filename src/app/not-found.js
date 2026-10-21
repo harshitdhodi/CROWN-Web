@@ -1,7 +1,6 @@
 
 import Footer8 from "@/components/layout/footer/Footer8";
 import Header from "@/components/layout/header/Header";
-import Cta from "@/components/sections/cta/Cta";
 import ErrorPrimary from "@/components/sections/error/ErrorPrimary";
 import HeroInner from "@/components/sections/hero/HeroInner";
 import BackToTop from "@/components/shared/others/BackToTop";
@@ -18,7 +17,6 @@ export default function NotFound() {
 						<HeaderSpace />
 						<HeroInner title={"Error 404"} text={"Error 404"} />
 						<ErrorPrimary />
-						<Cta />
 					</main>
 					<Footer8 />
 				</div>
