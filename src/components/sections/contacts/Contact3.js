@@ -16,7 +16,7 @@ const Contact3 = ({ mapUrl, formHeading, address }) => {
                     <div className="col-lg-6">
                         <div className="wow fadeInUp" data-wow-delay=".1s">
                             <h3 className="title" style={{ marginBottom: "30px" }}>{headingText}</h3>
-                            <ContactForm redirectPath="/contact/thank-you" />
+                            <ContactForm redirectPath="/thank-you" />
                         </div>
                     </div>
 

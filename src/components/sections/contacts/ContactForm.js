@@ -38,7 +38,7 @@ const labelStyle = {
  */
 const ContactForm = ({
     singleColumn = false,
-    redirectPath = "/contact/thank-you",
+    redirectPath = "/thank-you",
     compact = false,
 }) => {
     const [formData, setFormData] = useState({
@@ -206,7 +206,15 @@ const ContactForm = ({
             }
 
             setFormData({ name: "", email: "", phone: "", product_id: "", message: "" });
-            router.push(redirectPath);
+            let targetRedirect = redirectPath || "/thank-you";
+            if (!targetRedirect.includes("?")) {
+                if (typeof window !== "undefined" && (window.location.pathname.includes("/product") || window.location.pathname.includes("/category"))) {
+                    targetRedirect = `${targetRedirect}?type=product`;
+                } else {
+                    targetRedirect = `${targetRedirect}?type=contact`;
+                }
+            }
+            router.push(targetRedirect);
         } catch (err) {
             setError(err.message || "Failed to submit form");
         } finally {

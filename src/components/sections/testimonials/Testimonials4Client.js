@@ -135,7 +135,7 @@ const Testimonials4Client = ({ initialProducts, bannerTitle, bgImage }) => {
 			}
 
 			setFormData({ name: "", email: "", phone: "", product_id: "", message: "" });
-			router.push("/contact/thank-you");
+			router.push("/thank-you");
 		} catch (err) {
 			setError(err.message || "Failed to submit form");
 		} finally {

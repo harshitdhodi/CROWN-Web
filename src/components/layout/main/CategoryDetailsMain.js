@@ -337,7 +337,7 @@ const CategoryDetailsMain = ({ category, currentSlug }) => {
                   <ContactForm
                     singleColumn={true}
                     compact={true}
-                    redirectPath="/contact/thank-you"
+                    redirectPath="/thank-you?type=product"
                   />
                 </div>
               </div>

@@ -392,7 +392,7 @@ const ProductDetailsMain = ({ product, categories = [], relatedProducts = [], in
                     <ContactForm
                       singleColumn={true}
                       compact={true}
-                      redirectPath="/contact/thank-you"
+                      redirectPath="/thank-you?type=product"
                     />
                   </div>
                 </div>

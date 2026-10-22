@@ -72,7 +72,7 @@ const CareerDetails1 = ({ currentItemId, prevId, nextId, isPrevItem, isNextItem 
 			setFileName("");
 
 			// Redirect to thank you page
-			router.push('/thank-you');
+			router.push('/thank-you?type=career');
 
 		} catch (err) {
 			setError(err.message || "Failed to submit application");
